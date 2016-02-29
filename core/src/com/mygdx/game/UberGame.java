@@ -11,7 +11,6 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.InputProcessor;
-import com.badlogic.gdx.backends.lwjgl.LwjglApplicationConfiguration;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -21,8 +20,6 @@ import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
-import com.intellij.ide.actions.ToggleFullScreenAction;
-import com.sun.jna.platform.unix.X11;
 
 public class UberGame extends ApplicationAdapter {
 
@@ -49,13 +46,11 @@ public class UberGame extends ApplicationAdapter {
 		car.height = 64;
 		taxiImg = new Texture("tiny_car.png");
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, width, height);
+		camera.setToOrtho(false, 1920, 1080);
 
 		tiledMap = new TmxMapLoader().load("tmpRoad.tmx");
 		tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		camera.update();
-
-
 
 	}
 
