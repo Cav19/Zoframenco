@@ -42,11 +42,11 @@ public class UberGame extends ApplicationAdapter {
 		float height = Gdx.graphics.getHeight();
 		car.x = width/2;
 		car.y = height/2;
-		car.width = 28;
-		car.height = 64;
+		car.width = 5;
+		car.height = 10;
 		taxiImg = new Texture("tiny_car.png");
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, 1920, 1080);
+		camera.setToOrtho(false, 2300, 2300);
 
 		tiledMap = new TmxMapLoader().load("tmpRoad.tmx");
 		tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
