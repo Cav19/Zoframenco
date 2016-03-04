@@ -6,56 +6,63 @@
 */
 
 package com.mygdx.game;
-
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.InputProcessor;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Rectangle;
+
+
+import static java.awt.Toolkit.getDefaultToolkit;
 
 public class UberGame extends ApplicationAdapter {
-
 
 
 	SpriteBatch batch;
 	private Texture taxiImg;
 	private OrthographicCamera camera;
-	private Rectangle car;
+	private Car taxi;
 	TiledMap tiledMap;
 	TiledMapRenderer tiledMapRenderer;
 
+
+
 	@Override
-	public void create () {
+	public void create() {
 
 
 		batch = new SpriteBatch();
-		car = new Rectangle();
+		taxiImg = new Texture("tiny_car_square.png");
+		taxi = new Car(taxiImg);
 		float width = Gdx.graphics.getWidth();
 		float height = Gdx.graphics.getHeight();
-		car.x = width/2;
-		car.y = height/2;
-		car.width = 5;
-		car.height = 10;
-		taxiImg = new Texture("tiny_car.png");
+		taxi.getSprite().setPosition(width / 2, height / 2);
+		taxi.setX_pos(width/2);
+		taxi.setY_pos(height/2);
+		taxi.getSprite().setSize(32, 32);
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, 2300, 2300);
+		camera.setToOrtho(false, 2400, 2400);
 
-		tiledMap = new TmxMapLoader().load("tmpRoad.tmx");
+		tiledMap = new TmxMapLoader().load("map@3March.tmx");
+		MapProperties mapProperties= tiledMap.getProperties();
+		int mapWidth = mapProperties.get("width", Integer.class);
+		int mapHeight = mapProperties.get("height", Integer.class);
+
 		tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
 		camera.update();
 
 	}
 
 	@Override
-	public void render () {
+	public void render() {
 
 		Gdx.gl.glClearColor(1, 0, 0, 1);
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -64,19 +71,20 @@ public class UberGame extends ApplicationAdapter {
 
 
 		batch.begin();
-		batch.draw(taxiImg, car.x, car.y);
+		taxi.getSprite().draw(batch);
 		batch.end();
 
-		if(Gdx.input.isKeyPressed(Input.Keys.LEFT)) car.x -= 200 * Gdx.graphics.getDeltaTime();
-		if(Gdx.input.isKeyPressed(Input.Keys.RIGHT)) car.x += 200 * Gdx.graphics.getDeltaTime();
-		if(Gdx.input.isKeyPressed(Input.Keys.UP)) car.y += 200 * Gdx.graphics.getDeltaTime();
-		if(Gdx.input.isKeyPressed(Input.Keys.DOWN)) car.y -= 200 * Gdx.graphics.getDeltaTime();
+		if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) taxi.turnLeft();
+		if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) taxi.turnRight();
+		if (Gdx.input.isKeyPressed(Input.Keys.UP)){
+			taxi.driveForward();
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) taxi.driveBackward();
 
 
-		if(car.x < 0) car.x = 0;
-		if(car.x > Gdx.graphics.getWidth() - car.width) car.x = Gdx.graphics.getWidth() - car.width;
 
-		if(car.y < 0) car.y = 0;
-		if(car.y > Gdx.graphics.getHeight() - car.height) car.y = Gdx.graphics.getHeight() - car.height;
 	}
+
+
+
 }
