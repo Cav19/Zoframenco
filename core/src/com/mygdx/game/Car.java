@@ -50,24 +50,24 @@ public class Car {
 
     private void stay_InMap(){
 
-        if (X_pos+this.getSprite().getHeight() > width) {
-            this.sprite.setPosition(width-this.getSprite().getHeight(), Y_pos);
-            X_pos = width- this.sprite.getHeight();
+        if (X_pos+this.getSprite().getWidth() > width) {
+            this.sprite.setPosition(width-this.getSprite().getWidth(), Y_pos);
+            X_pos = width- this.sprite.getWidth();
         }
 
-        if (X_pos-this.getSprite().getHeight()/3 < 0) {
-            this.sprite.setPosition(this.getSprite().getHeight()/3, Y_pos);
-            X_pos = this.sprite.getHeight()/3;
+        if (X_pos-0< 0) {
+            this.sprite.setPosition(0, Y_pos);
+            X_pos = 0;
         }
 
-        if (Y_pos+this.getSprite().getHeight() > height) {
-            this.sprite.setPosition(X_pos, height-this.getSprite().getHeight());
-            Y_pos = height- this.sprite.getHeight();
+        if (Y_pos+this.getSprite().getWidth() > height) {
+            this.sprite.setPosition(X_pos, height-this.getSprite().getWidth());
+            Y_pos = height- this.sprite.getWidth();
         }
 
-        if (Y_pos - this.getSprite().getHeight()/3 < 0) {
-            this.sprite.setPosition(X_pos, this.getSprite().getHeight()/3);
-            Y_pos = this.sprite.getHeight()/3;
+        if (Y_pos - 0 < 0) {
+            this.sprite.setPosition(X_pos, 0);
+            Y_pos =0;
         }
 
 
