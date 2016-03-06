@@ -112,20 +112,27 @@ public class Car {
         if(orientation == 0){
             sprite.setY(sprite.getY() - shift);
             Y_pos=Y_pos-shift;
+            stay_InMap();
 
 
         }
         else if(orientation == 1){
             sprite.setX(sprite.getX() - shift);
             X_pos=X_pos-shift;
+            stay_InMap();
+
         }
         else if(orientation == 2){
             sprite.setY(sprite.getY() + shift);
             Y_pos=Y_pos+shift;
+            stay_InMap();
+
         }
         else{
             sprite.setX(sprite.getX() + shift);
             X_pos=X_pos+shift;
+            stay_InMap();
+
         }
     }
 
