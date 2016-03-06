@@ -40,19 +40,20 @@ public class UberGame extends ApplicationAdapter {
 	private Car taxi;
 	TiledMap tiledMap;
 	TiledMapRenderer tiledMapRenderer;
+	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+	public float width = (float)screenSize.getWidth();
+	public float height =(float)screenSize.getHeight();
+
 
 
 
 	@Override
 	public void create() {
 
-		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		Gdx.graphics.setWindowedMode((int) screenSize.getWidth(), (int) screenSize.getHeight());
 		batch = new SpriteBatch();
 		taxiImg = new Texture("tiny_car_square.png");
 		taxi = new Car(taxiImg);
-		float width = (float)screenSize.getWidth();
-		float height =(float)screenSize.getHeight();
 		taxi.getSprite().setPosition(width/2, height / 2);
 		taxi.setX_pos(width/2);
 		taxi.setY_pos(height/2);
@@ -86,8 +87,8 @@ public class UberGame extends ApplicationAdapter {
 
 		if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) taxi.turnLeft(tiledMap);
 		if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) taxi.turnRight(tiledMap);
-		if (Gdx.input.isKeyPressed(Input.Keys.UP)) {taxi.driveForward(tiledMap, taxi.getSprite().getHeight()*2);}
-		if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) taxi.driveBackward(tiledMap, taxi.getSprite().getHeight()*2);
+		if (Gdx.input.isKeyPressed(Input.Keys.UP)) {taxi.driveForward(tiledMap, taxi.getSprite().getHeight()*4);}
+		if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) taxi.driveBackward(tiledMap, taxi.getSprite().getHeight()*4);
 
 		}
 

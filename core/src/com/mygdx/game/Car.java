@@ -6,6 +6,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 
+import java.awt.*;
+
 /**
  * Created by Valenti on 3/2/2016.
  */
@@ -38,43 +40,64 @@ public class Car {
         this.Y_pos=Y_pos;
     }
 
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    public float width = (float)screenSize.getWidth();
+    public float height =(float)screenSize.getHeight();
+
 
     float shift;
 
 
-    private void stay_InMap(TiledMap tiledMap){
-        MapProperties mapProperties= tiledMap.getProperties();
-        int mapWidth = mapProperties.get("width", Integer.class);
-        int mapHeight = mapProperties.get("height", Integer.class);
-        float width = Gdx.graphics.getWidth();
-        float height = Gdx.graphics.getHeight();
-        System.out.println("Xpos is: "+ X_pos + "mapwdidh is "+width);
-        if (X_pos+this.getSprite().getHeight()/2 > width) {
+    private void stay_InMap(){
+
+        if (X_pos+this.getSprite().getHeight() > width) {
             this.sprite.setPosition(width-this.getSprite().getHeight(), Y_pos);
             X_pos = width- this.sprite.getHeight();
         }
+
+        if (X_pos-this.getSprite().getHeight()/3 < 0) {
+            this.sprite.setPosition(this.getSprite().getHeight()/3, Y_pos);
+            X_pos = this.sprite.getHeight()/3;
+        }
+
+        if (Y_pos+this.getSprite().getHeight() > height) {
+            this.sprite.setPosition(X_pos, height-this.getSprite().getHeight());
+            Y_pos = height- this.sprite.getHeight();
+        }
+
+        if (Y_pos - this.getSprite().getHeight()/3 < 0) {
+            this.sprite.setPosition(X_pos, this.getSprite().getHeight()/3);
+            Y_pos = this.sprite.getHeight()/3;
+        }
+
+
+
+
+
+
+
     }
 
     public void driveForward(TiledMap tiledMap, float acceleration){
         shift = acceleration * Gdx.graphics.getDeltaTime();
         if(orientation == 0){ sprite.setY(Y_pos + shift);
             Y_pos+=shift;
-            stay_InMap(tiledMap);
+            stay_InMap();
         }
         else if(orientation == 1){
             sprite.setX(sprite.getX() + shift);
             X_pos+=shift;
-            stay_InMap(tiledMap);
+            stay_InMap();
         }
         else if(orientation == 2){
             sprite.setY(sprite.getY() - shift);
             Y_pos-=shift;
-            stay_InMap(tiledMap);
+            stay_InMap();
         }
         else{
             sprite.setX(sprite.getX() - shift);
             X_pos-=shift;
-            stay_InMap(tiledMap);
+            stay_InMap();
         }
     }
 
