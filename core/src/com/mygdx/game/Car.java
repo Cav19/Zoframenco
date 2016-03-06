@@ -15,6 +15,7 @@ public class Car {
     private Texture texture;
     private float X_pos=0;
     private float Y_pos=0;
+    private float[] speed={0,0};
 
 
     public Car(Texture texture){
@@ -40,56 +41,73 @@ public class Car {
 
     float shift;
 
-    public void driveForward(){
-        shift = 50 * Gdx.graphics.getDeltaTime();
+
+    private void stay_InMap(TiledMap tiledMap){
+        MapProperties mapProperties= tiledMap.getProperties();
+        int mapWidth = mapProperties.get("width", Integer.class);
+        int mapHeight = mapProperties.get("height", Integer.class);
+        float width = Gdx.graphics.getWidth();
+        float height = Gdx.graphics.getHeight();
+        System.out.println("Xpos is: "+ X_pos + "mapwdidh is "+width);
+        if (X_pos+this.getSprite().getHeight()/2 > width) {
+            this.sprite.setPosition(width-this.getSprite().getHeight(), Y_pos);
+            X_pos = width- this.sprite.getHeight();
+        }
+    }
+
+    public void driveForward(TiledMap tiledMap, float acceleration){
+        shift = acceleration * Gdx.graphics.getDeltaTime();
         if(orientation == 0){ sprite.setY(Y_pos + shift);
             Y_pos+=shift;
-
+            stay_InMap(tiledMap);
         }
         else if(orientation == 1){
             sprite.setX(sprite.getX() + shift);
             X_pos+=shift;
-
+            stay_InMap(tiledMap);
         }
         else if(orientation == 2){
             sprite.setY(sprite.getY() - shift);
             Y_pos-=shift;
+            stay_InMap(tiledMap);
         }
         else{
             sprite.setX(sprite.getX() - shift);
             X_pos-=shift;
-
+            stay_InMap(tiledMap);
         }
     }
 
 
 
 
-    public void driveBackward(){
-        shift = 200 * Gdx.graphics.getDeltaTime();
+
+    public void driveBackward(TiledMap tiledMap, float acceleration){
+        shift = acceleration * Gdx.graphics.getDeltaTime();
+        System.out.println("Deltatime is: " + Gdx.graphics.getDeltaTime()+ "shift is: " + shift + " sprite.x is: "+ sprite.getX());
+
         if(orientation == 0){
             sprite.setY(sprite.getY() - shift);
+            Y_pos=Y_pos-shift;
 
 
         }
         else if(orientation == 1){
             sprite.setX(sprite.getX() - shift);
+            X_pos=X_pos-shift;
         }
         else if(orientation == 2){
             sprite.setY(sprite.getY() + shift);
+            Y_pos=Y_pos+shift;
         }
         else{
             sprite.setX(sprite.getX() + shift);
+            X_pos=X_pos+shift;
         }
     }
 
-    public void turnLeft(){
-        driveForward();
-        driveForward();
-        driveForward();
-        driveForward();
-
-
+    public void turnLeft(TiledMap tiledMap){
+       // driveForward(tiledMap,40);
         sprite.rotate90(false);
         if(orientation == 0){
             setOrientation(3);
@@ -99,13 +117,9 @@ public class Car {
         }
     }
 
-    public void turnRight(){
-        driveForward();
-        driveForward();
+    public void turnRight(TiledMap tiledMap){
 
-        driveForward();
-        driveForward();
-
+       // driveForward(tiledMap,40);
         sprite.rotate90(true);
         if(orientation == 3){
             setOrientation(0);
