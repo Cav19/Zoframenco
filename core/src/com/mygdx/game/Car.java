@@ -86,33 +86,58 @@ public class Car {
         }
         else X_pos-=shift;
 
-
-
         if (X_pos+this.getSprite().getWidth() >= width) {
             collision=true;
-           // this.sprite.setPosition(width-this.getSprite().getWidth(), Y_pos);
-           // X_pos = width- this.sprite.getWidth();
         }
-
         if (X_pos <= 0) {
             collision=true;
-            //this.sprite.setPosition(0, Y_pos);
-            //X_pos = 0;
         }
-
         if (Y_pos+this.getSprite().getWidth() >= height) {
             collision=true;
-           // this.sprite.setPosition(X_pos, height-this.getSprite().getWidth());
-           // Y_pos = height- this.sprite.getWidth();
         }
-
         if (Y_pos <= 0) {
             collision=true;
-            //this.sprite.setPosition(X_pos, 0);
-            //Y_pos =0;
         }
         return collision;
     }
+
+
+    private boolean check_BackwardCollisions(float shift){
+        collision=false;
+
+        if (orientation == 0){
+            Y_pos=Y_pos-shift;
+        }
+
+        else if (orientation == 1){
+            X_pos=X_pos-shift;
+        }
+
+        else if (orientation == 2) {
+            Y_pos=Y_pos+shift;
+        }
+
+        else
+        {
+            X_pos=X_pos+shift;
+        }
+
+        if (X_pos+this.getSprite().getWidth() >= width) {
+            collision=true;
+        }
+        if (X_pos <= 0) {
+            collision=true;
+        }
+        if (Y_pos+this.getSprite().getWidth() >= height) {
+            collision=true;
+        }
+        if (Y_pos <= 0) {
+            collision=true;
+        }
+
+        return collision;
+    }
+
 
 
     public void driveForward(TiledMap tiledMap, float velocity){
@@ -131,33 +156,17 @@ public class Car {
 
 
 
-    public void driveBackward(TiledMap tiledMap, float velocity){
-        //right now holding down forward for too long makes the shift bigger? that would make it assume next move is outside
+    public void driveBackward(TiledMap tiledMap, float velocity){ // to be fixed, it is currently same as forward
         shift = velocity * Gdx.graphics.getDeltaTime();
-        //System.out.println(check_ForwardCollisions(shift));
 
-        if ((orientation == 0)//&& (!check_ForwardCollisions(shift))
-         ){
-            sprite.setY(sprite.getY() - shift);
-            Y_pos=Y_pos-shift;
+        float old_X=X_pos;
+        float old_Y=Y_pos;
+        if (!check_BackwardCollisions(shift)){
+            sprite.setPosition(X_pos, Y_pos);
         }
-
-        else if ((orientation == 1)//&& (!check_ForwardCollisions(shift))
-                ){
-            sprite.setX(sprite.getX() - shift);
-            X_pos=X_pos-shift;
-
-        }
-        else if ((orientation == 2) //&& (!check_ForwardCollisions(shift))
-                ){
-            sprite.setY(sprite.getY() + shift);
-            Y_pos=Y_pos+shift;
-
-        }
-        else //if (!check_ForwardCollisions(shift))
-        {
-            sprite.setX(sprite.getX() + shift);
-            X_pos=X_pos+shift;
+        else {
+            X_pos=old_X;
+            Y_pos=old_Y;
         }
         collision=false;
     }
