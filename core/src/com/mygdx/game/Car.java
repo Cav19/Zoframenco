@@ -1,10 +1,13 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.maps.MapLayers;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 
 import java.awt.*;
 
@@ -47,96 +50,119 @@ public class Car {
 
     float shift;
 
+    public boolean isCellBLocked(float x, float y, TiledMap tiledMap) {
 
-    private void stay_InMap(){
+        MapLayers allLayers= tiledMap.getLayers();
+        TiledMapTileLayer collisionLayer= (TiledMapTileLayer) allLayers.get(1);
 
-        if (X_pos+this.getSprite().getWidth() > width) {
-            this.sprite.setPosition(width-this.getSprite().getWidth(), Y_pos);
-            X_pos = width- this.sprite.getWidth();
-        }
+        TiledMapTileLayer.Cell cell = collisionLayer.getCell(
+                (int) (x / collisionLayer.getTileWidth()),
+                (int) (y / collisionLayer.getTileHeight()));
 
-        if (X_pos-0< 0) {
-            this.sprite.setPosition(0, Y_pos);
-            X_pos = 0;
-        }
-
-        if (Y_pos+this.getSprite().getWidth() > height) {
-            this.sprite.setPosition(X_pos, height-this.getSprite().getWidth());
-            Y_pos = height- this.sprite.getWidth();
-        }
-
-        if (Y_pos - 0 < 0) {
-            this.sprite.setPosition(X_pos, 0);
-            Y_pos =0;
-        }
-
-
-
-
-
-
-
-    }
-
-    public void driveForward(TiledMap tiledMap, float acceleration){
-        shift = acceleration * Gdx.graphics.getDeltaTime();
-        if(orientation == 0){ sprite.setY(Y_pos + shift);
-            Y_pos+=shift;
-            stay_InMap();
-        }
-        else if(orientation == 1){
-            sprite.setX(sprite.getX() + shift);
-            X_pos+=shift;
-            stay_InMap();
-        }
-        else if(orientation == 2){
-            sprite.setY(sprite.getY() - shift);
-            Y_pos-=shift;
-            stay_InMap();
-        }
-        else{
-            sprite.setX(sprite.getX() - shift);
-            X_pos-=shift;
-            stay_InMap();
-        }
+        return cell != null && cell.getTile() != null
+                && cell.getTile().getProperties().containsKey("blocked");
     }
 
 
+    public boolean blocked(float x, float y, TiledMap tiledMap) {
+        boolean collisionWithMap = false; //http://www.norakomi.com/tutorial_mambow2_collision.php
+        collisionWithMap = isCellBLocked(x, y, tiledMap);
+        return collisionWithMap;
+    }
 
+    boolean collision=false;
 
-
-    public void driveBackward(TiledMap tiledMap, float acceleration){
-        shift = acceleration * Gdx.graphics.getDeltaTime();
-        System.out.println("Deltatime is: " + Gdx.graphics.getDeltaTime()+ "shift is: " + shift + " sprite.x is: "+ sprite.getX());
+    private boolean check_ForwardCollisions(float shift){
+        collision=false;
 
         if(orientation == 0){
-            sprite.setY(sprite.getY() - shift);
-            Y_pos=Y_pos-shift;
-            stay_InMap();
-
-
+            Y_pos+=shift;
         }
         else if(orientation == 1){
-            sprite.setX(sprite.getX() - shift);
-            X_pos=X_pos-shift;
-            stay_InMap();
-
+            X_pos+=shift;
         }
         else if(orientation == 2){
-            sprite.setY(sprite.getY() + shift);
-            Y_pos=Y_pos+shift;
-            stay_InMap();
-
+            Y_pos-=shift;
         }
-        else{
-            sprite.setX(sprite.getX() + shift);
-            X_pos=X_pos+shift;
-            stay_InMap();
+        else X_pos-=shift;
 
+
+
+        if (X_pos+this.getSprite().getWidth() >= width) {
+            collision=true;
+           // this.sprite.setPosition(width-this.getSprite().getWidth(), Y_pos);
+           // X_pos = width- this.sprite.getWidth();
         }
+
+        if (X_pos <= 0) {
+            collision=true;
+            //this.sprite.setPosition(0, Y_pos);
+            //X_pos = 0;
+        }
+
+        if (Y_pos+this.getSprite().getWidth() >= height) {
+            collision=true;
+           // this.sprite.setPosition(X_pos, height-this.getSprite().getWidth());
+           // Y_pos = height- this.sprite.getWidth();
+        }
+
+        if (Y_pos <= 0) {
+            collision=true;
+            //this.sprite.setPosition(X_pos, 0);
+            //Y_pos =0;
+        }
+        return collision;
     }
 
-    public void turnLeft(TiledMap tiledMap){
+
+    public void driveForward(TiledMap tiledMap, float velocity){
+        shift = velocity * Gdx.graphics.getDeltaTime();
+        float old_X=X_pos;
+        float old_Y=Y_pos;
+        if (!check_ForwardCollisions(shift)){
+            sprite.setPosition(X_pos, Y_pos);
+        }
+        else {
+            X_pos=old_X;
+            Y_pos=old_Y;
+        }
+        collision=false;
+    }
+
+
+
+    public void driveBackward(TiledMap tiledMap, float velocity){
+        //right now holding down forward for too long makes the shift bigger? that would make it assume next move is outside
+        shift = velocity * Gdx.graphics.getDeltaTime();
+        //System.out.println(check_ForwardCollisions(shift));
+
+        if ((orientation == 0)//&& (!check_ForwardCollisions(shift))
+         ){
+            sprite.setY(sprite.getY() - shift);
+            Y_pos=Y_pos-shift;
+        }
+
+        else if ((orientation == 1)//&& (!check_ForwardCollisions(shift))
+                ){
+            sprite.setX(sprite.getX() - shift);
+            X_pos=X_pos-shift;
+
+        }
+        else if ((orientation == 2) //&& (!check_ForwardCollisions(shift))
+                ){
+            sprite.setY(sprite.getY() + shift);
+            Y_pos=Y_pos+shift;
+
+        }
+        else //if (!check_ForwardCollisions(shift))
+        {
+            sprite.setX(sprite.getX() + shift);
+            X_pos=X_pos+shift;
+        }
+        collision=false;
+    }
+
+    public void turnLeft(){
        // driveForward(tiledMap,40);
         sprite.rotate90(false);
         if(orientation == 0){
@@ -147,7 +173,7 @@ public class Car {
         }
     }
 
-    public void turnRight(TiledMap tiledMap){
+    public void turnRight(){
 
        // driveForward(tiledMap,40);
         sprite.rotate90(true);
@@ -177,5 +203,15 @@ public class Car {
 
     public void setTexture(Texture texture){
         this.texture = texture;
+    }
+
+
+    public void restart(TiledMap tiledmap){
+        collision=false;
+        Y_pos=height/2;
+        X_pos=width/2;
+        this.setX_pos(X_pos);
+        this.setY_pos(Y_pos);
+        this.sprite.setPosition(X_pos,Y_pos);
     }
 }

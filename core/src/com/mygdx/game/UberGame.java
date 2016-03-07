@@ -14,15 +14,21 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.MapLayer;
+import com.badlogic.gdx.maps.MapLayers;
+import com.badlogic.gdx.maps.MapObjects;
 import com.badlogic.gdx.maps.MapProperties;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
+import com.badlogic.gdx.maps.tiled.objects.TiledMapTileMapObject;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.intellij.ide.actions.ToggleFullScreenAction;
 import com.intellij.openapi.application.Application;
 import com.intellij.openapi.application.ApplicationManager;
+import com.intellij.openapi.vcs.Ring;
 import com.intellij.psi.compiled.ClassFileDecompilers;
 
 
@@ -47,6 +53,8 @@ public class UberGame extends ApplicationAdapter {
 
 
 
+
+
 	@Override
 	public void create() {
 
@@ -67,13 +75,22 @@ public class UberGame extends ApplicationAdapter {
 		camera.update();
 
 
+		MapLayers allLayers= tiledMap.getLayers();
+		System.out.println("Layers: " + allLayers.getCount());
+		System.out.println("Test: "+ allLayers.get(1).getName().toString());
+
+
+		TiledMapTileLayer collisionLayer= (TiledMapTileLayer)allLayers.get(1);
+		MapObjects collisionObjects = collisionLayer.getObjects();
+
+
 
 
 	}
 
+
 	@Override
 	public void render() {
-
 
 		Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 		tiledMapRenderer.setView(camera);
@@ -85,13 +102,18 @@ public class UberGame extends ApplicationAdapter {
 		batch.end();
 
 
-		if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) taxi.turnLeft(tiledMap);
-		if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) taxi.turnRight(tiledMap);
-		if (Gdx.input.isKeyPressed(Input.Keys.UP)) {taxi.driveForward(tiledMap, taxi.getSprite().getHeight()*4);}
-		if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) taxi.driveBackward(tiledMap, taxi.getSprite().getHeight()*4);
-
+		if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) taxi.turnLeft();
+		if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) taxi.turnRight();
+		if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+			taxi.driveForward(tiledMap, taxi.getSprite().getHeight() * 4);
+		}
+		if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) taxi.driveBackward(tiledMap, taxi.getSprite().getHeight() * 4);
+		if (Gdx.input.isKeyPressed(Input.Keys.R)) {
+			taxi.restart(tiledMap);
 		}
 
+
+	}
 
 
 }
