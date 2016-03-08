@@ -55,6 +55,7 @@ public class Car {
         MapLayers allLayers= tiledMap.getLayers();
         TiledMapTileLayer collisionLayer= (TiledMapTileLayer) allLayers.get(1);
 
+
         TiledMapTileLayer.Cell cell = collisionLayer.getCell(
                 (int) (x / collisionLayer.getTileWidth()),
                 (int) (y / collisionLayer.getTileHeight()));
@@ -96,7 +97,7 @@ public class Car {
             collision = true;
         }
 
-        if (isCellBLocked(X_pos, Y_pos, tiledMap) ){
+        if (blocked(X_pos, Y_pos, tiledMap) ){
             collision=true;
         }
             return collision;

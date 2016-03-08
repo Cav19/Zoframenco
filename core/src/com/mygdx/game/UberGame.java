@@ -76,14 +76,8 @@ public class UberGame extends ApplicationAdapter {
 
 
 		MapLayers allLayers= tiledMap.getLayers();
-		System.out.println("Layers: " + allLayers.getCount());
-		System.out.println("Test: "+ allLayers.get(1).getName().toString());
-
-
-		TiledMapTileLayer collisionLayer= (TiledMapTileLayer)allLayers.get(1);
-		MapObjects collisionObjects = collisionLayer.getObjects();
-
-
+		TiledMapTileLayer collisionLayer= (TiledMapTileLayer) allLayers.get(1);
+		collisionLayer.setVisible(true);
 
 
 	}
