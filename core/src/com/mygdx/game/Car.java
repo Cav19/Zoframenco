@@ -72,70 +72,39 @@ public class Car {
 
     boolean collision=false;
 
-    private boolean check_ForwardCollisions(float shift){
-        collision=false;
+    private boolean check_ForwardCollisions(float shift, TiledMap tiledMap) {
+        collision = false;
 
-        if(orientation == 0){
-            Y_pos+=shift;
-        }
-        else if(orientation == 1){
-            X_pos+=shift;
-        }
-        else if(orientation == 2){
-            Y_pos-=shift;
-        }
-        else X_pos-=shift;
+        if (orientation == 0) {
+            Y_pos += shift;
+        } else if (orientation == 1) {
+            X_pos += shift;
+        } else if (orientation == 2) {
+            Y_pos -= shift;
+        } else X_pos -= shift;
 
-        if (X_pos+this.getSprite().getWidth() >= width) {
-            collision=true;
+        if (X_pos + this.getSprite().getWidth() >= width) {
+            collision = true;
         }
         if (X_pos <= 0) {
-            collision=true;
+            collision = true;
         }
-        if (Y_pos+this.getSprite().getWidth() >= height) {
-            collision=true;
+        if (Y_pos + this.getSprite().getWidth() >= height) {
+            collision = true;
         }
         if (Y_pos <= 0) {
+            collision = true;
+        }
+
+        if (isCellBLocked(X_pos, Y_pos, tiledMap) ){
             collision=true;
         }
-        return collision;
+            return collision;
+
     }
 
-
-    private boolean check_BackwardCollisions(float shift){
-        collision=false;
-
-        if (orientation == 0){
-            Y_pos=Y_pos-shift;
-        }
-
-        else if (orientation == 1){
-            X_pos=X_pos-shift;
-        }
-
-        else if (orientation == 2) {
-            Y_pos=Y_pos+shift;
-        }
-
-        else
-        {
-            X_pos=X_pos+shift;
-        }
-
-        if (X_pos+this.getSprite().getWidth() >= width) {
-            collision=true;
-        }
-        if (X_pos <= 0) {
-            collision=true;
-        }
-        if (Y_pos+this.getSprite().getWidth() >= height) {
-            collision=true;
-        }
-        if (Y_pos <= 0) {
-            collision=true;
-        }
-
-        return collision;
+    private boolean check_BackwardCollisions(float shift, TiledMap tiledMap){
+        return check_ForwardCollisions(-shift, tiledMap);
     }
 
 
@@ -144,7 +113,7 @@ public class Car {
         shift = velocity * Gdx.graphics.getDeltaTime();
         float old_X=X_pos;
         float old_Y=Y_pos;
-        if (!check_ForwardCollisions(shift)){
+        if (!check_ForwardCollisions(shift, tiledMap)){
             sprite.setPosition(X_pos, Y_pos);
         }
         else {
@@ -161,7 +130,7 @@ public class Car {
 
         float old_X=X_pos;
         float old_Y=Y_pos;
-        if (!check_BackwardCollisions(shift)){
+        if (!check_BackwardCollisions(shift, tiledMap)){
             sprite.setPosition(X_pos, Y_pos);
         }
         else {
