@@ -18,8 +18,8 @@ public class Car {
     private Sprite sprite;
     private int orientation;
     private Texture texture;
-    private float X_pos = 0;
-    private float Y_pos = 0;
+    public float X_pos = 0;
+    public float Y_pos = 0;
     public Camera camera;
 
 
@@ -30,23 +30,8 @@ public class Car {
         this.camera = camera;
     }
 
-    public float getX_pos() {
-        return this.X_pos;
-    }
 
-    public float getY_pos() {
-        return this.Y_pos;
-    }
-
-    public void setX_pos(float X_pos) {
-        this.X_pos = X_pos;
-    }
-
-    public void setY_pos(float Y_pos) {
-        this.Y_pos = Y_pos;
-    }
-
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     //public float width = (float)screenSize.getWidth();
     //public float height =(float)screenSize.getHeight();
     public float width = 1000;
@@ -60,27 +45,23 @@ public class Car {
 
         MapLayers allLayers = tiledMap.getLayers();
         TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(1);
-        TiledMapTileLayer.Cell cell = collisionLayer.getCell(
-                (int) (x / collisionLayer.getTileWidth()),
-                (int) (y / collisionLayer.getTileHeight()));
+        TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
 
-
-        return cell != null && cell.getTile() != null &&
-                (!(cell.getTile().getProperties().containsKey("road")));
+        return (cell != null) &&  (cell.getTile() != null)  &&  (!(cell.getTile().getProperties().containsKey("road")));
 
     }
 
+    //www.norakomi.com/tutorial_mambow2_collision.php
 
     public boolean blocked(float x, float y, TiledMap tiledMap) {
-        boolean collisionWithMap = false; //http://www.norakomi.com/tutorial_mambow2_collision.php
+        boolean collisionWithMap = false;
         collisionWithMap = isCellBLocked(x, y, tiledMap); // isCellBLocked(x+Car.this.width, y, tiledMap) || isCellBLocked(x-Car.this.width, y, tiledMap) ||  isCellBLocked(x, (int)(y+Car.this.height), tiledMap);
         return collisionWithMap;
     }
 
-    boolean collision = false;
 
     private boolean check_ForwardCollisions(float shift, TiledMap tiledMap) {
-        collision = false;
+        boolean collision = false;
 
         if (orientation == 0) {
             Y_pos += shift;
@@ -125,7 +106,6 @@ public class Car {
             X_pos = old_X;
             Y_pos = old_Y;
         }
-        collision = false;
     }
 
 
@@ -140,10 +120,11 @@ public class Car {
             X_pos = old_X;
             Y_pos = old_Y;
         }
-        collision = false;
     }
 
+
     public void turnLeft(TiledMap tiledMap) {
+
         driveForward(tiledMap, 100);
         sprite.rotate90(false);
         if (orientation == 0) {
@@ -186,11 +167,8 @@ public class Car {
 
 
     public void restart(TiledMap tiledmap) {
-        collision = false;
         Y_pos = (int) (height / 2);
         X_pos = (int) (width / 2);
-        this.setX_pos(X_pos);
-        this.setY_pos(Y_pos);
         this.sprite.setPosition(X_pos, Y_pos);
     }
 }
