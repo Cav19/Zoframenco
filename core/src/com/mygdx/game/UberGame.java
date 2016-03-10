@@ -44,13 +44,13 @@ public class UberGame extends ApplicationAdapter {
     public void create() {
 
         setUpScreen();
-        addCar();
+        createCar();
 
     }
 
     @Override
     public void render() {
-        setUpGame();
+        drawGameObjects();
         play();
 
     }
@@ -67,7 +67,7 @@ public class UberGame extends ApplicationAdapter {
     }
 
 
-    public void addCar() {
+    public void createCar() {
         taxiImg = new Texture("tiny_car_square.png");
         taxi = new Car(taxiImg, this.camera);
         taxi.getSprite().setPosition((int) (width / 2), (int) (height / 2));
@@ -77,12 +77,10 @@ public class UberGame extends ApplicationAdapter {
     }
 
 
-    public void setUpGame() {
+    public void drawGameObjects() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
-
-
         batch.begin();
         taxi.getSprite().draw(batch);
         batch.end();
