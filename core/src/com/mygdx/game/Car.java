@@ -1,6 +1,7 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -20,13 +21,14 @@ public class Car {
     private Texture texture;
     private float X_pos=0;
     private float Y_pos=0;
-    private float[] speed={0,0};
+    public  Camera camera;
 
 
-    public Car(Texture texture){
+    public Car(Texture texture, Camera camera){
         this.texture = texture;
         this.orientation = 0;
         this.sprite = new Sprite(texture);
+        this.camera=camera;
     }
 
     public float getX_pos(){
@@ -44,30 +46,41 @@ public class Car {
     }
 
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    public float width = (float)screenSize.getWidth();
-    public float height =(float)screenSize.getHeight();
+    //public float width = (float)screenSize.getWidth();
+    //public float height =(float)screenSize.getHeight();
+    public float width = 1000;
+    public float height =1000;
 
 
-    float shift;
+
+    private float shift;
 
     public boolean isCellBLocked(float x, float y, TiledMap tiledMap) {
 
+
+
         MapLayers allLayers= tiledMap.getLayers();
         TiledMapTileLayer collisionLayer= (TiledMapTileLayer) allLayers.get(1);
-
-
         TiledMapTileLayer.Cell cell = collisionLayer.getCell(
                 (int) (x / collisionLayer.getTileWidth()),
                 (int) (y / collisionLayer.getTileHeight()));
+        System.out.println("layer width: "+ collisionLayer.getWidth());
+        System.out.println("layer height: "+ collisionLayer.getHeight());
 
-        return cell != null && cell.getTile() != null
-                && cell.getTile().getProperties().containsKey("blocked");
+        System.out.println(x+ " " + (int) (x/collisionLayer.getTileWidth()));
+        System.out.println(y+ " " + (int) (y/collisionLayer.getTileHeight()));
+        System.out.println(cell);
+        System.out.println();
+
+        return cell != null && cell.getTile() != null &&
+                (!(cell.getTile().getProperties().containsKey("road")));
+
     }
 
 
     public boolean blocked(float x, float y, TiledMap tiledMap) {
         boolean collisionWithMap = false; //http://www.norakomi.com/tutorial_mambow2_collision.php
-        collisionWithMap = isCellBLocked(x, y, tiledMap);
+        collisionWithMap = isCellBLocked(x, y, tiledMap); // isCellBLocked(x+Car.this.width, y, tiledMap) || isCellBLocked(x-Car.this.width, y, tiledMap) ||  isCellBLocked(x, (int)(y+Car.this.height), tiledMap);
         return collisionWithMap;
     }
 
@@ -84,20 +97,20 @@ public class Car {
             Y_pos -= shift;
         } else X_pos -= shift;
 
-        if (X_pos + this.getSprite().getWidth() >= width) {
+        if (X_pos + (int)this.getSprite().getWidth() >= width) {
             collision = true;
         }
         if (X_pos <= 0) {
             collision = true;
         }
-        if (Y_pos + this.getSprite().getWidth() >= height) {
+        if (Y_pos + (int)this.getSprite().getWidth() >= height) {
             collision = true;
         }
         if (Y_pos <= 0) {
             collision = true;
         }
 
-        if (blocked(X_pos, Y_pos, tiledMap) ){
+        if (blocked(X_pos, Y_pos, tiledMap)||blocked(X_pos+20,Y_pos,tiledMap)||blocked(X_pos, Y_pos+15,tiledMap) ){
             collision=true;
         }
             return collision;
@@ -111,7 +124,7 @@ public class Car {
 
 
     public void driveForward(TiledMap tiledMap, float velocity){
-        shift = velocity * Gdx.graphics.getDeltaTime();
+         shift = (int)(velocity * Gdx.graphics.getDeltaTime());
         float old_X=X_pos;
         float old_Y=Y_pos;
         if (!check_ForwardCollisions(shift, tiledMap)){
@@ -127,7 +140,7 @@ public class Car {
 
 
     public void driveBackward(TiledMap tiledMap, float velocity){ // to be fixed, it is currently same as forward
-        shift = velocity * Gdx.graphics.getDeltaTime();
+        shift = (int)(velocity * Gdx.graphics.getDeltaTime());
 
         float old_X=X_pos;
         float old_Y=Y_pos;
@@ -141,8 +154,8 @@ public class Car {
         collision=false;
     }
 
-    public void turnLeft(){
-       // driveForward(tiledMap,40);
+    public void turnLeft(TiledMap tiledMap){
+        driveForward(tiledMap, 100);
         sprite.rotate90(false);
         if(orientation == 0){
             setOrientation(3);
@@ -152,9 +165,9 @@ public class Car {
         }
     }
 
-    public void turnRight(){
+    public void turnRight(TiledMap tiledMap){
 
-       // driveForward(tiledMap,40);
+        driveForward(tiledMap,100);
         sprite.rotate90(true);
         if(orientation == 3){
             setOrientation(0);
@@ -187,8 +200,8 @@ public class Car {
 
     public void restart(TiledMap tiledmap){
         collision=false;
-        Y_pos=height/2;
-        X_pos=width/2;
+        Y_pos=(int)(height/2);
+        X_pos=(int)(width/2);
         this.setX_pos(X_pos);
         this.setY_pos(Y_pos);
         this.sprite.setPosition(X_pos,Y_pos);

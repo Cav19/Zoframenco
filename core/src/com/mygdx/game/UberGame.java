@@ -46,9 +46,13 @@ public class UberGame extends ApplicationAdapter {
 	private Car taxi;
 	TiledMap tiledMap;
 	TiledMapRenderer tiledMapRenderer;
-	Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-	public float width = (float)screenSize.getWidth();
-	public float height =(float)screenSize.getHeight();
+	Dimension screenSize =  Toolkit.getDefaultToolkit().getScreenSize();
+	//public float width = (float)screenSize.getWidth();
+	//public float height =(float)screenSize.getHeight();
+	public float width=1000;
+	public float height=1000;
+
+
 
 
 
@@ -58,26 +62,24 @@ public class UberGame extends ApplicationAdapter {
 	@Override
 	public void create() {
 
-		Gdx.graphics.setWindowedMode((int) screenSize.getWidth(), (int) screenSize.getHeight());
+		Gdx.graphics.setWindowedMode((int)width, (int)height);
 		batch = new SpriteBatch();
 		taxiImg = new Texture("tiny_car_square.png");
-		taxi = new Car(taxiImg);
-		taxi.getSprite().setPosition(width/2, height / 2);
-		taxi.setX_pos(width/2);
-		taxi.setY_pos(height/2);
-		taxi.getSprite().setSize(width/25, width/25);
+		taxi = new Car(taxiImg, this.camera);
+		taxi.getSprite().setPosition((int)(width/2), (int)(height / 2));
+		taxi.setX_pos((int)(width/2));
+		taxi.setY_pos((int)(height / 2));
+		taxi.getSprite().setSize((int)(width/25), (int)(width/25));
 
 		camera = new OrthographicCamera();
-		camera.setToOrtho(false, 2400, 2400);
-		tiledMap = new TmxMapLoader().load("map@3March.tmx");
+		camera.setToOrtho(false, width, height);
+		tiledMap = new TmxMapLoader().load("map@9March.tmx");
 
 		tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
+
 		camera.update();
 
 
-		MapLayers allLayers= tiledMap.getLayers();
-		TiledMapTileLayer collisionLayer= (TiledMapTileLayer) allLayers.get(1);
-		collisionLayer.setVisible(true);
 
 
 	}
@@ -96,12 +98,12 @@ public class UberGame extends ApplicationAdapter {
 		batch.end();
 
 
-		if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) taxi.turnLeft();
-		if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) taxi.turnRight();
+		if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) taxi.turnLeft(tiledMap);
+		if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) taxi.turnRight(tiledMap);
 		if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-			taxi.driveForward(tiledMap, taxi.getSprite().getHeight() * 4);
+			taxi.driveForward(tiledMap, 200);
 		}
-		if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) taxi.driveBackward(tiledMap, taxi.getSprite().getHeight() * 4);
+		if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) taxi.driveBackward(tiledMap, 100);
 		if (Gdx.input.isKeyPressed(Input.Keys.R)) {
 			taxi.restart(tiledMap);
 		}
