@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
@@ -7,6 +8,9 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.MapLayers;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.math.Vector;
+import com.badlogic.gdx.math.Vector2;
+import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
 
 import java.awt.*;
 
@@ -16,18 +20,20 @@ import java.awt.*;
 
 public class Car {
     private Sprite sprite;
-    private int orientation;
     private Texture texture;
     public float X_pos = 0;
     public float Y_pos = 0;
     public Camera camera;
+    public int[] velociy= new int[2];
+    public int[] orientation= new int[2];
 
 
     public Car(Texture texture, Camera camera) {
         this.texture = texture;
-        this.orientation = 0;
+        this.orientation = orientation;
         this.sprite = new Sprite(texture);
         this.camera = camera;
+        this.velociy=velociy;
     }
 
 
@@ -55,21 +61,15 @@ public class Car {
 
     public boolean blocked(float x, float y, TiledMap tiledMap) {
         boolean collisionWithMap = false;
-        collisionWithMap = isCellBLocked(x, y, tiledMap); // isCellBLocked(x+Car.this.width, y, tiledMap) || isCellBLocked(x-Car.this.width, y, tiledMap) ||  isCellBLocked(x, (int)(y+Car.this.height), tiledMap);
+        collisionWithMap = isCellBLocked(x, y, tiledMap);   // isCellBLocked(x+Car.this.width, y, tiledMap) || isCellBLocked(x-Car.this.width, y, tiledMap) ||  isCellBLocked(x, (int)(y+Car.this.height), tiledMap);
         return collisionWithMap;
     }
 
 
-    private boolean check_ForwardCollisions(float shift, TiledMap tiledMap) {
+    private boolean checkCollisions(int[] velociy, TiledMap tiledMap) {
         boolean collision = false;
-
-        if (orientation == 0) {
-            Y_pos += shift;
-        } else if (orientation == 1) {
-            X_pos += shift;
-        } else if (orientation == 2) {
-            Y_pos -= shift;
-        } else X_pos -= shift;
+        X_pos=X_pos+velociy[0];
+        Y_pos=Y_pos+velociy[1];
 
         if (X_pos + (int) this.getSprite().getWidth() >= width) {
             collision = true;
@@ -84,23 +84,42 @@ public class Car {
             collision = true;
         }
 
-        if (blocked(X_pos, Y_pos, tiledMap) || blocked(X_pos + 20, Y_pos, tiledMap) || blocked(X_pos, Y_pos + 15, tiledMap)) {
+        if (blocked(X_pos, Y_pos, tiledMap) || blocked(X_pos + 15, Y_pos+5, tiledMap) || blocked(X_pos, Y_pos + 25, tiledMap)) {
             collision = true;
         }
+
         return collision;
 
     }
 
-    private boolean check_BackwardCollisions(float shift, TiledMap tiledMap) {
-        return check_ForwardCollisions(-shift, tiledMap);
+    private boolean check_BackwardCollisions(int[] velociy, TiledMap tiledMap) {
+        return checkCollisions(velociy, tiledMap);
     }
 
 
-    public void driveForward(TiledMap tiledMap, float velocity) {
-        shift = (int) (velocity * Gdx.graphics.getDeltaTime());
+    public void driveForward(TiledMap tiledMap, float DeltaTime) {
+        int speed=(int)(200*DeltaTime);
+        System.out.println("orientation: "+orientation[0] + " "+orientation[1]);
+        velociy[0]= orientation[0]*speed;
+        velociy[1]= orientation[1]*speed;
         float old_X = X_pos;
         float old_Y = Y_pos;
-        if (!check_ForwardCollisions(shift, tiledMap)) {
+        if (!checkCollisions(velociy, tiledMap)) {
+            sprite.setPosition(X_pos, Y_pos);
+            } else {
+                X_pos = old_X;
+                Y_pos = old_Y;
+            }
+        }
+
+
+/*
+    public void driveBackward(TiledMap tiledMap, float DeltaTime) { // to be fixed, it is currently same as forward
+        shift = (int) (velocity * Gdx.graphics.getDeltaTime());
+
+        float old_X = X_pos;
+        float old_Y = Y_pos;
+        if (!check_BackwardCollisions(velocity, tiledMap)) {
             sprite.setPosition(X_pos, Y_pos);
         } else {
             X_pos = old_X;
@@ -108,48 +127,39 @@ public class Car {
         }
     }
 
-
-    public void driveBackward(TiledMap tiledMap, float velocity) { // to be fixed, it is currently same as forward
-        shift = (int) (velocity * Gdx.graphics.getDeltaTime());
-
-        float old_X = X_pos;
-        float old_Y = Y_pos;
-        if (!check_BackwardCollisions(shift, tiledMap)) {
-            sprite.setPosition(X_pos, Y_pos);
-        } else {
-            X_pos = old_X;
-            Y_pos = old_Y;
-        }
-    }
+    */
 
 
     public void turnLeft(TiledMap tiledMap) {
 
         driveForward(tiledMap, 100);
         sprite.rotate90(false);
-        if (orientation == 0) {
-            setOrientation(3);
-        } else {
-            setOrientation(orientation - 1);
+        if (orientation[0]==0 && orientation[1]==1) {
+            setOrientation(-1, 0);
+        }
+        else  if (orientation[0]==-1 && orientation[1]==0) {
+            setOrientation(0, -1);
+        }
+        else if (orientation[0]==0 && orientation[1]==-1) {
+            setOrientation(1, 0);
+        }
+        else {
+            setOrientation(0, 1);
         }
     }
 
     public void turnRight(TiledMap tiledMap) {
 
-        driveForward(tiledMap, 100);
-        sprite.rotate90(true);
-        if (orientation == 3) {
-            setOrientation(0);
-        } else {
-            setOrientation(orientation + 1);
-        }
+        turnLeft(tiledMap);
+        turnLeft(tiledMap);
+        turnLeft(tiledMap);
     }
 
     public Sprite getSprite() {
         return sprite;
     }
 
-    public int getOrientation() {
+    public int []  getOrientation() {
         return orientation;
     }
 
@@ -157,8 +167,9 @@ public class Car {
         return texture;
     }
 
-    public void setOrientation(int num) {
-        this.orientation = num;
+    public void setOrientation(int x, int y) {
+        this.orientation[0]=x;
+        this.orientation[1]=y;
     }
 
     public void setTexture(Texture texture) {

@@ -74,6 +74,8 @@ public class UberGame extends ApplicationAdapter {
         taxi.X_pos= (int) (width / 2);
         taxi.Y_pos= (int) (height / 2);
         taxi.getSprite().setSize((int) (width / 25), (int) (width / 25));
+        taxi.orientation[0]=0;
+        taxi.orientation[1]=1;
     }
 
 
@@ -90,9 +92,9 @@ public class UberGame extends ApplicationAdapter {
         if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) taxi.turnLeft(tiledMap);
         if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) taxi.turnRight(tiledMap);
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            taxi.driveForward(tiledMap, 200);
+            taxi.driveForward(tiledMap, Gdx.graphics.getDeltaTime());
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) taxi.driveBackward(tiledMap, 100);
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) taxi.driveForward(tiledMap, -Gdx.graphics.getDeltaTime());
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
             taxi.restart(tiledMap);
         }
@@ -100,7 +102,6 @@ public class UberGame extends ApplicationAdapter {
             System.exit(-1);
         }
     }
-
 }
 
 
