@@ -24,7 +24,7 @@ public class Car {
     public float X_pos = 0;
     public float Y_pos = 0;
     public Camera camera;
-    public int[] velociy= new int[2];
+    public float[] velociy= new float[2];
     public int[] orientation= new int[2];
 
 
@@ -66,21 +66,24 @@ public class Car {
     }
 
 
-    private boolean checkCollisions(int[] velociy, TiledMap tiledMap) {
+    private boolean checkCollisions(float[] velociy, TiledMap tiledMap) {
         boolean collision = false;
-        X_pos=X_pos+velociy[0];
-        Y_pos=Y_pos+velociy[1];
+        X_pos+=velociy[0];
+        Y_pos+=velociy[1];
 
         if (X_pos + (int) this.getSprite().getWidth() >= width) {
             collision = true;
         }
         if (X_pos <= 0) {
             collision = true;
+
         }
         if (Y_pos + (int) this.getSprite().getWidth() >= height) {
+
             collision = true;
         }
         if (Y_pos <= 0) {
+
             collision = true;
         }
 
@@ -92,16 +95,42 @@ public class Car {
 
     }
 
-    private boolean check_BackwardCollisions(int[] velociy, TiledMap tiledMap) {
+    private boolean check_BackwardCollisions(float[] velociy, TiledMap tiledMap) {
         return checkCollisions(velociy, tiledMap);
     }
 
+    public void accellerate(TiledMap tiledMap, float accelleration){
+        if (this.velociy[0]==0){ this.velociy[0]+=orientation[0]*0.3;}
+        if (this.velociy[1]==0){ this.velociy[1]+=orientation[1]*0.3;}
+        if ((velociy[0]>-3) && (velociy[0]<3) && (velociy[1]>-3) && (velociy[1]<3)) {
+            this.velociy[0] += (float) (0.1 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0];
+            this.velociy[1] += (float) (0.1 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1];
+        }
+        System.out.println("Current velocity is "+this.velociy[0] + " "+ this.velociy[1]  );
+        driveForward(tiledMap);
 
-    public void driveForward(TiledMap tiledMap, float DeltaTime) {
-        int speed=(int)(200*DeltaTime);
-        System.out.println("orientation: "+orientation[0] + " "+orientation[1]);
-        velociy[0]= orientation[0]*speed;
-        velociy[1]= orientation[1]*speed;
+    }
+
+    public void turnUp(TiledMap tiledMap) {
+        velociy[0]=0;
+        if (!(orientation[0] == 0 && orientation[1] == 1)) {
+            turnLeft(tiledMap);
+            sprite.rotate90(true);
+            setOrientation(0,1);
+        }
+    }
+
+    public void turnDown(TiledMap tiledMap){
+        velociy[0]=0;
+        if (!(orientation[0] == 0 && orientation[1] == -1)) {
+            turnLeft(tiledMap);
+            sprite.rotate90(false);
+            setOrientation(0,-1);
+        }
+
+    }
+
+    public void driveForward( TiledMap tiledMap) {
         float old_X = X_pos;
         float old_Y = Y_pos;
         if (!checkCollisions(velociy, tiledMap)) {
@@ -131,28 +160,32 @@ public class Car {
 
 
     public void turnLeft(TiledMap tiledMap) {
+        velociy[1]=0;
+        if (this.velociy[0]>0){velociy[0]=0;}
 
-        driveForward(tiledMap, 100);
-        sprite.rotate90(false);
-        if (orientation[0]==0 && orientation[1]==1) {
-            setOrientation(-1, 0);
+        if (!((orientation[0] == -1) && (orientation[1] == 0))) {
+            //driveForward(tiledMap, 100);
+            if (orientation[0] == 0 && orientation[1] == 1) {
+                sprite.rotate90(false);
+            } else if (orientation[0] == 0 && orientation[1] == -1) {
+                sprite.rotate90(true);
+            } else if (orientation[0] == 1 && orientation[1] == 0) {
+                sprite.rotate90(false);
+                sprite.rotate90(false);
+            }
         }
-        else  if (orientation[0]==-1 && orientation[1]==0) {
-            setOrientation(0, -1);
-        }
-        else if (orientation[0]==0 && orientation[1]==-1) {
-            setOrientation(1, 0);
-        }
-        else {
-            setOrientation(0, 1);
-        }
+        setOrientation(-1, 0);
     }
 
     public void turnRight(TiledMap tiledMap) {
+        velociy[1]=0;
 
-        turnLeft(tiledMap);
-        turnLeft(tiledMap);
-        turnLeft(tiledMap);
+        if (!((orientation[0] == 1) && (orientation[1] == 0))) {
+
+            turnUp(tiledMap);
+            sprite.rotate90(true);
+            setOrientation(1, 0);
+        }
     }
 
     public Sprite getSprite() {
@@ -168,6 +201,7 @@ public class Car {
     }
 
     public void setOrientation(int x, int y) {
+        //System.out.println("Setting orientation to "+x+" and "+ y);
         this.orientation[0]=x;
         this.orientation[1]=y;
     }

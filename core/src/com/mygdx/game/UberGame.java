@@ -3,7 +3,12 @@
  on 2/27/2016
 
 
+CURRENT COMMANDS: SPACE BAR TO ACCELLERATE,
+                 ARROWS TO TURN THE CAR IN THE DIRECTION OF THE ARROW PRESSED
+
 */
+
+
 
 package com.mygdx.game;
 
@@ -71,11 +76,10 @@ public class UberGame extends ApplicationAdapter {
         taxiImg = new Texture("tiny_car_square.png");
         taxi = new Car(taxiImg, this.camera);
         taxi.getSprite().setPosition((int) (width / 2), (int) (height / 2));
-        taxi.X_pos= (int) (width / 2);
-        taxi.Y_pos= (int) (height / 2);
+        taxi.X_pos = (int) (width / 2);
+        taxi.Y_pos = (int) (height / 2);
         taxi.getSprite().setSize((int) (width / 25), (int) (width / 25));
-        taxi.orientation[0]=0;
-        taxi.orientation[1]=1;
+        taxi.setOrientation(0, 1);
     }
 
 
@@ -88,21 +92,83 @@ public class UberGame extends ApplicationAdapter {
         batch.end();
     }
 
+    public void applyFriction(){
+        System.out.println(Gdx.graphics.getDeltaTime());
+        taxi.velociy[0] -= (float)(taxi.velociy[0] * 0.015);
+        taxi.velociy[1] -= (float)(taxi.velociy[1] * 0.015);
+        taxi.driveForward(tiledMap);
+    }
+
     public void play() {
-        if (Gdx.input.isKeyJustPressed(Input.Keys.LEFT)) taxi.turnLeft(tiledMap);
-        if (Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)) taxi.turnRight(tiledMap);
+       System.out.println(taxi.velociy[0] + " and " + taxi.velociy[1]);
+
+
+        if (!(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))) {
+            applyFriction();
+        }
+
+
+
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            if (!(taxi.orientation[0] == -1 && taxi.orientation[1] == 0)) {
+                taxi.turnLeft(tiledMap);
+            } /*else {
+                taxi.accellerate(tiledMap, Gdx.graphics.getDeltaTime());
+                taxi.driveForward(tiledMap);
+            }*/
+        }
+
+
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            if (!(taxi.orientation[0] == 1 && taxi.orientation[1] == 0)) {
+                taxi.turnRight(tiledMap);
+            }
+                /*else {
+                    taxi.accellerate(tiledMap, Gdx.graphics.getDeltaTime());
+                    taxi.driveForward(tiledMap);
+                }*/
+        }
+
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            taxi.driveForward(tiledMap, Gdx.graphics.getDeltaTime());
+            if (!(taxi.orientation[0] == 0 && taxi.orientation[1] == 1)) {
+                taxi.turnUp(tiledMap);
+            }
+               /* else {
+                taxi.accellerate(tiledMap, Gdx.graphics.getDeltaTime());
+                taxi.driveForward(tiledMap);
+            }
+            */
+
         }
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) taxi.driveForward(tiledMap, -Gdx.graphics.getDeltaTime());
-        if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-            taxi.restart(tiledMap);
-        }
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            System.exit(-1);
+
+
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+            if (!(taxi.orientation[0] == 0 && taxi.orientation[1] == -1)) {
+                taxi.turnDown(tiledMap);
+            } /*else
+                    taxi.accellerate(tiledMap, Gdx.graphics.getDeltaTime());
+                    taxi.driveForward(tiledMap);
+            */
+            }
+
+
+            if (Gdx.input.isKeyPressed(Input.Keys.R)) {
+                taxi.restart(tiledMap);
+            }
+            if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+                System.exit(-1);
+            }
+
+            if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+                taxi.accellerate(tiledMap, 25);
+                applyFriction();
+                taxi.driveForward(tiledMap);
+
+            }
+
         }
     }
-}
+
 
 
 
