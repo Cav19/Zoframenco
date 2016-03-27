@@ -43,6 +43,7 @@ public class UberGame extends ApplicationAdapter {
     //public float height =(float)screenSize.getHeight();
     public float width = 1000;
     public float height = 1000;
+    float[] decelleration= new float[2];
 
 
     @Override
@@ -92,21 +93,20 @@ public class UberGame extends ApplicationAdapter {
         batch.end();
     }
 
-    public void applyFriction(){
+    public void applyFriction(float[] decelleration){
         System.out.println(Gdx.graphics.getDeltaTime());
-        taxi.velociy[0] -= (float)(taxi.velociy[0] * 0.015);
-        taxi.velociy[1] -= (float)(taxi.velociy[1] * 0.015);
+        taxi.velociy[0] -=  taxi.velociy[0]*0.015;//decelleration[0];
+        taxi.velociy[1] -= taxi.velociy[1] *0.015;//decelleration[1];
         taxi.driveForward(tiledMap);
     }
 
     public void play() {
-       System.out.println(taxi.velociy[0] + " and " + taxi.velociy[1]);
+        System.out.println(taxi.velociy[0] + " and " + taxi.velociy[1]);
 
 
-        if (!(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))) {
-            applyFriction();
+        if (!(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))){
+            applyFriction(decelleration);
         }
-
 
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
@@ -116,6 +116,7 @@ public class UberGame extends ApplicationAdapter {
                 taxi.accellerate(tiledMap, Gdx.graphics.getDeltaTime());
                 taxi.driveForward(tiledMap);
             }*/
+            move();
         }
 
 
@@ -123,6 +124,7 @@ public class UberGame extends ApplicationAdapter {
             if (!(taxi.orientation[0] == 1 && taxi.orientation[1] == 0)) {
                 taxi.turnRight(tiledMap);
             }
+            move();
                 /*else {
                     taxi.accellerate(tiledMap, Gdx.graphics.getDeltaTime());
                     taxi.driveForward(tiledMap);
@@ -133,6 +135,8 @@ public class UberGame extends ApplicationAdapter {
             if (!(taxi.orientation[0] == 0 && taxi.orientation[1] == 1)) {
                 taxi.turnUp(tiledMap);
             }
+            move();
+
                /* else {
                 taxi.accellerate(tiledMap, Gdx.graphics.getDeltaTime());
                 taxi.driveForward(tiledMap);
@@ -145,28 +149,34 @@ public class UberGame extends ApplicationAdapter {
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             if (!(taxi.orientation[0] == 0 && taxi.orientation[1] == -1)) {
                 taxi.turnDown(tiledMap);
-            } /*else
+            }
+            move();
+                    /*else
                     taxi.accellerate(tiledMap, Gdx.graphics.getDeltaTime());
                     taxi.driveForward(tiledMap);
             */
-            }
-
-
-            if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-                taxi.restart(tiledMap);
-            }
-            if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-                System.exit(-1);
-            }
-
-            if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
-                taxi.accellerate(tiledMap, 25);
-                applyFriction();
-                taxi.driveForward(tiledMap);
-
-            }
-
         }
+
+
+        if (Gdx.input.isKeyPressed(Input.Keys.R)) {
+            taxi.restart(tiledMap);
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+            System.exit(-1);
+        }
+    }
+
+
+
+
+    public void move(){
+        taxi.accellerate(tiledMap, 25);
+        decelleration[0]= (float)(taxi.velociy[0] * 0.1);
+        decelleration[1]= (float)(taxi.velociy[1] * 0.1);
+        applyFriction(decelleration);
+        taxi.driveForward(tiledMap);
+    }
+
     }
 
 

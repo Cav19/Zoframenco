@@ -112,20 +112,30 @@ public class Car {
     }
 
     public void turnUp(TiledMap tiledMap) {
+        velociy[0]=(velociy[0]*orientation[0]*velociy[1]*orientation[1]);
+        velociy[1]=velociy[0]*orientation[0]*velociy[1]*orientation[1];
+
         velociy[0]=0;
         if (!(orientation[0] == 0 && orientation[1] == 1)) {
             turnLeft(tiledMap);
             sprite.rotate90(true);
             setOrientation(0,1);
+            velociy[0]=velociy[0]*orientation[0];
+            velociy[1]=velociy[1]*orientation[1];
         }
     }
 
     public void turnDown(TiledMap tiledMap){
+        velociy[0]=(velociy[0]*orientation[0]*velociy[1]*orientation[1]);
+        velociy[1]=velociy[0]*orientation[0]*velociy[1]*orientation[1];
+
         velociy[0]=0;
         if (!(orientation[0] == 0 && orientation[1] == -1)) {
             turnLeft(tiledMap);
             sprite.rotate90(false);
             setOrientation(0,-1);
+            velociy[0]=velociy[0]*orientation[0];
+            velociy[1]=velociy[1]*orientation[1];
         }
 
     }
@@ -160,7 +170,8 @@ public class Car {
 
 
     public void turnLeft(TiledMap tiledMap) {
-        velociy[1]=0;
+        velociy[0]=(velociy[1]*orientation[1]);
+        velociy[1]=velociy[0]*orientation[0];
         if (this.velociy[0]>0){velociy[0]=0;}
 
         if (!((orientation[0] == -1) && (orientation[1] == 0))) {
@@ -175,16 +186,23 @@ public class Car {
             }
         }
         setOrientation(-1, 0);
+
+        velociy[0]=velociy[0]*orientation[0];
+        velociy[1]=velociy[1]*orientation[1];
+
     }
 
     public void turnRight(TiledMap tiledMap) {
-        velociy[1]=0;
+        velociy[0]=(velociy[0]*orientation[0]*velociy[1]*orientation[1]);
+        velociy[1]=velociy[0]*orientation[0]*velociy[1]*orientation[1];
 
         if (!((orientation[0] == 1) && (orientation[1] == 0))) {
 
             turnUp(tiledMap);
             sprite.rotate90(true);
             setOrientation(1, 0);
+            velociy[0]=velociy[0]*orientation[0];
+            velociy[1]=velociy[1]*orientation[1];
         }
     }
 
