@@ -2,9 +2,10 @@
  http://www.gamefromscratch.com/post/2014/04/16/LibGDX-Tutorial-11-Tiled-Maps-Part-1-Simple-Orthogonal-Maps.aspx
  on 2/27/2016
 
-
-CURRENT COMMANDS: SPACE BAR TO ACCELLERATE,
-                 ARROWS TO TURN THE CAR IN THE DIRECTION OF THE ARROW PRESSED
+AUDIO FILE FOR AMBIENT NOISE
+Title: City Traffic And Construction
+About: City traffic and construction sounds from busy intersection in kill devil hills north carolina
+Uploaded: 06.03.09 | License: Attribution 3.0 | Recorded by Mike Koenig | File Size: 4.66 MB | Downloads: 42600
 
 */
 
@@ -16,6 +17,8 @@ import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -44,6 +47,9 @@ public class UberGame extends ApplicationAdapter {
     public float width = 1000;
     public float height = 1000;
     float[] decelleration= new float[2];
+
+
+
 
 
     @Override
@@ -91,18 +97,28 @@ public class UberGame extends ApplicationAdapter {
         batch.begin();
         taxi.getSprite().draw(batch);
         batch.end();
+
+
+
     }
 
     public void applyFriction(float[] decelleration){
-        System.out.println(Gdx.graphics.getDeltaTime());
         taxi.velociy[0] -=  taxi.velociy[0]*0.015;//decelleration[0];
         taxi.velociy[1] -= taxi.velociy[1] *0.015;//decelleration[1];
         taxi.driveForward(tiledMap);
     }
+    boolean gameStarted=false;
+
 
     public void play() {
-        System.out.println(taxi.velociy[0] + " and " + taxi.velociy[1]);
 
+        if (!gameStarted) {
+
+            Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
+            backgroundMusic.setLooping(true);
+            backgroundMusic.play();
+            gameStarted = true;
+        }
 
         if (!(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))){
             applyFriction(decelleration);
@@ -112,6 +128,7 @@ public class UberGame extends ApplicationAdapter {
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             if (!(taxi.orientation[0] == -1 && taxi.orientation[1] == 0)) {
                 taxi.turnLeft(tiledMap);
+                taxi.playTiresNoise();
             } /*else {
                 taxi.accellerate(tiledMap, Gdx.graphics.getDeltaTime());
                 taxi.driveForward(tiledMap);
@@ -123,6 +140,8 @@ public class UberGame extends ApplicationAdapter {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             if (!(taxi.orientation[0] == 1 && taxi.orientation[1] == 0)) {
                 taxi.turnRight(tiledMap);
+                taxi.playTiresNoise();
+
             }
             move();
                 /*else {
@@ -134,6 +153,8 @@ public class UberGame extends ApplicationAdapter {
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             if (!(taxi.orientation[0] == 0 && taxi.orientation[1] == 1)) {
                 taxi.turnUp(tiledMap);
+                taxi.playTiresNoise();
+
             }
             move();
 
@@ -149,6 +170,8 @@ public class UberGame extends ApplicationAdapter {
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             if (!(taxi.orientation[0] == 0 && taxi.orientation[1] == -1)) {
                 taxi.turnDown(tiledMap);
+                taxi.playTiresNoise();
+
             }
             move();
                     /*else

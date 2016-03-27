@@ -1,7 +1,22 @@
-package com.mygdx.game;
+/*
+TIRES NOISE CREDITS
+Title: Tires Squealing
+About: Sound of a truck or large cars tires squealing loud and clear. sound recorded in stereo. great city, car, or similar sound effect.
+Uploaded: 11.14.09 | License: Attribution 3.0 | Recorded by Mike Koenig | File Size: 163 KB
 
+
+
+
+
+
+
+
+ */
+package com.mygdx.game;
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -42,7 +57,7 @@ public class Car {
     //public float height =(float)screenSize.getHeight();
     public float width = 1000;
     public float height = 1000;
-
+    public float time_sinceLastNoise=Gdx.app.getGraphics().getDeltaTime();
 
     private float shift;
 
@@ -106,7 +121,6 @@ public class Car {
             this.velociy[0] += (float) (0.1 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0];
             this.velociy[1] += (float) (0.1 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1];
         }
-        System.out.println("Current velocity is "+this.velociy[0] + " "+ this.velociy[1]  );
         driveForward(tiledMap);
 
     }
@@ -125,12 +139,21 @@ public class Car {
         }
     }
 
+    public void playTiresNoise() {
+        System.out.println("time since last noise is :"+ time_sinceLastNoise);
+
+        Sound tiresNoise = Gdx.audio.newSound(Gdx.files.internal("tiresNoise.mp3"));
+        tiresNoise.play();
+        }
+
+
     public void turnDown(TiledMap tiledMap){
         velociy[0]=(velociy[0]*orientation[0]*velociy[1]*orientation[1]);
         velociy[1]=velociy[0]*orientation[0]*velociy[1]*orientation[1];
 
         velociy[0]=0;
         if (!(orientation[0] == 0 && orientation[1] == -1)) {
+
             turnLeft(tiledMap);
             sprite.rotate90(false);
             setOrientation(0,-1);
@@ -176,6 +199,7 @@ public class Car {
 
         if (!((orientation[0] == -1) && (orientation[1] == 0))) {
             //driveForward(tiledMap, 100);
+
             if (orientation[0] == 0 && orientation[1] == 1) {
                 sprite.rotate90(false);
             } else if (orientation[0] == 0 && orientation[1] == -1) {
@@ -219,7 +243,6 @@ public class Car {
     }
 
     public void setOrientation(int x, int y) {
-        //System.out.println("Setting orientation to "+x+" and "+ y);
         this.orientation[0]=x;
         this.orientation[1]=y;
     }
