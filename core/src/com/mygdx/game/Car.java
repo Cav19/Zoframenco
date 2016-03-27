@@ -4,16 +4,18 @@ Title: Tires Squealing
 About: Sound of a truck or large cars tires squealing loud and clear. sound recorded in stereo. great city, car, or similar sound effect.
 Uploaded: 11.14.09 | License: Attribution 3.0 | Recorded by Mike Koenig | File Size: 163 KB
 
+CRASH SOUND:
 
-
-
-
-
-
+Title: Strong Punch
+About: Nice strong punch or punching sound effect. nice for kung fu boxing or other fight scene or game.
+Uploaded: 03.04.11 | License: Attribution 3.0 | Recorded by Mike Koenig | File Size: 192 K
 
  */
+
+
 package com.mygdx.game;
-import com.badlogic.gdx.ApplicationAdapter;
+
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.audio.Sound;
@@ -88,22 +90,41 @@ public class Car {
 
         if (X_pos + (int) this.getSprite().getWidth() >= width) {
             collision = true;
+            playCollisionNoise();
+            velociy[0]=0;
+            velociy[1]=0;
         }
         if (X_pos <= 0) {
             collision = true;
+            playCollisionNoise();
+
+            velociy[0]=0;
+            velociy[1]=0;
 
         }
         if (Y_pos + (int) this.getSprite().getWidth() >= height) {
 
             collision = true;
+            playCollisionNoise();
+
+            velociy[0]=0;
+            velociy[1]=0;
         }
         if (Y_pos <= 0) {
 
             collision = true;
+            playCollisionNoise();
+
+            velociy[0]=0;
+            velociy[1]=0;
         }
 
         if (blocked(X_pos, Y_pos, tiledMap) || blocked(X_pos + 15, Y_pos+5, tiledMap) || blocked(X_pos, Y_pos + 25, tiledMap)) {
             collision = true;
+            playCollisionNoise();
+
+            velociy[0]=0;
+            velociy[1]=0;
         }
 
         return collision;
@@ -118,18 +139,16 @@ public class Car {
         if (this.velociy[0]==0){ this.velociy[0]+=orientation[0]*0.3;}
         if (this.velociy[1]==0){ this.velociy[1]+=orientation[1]*0.3;}
         if ((velociy[0]>-3) && (velociy[0]<3) && (velociy[1]>-3) && (velociy[1]<3)) {
-            this.velociy[0] += (float) (0.1 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0];
-            this.velociy[1] += (float) (0.1 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1];
+            this.velociy[0] += (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0];
+            this.velociy[1] += (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1];
         }
         driveForward(tiledMap);
-
     }
 
     public void turnUp(TiledMap tiledMap) {
-        velociy[0]=(velociy[0]*orientation[0]*velociy[1]*orientation[1]);
-        velociy[1]=velociy[0]*orientation[0]*velociy[1]*orientation[1];
+        velociy[0]=(velociy[0]*orientation[0]+velociy[1]*orientation[1]);
+        velociy[1]=velociy[0]*orientation[0]+velociy[1]*orientation[1];
 
-        velociy[0]=0;
         if (!(orientation[0] == 0 && orientation[1] == 1)) {
             turnLeft(tiledMap);
             sprite.rotate90(true);
@@ -140,18 +159,38 @@ public class Car {
     }
 
     public void playTiresNoise() {
-        System.out.println("time since last noise is :"+ time_sinceLastNoise);
+        if (time_sinceLastNoise == 30) {
+            time_sinceLastNoise = 1;
+            Sound tiresNoise = Gdx.audio.newSound(Gdx.files.internal("tiresNoise.mp3"));
 
-        Sound tiresNoise = Gdx.audio.newSound(Gdx.files.internal("tiresNoise.mp3"));
-        tiresNoise.play();
+
+            tiresNoise.play((float)0.3);
         }
+        else time_sinceLastNoise++;
+    }
+
+
+
+    public void playCollisionNoise() {
+            Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
+            collisionNoise.setPosition((float) 50);
+            collisionNoise.setVolume(75);
+        if (velociy[0]*orientation[0] + velociy[1]*orientation[1] !=0) {
+            collisionNoise.play();
+        }
+
+        else collisionNoise.stop();
+
+    }
+
+
+
 
 
     public void turnDown(TiledMap tiledMap){
-        velociy[0]=(velociy[0]*orientation[0]*velociy[1]*orientation[1]);
-        velociy[1]=velociy[0]*orientation[0]*velociy[1]*orientation[1];
+        velociy[0]=(velociy[0]*orientation[0]+velociy[1]*orientation[1]);
+        velociy[1]=velociy[0]*orientation[0]+velociy[1]*orientation[1];
 
-        velociy[0]=0;
         if (!(orientation[0] == 0 && orientation[1] == -1)) {
 
             turnLeft(tiledMap);
@@ -168,11 +207,11 @@ public class Car {
         float old_Y = Y_pos;
         if (!checkCollisions(velociy, tiledMap)) {
             sprite.setPosition(X_pos, Y_pos);
-            } else {
-                X_pos = old_X;
-                Y_pos = old_Y;
-            }
+        } else {
+            X_pos = old_X;
+            Y_pos = old_Y;
         }
+    }
 
 
 /*
@@ -193,9 +232,9 @@ public class Car {
 
 
     public void turnLeft(TiledMap tiledMap) {
-        velociy[0]=(velociy[1]*orientation[1]);
-        velociy[1]=velociy[0]*orientation[0];
-        if (this.velociy[0]>0){velociy[0]=0;}
+        velociy[0]=(velociy[1]*orientation[1] +velociy[0]*orientation[0]);
+        velociy[1]=velociy[0]*orientation[0] + velociy[1]*orientation[1];
+
 
         if (!((orientation[0] == -1) && (orientation[1] == 0))) {
             //driveForward(tiledMap, 100);
@@ -217,12 +256,11 @@ public class Car {
     }
 
     public void turnRight(TiledMap tiledMap) {
-        velociy[0]=(velociy[0]*orientation[0]*velociy[1]*orientation[1]);
-        velociy[1]=velociy[0]*orientation[0]*velociy[1]*orientation[1];
 
         if (!((orientation[0] == 1) && (orientation[1] == 0))) {
-
             turnUp(tiledMap);
+            velociy[0]=(velociy[0]*orientation[0]+velociy[1]*orientation[1]);
+            velociy[1]=velociy[0]*orientation[0]+velociy[1]*orientation[1];
             sprite.rotate90(true);
             setOrientation(1, 0);
             velociy[0]=velociy[0]*orientation[0];

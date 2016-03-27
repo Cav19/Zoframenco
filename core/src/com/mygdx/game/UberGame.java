@@ -10,15 +10,12 @@ Uploaded: 06.03.09 | License: Attribution 3.0 | Recorded by Mike Koenig | File S
 */
 
 
-
 package com.mygdx.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.Graphics;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -28,45 +25,38 @@ import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
-
 import java.awt.*;
 
 
 public class UberGame extends ApplicationAdapter {
 
 
-    SpriteBatch batch;
-    private Texture taxiImg;
-    private OrthographicCamera camera;
-    private Car taxi;
-    TiledMap tiledMap;
-    TiledMapRenderer tiledMapRenderer;
-    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     //public float width = (float)screenSize.getWidth();
     //public float height =(float)screenSize.getHeight();
     public float width = 1000;
     public float height = 1000;
-    float[] decelleration= new float[2];
-
-
-
-
+    SpriteBatch batch;
+    TiledMap tiledMap;
+    TiledMapRenderer tiledMapRenderer;
+    Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+    float[] decelleration = new float[2];
+    boolean gameStarted = false;
+    private Texture taxiImg;
+    private OrthographicCamera camera;
+    private Car taxi;
 
     @Override
     public void create() {
 
         setUpScreen();
         createCar();
-
     }
 
     @Override
     public void render() {
         drawGameObjects();
         play();
-
     }
-
 
     public void setUpScreen() {
         Gdx.graphics.setWindowedMode((int) width, (int) height);
@@ -78,7 +68,6 @@ public class UberGame extends ApplicationAdapter {
         camera.update();
     }
 
-
     public void createCar() {
         taxiImg = new Texture("tiny_car_square.png");
         taxi = new Car(taxiImg, this.camera);
@@ -89,7 +78,6 @@ public class UberGame extends ApplicationAdapter {
         taxi.setOrientation(0, 1);
     }
 
-
     public void drawGameObjects() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         tiledMapRenderer.setView(camera);
@@ -97,18 +85,13 @@ public class UberGame extends ApplicationAdapter {
         batch.begin();
         taxi.getSprite().draw(batch);
         batch.end();
-
-
-
     }
 
-    public void applyFriction(float[] decelleration){
-        taxi.velociy[0] -=  taxi.velociy[0]*0.015;//decelleration[0];
-        taxi.velociy[1] -= taxi.velociy[1] *0.015;//decelleration[1];
-        taxi.driveForward(tiledMap);
+    public void applyFriction(float[] decelleration) {
+        taxi.velociy[0] -= taxi.velociy[0] * 0.05;//decelleration[0];
+        taxi.velociy[1] -= taxi.velociy[1] * 0.05;//decelleration[1];
+       // taxi.driveForward(tiledMap);
     }
-    boolean gameStarted=false;
-
 
     public void play() {
 
@@ -116,12 +99,13 @@ public class UberGame extends ApplicationAdapter {
 
             Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
             backgroundMusic.setLooping(true);
+            backgroundMusic.setVolume((float)0.1);
             backgroundMusic.play();
             gameStarted = true;
         }
 
-        if (!(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))){
-            applyFriction(decelleration);
+        if (!(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))) {
+            move(0);
         }
 
 
@@ -129,11 +113,8 @@ public class UberGame extends ApplicationAdapter {
             if (!(taxi.orientation[0] == -1 && taxi.orientation[1] == 0)) {
                 taxi.turnLeft(tiledMap);
                 taxi.playTiresNoise();
-            } /*else {
-                taxi.accellerate(tiledMap, Gdx.graphics.getDeltaTime());
-                taxi.driveForward(tiledMap);
-            }*/
-            move();
+            }
+            move(25);
         }
 
 
@@ -143,27 +124,15 @@ public class UberGame extends ApplicationAdapter {
                 taxi.playTiresNoise();
 
             }
-            move();
-                /*else {
-                    taxi.accellerate(tiledMap, Gdx.graphics.getDeltaTime());
-                    taxi.driveForward(tiledMap);
-                }*/
+            move(25);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             if (!(taxi.orientation[0] == 0 && taxi.orientation[1] == 1)) {
                 taxi.turnUp(tiledMap);
                 taxi.playTiresNoise();
-
             }
-            move();
-
-               /* else {
-                taxi.accellerate(tiledMap, Gdx.graphics.getDeltaTime());
-                taxi.driveForward(tiledMap);
-            }
-            */
-
+            move(25);
         }
 
 
@@ -171,13 +140,8 @@ public class UberGame extends ApplicationAdapter {
             if (!(taxi.orientation[0] == 0 && taxi.orientation[1] == -1)) {
                 taxi.turnDown(tiledMap);
                 taxi.playTiresNoise();
-
             }
-            move();
-                    /*else
-                    taxi.accellerate(tiledMap, Gdx.graphics.getDeltaTime());
-                    taxi.driveForward(tiledMap);
-            */
+            move(25);
         }
 
 
@@ -190,17 +154,14 @@ public class UberGame extends ApplicationAdapter {
     }
 
 
-
-
-    public void move(){
-        taxi.accellerate(tiledMap, 25);
-        decelleration[0]= (float)(taxi.velociy[0] * 0.1);
-        decelleration[1]= (float)(taxi.velociy[1] * 0.1);
+    public void move(int accelleration) {
+        taxi.accellerate(tiledMap, accelleration);
+        decelleration[0] = (float) (taxi.velociy[0] * 0.15);
+        decelleration[1] = (float) (taxi.velociy[1] * 0.15);
         applyFriction(decelleration);
         taxi.driveForward(tiledMap);
     }
-
-    }
+}
 
 
 
