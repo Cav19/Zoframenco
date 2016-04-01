@@ -26,6 +26,7 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 import java.awt.*;
+import java.util.HashMap;
 
 
 public class UberGame extends ApplicationAdapter {
@@ -44,12 +45,15 @@ public class UberGame extends ApplicationAdapter {
     private Texture taxiImg;
     private OrthographicCamera camera;
     private Car taxi;
+    private HashMap<Integer, Location> locations;
+    private final int NUM_LOCATIONS = 18;
 
     @Override
     public void create() {
 
         setUpScreen();
         createCar();
+        createLocations();
     }
 
     @Override
@@ -76,6 +80,13 @@ public class UberGame extends ApplicationAdapter {
         taxi.Y_pos = (int) (height / 2);
         taxi.getSprite().setSize((int) (width / 25), (int) (width / 25));
         taxi.setOrientation(0, 1);
+    }
+
+    public void createLocations(){
+        locations = new HashMap<Integer, Location>();
+        for (int i = 0; i < NUM_LOCATIONS; i++) {
+            locations.put(i, new Location(i));
+        }
     }
 
     public void drawGameObjects() {
