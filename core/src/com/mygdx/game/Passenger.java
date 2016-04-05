@@ -2,53 +2,85 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g3d.particles.influencers.ModelInfluencer;
-import com.badlogic.gdx.math.Rectangle;
+
+import java.util.HashMap;
 
 /**
- * Created by Valenti on 3/7/2016.
+ * Created by Connor Valenti on 3/29/2016.
  */
 public class Passenger {
-    private Sprite sprite;
+
     private Texture texture;
-    private float x;
-    private float y;
-    private Rectangle rectangle;
+    private Sprite sprite;
 
     private int fare;
+    private int timer;
+    private Location origin;
+    private Location destination;
 
 
-    public Passenger(Texture texture, float width, float height){
+    public Passenger(Texture texture, HashMap<Integer, Location> locations){
         this.texture = texture;
         this.sprite = new Sprite(texture);
-        //sprite.setRegion(x, y, 100, 100);
-        setPosition(width, height);
+        this.origin = setOrigin(locations);
+        this.destination = setDestination(locations);
+        this.fare = (int)(getTravelDistance(origin, destination) / 2);
+        this.timer = (int)(getTravelDistance(origin, destination) / 4 + 15);
+        sprite.setRegionWidth(75);
+        sprite.setRegionHeight(75);
     }
 
-    private void setPosition(float width, float height){
-        x = (float)Math.random() * width;
-        y = (float)Math.random() * height;
-        sprite.setX(x);
-        sprite.setY(y);
+    public Texture getTexture(){
+        return texture;
     }
 
-    /*private void getInCar(){
-
-    }
-
-    public boolean isCarNear(){
-        if()
-    }
-    */
     public Sprite getSprite(){
         return sprite;
     }
 
-    public void setSprite(Sprite sprite){
-        this.sprite = sprite;
+    public Location setOrigin(HashMap<Integer, Location> locations){
+        Location origin;
+        do{
+            int num = (int)(Math.random() * 18);
+            origin = locations.get(num);
+        } while(origin.isFull());
+        sprite.setX(origin.getX());
+        sprite.setY(origin.getY());
+        origin.addPassenger();
+        return origin;
     }
 
-    public void setTexture(Texture texture){
-        this.texture = texture;
+    public Location setDestination(HashMap<Integer, Location> locations){
+        Location destination;
+        do{
+            int num = (int)(Math.random() * 18);
+            destination = locations.get(num);
+        } while(destination.isFull());
+        return destination;
     }
+
+    public double getTravelDistance(Location location, Location destination){
+        float xDist = Math.abs(location.getX() - destination.getX());
+        float yDist = Math.abs(location.getY() - destination.getY());
+        double distance = Math.sqrt(xDist * xDist + yDist * yDist);
+
+        return distance;
+    }
+
+    public void setFare(int fare){
+        this.fare = fare;
+    }
+
+    public void setTimer(int timer){
+        this.timer = timer;
+    }
+
+    public int getTimer(){
+        return timer;
+    }
+
+    public int getFare(){
+        return fare;
+    }
+
 }

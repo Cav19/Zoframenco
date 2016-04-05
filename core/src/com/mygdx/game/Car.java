@@ -38,6 +38,7 @@ import java.awt.*;
 public class Car {
     private Sprite sprite;
     private Texture texture;
+    private boolean full;
     public float X_pos = 0;
     public float Y_pos = 0;
     public Camera camera;
@@ -51,6 +52,7 @@ public class Car {
         this.sprite = new Sprite(texture);
         this.camera = camera;
         this.velociy=velociy;
+        this.full = false;
     }
 
 

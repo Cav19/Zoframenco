@@ -26,6 +26,7 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 import java.awt.*;
+import java.util.HashMap;
 
 
 public class UberGame extends ApplicationAdapter {
@@ -42,14 +43,21 @@ public class UberGame extends ApplicationAdapter {
     float[] decelleration = new float[2];
     boolean gameStarted = false;
     private Texture taxiImg;
+    private Texture person;
     private OrthographicCamera camera;
     private Car taxi;
+    private Passenger passenger1;
+    private Passenger passenger2;
+    private HashMap<Integer, Location> locations;
+    private final int NUM_LOCATIONS = 18;
 
     @Override
     public void create() {
 
         setUpScreen();
         createCar();
+        createLocations();
+        createPassengers();
     }
 
     @Override
@@ -78,12 +86,44 @@ public class UberGame extends ApplicationAdapter {
         taxi.setOrientation(0, 1);
     }
 
+    public void createLocations(){
+        locations = new HashMap<Integer, Location>();
+        locations.put(0, new Location(70, 130));
+        locations.put(1, new Location(230, 10));
+        locations.put(2, new Location(510, 130));
+        locations.put(3, new Location(910, 10));
+        locations.put(4, new Location(160, 330));
+        locations.put(5, new Location(470, 210));
+        locations.put(6, new Location(710, 330));
+        locations.put(7, new Location(110, 410));
+        locations.put(8, new Location(270, 530));
+        locations.put(9, new Location(710, 410));
+        locations.put(10, new Location(910, 530));
+        locations.put(11, new Location(110, 930));
+        locations.put(12, new Location(370, 730));
+        locations.put(13, new Location(310, 930));
+        locations.put(14, new Location(510, 810));
+        locations.put(15, new Location(630, 610));
+        locations.put(16, new Location(910, 730));
+        locations.put(17, new Location(630, 930));
+    }
+
+
+    public void createPassengers(){
+        person = new Texture("stick_figure.png");
+        passenger1 = new Passenger(person, locations);
+        passenger2 = new Passenger(person, locations);
+    }
+
+
     public void drawGameObjects() {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
         batch.begin();
         taxi.getSprite().draw(batch);
+        passenger1.getSprite().draw(batch);
+        passenger2.getSprite().draw(batch);
         batch.end();
     }
 
