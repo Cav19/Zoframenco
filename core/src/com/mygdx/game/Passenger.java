@@ -6,7 +6,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import java.util.HashMap;
 
 /**
- * Created by Valenti on 3/29/2016.
+ * Created by Connor Valenti on 3/29/2016.
  */
 public class Passenger {
 
@@ -15,13 +15,19 @@ public class Passenger {
 
     private int fare;
     private int timer;
-    private Location location;
+    private Location origin;
     private Location destination;
 
 
-    public Passenger(Texture texture){
+    public Passenger(Texture texture, HashMap<Integer, Location> locations){
         this.texture = texture;
         this.sprite = new Sprite(texture);
+        this.origin = setOrigin(locations);
+        this.destination = setDestination(locations);
+        this.fare = (int)(getTravelDistance(origin, destination) / 2);
+        this.timer = (int)(getTravelDistance(origin, destination) / 4 + 15);
+        sprite.setRegionWidth(75);
+        sprite.setRegionHeight(75);
     }
 
     public Texture getTexture(){
@@ -32,19 +38,25 @@ public class Passenger {
         return sprite;
     }
 
-    public void setLocation(HashMap<Integer, Location> locations){
-        int num = (int)(Math.random() * 18);
+    public Location setOrigin(HashMap<Integer, Location> locations){
+        Location origin;
         do{
-            this.location = locations.get(num);
-        } while(location.isFull());
-        location.addPassenger();
+            int num = (int)(Math.random() * 18);
+            origin = locations.get(num);
+        } while(origin.isFull());
+        sprite.setX(origin.getX());
+        sprite.setY(origin.getY());
+        origin.addPassenger();
+        return origin;
     }
 
-    public void setDestination(HashMap<Integer, Location> locations){
-        int num = (int)(Math.random() * 18);
+    public Location setDestination(HashMap<Integer, Location> locations){
+        Location destination;
         do{
-            this.destination = locations.get(num);
-        } while(!destination.getName().equals(location.getName()));
+            int num = (int)(Math.random() * 18);
+            destination = locations.get(num);
+        } while(destination.isFull());
+        return destination;
     }
 
     public double getTravelDistance(Location location, Location destination){
@@ -53,6 +65,22 @@ public class Passenger {
         double distance = Math.sqrt(xDist * xDist + yDist * yDist);
 
         return distance;
+    }
+
+    public void setFare(int fare){
+        this.fare = fare;
+    }
+
+    public void setTimer(int timer){
+        this.timer = timer;
+    }
+
+    public int getTimer(){
+        return timer;
+    }
+
+    public int getFare(){
+        return fare;
     }
 
 }
