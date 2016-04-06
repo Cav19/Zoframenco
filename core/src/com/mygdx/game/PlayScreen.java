@@ -40,7 +40,7 @@ public class PlayScreen implements Screen {
         gamePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, game.camera);
         game.camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         //taxi=game.taxi;
-        game.tiledMap = new TmxMapLoader().load("map@9March.tmx");
+        game.tiledMap = new TmxMapLoader().load("map@1April.tmx");
         batch = new SpriteBatch();
     }
 

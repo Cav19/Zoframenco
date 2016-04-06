@@ -81,7 +81,7 @@ public class Car {
 
 
         MapLayers allLayers = tiledMap.getLayers();
-        TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(1);
+        TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
 
         return (cell != null) &&  (cell.getTile() != null)  &&  (!(cell.getTile().getProperties().containsKey("road")));
