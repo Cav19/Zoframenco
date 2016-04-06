@@ -31,11 +31,9 @@ import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
 
 import java.awt.*;
 
-/**
- * Created by Valenti on 3/2/2016.
- */
 
 public class Car {
+    private MyGdxGame game;
     private Sprite sprite;
     private Texture texture;
     private boolean full;
@@ -51,9 +49,23 @@ public class Car {
         this.orientation = orientation;
         this.sprite = new Sprite(texture);
         this.camera = camera;
-        this.velociy=velociy;
         this.full = false;
+        this.game=game;
+
     }
+
+    public Car(MyGdxGame game){
+        this.camera = game.camera;
+        this.game=game;
+    }
+
+    public void setSprite(Texture texture) {
+        this.sprite=new Sprite(texture);
+    }
+
+
+
+
 
 
     //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -174,9 +186,9 @@ public class Car {
 
 
     public void playCollisionNoise() {
-            Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
-            collisionNoise.setPosition((float) 50);
-            collisionNoise.setVolume(75);
+        Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
+        collisionNoise.setPosition((float) 50);
+        collisionNoise.setVolume(75);
         if (velociy[0]*orientation[0] + velociy[1]*orientation[1] !=0) {
             collisionNoise.play();
         }
@@ -216,22 +228,6 @@ public class Car {
     }
 
 
-/*
-    public void driveBackward(TiledMap tiledMap, float DeltaTime) { // to be fixed, it is currently same as forward
-        shift = (int) (velocity * Gdx.graphics.getDeltaTime());
-
-        float old_X = X_pos;
-        float old_Y = Y_pos;
-        if (!check_BackwardCollisions(velocity, tiledMap)) {
-            sprite.setPosition(X_pos, Y_pos);
-        } else {
-            X_pos = old_X;
-            Y_pos = old_Y;
-        }
-    }
-
-    */
-
 
     public void turnLeft(TiledMap tiledMap) {
         velociy[0]=(velociy[1]*orientation[1] +velociy[0]*orientation[0]);
@@ -239,7 +235,6 @@ public class Car {
 
 
         if (!((orientation[0] == -1) && (orientation[1] == 0))) {
-            //driveForward(tiledMap, 100);
 
             if (orientation[0] == 0 && orientation[1] == 1) {
                 sprite.rotate90(false);
@@ -269,7 +264,6 @@ public class Car {
             velociy[1]=velociy[1]*orientation[1];
         }
     }
-
     public Sprite getSprite() {
         return sprite;
     }
@@ -297,4 +291,22 @@ public class Car {
         X_pos = (int) (width / 2);
         this.sprite.setPosition(X_pos, Y_pos);
     }
+
+
+
+    public void move(int accelleration) {
+        if (game.tiledMap==null) {
+            System.out.println("Tiledmap always null");
+        }
+        game.taxi.accellerate(game.tiledMap, accelleration);
+
+        game.decelleration[0] = (float) (this.velociy[0] * 0.15);
+        game.decelleration[1] = (float) (this.velociy[1] * 0.15);
+        game.applyFriction(game.decelleration);
+        this.driveForward(game.tiledMap);
+        game.camera.update();
+
+    }
+
+
 }
