@@ -7,9 +7,808 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="610113b1-11e4-4769-9629-1265549a135f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileHashes.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/fileSnapshots.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/outputFileStates.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/taskArtifacts.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_15n7tienius0bq4yh7ff3mmt7/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_15n7tienius0bq4yh7ff3mmt7/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_15n7tienius0bq4yh7ff3mmt7/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_15n7tienius0bq4yh7ff3mmt7/proj/classes/build_15n7tienius0bq4yh7ff3mmt7$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_15n7tienius0bq4yh7ff3mmt7/proj/classes/build_15n7tienius0bq4yh7ff3mmt7.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_15n7tienius0bq4yh7ff3mmt7/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/proj/classes/build_1xyyq58xcafx5ekqttp0alcww$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/proj/classes/build_1xyyq58xcafx5ekqttp0alcww$_run_closure2$_closure5$_closure7.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/proj/classes/build_1xyyq58xcafx5ekqttp0alcww$_run_closure2$_closure5.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/proj/classes/build_1xyyq58xcafx5ekqttp0alcww$_run_closure2$_closure6.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/proj/classes/build_1xyyq58xcafx5ekqttp0alcww$_run_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/proj/classes/build_1xyyq58xcafx5ekqttp0alcww$_run_closure3$_closure8.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/proj/classes/build_1xyyq58xcafx5ekqttp0alcww$_run_closure3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/proj/classes/build_1xyyq58xcafx5ekqttp0alcww$_run_closure4$_closure9.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/proj/classes/build_1xyyq58xcafx5ekqttp0alcww$_run_closure4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/proj/classes/build_1xyyq58xcafx5ekqttp0alcww.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/cp_proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure1$_closure2$_closure4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/cp_proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure1$_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/cp_proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure1$_closure3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/cp_proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/cp_proj/classes/build_23d6h07n9107ykjr68hqv895w.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure1$_closure7.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure1$_closure8$_closure10.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure1$_closure8$_closure9.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure1$_closure8.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure2$_closure11.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure3$_closure12.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure4$_closure13.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure5$_closure14.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure5.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w$_run_closure6.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/classes/build_23d6h07n9107ykjr68hqv895w.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/cp_proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure1$_closure2$_closure4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/cp_proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure1$_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/cp_proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure1$_closure3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/cp_proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/cp_proj/classes/build_39d88pfij7mnvhrskjrf6dqpf.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure1$_closure7.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure1$_closure8$_closure10.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure1$_closure8$_closure9.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure1$_closure8.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure2$_closure11.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure3$_closure12.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure4$_closure13.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure5$_closure14.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure5.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf$_run_closure6.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/classes/build_39d88pfij7mnvhrskjrf6dqpf.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/cp_proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure1$_closure2$_closure4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/cp_proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure1$_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/cp_proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure1$_closure3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/cp_proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/cp_proj/classes/build_6sarsshds130dmwffnew09fm9.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure1$_closure6.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure1$_closure7$_closure8.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure1$_closure7$_closure9.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure1$_closure7.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure2$_closure10.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure3$_closure11.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure4$_closure12.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/classes/build_6sarsshds130dmwffnew09fm9$_run_closure5.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/classes/build_6sarsshds130dmwffnew09fm9.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94$_run_closure1$_closure8.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94$_run_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94$_run_closure3$_closure9.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94$_run_closure3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94$_run_closure4$_closure10$_closure11.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94$_run_closure4$_closure10$_closure12.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94$_run_closure4$_closure10$_closure13.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94$_run_closure4$_closure10.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94$_run_closure4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94$_run_closure5.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94$_run_closure6.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94$_run_closure7.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/classes/build_7dsmpf02wb8p97hrhsiqjjp94.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/proj/classes/build_7mr88jej91yqjg5jn4jiyfvch$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/proj/classes/build_7mr88jej91yqjg5jn4jiyfvch$_run_closure2$_closure5$_closure7.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/proj/classes/build_7mr88jej91yqjg5jn4jiyfvch$_run_closure2$_closure5.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/proj/classes/build_7mr88jej91yqjg5jn4jiyfvch$_run_closure2$_closure6.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/proj/classes/build_7mr88jej91yqjg5jn4jiyfvch$_run_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/proj/classes/build_7mr88jej91yqjg5jn4jiyfvch$_run_closure3$_closure8.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/proj/classes/build_7mr88jej91yqjg5jn4jiyfvch$_run_closure3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/proj/classes/build_7mr88jej91yqjg5jn4jiyfvch$_run_closure4$_closure9.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/proj/classes/build_7mr88jej91yqjg5jn4jiyfvch$_run_closure4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/proj/classes/build_7mr88jej91yqjg5jn4jiyfvch.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_98vipl0bexk6mur711cq0gxbn/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_98vipl0bexk6mur711cq0gxbn/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_98vipl0bexk6mur711cq0gxbn/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_98vipl0bexk6mur711cq0gxbn/proj/classes/build_98vipl0bexk6mur711cq0gxbn$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_98vipl0bexk6mur711cq0gxbn/proj/classes/build_98vipl0bexk6mur711cq0gxbn$_run_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_98vipl0bexk6mur711cq0gxbn/proj/classes/build_98vipl0bexk6mur711cq0gxbn.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_98vipl0bexk6mur711cq0gxbn/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_9qoed1kug2wlariki7qoilxqg/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_9qoed1kug2wlariki7qoilxqg/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_9qoed1kug2wlariki7qoilxqg/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_9qoed1kug2wlariki7qoilxqg/proj/classes/build_9qoed1kug2wlariki7qoilxqg$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_9qoed1kug2wlariki7qoilxqg/proj/classes/build_9qoed1kug2wlariki7qoilxqg$_run_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_9qoed1kug2wlariki7qoilxqg/proj/classes/build_9qoed1kug2wlariki7qoilxqg.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_9qoed1kug2wlariki7qoilxqg/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj/classes/build_bbow3lm4j1mpfuj9aj4t0mpza$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj/classes/build_bbow3lm4j1mpfuj9aj4t0mpza$_run_closure2$_closure5$_closure7.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj/classes/build_bbow3lm4j1mpfuj9aj4t0mpza$_run_closure2$_closure5.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj/classes/build_bbow3lm4j1mpfuj9aj4t0mpza$_run_closure2$_closure6.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj/classes/build_bbow3lm4j1mpfuj9aj4t0mpza$_run_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj/classes/build_bbow3lm4j1mpfuj9aj4t0mpza$_run_closure3$_closure8.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj/classes/build_bbow3lm4j1mpfuj9aj4t0mpza$_run_closure3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj/classes/build_bbow3lm4j1mpfuj9aj4t0mpza$_run_closure4$_closure9.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj/classes/build_bbow3lm4j1mpfuj9aj4t0mpza$_run_closure4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj/classes/build_bbow3lm4j1mpfuj9aj4t0mpza.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bk6bxywvck2qj2piftwvdpc98/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bk6bxywvck2qj2piftwvdpc98/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bk6bxywvck2qj2piftwvdpc98/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bk6bxywvck2qj2piftwvdpc98/proj/classes/build_bk6bxywvck2qj2piftwvdpc98$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bk6bxywvck2qj2piftwvdpc98/proj/classes/build_bk6bxywvck2qj2piftwvdpc98.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bk6bxywvck2qj2piftwvdpc98/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b$_run_closure1$_closure8.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b$_run_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b$_run_closure3$_closure9.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b$_run_closure3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b$_run_closure4$_closure10$_closure11.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b$_run_closure4$_closure10$_closure12.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b$_run_closure4$_closure10$_closure13.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b$_run_closure4$_closure10.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b$_run_closure4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b$_run_closure5.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b$_run_closure6.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b$_run_closure7.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/classes/build_cdyo97c3vew30dvkp1k0cuj6b.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8$_run_closure1$_closure8.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8$_run_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8$_run_closure3$_closure9.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8$_run_closure3.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8$_run_closure4$_closure10$_closure11.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8$_run_closure4$_closure10$_closure12.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8$_run_closure4$_closure10$_closure13.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8$_run_closure4$_closure10.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8$_run_closure4.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8$_run_closure5.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8$_run_closure6.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8$_run_closure7.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/classes/build_ee6c8k3ugg5wcnw8r5a8b37y8.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_eh7z1r6fih23aq7bn3t42xh6i/cp_proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_eh7z1r6fih23aq7bn3t42xh6i/cp_proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_eh7z1r6fih23aq7bn3t42xh6i/proj/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_eh7z1r6fih23aq7bn3t42xh6i/proj/classes/build_eh7z1r6fih23aq7bn3t42xh6i$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_eh7z1r6fih23aq7bn3t42xh6i/proj/classes/build_eh7z1r6fih23aq7bn3t42xh6i.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_eh7z1r6fih23aq7bn3t42xh6i/proj/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit0_8qngegxh35hwxfynso8ky5abn/cp_init/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit0_8qngegxh35hwxfynso8ky5abn/cp_init/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit0_8qngegxh35hwxfynso8ky5abn/init/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit0_8qngegxh35hwxfynso8ky5abn/init/classes/JetGradlePlugin.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit0_8qngegxh35hwxfynso8ky5abn/init/classes/ijinit0_8qngegxh35hwxfynso8ky5abn$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit0_8qngegxh35hwxfynso8ky5abn/init/classes/ijinit0_8qngegxh35hwxfynso8ky5abn$_run_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit0_8qngegxh35hwxfynso8ky5abn/init/classes/ijinit0_8qngegxh35hwxfynso8ky5abn.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit0_8qngegxh35hwxfynso8ky5abn/init/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit1_an9udbqf95c388dyjei2ti55h/cp_init/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit1_an9udbqf95c388dyjei2ti55h/cp_init/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit1_an9udbqf95c388dyjei2ti55h/init/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit1_an9udbqf95c388dyjei2ti55h/init/classes/JetGradlePlugin.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit1_an9udbqf95c388dyjei2ti55h/init/classes/ijinit1_an9udbqf95c388dyjei2ti55h$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit1_an9udbqf95c388dyjei2ti55h/init/classes/ijinit1_an9udbqf95c388dyjei2ti55h$_run_closure2.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit1_an9udbqf95c388dyjei2ti55h/init/classes/ijinit1_an9udbqf95c388dyjei2ti55h.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit1_an9udbqf95c388dyjei2ti55h/init/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_5e9h8x6bu1f9zsj7w1yan3v0b/cp_settings/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_5e9h8x6bu1f9zsj7w1yan3v0b/cp_settings/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_5e9h8x6bu1f9zsj7w1yan3v0b/settings/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_5e9h8x6bu1f9zsj7w1yan3v0b/settings/classes/settings_5e9h8x6bu1f9zsj7w1yan3v0b.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_5e9h8x6bu1f9zsj7w1yan3v0b/settings/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_bcj1hi1a8deu4abtezooor0uu/cp_settings/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_bcj1hi1a8deu4abtezooor0uu/cp_settings/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_bcj1hi1a8deu4abtezooor0uu/settings/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_bcj1hi1a8deu4abtezooor0uu/settings/classes/settings_bcj1hi1a8deu4abtezooor0uu.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_bcj1hi1a8deu4abtezooor0uu/settings/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_c2vup1rr4aet6zda5j2mp3al8/cp_settings/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_c2vup1rr4aet6zda5j2mp3al8/cp_settings/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_c2vup1rr4aet6zda5j2mp3al8/settings/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_c2vup1rr4aet6zda5j2mp3al8/settings/classes/settings_c2vup1rr4aet6zda5j2mp3al8.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_c2vup1rr4aet6zda5j2mp3al8/settings/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/wrap0_8n58amwe97lnqzc0mebhjao9l/cp_init/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/wrap0_8n58amwe97lnqzc0mebhjao9l/cp_init/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/wrap0_8n58amwe97lnqzc0mebhjao9l/init/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/wrap0_8n58amwe97lnqzc0mebhjao9l/init/classes/wrap0_8n58amwe97lnqzc0mebhjao9l$_run_closure1.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/wrap0_8n58amwe97lnqzc0mebhjao9l/init/classes/wrap0_8n58amwe97lnqzc0mebhjao9l.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/wrap0_8n58amwe97lnqzc0mebhjao9l/init/metadata/metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/jars-1/237i7cav5u40vsii7sah8tz2xyo6r36/openapi.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/jars-1/87eo0lrvp84r6dbxjq018wy66es2era/guava-jdk5-17.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/jars-1/cache.properties.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/jars-1/ddb3xo63sk87376y3m4i33byir38fre/builder-model-1.3.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/jars-1/mjzb6pkr202klpc4mvbvp2j9mhcyoj2/gradle-base-services-2.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/jars-1/mwrv56hf8unj03tyff0of0vtrm09771/gradle-tooling-extension-api.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/jars-1/ppuug715rid7lfxxo8hcoh44crsa3x4/gradle-tooling-api-2.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/asm/asm/3.3.1/1d5f20b4ea675e6fab6ab79f1cd60ec268ddc015/asm-3.3.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/cglib/cglib/2.2.2/a47a971686474124562bdd4a7ccbd8ac8c3e8b11/cglib-2.2.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/cglib/cglib/2.2.2/fc1558bebc50419cdb55fbffd81c290e21f058c1/cglib-2.2.2-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.9.2/16a698614e134d1071be093302c8537ff1dc8d65/gdx-backend-gwt-1.9.2-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.9.2/e22c7ea8307d8fe16643b0d6582c93305b98d6a6/gdx-backend-gwt-1.9.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-lwjgl/1.9.2/888ddbf116b94ab6dbe07178e035091031425b67/gdx-backend-lwjgl-1.9.2-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-lwjgl/1.9.2/d710a8704ed584ec2ba9ca52e3a6a5885dd759cc/gdx-backend-lwjgl-1.9.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-robovm/1.9.2/63a3aa33c2621ade8e47e1498d802e757805996/gdx-backend-robovm-1.9.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-robovm/1.9.2/8791e88a8aaee85468a7e8f0e4601a7de7d3c938/gdx-backend-robovm-1.9.2-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d-gwt/1.9.2/dcad858951820ab243afd5f8f09bc195206d17eb/gdx-box2d-gwt-1.9.2-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d-platform/1.9.2/2b2fdb18b6944da971ba15a355ed47bcc29bf8ba/gdx-box2d-platform-1.9.2-natives-ios.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d-platform/1.9.2/497cbfbf81e7e8b1e8433b19291c5af4bbc2ec66/gdx-box2d-platform-1.9.2-natives-desktop.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.2/6e1c72c4a48cbde19f9584bfb8d2d09572067af4/gdx-box2d-1.9.2-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.2/b78eaa90aaaf7830e6dffff587ea6e859c2787b2/gdx-box2d-1.9.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-platform/1.9.2/77ea547b62ef831b4f15562bc5d0eac38bdad5c7/gdx-platform-1.9.2-natives-ios.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-platform/1.9.2/dde4cf7e9ce61c24042f512203aed87657496639/gdx-platform-1.9.2-natives-desktop.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.2/b6c7422c6740f86a9a84fdcbc4c62a1f46db317d/gdx-1.9.2-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.2/e641cb91bec06bc64d9ddf7a7d7062caceec73cd/gdx-1.9.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.jlayer/jlayer/1.0.1-gdx/7cca83cec5c1b2f011362f4d85aabd71a73b049d/jlayer-1.0.1-gdx.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.jlayer/jlayer/1.0.1-gdx/f1c4ffebc5e4f68be914404faab580c20de8ea1f/jlayer-1.0.1-gdx-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.google.gwt/gwt-servlet/2.6.0/7a59cc91e16f255d22b692dcc5839d3eb1d606c6/gwt-servlet-2.6.0-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.google.gwt/gwt-servlet/2.6.0/d1e40c23bf78192482ee76c93619a10b4ea649f7/gwt-servlet-2.6.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.google.gwt/gwt-user/2.6.1/c078b1b8cc0281214b0eb458d2c283d039374fad/gwt-user-2.6.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.google.gwt/gwt-user/2.6.1/c32cc6470243fe2703e807e1025ec3354fba0ef8/gwt-user-2.6.1-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/61e9f9d11fe3e12ec62f633006e99d75fd7f19c8/commons-codec-1.6-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/b7f0fc8f61ecadeb3695f0b9464755eee44374d4/commons-codec-1.6.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/commons-io/commons-io/2.0.1/7ffdb02f95af1c1a208544e076cea5b8e66e731a/commons-io-2.0.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/commons-io/commons-io/2.0.1/8ace0a355c375f0d20d04fa0db7b986c6637a689/commons-io-2.0.1-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.1/5043bfebc3db072ed80fbd362e7caf00e885d8ae/commons-logging-1.1.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.1/f3f156cbff0e0fb0d64bfce31a352cce4a33bc19/commons-logging-1.1.1-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/de.richsource.gradle.plugins/gwt-gradle-plugin/0.6/7393243331d33bbf6fde148da090500249be9e53/gwt-gradle-plugin-0.6.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/de.richsource.gradle.plugins/gwt-gradle-plugin/0.6/e38b28f04aaf547e992a4f68113e4274a0dceafb/gwt-gradle-plugin-0.6-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/7a561191db2203550fbfa40d534d4997624cd369/validation-api-1.0.0.GA-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/b6bd7f9d78f6fdaa3c37dae18a4bd298915f328e/validation-api-1.0.0.GA.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/net.java.jinput/jinput-platform/2.0.5/385ee093e01f587f30ee1c8a2ee7d408fd732e16/jinput-platform-2.0.5-natives-windows.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/net.java.jinput/jinput-platform/2.0.5/53f9c919f34d2ca9de8c51fc4e1e8282029a9232/jinput-platform-2.0.5-natives-osx.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/net.java.jinput/jinput-platform/2.0.5/7ff832a6eb9ab6a767f1ade2b548092d0fa64795/jinput-platform-2.0.5-natives-linux.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/net.java.jinput/jinput/2.0.5/39c7796b469a600f72380316f6b1f11db6c2c7c4/jinput-2.0.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/net.java.jinput/jinput/2.0.5/82604cfeb87b9ab70ed70aa19a137de8ceb21504/jinput-2.0.5-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/net.java.jutils/jutils/1.0.0/d18678a00b216863206a1bb6190507e02a32971b/jutils-1.0.0-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/net.java.jutils/jutils/1.0.0/e12fe1fda814bd348c1579329c86943d2cd3c6a6/jutils-1.0.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.5/d2bd2c0bd328f1dabdf33e10b6d223ebcbe93343/commons-compress-1.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.5/d843cfe3f25612ba1b11f136e478317c81e47b69/commons-compress-1.5-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.2.3/3328e73c4c97cc62e1077ff754308c98ab1564a/httpclient-4.2.3-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.2.3/37ced84d839a02fb856255eca85f0a4be95aa634/httpclient-4.2.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.2.3/5e92ec56abe188b865642a14e1a037c1253fc42e/httpcore-4.2.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.2.3/c95481be2ac75deab0653a1b0d8ecdc72f643411/httpcore-4.2.3-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven.wagon/wagon-http-shared4/2.4/4c70479c6c872ace68cc5c95b2e28ed7f9facaa3/wagon-http-shared4-2.4-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven.wagon/wagon-http-shared4/2.4/5b79b79e390dac2813739d3bc5c7588d6ce50455/wagon-http-shared4-2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven.wagon/wagon-http/2.4/2be492fe1d78f65b0591f439a0051f457aa3227b/wagon-http-2.4-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven.wagon/wagon-http/2.4/399d46310c62421f27c28b98e93f0879442c8a03/wagon-http-2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven.wagon/wagon-provider-api/2.4/35d0c13b57bf1fb96e9a068149383d5c69ae8df9/wagon-provider-api-2.4-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven.wagon/wagon-provider-api/2.4/e40429d9dd849c5fe0bdf97062b1d9358d99826d/wagon-provider-api-2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-aether-provider/3.0.4/80eaf6efa354082894adb29fb7db24313977c7f5/maven-aether-provider-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-aether-provider/3.0.4/d1d00c19989922a6126282dd4b32f25921a3c02a/maven-aether-provider-3.0.4-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-model-builder/3.0.4/4f9c6ecf6d6de41933e82a122019117ea0741314/maven-model-builder-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-model-builder/3.0.4/819188a52cab3319b13dc43950fe34d30779c178/maven-model-builder-3.0.4-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-model/3.0.4/5e149cfe15daedebbb1e8970d6a5ff1bea61b94c/maven-model-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-model/3.0.4/a898e2e67a6f9bfcdfbc558f59923ade648a79b5/maven-model-3.0.4-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-repository-metadata/3.0.4/186d1917c52cdf407dffff48a95fdf9ba3459a4f/maven-repository-metadata-3.0.4-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-repository-metadata/3.0.4/a5c737d02ab9365d272a1d0fc724420808ab4df8/maven-repository-metadata-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-classworlds/2.4/5d2b0a5bd852103294760829538702241d186520/plexus-classworlds-2.4-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-classworlds/2.4/ef38ff5c25f83a4a02fcd9843d85f3e47012873e/plexus-classworlds-2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-component-annotations/1.5.5/b10462efcf1ac1915797958d479c724d1bd5008d/plexus-component-annotations-1.5.5-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-component-annotations/1.5.5/c72f2660d0cbed24246ddb55d7fdc4f7374d2078/plexus-component-annotations-1.5.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-interpolation/1.14/c88dd864fe8b8256c25558ce7cd63be66ba07693/plexus-interpolation-1.14.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-interpolation/1.14/ec4b1ecf8064ff5e40dce45ae3f62776faa6f6b8/plexus-interpolation-1.14-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-utils/3.0.8/3940d1ca998744cca98da76c3d01974c1c54149f/plexus-utils-3.0.8-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-utils/3.0.8/faba5d28a07fcde50c8c26d3f002774acf11843e/plexus-utils-3.0.8.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.jcraft/jorbis/0.0.17/5446be5d62e4c6b347c8e6cd28dc00a936417ba2/jorbis-0.0.17-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.jcraft/jorbis/0.0.17/8872d22b293e8f5d7d56ff92be966e6dc28ebdc6/jorbis-0.0.17.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.json/json/20090211/c183aa3a2a6250293808bba12262c8920ce5a51c/json-20090211.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.jsoup/jsoup/1.7.1/3bae518d66e64f706fa3b7edd3f69781e3c48f8b/jsoup-1.7.1-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.jsoup/jsoup/1.7.1/b0ff13ce3deb12f2731533a5136b9503921befdf/jsoup-1.7.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl-platform/2.9.2/510c7d317f5e9e700b9cfaac5fd38bdebf0702e0/lwjgl-platform-2.9.2-natives-windows.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl-platform/2.9.2/d276cdf61fe2b516c7b7f4aa1b8dea91dbdc8d56/lwjgl-platform-2.9.2-natives-linux.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl-platform/2.9.2/d55b46b40b40249d627a83a7f7f22649709d70c3/lwjgl-platform-2.9.2-natives-osx.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl/2.9.2/4d114b5ef3ad3bf571b1f090cb00855991067e0b/lwjgl-2.9.2-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl/2.9.2/a9d80fe5935c7a9149f6584d9777cfd471f65489/lwjgl-2.9.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl_util/2.9.2/308d4ebe8d7b240d3490b6a7e0424807ea3ad98b/lwjgl_util-2.9.2-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl_util/2.9.2/4b9e37300a87799856e0bd15ed81663cdb6b0947/lwjgl_util-2.9.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-cocoatouch/1.12.0/3981e8b8dc5c446d3ac99533d9a0ea9b1514e84f/robovm-cocoatouch-1.12.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-cocoatouch/1.12.0/a5c9fccf45196e13f635efc5f6c21f6fafc23d3e/robovm-cocoatouch-1.12.0-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-dist-compiler/1.12.0/12cde90fa40ecefc912840f7d79fa57bcfbbf6b7/robovm-dist-compiler-1.12.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-dist-compiler/1.12.0/d05f96c8890fa88d8221232768c2b158aeaf465c/robovm-dist-compiler-1.12.0-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-gradle-plugin/1.12.0/746aca656d9c8165a66f9c14b87c4c1e292fa9ae/robovm-gradle-plugin-1.12.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-gradle-plugin/1.12.0/8b0443227cf87a6ec7ec010208d0ecd17854b196/robovm-gradle-plugin-1.12.0-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-objc/1.12.0/20aad179741334fd271c3e4ee48c8545c0bd4618/robovm-objc-1.12.0-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-objc/1.12.0/d4547162299dcd29848c13a8adf71264c3929a1/robovm-objc-1.12.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-rt/1.12.0/17250fd5ced5ed79feb78dd3ec17ab51b26a4472/robovm-rt-1.12.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-rt/1.12.0/763788926b70821f462e884c8b53d0ea22555924/robovm-rt-1.12.0-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-api/1.13.1/5f8d1a6efab2f3beeafde8ea888191f99bacd103/aether-api-1.13.1-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-api/1.13.1/e48292eae5e14ec44978aa53debb1af7ddd6df93/aether-api-1.13.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-connector-wagon/1.13.1/4919bcf865d83a4529d92498d2079aee20bb2698/aether-connector-wagon-1.13.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-connector-wagon/1.13.1/4bd05a503154d29294993f57c9bbe12d13663270/aether-connector-wagon-1.13.1-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-impl/1.13.1/ba2656934fa7c0f20c0c3882873dc705e16ae201/aether-impl-1.13.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-impl/1.13.1/bf04578cea30cc20e2662d001c6506cd3446f810/aether-impl-1.13.1-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-spi/1.13.1/5971493ae5b19fe756d8fbce29c8441979084bff/aether-spi-1.13.1-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-spi/1.13.1/c62b02d2a5a3939fded72039dd83e5b8ed42d45e/aether-spi-1.13.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-util/1.13.1/1c51acc5f07be722f3a808e316d123da22183466/aether-util-1.13.1-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-util/1.13.1/c8487ceb499b9ced96694731810acd1a70e13aca/aether-util-1.13.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu/sisu-guice/3.0.3/2a6cdd9461f4cbaa29259de3ad02510e5a5e73a4/sisu-guice-3.0.3-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu/sisu-guice/3.0.3/7e20d0d92f154a07292b5a2a826f3d5da104a419/sisu-guice-3.0.3-no_aop.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu/sisu-inject-bean/2.2.3/52f7743efa04258b55832de2348981b7563d1495/sisu-inject-bean-2.2.3-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu/sisu-inject-bean/2.2.3/cd68ecfedcfb2e8a93cf8feea190f0cf86cdfa05/sisu-inject-bean-2.2.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu/sisu-inject-plexus/2.2.3/255c67e6e968472ca98dbe7804fab2aa156fc5e7/sisu-inject-plexus-2.2.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu/sisu-inject-plexus/2.2.3/a4b945e0346815b2f2becff6610e4b777e6f785a/sisu-inject-plexus-2.2.3-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.tukaani/xz/1.2/9ae2b160dc1d42ee0f0a4871573fbddffbde4815/xz-1.2-sources.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.tukaani/xz/1.2/bfc66dda280a18ab341b5023248925265c00394c/xz-1.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/artifact-at-repository.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/artifact-at-url.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/module-artifacts.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/module-metadata.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/modules-2.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/daemon/2.10/registry.bin" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/daemon/2.10/registry.bin.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/native/19/osx-amd64/libnative-platform.dylib" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/native/19/osx-amd64/libnative-platform.dylib.lock" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10-bin.zip" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10-bin.zip.lck" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10-bin.zip.ok" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/ant-1.9.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/ant-launcher-1.9.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/asm-all-5.0.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/commons-collections-3.2.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/commons-io-2.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/commons-lang-2.6.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/dom4j-1.6.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-base-services-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-base-services-groovy-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-cli-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-core-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-docs-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-launcher-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-messaging-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-model-core-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-model-groovy-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-native-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-open-api-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-resources-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-tooling-api-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-ui-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/gradle-wrapper-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/groovy-all-2.4.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/guava-jdk5-17.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/jansi-1.2.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/jarjar-1.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/javax.inject-1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/jaxen-1.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/jcip-annotations-1.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/jcl-over-slf4j-1.7.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/jna-3.2.7.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/jul-to-slf4j-1.7.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/kryo-2.20.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/log4j-over-slf4j-1.7.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/minlog-1.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/native-platform-0.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/native-platform-freebsd-amd64-0.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/native-platform-freebsd-i386-0.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/native-platform-linux-amd64-0.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/native-platform-linux-i386-0.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/native-platform-osx-amd64-0.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/native-platform-osx-i386-0.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/native-platform-windows-amd64-0.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/native-platform-windows-i386-0.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/objenesis-1.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/aether-api-1.13.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/aether-connector-wagon-1.13.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/aether-impl-1.13.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/aether-spi-1.13.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/aether-util-1.13.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/aws-java-sdk-core-1.9.19.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/aws-java-sdk-kms-1.9.19.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/aws-java-sdk-s3-1.9.19.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/bcpg-jdk15on-1.51.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/bcprov-jdk15on-1.51.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/bndlib-2.4.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/bsh-2.0b4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/commons-cli-1.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/commons-codec-1.6.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/core-3.1.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/geronimo-annotation_1.0_spec-1.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-announce-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-antlr-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-build-comparison-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-build-init-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-code-quality-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-dependency-management-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-diagnostics-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-ear-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-ide-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-ide-native-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-ivy-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-jacoco-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-javascript-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-jetty-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-language-groovy-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-language-java-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-language-jvm-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-language-native-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-language-scala-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-maven-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-osgi-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-platform-base-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-platform-jvm-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-platform-native-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-platform-play-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-plugin-development-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-plugin-use-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-plugins-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-publish-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-reporting-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-resources-http-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-resources-s3-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-resources-sftp-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-scala-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-signing-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-sonar-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-test-kit-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-testing-native-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gradle-tooling-api-builders-2.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/gson-2.2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/hamcrest-core-1.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/httpclient-4.2.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/httpcore-4.2.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/ivy-2.2.0.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jackson-annotations-2.3.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jackson-core-2.3.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jackson-databind-2.3.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jatl-0.2.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jcifs-1.3.17.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jcommander-1.12.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jetty-6.1.25.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jetty-annotations-6.1.25.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jetty-naming-6.1.25.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jetty-plus-6.1.25.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jetty-util-6.1.25.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/joda-time-2.8.2.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jsch-0.1.53.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jsp-2.1-6.1.14.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/jsp-api-2.1-6.1.14.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/junit-4.12.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/maven-aether-provider-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/maven-artifact-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/maven-compat-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/maven-core-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/maven-model-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/maven-model-builder-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/maven-plugin-api-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/maven-repository-metadata-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/maven-settings-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/maven-settings-builder-3.0.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/nekohtml-1.9.14.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/plexus-cipher-1.7.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/plexus-classworlds-2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/plexus-component-annotations-1.5.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/plexus-container-default-1.5.5.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/plexus-interpolation-1.14.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/plexus-sec-dispatcher-1.3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/plexus-utils-2.0.6.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/pmaven-common-0.8-20100325.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/pmaven-groovy-0.8-20100325.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/rhino-1.7R3.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/servlet-api-2.5-20081211.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/simple-4.1.21.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/snakeyaml-1.6.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/sonar-batch-bootstrapper-2.9.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/sonar/logback-classic-1.0.13.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/sonar/logback-core-1.0.13.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/testng-6.3.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/wagon-file-2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/wagon-http-2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/wagon-http-shared4-2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/wagon-provider-api-2.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/xbean-reflect-3.4.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/xercesImpl-2.9.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/plugins/xml-apis-1.3.04.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/reflectasm-1.07-shaded.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/lib/slf4j-api-1.7.10.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/media/gradle-icon-128x128.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/media/gradle-icon-16x16.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/media/gradle-icon-24x24.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/media/gradle-icon-256x256.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/media/gradle-icon-32x32.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/media/gradle-icon-48x48.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/media/gradle-icon-512x512.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/media/gradle-icon-64x64.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/media/gradle.icns" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/objects/Car.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/screens/HomeScreen.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/screens/PlayScreen.class" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gradle/2.10/taskArtifacts/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_15n7tienius0bq4yh7ff3mmt7/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_15n7tienius0bq4yh7ff3mmt7/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_1xyyq58xcafx5ekqttp0alcww/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_23d6h07n9107ykjr68hqv895w/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_39d88pfij7mnvhrskjrf6dqpf/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7dsmpf02wb8p97hrhsiqjjp94/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_7mr88jej91yqjg5jn4jiyfvch/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_98vipl0bexk6mur711cq0gxbn/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_98vipl0bexk6mur711cq0gxbn/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_9qoed1kug2wlariki7qoilxqg/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_9qoed1kug2wlariki7qoilxqg/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bk6bxywvck2qj2piftwvdpc98/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_bk6bxywvck2qj2piftwvdpc98/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_cdyo97c3vew30dvkp1k0cuj6b/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_eh7z1r6fih23aq7bn3t42xh6i/cp_proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/build_eh7z1r6fih23aq7bn3t42xh6i/proj/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit0_8qngegxh35hwxfynso8ky5abn/cp_init/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit0_8qngegxh35hwxfynso8ky5abn/init/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit1_an9udbqf95c388dyjei2ti55h/cp_init/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/ijinit1_an9udbqf95c388dyjei2ti55h/init/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_5e9h8x6bu1f9zsj7w1yan3v0b/cp_settings/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_5e9h8x6bu1f9zsj7w1yan3v0b/settings/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_bcj1hi1a8deu4abtezooor0uu/cp_settings/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_bcj1hi1a8deu4abtezooor0uu/settings/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_c2vup1rr4aet6zda5j2mp3al8/cp_settings/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/settings_c2vup1rr4aet6zda5j2mp3al8/settings/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/wrap0_8n58amwe97lnqzc0mebhjao9l/cp_init/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/2.10/scripts/wrap0_8n58amwe97lnqzc0mebhjao9l/init/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/jars-1/cache.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/asm/asm-parent/3.3.1/72945d9cb6faa5082dcd190da850aa06760e4350/asm-parent-3.3.1.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/asm/asm/3.3.1/bbcde0189656fa6cc671f27437432ac7e7f95673/asm-3.3.1.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/cglib/cglib/2.2.2/f5b7f35716edd620ed9df63060dccf5a2a2a02e7/cglib-2.2.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-gwt/1.9.2/88a59ff326af595d0db273d0d9c3cc50965f8a95/gdx-backend-gwt-1.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-lwjgl/1.9.2/3343b15188c37dd56f87a8befa1e667fe97d7a30/gdx-backend-lwjgl-1.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-backend-robovm/1.9.2/cb0ee1f3256abd2596bd642667695a59dd7dae51/gdx-backend-robovm-1.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d-gwt/1.9.2/a17ef558938f1e46d2eace3b120ce0dbca087197/gdx-box2d-gwt-1.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d-parent/1.9.2/9b6fdd5b42ad28ec3c70bee352170a7120b20ed3/gdx-box2d-parent-1.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d-platform/1.9.2/afdcf1b3788d5ac68035030badf28f0f3aef6f29/gdx-box2d-platform-1.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-box2d/1.9.2/5302624ffca75e07e02cdb42162fd6baaccccd0b/gdx-box2d-1.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-parent/1.9.2/e72de5c0fa1ff75d61a129f809fc38007ef302a5/gdx-parent-1.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx-platform/1.9.2/3793f200bc1cd21f285849d3da67d223b04b2bb/gdx-platform-1.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.2/4228fae6c955a7c09fb30f7ba358ab5bdf3f2ab1/gdx-1.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.badlogicgames.jlayer/jlayer/1.0.1-gdx/4b67f316b7e954f0e50208175c98d4c0e04d6621/jlayer-1.0.1-gdx.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.google.gwt/gwt-servlet/2.6.0/99510a33692ecd049da99c022099ca0431abfcf9/gwt-servlet-2.6.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.google.gwt/gwt-user/2.6.1/30f71784e6454894778582fb71c7e78e45ab61ef/gwt-user-2.6.1.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.google.gwt/gwt/2.6.0/26db9187dec085611181ac36697362729cc18159/gwt-2.6.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/com.google.gwt/gwt/2.6.1/140bee49ff84d2de96dbab43b2e2e3ccbacd6e89/gwt-2.6.1.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/commons-codec/commons-codec/1.6/9499f0c87ab43a74c456b9847acbcb5e67fe9f32/commons-codec-1.6.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/commons-io/commons-io/2.0.1/e85782de6e708d9b62c7c2fe46634933b431137/commons-io-2.0.1.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/commons-logging/commons-logging/1.1.1/76672afb562b9e903674ad3a544cdf2092f1faa3/commons-logging-1.1.1.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/de.richsource.gradle.plugins/gwt-gradle-plugin/0.6/51b2c53b4bd0854667c2ad9a35a74cc19502e8fc/gwt-gradle-plugin-0.6.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/javax.validation/validation-api/1.0.0.GA/257066393db253e1b7ab5f5ee76256615795d08f/validation-api-1.0.0.GA.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/net.java.jinput/jinput-platform/2.0.5/5ab983fe822ea3c4ac5477290996725771b31ff4/jinput-platform-2.0.5.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/net.java.jinput/jinput/2.0.5/d9245416ac549f4476ae0bda53667c86243295dd/jinput-2.0.5.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/net.java.jutils/jutils/1.0.0/268fd036de1bc63efe63a7f84410465a71ecd756/jutils-1.0.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.commons/commons-compress/1.5/5d130e1456f52d999c9c62cc9eb00a388ea34b99/commons-compress-1.5.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.commons/commons-parent/15/3df56d69da19154df44b184c034232ba4f2bce45/commons-parent-15.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.commons/commons-parent/22/e895fa7ed472b3b2081ef77e2d5ece78c139d54/commons-parent-22.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.commons/commons-parent/28/9ff25b2866ef063a8828ba67d1e35c78f73e830a/commons-parent-28.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.commons/commons-parent/5/a0a168281558e7ae972f113fa128bc46b4973edd/commons-parent-5.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.httpcomponents/httpclient/4.2.3/ab72a2f1b69bf049423c168874e8fc04e3e9e843/httpclient-4.2.3.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcomponents-client/4.2.3/ac1627501376a9493a5a2d3d900e9f8076ac5f8d/httpcomponents-client-4.2.3.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcomponents-core/4.2.3/d0fedf2867bcfe6405d797344a1a09cd86f38215/httpcomponents-core-4.2.3.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.httpcomponents/httpcore/4.2.3/fc54c59634f380511ce140400868e28a1d1e4a4e/httpcore-4.2.3.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.httpcomponents/project/6/66760f9423ccea444890e51a0c1fc6220baa6bbe/project-6.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven.wagon/wagon-http-shared4/2.4/a3b29703781b86e02a9764b149956270bfa33775/wagon-http-shared4-2.4.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven.wagon/wagon-http/2.4/46bd8cb684e2464a59e9667bc85afac727dadf93/wagon-http-2.4.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven.wagon/wagon-provider-api/2.4/98b9378acbf6b7633a0428cfa8b94e5ced7c78b7/wagon-provider-api-2.4.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven.wagon/wagon-providers/2.4/47b714046c872fa7256f1ab1b45faf2a74ca410b/wagon-providers-2.4.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven.wagon/wagon/2.4/e21f5961dced2436e175fba401f876422c2165c1/wagon-2.4.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-aether-provider/3.0.4/e360cd755aec9cc1f36c5bd287af5918b034208/maven-aether-provider-3.0.4.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-model-builder/3.0.4/1f0f04edf56c8a2fc757fda7561b283a93c2c875/maven-model-builder-3.0.4.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-model/3.0.4/60d040156ffd0590a0cfd74e517b34ea9dfb1784/maven-model-3.0.4.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-parent/21/ecebf1043d9c7bdd3d32a4184ad4ef9ad3ea744/maven-parent-21.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-parent/23/f92ae4baba6616609a29f6287626ee3f50ed7d6e/maven-parent-23.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven-repository-metadata/3.0.4/8463ca4bd27c17381d17d0e78387133a5381d421/maven-repository-metadata-3.0.4.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache.maven/maven/3.0.4/84e07094d0da2867c8463ee5206cafecb308036d/maven-3.0.4.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache/apache/10/48296e511366fa13aad48c58d8e09721774abec6/apache-10.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache/apache/13/15aff1faaec4963617f07dbe8e603f0adabc3a12/apache-13.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache/apache/4/602b647986c1d24301bc3d70e5923696bc7f1401/apache-4.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache/apache/7/a5f679b14bb06a3cb3769eb04e228c8b9e12908f/apache-7.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.apache/apache/9/de55d73a30c7521f3d55e8141d360ffbdfd88caa/apache-9.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-classworlds/2.4/e93052514961d9aebb23ef1090b85292a19af650/plexus-classworlds-2.4.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-component-annotations/1.5.5/fd506865d5d083d8cef9fdbf525ad99fcc3416c1/plexus-component-annotations-1.5.5.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-components/1.1.18/41abf89f075e6b912a2ff728aa002e98591de425/plexus-components-1.1.18.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-containers/1.5.5/cd786b660f8a4c1c520403a5fa04c7be45212b84/plexus-containers-1.5.5.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-interpolation/1.14/e296d45aff17c16ed268c5b9480214a0d92937ab/plexus-interpolation-1.14.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-utils/2.0.7/ea9d4730b6ba1dd2855b4f13ee81c3f6248ed105/plexus-utils-2.0.7.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus-utils/3.0.8/45a8cbe47c297155f2e2ef10c1b7b4707ab55fc6/plexus-utils-3.0.8.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus/2.0.7/f6ee62f8157f273757b8ffda59714a6a279a174d/plexus-2.0.7.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.codehaus.plexus/plexus/3.2/521733c90c6fb160311e47b51f0471642b69f64f/plexus-3.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.jcraft/jorbis/0.0.17/d6e2acd3efbc2c4c44f043f8d4dea131de3685e0/jorbis-0.0.17.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.json/json/20090211/439c1566d48f6bff236e0ffa69e90f0f9ba583ab/json-20090211.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.jsoup/jsoup/1.7.1/39e335b850a506c5dd7d2ee1ccaf288c92930500/jsoup-1.7.1.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl-platform/2.9.2/62dedd85a19db510a687b8fa1aa8e8080f3108ce/lwjgl-platform-2.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl/2.9.2/c887e94fb25a5acc18e746c714b7ca4c42200fff/lwjgl-2.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.lwjgl.lwjgl/lwjgl_util/2.9.2/e054351de40536853965d6dd2247b554e020c27a/lwjgl_util-2.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.lwjgl.lwjgl/parent/2.9.2/c6ac41002eb1e46e02f64ea20fb2d3293ea490e7/parent-2.9.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-cocoatouch/1.12.0/631721de38bbb06329fecd6b5860a331cb74a0ee/robovm-cocoatouch-1.12.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-dist-compiler/1.12.0/3a381beab1d7a4ee0153f86439ca75c2acfe4fb5/robovm-dist-compiler-1.12.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-dist-parent/1.12.0/509406cd43fe1999ef8461e2524a7d984de86b8a/robovm-dist-parent-1.12.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-gradle-plugin/1.12.0/e65899d0f7272d3ef8560a2fbad67375df511bf0/robovm-gradle-plugin-1.12.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-objc/1.12.0/d239f6cbac85ef2a1ac844d990ee0db77fc4daf2/robovm-objc-1.12.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-parent/1.12.0/dcbc8ef02eb4df9aa5dd610ccddb57f87b021b10/robovm-parent-1.12.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.robovm/robovm-rt/1.12.0/963dd46a7682440dc2f03d3c1e3ba3356e1d902e/robovm-rt-1.12.0.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-api/1.13.1/40eac39412d5c15d9a10d1d36567f3718646319e/aether-api-1.13.1.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-connector-wagon/1.13.1/23cd2c96ad41528d5bee04271cc3421673da3424/aether-connector-wagon-1.13.1.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-impl/1.13.1/41d8e4550ae03f588bfe8b2920b62223c0bd1d11/aether-impl-1.13.1.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-spi/1.13.1/cf9149103fd1be36f87cc5b9ef5656f77c575bd/aether-spi-1.13.1.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether-util/1.13.1/cf083fd282bf62a82fa14471eab8839a9f49f4e7/aether-util-1.13.1.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.aether/aether/1.13.1/ca523c26f05bbbf3875acf44ff4df6866eb2e86a/aether-1.13.1.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.forge/forge-parent/10/c24dc843444f348100c19ebd51157e7a5f61bfe7/forge-parent-10.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.forge/forge-parent/9/6c912dfaa58b64203cab1a16155376c12216c1a5/forge-parent-9.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.oss/oss-parent/4/281323f0e2b10184d6c6b230909401166b437e01/oss-parent-4.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.oss/oss-parent/5/3ae20880ad3d5da6b1caec19e3de7e70dd2dd762/oss-parent-5.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.oss/oss-parent/7/46b8a785b60a2767095b8611613b58577e96d4c9/oss-parent-7.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu.inject/containers/2.2.3/44f8a683cdfcdf64c917d29617304dbeceef3a34/containers-2.2.3.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu.inject/guice-bean/2.2.3/79648429a343c05b8d1ac8f0a071b81964641a0e/guice-bean-2.2.3.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu.inject/guice-parent/3.0.3/dd1bab5fb382960a3f07ce91289f3bc2e5fc1e9e/guice-parent-3.0.3.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu.inject/guice-plexus/2.2.3/bb58d2796a93eaaf5d1fae699ee5fc00e8d4cfad/guice-plexus-2.2.3.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu/sisu-guice/3.0.3/22fba43ba2d978687cd212ac62e167d0fadf37cb/sisu-guice-3.0.3.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu/sisu-inject-bean/2.2.3/d70f3dcb06c0df609338d6f70e3d6087d301f0fd/sisu-inject-bean-2.2.3.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu/sisu-inject-plexus/2.2.3/93ce14f4a2a7b32dd42fab8b96957d460d9dfc66/sisu-inject-plexus-2.2.3.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu/sisu-inject/2.2.3/8653388a52f4c222bd5807b7b0e23e44a32f04e1/sisu-inject-2.2.3.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.sisu/sisu-parent/2.2.3/b357e010e0f6e6e4e864790af8c31d780ca41e5e/sisu-parent-2.2.3.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.sonatype.spice/spice-parent/17/7f500699ef371383492a4d6ee799b1a77ffd82cc/spice-parent-17.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/files-2.1/org.tukaani/xz/1.2/db296341cd63613ad1d6001b51fcc93690b46b65/xz-1.2.pom" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/asm/asm-parent/3.3.1/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/asm/asm/3.3.1/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/cglib/cglib/2.2.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.badlogicgames.gdx/gdx-backend-gwt/1.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.badlogicgames.gdx/gdx-backend-lwjgl/1.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.badlogicgames.gdx/gdx-backend-robovm/1.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.badlogicgames.gdx/gdx-box2d-gwt/1.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.badlogicgames.gdx/gdx-box2d-parent/1.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.badlogicgames.gdx/gdx-box2d-platform/1.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.badlogicgames.gdx/gdx-box2d/1.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.badlogicgames.gdx/gdx-parent/1.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.badlogicgames.gdx/gdx-platform/1.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.badlogicgames.gdx/gdx/1.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.badlogicgames.jlayer/jlayer/1.0.1-gdx/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.google.gwt/gwt-servlet/2.6.0/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.google.gwt/gwt-user/2.6.1/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.google.gwt/gwt/2.6.0/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/com.google.gwt/gwt/2.6.1/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/commons-codec/commons-codec/1.6/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/commons-io/commons-io/2.0.1/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/commons-logging/commons-logging/1.1.1/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/de.richsource.gradle.plugins/gwt-gradle-plugin/0.6/22da77b0d76ea8df17298218f3ec1f87/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/javax.validation/validation-api/1.0.0.GA/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/net.java.jinput/jinput-platform/2.0.5/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/net.java.jinput/jinput/2.0.5/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/net.java.jutils/jutils/1.0.0/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.commons/commons-compress/1.5/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.commons/commons-parent/15/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.commons/commons-parent/22/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.commons/commons-parent/28/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.commons/commons-parent/5/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.httpcomponents/httpclient/4.2.3/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.httpcomponents/httpcomponents-client/4.2.3/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.httpcomponents/httpcomponents-core/4.2.3/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.httpcomponents/httpcore/4.2.3/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.httpcomponents/project/6/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.maven.wagon/wagon-http-shared4/2.4/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.maven.wagon/wagon-http/2.4/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.maven.wagon/wagon-provider-api/2.4/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.maven.wagon/wagon-providers/2.4/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.maven.wagon/wagon/2.4/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.maven/maven-aether-provider/3.0.4/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.maven/maven-model-builder/3.0.4/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.maven/maven-model/3.0.4/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.maven/maven-parent/21/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.maven/maven-parent/23/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.maven/maven-repository-metadata/3.0.4/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache.maven/maven/3.0.4/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache/apache/10/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache/apache/13/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache/apache/4/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache/apache/7/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.apache/apache/9/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.codehaus.plexus/plexus-classworlds/2.4/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.codehaus.plexus/plexus-component-annotations/1.5.5/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.codehaus.plexus/plexus-components/1.1.18/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.codehaus.plexus/plexus-containers/1.5.5/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.codehaus.plexus/plexus-interpolation/1.14/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.codehaus.plexus/plexus-utils/2.0.7/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.codehaus.plexus/plexus-utils/3.0.8/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.codehaus.plexus/plexus/2.0.7/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.codehaus.plexus/plexus/3.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.jcraft/jorbis/0.0.17/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.json/json/20090211/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.jsoup/jsoup/1.7.1/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.lwjgl.lwjgl/lwjgl-platform/2.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.lwjgl.lwjgl/lwjgl/2.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.lwjgl.lwjgl/lwjgl_util/2.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.lwjgl.lwjgl/parent/2.9.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.robovm/robovm-cocoatouch/1.12.0/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.robovm/robovm-dist-compiler/1.12.0/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.robovm/robovm-dist-parent/1.12.0/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.robovm/robovm-gradle-plugin/1.12.0/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.robovm/robovm-objc/1.12.0/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.robovm/robovm-parent/1.12.0/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.robovm/robovm-rt/1.12.0/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.aether/aether-api/1.13.1/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.aether/aether-connector-wagon/1.13.1/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.aether/aether-impl/1.13.1/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.aether/aether-spi/1.13.1/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.aether/aether-util/1.13.1/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.aether/aether/1.13.1/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.forge/forge-parent/10/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.forge/forge-parent/9/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.oss/oss-parent/4/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.oss/oss-parent/5/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.oss/oss-parent/7/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.sisu.inject/containers/2.2.3/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.sisu.inject/guice-bean/2.2.3/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.sisu.inject/guice-parent/3.0.3/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.sisu.inject/guice-plexus/2.2.3/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.sisu/sisu-guice/3.0.3/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.sisu/sisu-inject-bean/2.2.3/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.sisu/sisu-inject-plexus/2.2.3/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.sisu/sisu-inject/2.2.3/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.sisu/sisu-parent/2.2.3/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.sonatype.spice/spice-parent/17/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/caches/modules-2/metadata-2.16/descriptors/org.tukaani/xz/1.2/4471c3b2f5ea2d40ffaa8b3948cdbacd/ivy.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/daemon/2.10/daemon-32342.out.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/daemon/2.10/daemon-682.out.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/hs_err_pid8483.log" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/LICENSE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/NOTICE" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/bin/gradle" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/bin/gradle.bat" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/changelog.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/getting-started.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/core/assets/wrapper/dists/gradle-2.10-bin/baigpnfu14tdk6ztbfwcl8275/gradle-2.10/init.d/readme.txt" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/Car.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/HomeScreen.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/PlayScreen.class" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/Hud.class" afterPath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/scenes/Hud.class" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/Location.class" afterPath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/objects/Location.class" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/Passenger.class" afterPath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/objects/Passenger.class" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/Car.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/objects/Car.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/HomeScreen.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/screens/HomeScreen.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/Hud.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/scenes/Hud.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/Location.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/objects/Location.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/Passenger.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/objects/Passenger.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/PlayScreen.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/screens/PlayScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/MyGdxGame.class" afterPath="$PROJECT_DIR$/core/build/classes/main/com/mygdx/game/MyGdxGame.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/Car.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/Car.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/PlayScreen.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/PlayScreen.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/core/src/com/mygdx/game/MyGdxGame.java" afterPath="$PROJECT_DIR$/core/src/com/mygdx/game/MyGdxGame.java" />
     </list>
     <ignored path="Zoframenco.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -51,17 +850,19 @@
         <entry file="file://$PROJECT_DIR$/desktop/src/com/mygdx/game/desktop/DesktopLauncher.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-              <folding />
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="HomeScreen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/HomeScreen.java">
+        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/screens/HomeScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.354839">
-              <caret line="49" column="50" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="50" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -70,10 +871,10 @@
         </entry>
       </file>
       <file leaf-file-name="PlayScreen.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/PlayScreen.java">
+        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/screens/PlayScreen.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.354839">
-              <caret line="75" column="16" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="16" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="73" column="5" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -84,30 +885,34 @@
       <file leaf-file-name="MyGdxGame.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/MyGdxGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.774194">
-              <caret line="197" column="33" selection-start-line="197" selection-start-column="25" selection-end-line="197" selection-end-column="33" />
+            <state vertical-scroll-proportion="-10.074074">
+              <caret line="197" column="1" selection-start-line="197" selection-start-column="1" selection-end-line="197" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#6172#6173#0" expanded="true" />
+                <element signature="e#6207#6208#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Passenger.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Passenger.java">
+        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/objects/Passenger.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.354839">
-              <caret line="5" column="16" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="16" />
-              <folding />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="Hud.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Hud.java">
+        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/scenes/Hud.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+              <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -115,25 +920,45 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Location.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Location.java">
+      <file leaf-file-name="Location.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/objects/Location.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.22335026">
+              <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Car.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Car.java">
+      <file leaf-file-name="Car.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/objects/Car.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.19470699">
-              <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
               <folding>
-                <element signature="e#0#9155#0" expanded="true" />
+                <element signature="e#0#9024#0" expanded="true" />
                 <element signature="imports" expanded="true" />
+                <element signature="e#1641#1642#0" expanded="true" />
+                <element signature="e#1688#1689#0" expanded="true" />
+                <element signature="e#8005#8006#0" expanded="true" />
+                <element signature="e#8034#8035#0" expanded="true" />
+                <element signature="e#8073#8074#0" expanded="true" />
+                <element signature="e#8107#8108#0" expanded="true" />
+                <element signature="e#8142#8143#0" expanded="true" />
+                <element signature="e#8172#8173#0" expanded="true" />
+                <element signature="e#8335#8336#0" expanded="true" />
+                <element signature="e#8373#8374#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MANIFEST.MF" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/core/src/META-INF/MANIFEST.MF">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -1256,10 +2081,11 @@
         <option value="$PROJECT_DIR$/core/src/com/mygdx/game/GameObjects.java" />
         <option value="$PROJECT_DIR$/core/src/com/mygdx/game/Car2.java" />
         <option value="$PROJECT_DIR$/core/src/com/mygdx/game/Hud.java" />
-        <option value="$PROJECT_DIR$/core/src/com/mygdx/game/MyGdxGame.java" />
         <option value="$PROJECT_DIR$/core/src/com/mygdx/game/HomeScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/mygdx/game/PlayScreen.java" />
         <option value="$PROJECT_DIR$/core/src/com/mygdx/game/Car.java" />
+        <option value="$PROJECT_DIR$/core/src/com/mygdx/game/MyGdxGame.java" />
+        <option value="$PROJECT_DIR$/core/src/com/mygdx/game/objects/Car.java" />
       </list>
     </option>
   </component>
@@ -1271,10 +2097,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="-13" />
-    <option name="y" value="67" />
-    <option name="width" value="3026" />
-    <option name="height" value="1946" />
+    <option name="x" value="-2" />
+    <option name="y" value="23" />
+    <option name="width" value="1280" />
+    <option name="height" value="712" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -1301,6 +2127,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -1401,28 +2228,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="desktop" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="build" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="libs" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zoframenco" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Zoframenco" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="core" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -1442,6 +2247,28 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zoframenco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zoframenco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="META-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1481,15 +2308,74 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="screens" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zoframenco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zoframenco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scenes" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zoframenco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Zoframenco" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="core" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="game" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="objects" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -1848,32 +2734,32 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-13" y="67" width="3026" height="1946" extended-state="6" />
+    <frame x="-2" y="23" width="1280" height="712" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3337278" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33281493" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3449704" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3437014" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32998818" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.353" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.271875" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3281493" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39940828" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.16640747" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3289941" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1913,7 +2799,11 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <breakpoints-dialog>
+        <breakpoints-dialog />
+      </breakpoints-dialog>
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1924,12 +2814,105 @@
     <entry file="file://$PROJECT_DIR$/desktop/src/com/mygdx/game/desktop/DesktopLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/screens/HomeScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="49" column="50" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="50" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/screens/PlayScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="75" column="16" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/MyGdxGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="197" column="33" selection-start-line="197" selection-start-column="25" selection-end-line="197" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6172#6173#0" expanded="true" />
+            <element signature="e#6207#6208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/objects/Passenger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="5" column="16" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/scenes/Hud.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/objects/Location.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/HomeScreen.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/objects/Car.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9024#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1641#1642#0" expanded="true" />
+            <element signature="e#1688#1689#0" expanded="true" />
+            <element signature="e#8005#8006#0" expanded="true" />
+            <element signature="e#8034#8035#0" expanded="true" />
+            <element signature="e#8073#8074#0" expanded="true" />
+            <element signature="e#8107#8108#0" expanded="true" />
+            <element signature="e#8142#8143#0" expanded="true" />
+            <element signature="e#8172#8173#0" expanded="true" />
+            <element signature="e#8335#8336#0" expanded="true" />
+            <element signature="e#8373#8374#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/desktop/src/com/mygdx/game/desktop/DesktopLauncher.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/screens/HomeScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
@@ -1939,7 +2922,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/PlayScreen.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/screens/PlayScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="71" column="0" selection-start-line="71" selection-start-column="0" selection-end-line="71" selection-end-column="0" />
@@ -1955,19 +2938,23 @@
           <caret line="25" column="22" selection-start-line="25" selection-start-column="22" selection-end-line="25" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#6172#6173#0" expanded="true" />
+            <element signature="e#6207#6208#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Passenger.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/objects/Passenger.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="48" column="29" selection-start-line="48" selection-start-column="29" selection-end-line="48" selection-end-column="29" />
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Hud.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/scenes/Hud.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
@@ -1977,7 +2964,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Location.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/objects/Location.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
@@ -1985,13 +2972,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Car.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/objects/Car.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="228" column="0" selection-start-line="228" selection-start-column="0" selection-end-line="228" selection-end-column="0" />
           <folding>
-            <element signature="e#0#9155#0" expanded="true" />
+            <element signature="e#0#9024#0" expanded="true" />
             <element signature="imports" expanded="true" />
+            <element signature="e#1641#1642#0" expanded="true" />
+            <element signature="e#1688#1689#0" expanded="true" />
+            <element signature="e#8005#8006#0" expanded="true" />
+            <element signature="e#8034#8035#0" expanded="true" />
+            <element signature="e#8073#8074#0" expanded="true" />
+            <element signature="e#8107#8108#0" expanded="true" />
+            <element signature="e#8142#8143#0" expanded="true" />
+            <element signature="e#8172#8173#0" expanded="true" />
+            <element signature="e#8335#8336#0" expanded="true" />
+            <element signature="e#8373#8374#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -2059,13 +3056,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/awt/Dimension.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="13" selection-start-line="53" selection-start-column="13" selection-end-line="53" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.badlogicgames.gdx/gdx/1.9.2/b6c7422c6740f86a9a84fdcbc4c62a1f46db317d/gdx-1.9.2-sources.jar!/com/badlogic/gdx/maps/MapLayer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -2084,13 +3074,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.3376988">
           <caret line="16" column="32" selection-start-line="16" selection-start-column="32" selection-end-line="16" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://C:/Program Files/Java/jdk1.8.0_73/src.zip!/java/lang/Object.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8597786">
-          <caret line="132" column="37" selection-start-line="132" selection-start-column="37" selection-end-line="132" selection-end-column="37" />
         </state>
       </provider>
     </entry>
@@ -2199,24 +3182,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/Documents/HEJMO/housingnetwork/grails-app/domain/housingnetwork/AccountVerification.groovy">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4324065">
-          <caret line="11" column="9" selection-start-line="11" selection-start-column="9" selection-end-line="11" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.84458077">
           <caret line="22" column="23" selection-start-line="22" selection-start-column="23" selection-end-line="22" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/META-INF/MANIFEST.MF">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.047034767">
-          <caret line="1" column="40" selection-start-line="1" selection-start-column="40" selection-end-line="1" selection-end-column="40" />
         </state>
       </provider>
     </entry>
@@ -2245,50 +3214,51 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6047666">
           <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Location.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/screens/PlayScreen.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Hud.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="53" column="32" selection-start-line="53" selection-start-column="32" selection-end-line="53" selection-end-column="32" />
+          <caret line="73" column="5" selection-start-line="73" selection-start-column="5" selection-end-line="73" selection-end-column="5" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/META-INF/MANIFEST.MF">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/desktop/src/com/mygdx/game/desktop/DesktopLauncher.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="2" column="17" selection-start-line="2" selection-start-column="17" selection-end-line="2" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/HomeScreen.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.354839">
-          <caret line="49" column="50" selection-start-line="49" selection-start-column="47" selection-end-line="49" selection-end-column="50" />
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/PlayScreen.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/scenes/Hud.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.354839">
-          <caret line="75" column="16" selection-start-line="75" selection-start-column="8" selection-end-line="75" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="32" selection-start-line="54" selection-start-column="32" selection-end-line="54" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/screens/HomeScreen.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="45" column="36" selection-start-line="45" selection-start-column="36" selection-end-line="45" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -2297,30 +3267,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/MyGdxGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.774194">
-          <caret line="197" column="33" selection-start-line="197" selection-start-column="25" selection-end-line="197" selection-end-column="33" />
+        <state vertical-scroll-proportion="-10.074074">
+          <caret line="197" column="1" selection-start-line="197" selection-start-column="1" selection-end-line="197" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#6172#6173#0" expanded="true" />
+            <element signature="e#6207#6208#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/objects/Car.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="124" column="0" selection-start-line="124" selection-start-column="0" selection-end-line="124" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9024#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#1641#1642#0" expanded="true" />
+            <element signature="e#1688#1689#0" expanded="true" />
+            <element signature="e#8005#8006#0" expanded="true" />
+            <element signature="e#8034#8035#0" expanded="true" />
+            <element signature="e#8073#8074#0" expanded="true" />
+            <element signature="e#8107#8108#0" expanded="true" />
+            <element signature="e#8142#8143#0" expanded="true" />
+            <element signature="e#8172#8173#0" expanded="true" />
+            <element signature="e#8335#8336#0" expanded="true" />
+            <element signature="e#8373#8374#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/objects/Passenger.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Passenger.java">
+    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/objects/Location.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.354839">
-          <caret line="5" column="16" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="16" />
+        <state vertical-scroll-proportion="0.22335026">
+          <caret line="13" column="18" selection-start-line="13" selection-start-column="18" selection-end-line="13" selection-end-column="18" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/core/src/com/mygdx/game/Car.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.19470699">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9155#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>

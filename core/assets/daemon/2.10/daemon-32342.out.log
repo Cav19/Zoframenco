@@ -1,0 +1,285 @@
+12:00:34.611 [INFO] [org.gradle.launcher.daemon.server.Daemon] start() called on daemon - DefaultDaemonContext[uid=5c184344-9d44-4638-a034-0f4285f29625,javaHome=/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home,daemonRegistryDir=/Users/zoray/Developer/Zoframenco/core/assets/daemon,pid=32342,idleTimeout=10800000,daemonOpts=-Xms128m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+12:00:34.618 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] updating lastActivityAt to 1459530034618
+12:00:34.651 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding IP addresses for network interface utun0
+12:00:34.652 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Is this a loopback interface? false
+12:00:34.653 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Is this a multicast interface? true
+12:00:34.653 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding remote address /fe80:0:0:0:8b05:d09:bf6d:6f90%utun0
+12:00:34.654 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding remote multicast interface utun0
+12:00:34.656 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding IP addresses for network interface awdl0
+12:00:34.657 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Is this a loopback interface? false
+12:00:34.658 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Is this a multicast interface? true
+12:00:34.659 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding remote address /fe80:0:0:0:b0b8:c9ff:fea7:eb81%awdl0
+12:00:34.659 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding remote multicast interface awdl0
+12:00:34.659 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding IP addresses for network interface en0
+12:00:34.660 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Is this a loopback interface? false
+12:00:34.661 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Is this a multicast interface? true
+12:00:34.664 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding remote address /fe80:0:0:0:aebc:32ff:fe97:12ff%en0
+12:00:34.665 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding remote address /141.140.192.82
+12:00:34.666 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding remote multicast interface en0
+12:00:34.667 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding IP addresses for network interface lo0
+12:00:34.668 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Is this a loopback interface? true
+12:00:34.668 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Is this a multicast interface? true
+12:00:34.669 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Ignoring remote address on loopback interface /fe80:0:0:0:0:0:0:1%lo0
+12:00:34.669 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding loopback address /0:0:0:0:0:0:0:1
+12:00:34.670 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding loopback address /127.0.0.1
+12:00:34.670 [DEBUG] [org.gradle.messaging.remote.internal.inet.InetAddressFactory] Adding loopback multicast interface lo0
+12:00:34.698 [DEBUG] [org.gradle.messaging.remote.internal.inet.TcpIncomingConnector] Listening on [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]].
+12:00:34.704 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] Daemon starting at: Fri Apr 01 12:00:34 CDT 2016, with address: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]]
+12:00:34.705 [INFO] [org.gradle.launcher.daemon.server.DomainRegistryUpdater] Advertising the daemon address to the clients: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]]
+12:00:34.705 [DEBUG] [org.gradle.launcher.daemon.server.DomainRegistryUpdater] Advertised daemon context: DefaultDaemonContext[uid=5c184344-9d44-4638-a034-0f4285f29625,javaHome=/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home,daemonRegistryDir=/Users/zoray/Developer/Zoframenco/core/assets/daemon,pid=32342,idleTimeout=10800000,daemonOpts=-Xms128m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+12:00:34.705 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Storing daemon address: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]], context: DefaultDaemonContext[uid=5c184344-9d44-4638-a034-0f4285f29625,javaHome=/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home,daemonRegistryDir=/Users/zoray/Developer/Zoframenco/core/assets/daemon,pid=32342,idleTimeout=10800000,daemonOpts=-Xms128m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+12:00:34.718 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+12:00:34.721 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired.
+12:00:34.725 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+12:00:34.727 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+12:00:34.728 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired.
+12:00:34.768 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+12:00:34.769 [LIFECYCLE] [org.gradle.launcher.daemon.server.Daemon] Daemon server started.
+12:00:34.771 [DEBUG] [org.gradle.launcher.daemon.bootstrap.DaemonStartupCommunication] Completed writing the daemon greeting. Closing streams...
+12:00:34.777 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] requestStopOnIdleTimeout(10800000 MILLISECONDS) called on daemon
+12:00:34.777 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Idle timeout: waiting for daemon to stop or be idle for 10800000ms
+12:00:34.787 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Daemon is idle, sleeping until state change or idle timeout at Fri Apr 01 15:00:34 CDT 2016
+12:00:34.839 [DEBUG] [org.gradle.messaging.remote.internal.inet.TcpIncomingConnector] Accepted connection from /127.0.0.1:57002 to /127.0.0.1:57001.
+12:00:34.963 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 14: received class org.gradle.launcher.daemon.protocol.Build
+12:00:34.965 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] Received non-IO message from client: Build{id=a1e09735-bbfd-495b-8173-59ef81f7f957.1, currentDir=/Applications/IntelliJ IDEA 15 CE.app/Contents/bin}
+12:00:34.966 [INFO] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received command: Build{id=a1e09735-bbfd-495b-8173-59ef81f7f957.1, currentDir=/Applications/IntelliJ IDEA 15 CE.app/Contents/bin}.
+12:00:34.967 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Starting executing command: Build{id=a1e09735-bbfd-495b-8173-59ef81f7f957.1, currentDir=/Applications/IntelliJ IDEA 15 CE.app/Contents/bin} with connection: socket connection from /127.0.0.1:57001 to /127.0.0.1:57002.
+12:00:34.984 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: started DaemonCommandExecution[command = Build{id=a1e09735-bbfd-495b-8173-59ef81f7f957.1, currentDir=/Applications/IntelliJ IDEA 15 CE.app/Contents/bin}, connection = org.gradle.launcher.daemon.server.DefaultDaemonConnection@52c5d30] after 0.0 minutes of idle
+12:00:34.985 [INFO] [org.gradle.launcher.daemon.server.DomainRegistryUpdater] Marking the daemon as busy, address: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]]
+12:00:34.985 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]]
+12:00:34.986 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+12:00:34.987 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired.
+12:00:35.002 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+12:00:35.005 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] updating lastActivityAt to 1459530035005
+12:00:35.019 [INFO] [org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy] Daemon is about to start building Build{id=a1e09735-bbfd-495b-8173-59ef81f7f957.1, currentDir=/Applications/IntelliJ IDEA 15 CE.app/Contents/bin}. Dispatching build started information...
+12:00:35.021 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 16: dispatching class org.gradle.launcher.daemon.protocol.BuildStarted
+12:00:35.032 [DEBUG] [org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment] Configuring env variables: {PATH=/usr/bin:/bin:/usr/sbin:/sbin, SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.kwyV9z3Ekc/Listeners, XPC_FLAGS=0x0, SHELL=/bin/bash, __CF_USER_TEXT_ENCODING=0x1F6:0x0:0x0, Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.9EC9raNqIl/Render, LOGNAME=zoray, USER=zoray, XPC_SERVICE_NAME=com.jetbrains.intellij.ce.136920, HOME=/Users/zoray, TMPDIR=/var/folders/b6/nm4pc5n53_d25s7xf0ndlqnw0000gp/T/}
+12:00:35.033 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Daemon is busy, sleeping until state changes.
+12:00:35.049 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 14: received class org.gradle.launcher.daemon.protocol.CloseInput
+12:00:35.050 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] Received IO message from client: org.gradle.launcher.daemon.protocol.CloseInput@33700b09
+12:00:35.053 [DEBUG] [org.gradle.launcher.daemon.server.exec.LogToClient] About to start relaying all logs to the client via the connection.
+12:00:35.053 [INFO] [org.gradle.launcher.daemon.server.exec.LogToClient] The client will now receive all logging from the daemon (pid: 32342). The daemon log file: /Users/zoray/Developer/Zoframenco/core/assets/daemon/2.10/daemon-32342.out.log
+12:00:35.067 [INFO] [org.gradle.launcher.daemon.server.health.DaemonHealthTracker] Starting build in new daemon [memory: 477.6 MB]
+12:00:35.069 [INFO] [org.gradle.launcher.daemon.server.exec.ForwardClientInput] Closing daemon's stdin at end of input.
+12:00:35.069 [INFO] [org.gradle.launcher.daemon.server.exec.ForwardClientInput] The daemon will no longer process any standard input.
+12:00:35.075 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has started executing the build.
+12:00:35.076 [INFO] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] Executing build with daemon context: DefaultDaemonContext[uid=5c184344-9d44-4638-a034-0f4285f29625,javaHome=/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home,daemonRegistryDir=/Users/zoray/Developer/Zoframenco/core/assets/daemon,pid=32342,idleTimeout=10800000,daemonOpts=-Xms128m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+12:00:36.039 [DEBUG] [org.gradle.internal.resource.transport.http.JavaSystemPropertiesProxySettings] Found java system property 'http.nonProxyHosts': local|*.local|169.254/16|*.169.254/16. Will ignore proxy settings for these hosts.
+Configuration on demand is an incubating feature.
+Download https://jcenter.bintray.com/de/richsource/gradle/plugins/gwt-gradle-plugin/0.6/gwt-gradle-plugin-0.6.pom
+Download https://jcenter.bintray.com/de/richsource/gradle/plugins/gwt-gradle-plugin/0.6/gwt-gradle-plugin-0.6.jar
+:wrapper
+
+BUILD SUCCESSFUL
+
+Total time: 26.51 secs
+12:00:53.427 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on cp_init class cache for initialization script '/private/var/folders/b6/nm4pc5n53_d25s7xf0ndlqnw0000gp/T/wrap0.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/wrap0_8n58amwe97lnqzc0mebhjao9l/cp_init).
+12:00:53.428 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on init class cache for initialization script '/private/var/folders/b6/nm4pc5n53_d25s7xf0ndlqnw0000gp/T/wrap0.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/wrap0_8n58amwe97lnqzc0mebhjao9l/init).
+12:00:53.431 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on cp_settings class cache for settings file '/Users/zoray/Developer/Zoframenco/settings.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/settings_c2vup1rr4aet6zda5j2mp3al8/cp_settings).
+12:00:53.432 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on settings class cache for settings file '/Users/zoray/Developer/Zoframenco/settings.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/settings_c2vup1rr4aet6zda5j2mp3al8/settings).
+12:00:53.433 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on cp_proj class cache for build file '/Users/zoray/Developer/Zoframenco/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/cp_proj).
+12:00:53.434 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on proj class cache for build file '/Users/zoray/Developer/Zoframenco/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj).
+12:00:53.435 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on cp_proj class cache for build file '/Users/zoray/Developer/Zoframenco/core/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_eh7z1r6fih23aq7bn3t42xh6i/cp_proj).
+12:00:53.437 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on proj class cache for build file '/Users/zoray/Developer/Zoframenco/core/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_eh7z1r6fih23aq7bn3t42xh6i/proj).
+12:00:53.437 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on cp_proj class cache for build file '/Users/zoray/Developer/Zoframenco/desktop/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/cp_proj).
+12:00:53.437 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on proj class cache for build file '/Users/zoray/Developer/Zoframenco/desktop/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj).
+12:00:53.437 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on cp_proj class cache for build file '/Users/zoray/Developer/Zoframenco/html/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/cp_proj).
+12:00:53.438 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on proj class cache for build file '/Users/zoray/Developer/Zoframenco/html/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj).
+12:00:53.439 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache fileSnapshots.bin (/Users/zoray/Developer/Zoframenco/.gradle/2.10/taskArtifacts/fileSnapshots.bin)
+12:00:53.440 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache outputFileStates.bin (/Users/zoray/Developer/Zoframenco/.gradle/2.10/taskArtifacts/outputFileStates.bin)
+12:00:53.441 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache fileHashes.bin (/Users/zoray/Developer/Zoframenco/.gradle/2.10/taskArtifacts/fileHashes.bin)
+12:00:53.443 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache taskArtifacts.bin (/Users/zoray/Developer/Zoframenco/.gradle/2.10/taskArtifacts/taskArtifacts.bin)
+12:00:53.444 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on task history cache (/Users/zoray/Developer/Zoframenco/.gradle/2.10/taskArtifacts).
+12:00:53.445 [DEBUG] [org.gradle.cache.internal.DefaultCacheAccess] Cache jars (/Users/zoray/Developer/Zoframenco/core/assets/caches/jars-1) was closed 0 times.
+12:00:53.446 [DEBUG] [org.gradle.api.internal.artifacts.ivyservice.ivyresolve.memcache.InMemoryCachedRepositoryFactory] In-memory dependency metadata cache closed. Repos cached: 3, cache instances: 3, modules served from cache: 0, artifacts: 0
+12:00:53.446 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache artifact-at-url.bin (/Users/zoray/Developer/Zoframenco/core/assets/caches/modules-2/metadata-2.16/artifact-at-url.bin)
+12:00:53.447 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache artifact-at-repository.bin (/Users/zoray/Developer/Zoframenco/core/assets/caches/modules-2/metadata-2.16/artifact-at-repository.bin)
+12:00:53.448 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache module-metadata.bin (/Users/zoray/Developer/Zoframenco/core/assets/caches/modules-2/metadata-2.16/module-metadata.bin)
+12:00:53.448 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on artifact cache (/Users/zoray/Developer/Zoframenco/core/assets/caches/modules-2).
+12:00:53.449 [DEBUG] [org.gradle.api.internal.artifacts.ivyservice.resolveengine.store.CachedStoreFactory] Resolution result cache closed. Cache reads: 0, disk reads: 0 (avg: 0.0 secs, total: 0.0 secs)
+12:00:53.450 [DEBUG] [org.gradle.api.internal.artifacts.ivyservice.resolveengine.store.CachedStoreFactory] Resolution result cache closed. Cache reads: 0, disk reads: 0 (avg: 0.0 secs, total: 0.0 secs)
+12:00:53.451 [DEBUG] [org.gradle.api.internal.artifacts.ivyservice.resolveengine.store.ResolutionResultsStoreFactory] Deleted 2 resolution results binary files in 0.002 secs
+12:00:53.452 [DEBUG] [org.gradle.cache.internal.DefaultCacheAccess] Cache Plugin Resolution Cache (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/plugin-resolution) was closed 0 times.
+12:00:53.453 [DEBUG] [org.gradle.api.internal.tasks.compile.daemon.CompilerDaemonManager] Stopping 0 compiler daemon(s).
+12:00:53.453 [INFO] [org.gradle.api.internal.tasks.compile.daemon.CompilerDaemonManager] Stopped 0 compiler daemon(s).
+12:00:53.453 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has finished executing the build.
+12:00:53.759 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: finished waiting for DaemonCommandExecution[command = Build{id=a1e09735-bbfd-495b-8173-59ef81f7f957.1, currentDir=/Applications/IntelliJ IDEA 15 CE.app/Contents/bin}, connection = org.gradle.launcher.daemon.server.DefaultDaemonConnection@52c5d30]. Result org.gradle.launcher.daemon.server.DaemonStateCoordinator@45bf1032 with state Running
+12:00:53.759 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: completed DaemonCommandExecution[command = Build{id=a1e09735-bbfd-495b-8173-59ef81f7f957.1, currentDir=/Applications/IntelliJ IDEA 15 CE.app/Contents/bin}, connection = org.gradle.launcher.daemon.server.DefaultDaemonConnection@52c5d30]
+12:00:53.760 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] updating lastActivityAt to 1459530053760
+12:00:53.760 [INFO] [org.gradle.launcher.daemon.server.DomainRegistryUpdater] Marking the daemon as idle, address: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]]
+12:00:53.760 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking idle by address: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]]
+12:00:53.763 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+12:00:53.766 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired.
+12:00:53.768 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+12:00:53.769 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Daemon is idle, sleeping until state change or idle timeout at Fri Apr 01 15:00:53 CDT 2016
+12:00:53.769 [DEBUG] [org.gradle.launcher.daemon.server.exec.ReturnResult] Daemon is dispatching the build result: Success[value=org.gradle.tooling.internal.provider.BuildActionResult@482fb1b0]
+12:00:53.769 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 13: dispatching class org.gradle.launcher.daemon.protocol.Success
+12:00:53.772 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Finishing executing command: Build{id=a1e09735-bbfd-495b-8173-59ef81f7f957.1, currentDir=/Applications/IntelliJ IDEA 15 CE.app/Contents/bin}
+12:00:53.781 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 14: received class org.gradle.launcher.daemon.protocol.Finished
+12:00:53.781 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] Received non-IO message from client: org.gradle.launcher.daemon.protocol.Finished@2deab922
+12:00:53.782 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received finished message: org.gradle.launcher.daemon.protocol.Finished@2deab922
+12:00:53.782 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 13: stopping connection
+12:00:53.782 [DEBUG] [org.gradle.messaging.remote.internal.inet.SocketConnection] Discarding EOFException: java.io.EOFException
+12:00:53.784 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 14: received null
+12:00:53.784 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] Received end-of-input from client.
+12:00:53.786 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 13: stopping connection
+12:00:55.257 [DEBUG] [org.gradle.messaging.remote.internal.inet.TcpIncomingConnector] Accepted connection from /127.0.0.1:57007 to /127.0.0.1:57001.
+12:00:55.279 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 23: received class org.gradle.launcher.daemon.protocol.Build
+12:00:55.280 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] Received non-IO message from client: Build{id=56f29b28-f2e9-4540-8507-e053fa2b4b42.1, currentDir=/Users/zoray/Developer/Zoframenco}
+12:00:55.280 [INFO] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received command: Build{id=56f29b28-f2e9-4540-8507-e053fa2b4b42.1, currentDir=/Users/zoray/Developer/Zoframenco}.
+12:00:55.280 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Starting executing command: Build{id=56f29b28-f2e9-4540-8507-e053fa2b4b42.1, currentDir=/Users/zoray/Developer/Zoframenco} with connection: socket connection from /127.0.0.1:57001 to /127.0.0.1:57007.
+12:00:55.281 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: started DaemonCommandExecution[command = Build{id=56f29b28-f2e9-4540-8507-e053fa2b4b42.1, currentDir=/Users/zoray/Developer/Zoframenco}, connection = org.gradle.launcher.daemon.server.DefaultDaemonConnection@119ecb2e] after 0.0 minutes of idle
+12:00:55.281 [INFO] [org.gradle.launcher.daemon.server.DomainRegistryUpdater] Marking the daemon as busy, address: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]]
+12:00:55.282 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking busy by address: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]]
+12:00:55.282 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+12:00:55.282 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired.
+12:00:55.292 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+12:00:55.294 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] updating lastActivityAt to 1459530055294
+12:00:55.295 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Daemon is busy, sleeping until state changes.
+12:00:55.295 [INFO] [org.gradle.launcher.daemon.server.exec.StartBuildOrRespondWithBusy] Daemon is about to start building Build{id=56f29b28-f2e9-4540-8507-e053fa2b4b42.1, currentDir=/Users/zoray/Developer/Zoframenco}. Dispatching build started information...
+12:00:55.295 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 16: dispatching class org.gradle.launcher.daemon.protocol.BuildStarted
+12:00:55.297 [DEBUG] [org.gradle.launcher.daemon.server.exec.EstablishBuildEnvironment] Configuring env variables: {PATH=/usr/bin:/bin:/usr/sbin:/sbin, SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.kwyV9z3Ekc/Listeners, XPC_FLAGS=0x0, SHELL=/bin/bash, __CF_USER_TEXT_ENCODING=0x1F6:0x0:0x0, Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.9EC9raNqIl/Render, LOGNAME=zoray, USER=zoray, XPC_SERVICE_NAME=com.jetbrains.intellij.ce.136920, HOME=/Users/zoray, TMPDIR=/var/folders/b6/nm4pc5n53_d25s7xf0ndlqnw0000gp/T/}
+12:00:55.298 [DEBUG] [org.gradle.launcher.daemon.server.exec.LogToClient] About to start relaying all logs to the client via the connection.
+12:00:55.298 [INFO] [org.gradle.launcher.daemon.server.exec.LogToClient] The client will now receive all logging from the daemon (pid: 32342). The daemon log file: /Users/zoray/Developer/Zoframenco/core/assets/daemon/2.10/daemon-32342.out.log
+12:00:55.298 [INFO] [org.gradle.launcher.daemon.server.health.DaemonHealthTracker] Starting 2nd build in daemon [uptime: 20.698 secs, performance: 98%, memory: 56% of 477.6 MB]
+12:00:55.299 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has started executing the build.
+12:00:55.300 [INFO] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] Executing build with daemon context: DefaultDaemonContext[uid=5c184344-9d44-4638-a034-0f4285f29625,javaHome=/Library/Java/JavaVirtualMachines/jdk1.8.0_66.jdk/Contents/Home,daemonRegistryDir=/Users/zoray/Developer/Zoframenco/core/assets/daemon,pid=32342,idleTimeout=10800000,daemonOpts=-Xms128m,-Xmx512m,-Dfile.encoding=UTF-8,-Duser.country=US,-Duser.language=en,-Duser.variant]
+12:00:55.304 [DEBUG] [org.gradle.internal.resource.transport.http.JavaSystemPropertiesProxySettings] Found java system property 'http.nonProxyHosts': local|*.local|169.254/16|*.169.254/16. Will ignore proxy settings for these hosts.
+12:00:55.313 [INFO] [org.gradle.tooling.internal.provider.DefaultPayloadClassLoaderRegistry] Creating ClassLoader 454e8dbb-fb2b-4fc0-9efc-a38d13425583 from [Spec classpath:[file:/Applications/IntelliJ%20IDEA%2015%20CE.app/Contents/plugins/gradle/lib/gradle-tooling-api-2.5.jar, file:/Applications/IntelliJ%20IDEA%2015%20CE.app/Contents/plugins/gradle/lib/guava-jdk5-17.0.jar, file:/Applications/IntelliJ%20IDEA%2015%20CE.app/Contents/plugins/gradle/lib/gradle-base-services-2.5.jar, file:/Applications/IntelliJ%20IDEA%2015%20CE.app/Contents/plugins/gradle/lib/gradle-tooling-extension-api.jar, file:/Applications/IntelliJ%20IDEA%2015%20CE.app/Contents/lib/openapi.jar, file:/Applications/IntelliJ%20IDEA%2015%20CE.app/Contents/plugins/android/lib/builder-model-1.3.0.jar]] and [org.gradle.internal.classloader.FilteringClassLoader@7bae4b81].
+12:00:55.315 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on jars (/Users/zoray/Developer/Zoframenco/core/assets/caches/jars-1).
+12:00:55.316 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired.
+12:00:55.316 [DEBUG] [org.gradle.cache.internal.DefaultPersistentDirectoryCache] Invalidating org.gradle.cache.internal.DefaultPersistentDirectoryCache$Initializer@14d0cc4c as it was not closed cleanly.
+12:00:55.332 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 23: received class org.gradle.launcher.daemon.protocol.CloseInput
+12:00:55.332 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] Received IO message from client: org.gradle.launcher.daemon.protocol.CloseInput@14d4cbe2
+12:00:55.332 [INFO] [org.gradle.launcher.daemon.server.exec.ForwardClientInput] Closing daemon's stdin at end of input.
+12:00:55.333 [INFO] [org.gradle.launcher.daemon.server.exec.ForwardClientInput] The daemon will no longer process any standard input.
+Configuration on demand is an incubating feature.
+
+BUILD SUCCESSFUL
+
+Total time: 3.235 secs
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx/1.9.2/gdx-1.9.2.pom
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-parent/1.9.2/gdx-parent-1.9.2.pom
+Download https://repo1.maven.org/maven2/org/sonatype/oss/oss-parent/5/oss-parent-5.pom
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-box2d/1.9.2/gdx-box2d-1.9.2.pom
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-box2d-parent/1.9.2/gdx-box2d-parent-1.9.2.pom
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx/1.9.2/gdx-1.9.2.jar
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-box2d/1.9.2/gdx-box2d-1.9.2.jar
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx/1.9.2/gdx-1.9.2-sources.jar
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-box2d/1.9.2/gdx-box2d-1.9.2-sources.jar
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-backend-lwjgl/1.9.2/gdx-backend-lwjgl-1.9.2.pom
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-platform/1.9.2/gdx-platform-1.9.2.pom
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-box2d-platform/1.9.2/gdx-box2d-platform-1.9.2.pom
+Download https://repo1.maven.org/maven2/org/lwjgl/lwjgl/lwjgl/2.9.2/lwjgl-2.9.2.pom
+Download https://repo1.maven.org/maven2/org/lwjgl/lwjgl/parent/2.9.2/parent-2.9.2.pom
+Download https://repo1.maven.org/maven2/org/lwjgl/lwjgl/lwjgl_util/2.9.2/lwjgl_util-2.9.2.pom
+Download https://repo1.maven.org/maven2/com/badlogicgames/jlayer/jlayer/1.0.1-gdx/jlayer-1.0.1-gdx.pom
+Download https://repo1.maven.org/maven2/org/sonatype/oss/oss-parent/7/oss-parent-7.pom
+Download https://repo1.maven.org/maven2/org/jcraft/jorbis/0.0.17/jorbis-0.0.17.pom
+Download https://repo1.maven.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.2/lwjgl-platform-2.9.2.pom
+Download https://repo1.maven.org/maven2/net/java/jinput/jinput/2.0.5/jinput-2.0.5.pom
+Download https://repo1.maven.org/maven2/net/java/jutils/jutils/1.0.0/jutils-1.0.0.pom
+Download https://repo1.maven.org/maven2/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5.pom
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-backend-lwjgl/1.9.2/gdx-backend-lwjgl-1.9.2.jar
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-platform/1.9.2/gdx-platform-1.9.2-natives-desktop.jar
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-box2d-platform/1.9.2/gdx-box2d-platform-1.9.2-natives-desktop.jar
+Download https://repo1.maven.org/maven2/org/lwjgl/lwjgl/lwjgl/2.9.2/lwjgl-2.9.2.jar
+Download https://repo1.maven.org/maven2/org/lwjgl/lwjgl/lwjgl_util/2.9.2/lwjgl_util-2.9.2.jar
+Download https://repo1.maven.org/maven2/com/badlogicgames/jlayer/jlayer/1.0.1-gdx/jlayer-1.0.1-gdx.jar
+Download https://repo1.maven.org/maven2/org/jcraft/jorbis/0.0.17/jorbis-0.0.17.jar
+Download https://repo1.maven.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.2/lwjgl-platform-2.9.2-natives-windows.jar
+Download https://repo1.maven.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.2/lwjgl-platform-2.9.2-natives-linux.jar
+Download https://repo1.maven.org/maven2/org/lwjgl/lwjgl/lwjgl-platform/2.9.2/lwjgl-platform-2.9.2-natives-osx.jar
+Download https://repo1.maven.org/maven2/net/java/jinput/jinput/2.0.5/jinput-2.0.5.jar
+Download https://repo1.maven.org/maven2/net/java/jutils/jutils/1.0.0/jutils-1.0.0.jar
+Download https://repo1.maven.org/maven2/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-linux.jar
+Download https://repo1.maven.org/maven2/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-windows.jar
+Download https://repo1.maven.org/maven2/net/java/jinput/jinput-platform/2.0.5/jinput-platform-2.0.5-natives-osx.jar
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-backend-lwjgl/1.9.2/gdx-backend-lwjgl-1.9.2-sources.jar
+Download https://repo1.maven.org/maven2/org/lwjgl/lwjgl/lwjgl/2.9.2/lwjgl-2.9.2-sources.jar
+Download https://repo1.maven.org/maven2/org/lwjgl/lwjgl/lwjgl_util/2.9.2/lwjgl_util-2.9.2-sources.jar
+Download https://repo1.maven.org/maven2/com/badlogicgames/jlayer/jlayer/1.0.1-gdx/jlayer-1.0.1-gdx-sources.jar
+Download https://repo1.maven.org/maven2/org/jcraft/jorbis/0.0.17/jorbis-0.0.17-sources.jar
+Download https://repo1.maven.org/maven2/net/java/jinput/jinput/2.0.5/jinput-2.0.5-sources.jar
+Download https://repo1.maven.org/maven2/net/java/jutils/jutils/1.0.0/jutils-1.0.0-sources.jar
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-backend-gwt/1.9.2/gdx-backend-gwt-1.9.2.pom
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-box2d-gwt/1.9.2/gdx-box2d-gwt-1.9.2.pom
+Download https://repo1.maven.org/maven2/com/google/gwt/gwt-servlet/2.6.0/gwt-servlet-2.6.0.pom
+Download https://repo1.maven.org/maven2/com/google/gwt/gwt/2.6.0/gwt-2.6.0.pom
+Download https://repo1.maven.org/maven2/org/sonatype/oss/oss-parent/4/oss-parent-4.pom
+Download https://repo1.maven.org/maven2/com/google/gwt/gwt-user/2.6.1/gwt-user-2.6.1.pom
+Download https://repo1.maven.org/maven2/com/google/gwt/gwt/2.6.1/gwt-2.6.1.pom
+Download https://repo1.maven.org/maven2/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.pom
+Download https://repo1.maven.org/maven2/org/json/json/20090211/json-20090211.pom
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-backend-gwt/1.9.2/gdx-backend-gwt-1.9.2.jar
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-backend-gwt/1.9.2/gdx-backend-gwt-1.9.2-sources.jar
+Download https://repo1.maven.org/maven2/com/badlogicgames/gdx/gdx-box2d-gwt/1.9.2/gdx-box2d-gwt-1.9.2-sources.jar
+Download https://repo1.maven.org/maven2/com/google/gwt/gwt-servlet/2.6.0/gwt-servlet-2.6.0.jar
+Download https://repo1.maven.org/maven2/com/google/gwt/gwt-user/2.6.1/gwt-user-2.6.1.jar
+Download https://repo1.maven.org/maven2/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA.jar
+Download https://repo1.maven.org/maven2/javax/validation/validation-api/1.0.0.GA/validation-api-1.0.0.GA-sources.jar
+Download https://repo1.maven.org/maven2/org/json/json/20090211/json-20090211.jar
+Download https://repo1.maven.org/maven2/com/google/gwt/gwt-servlet/2.6.0/gwt-servlet-2.6.0-sources.jar
+Download https://repo1.maven.org/maven2/com/google/gwt/gwt-user/2.6.1/gwt-user-2.6.1-sources.jar
+Download https://jcenter.bintray.com/de/richsource/gradle/plugins/gwt-gradle-plugin/0.6/gwt-gradle-plugin-0.6-sources.jar
+12:01:14.023 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on cp_init class cache for initialization script '/private/var/folders/b6/nm4pc5n53_d25s7xf0ndlqnw0000gp/T/ijinit0.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/ijinit0_8qngegxh35hwxfynso8ky5abn/cp_init).
+12:01:14.024 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on init class cache for initialization script '/private/var/folders/b6/nm4pc5n53_d25s7xf0ndlqnw0000gp/T/ijinit0.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/ijinit0_8qngegxh35hwxfynso8ky5abn/init).
+12:01:14.024 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on cp_settings class cache for settings file '/Users/zoray/Developer/Zoframenco/settings.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/settings_c2vup1rr4aet6zda5j2mp3al8/cp_settings).
+12:01:14.025 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on settings class cache for settings file '/Users/zoray/Developer/Zoframenco/settings.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/settings_c2vup1rr4aet6zda5j2mp3al8/settings).
+12:01:14.025 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on cp_proj class cache for build file '/Users/zoray/Developer/Zoframenco/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/cp_proj).
+12:01:14.025 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on proj class cache for build file '/Users/zoray/Developer/Zoframenco/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_6sarsshds130dmwffnew09fm9/proj).
+12:01:14.025 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on cp_proj class cache for build file '/Users/zoray/Developer/Zoframenco/core/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_eh7z1r6fih23aq7bn3t42xh6i/cp_proj).
+12:01:14.025 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on proj class cache for build file '/Users/zoray/Developer/Zoframenco/core/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_eh7z1r6fih23aq7bn3t42xh6i/proj).
+12:01:14.026 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on cp_proj class cache for build file '/Users/zoray/Developer/Zoframenco/desktop/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/cp_proj).
+12:01:14.026 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on proj class cache for build file '/Users/zoray/Developer/Zoframenco/desktop/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_bbow3lm4j1mpfuj9aj4t0mpza/proj).
+12:01:14.027 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on cp_proj class cache for build file '/Users/zoray/Developer/Zoframenco/html/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/cp_proj).
+12:01:14.027 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on proj class cache for build file '/Users/zoray/Developer/Zoframenco/html/build.gradle' (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/scripts/build_ee6c8k3ugg5wcnw8r5a8b37y8/proj).
+12:01:14.028 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on jars (/Users/zoray/Developer/Zoframenco/core/assets/caches/jars-1).
+12:01:14.028 [DEBUG] [org.gradle.api.internal.artifacts.ivyservice.ivyresolve.memcache.InMemoryCachedRepositoryFactory] In-memory dependency metadata cache closed. Repos cached: 87, cache instances: 4, modules served from cache: 164, artifacts: 127
+12:01:14.029 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache module-metadata.bin (/Users/zoray/Developer/Zoframenco/core/assets/caches/modules-2/metadata-2.16/module-metadata.bin)
+12:01:14.029 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache artifact-at-url.bin (/Users/zoray/Developer/Zoframenco/core/assets/caches/modules-2/metadata-2.16/artifact-at-url.bin)
+12:01:14.030 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache module-artifacts.bin (/Users/zoray/Developer/Zoframenco/core/assets/caches/modules-2/metadata-2.16/module-artifacts.bin)
+12:01:14.031 [DEBUG] [org.gradle.cache.internal.btree.BTreePersistentIndexedCache] Closing cache artifact-at-repository.bin (/Users/zoray/Developer/Zoframenco/core/assets/caches/modules-2/metadata-2.16/artifact-at-repository.bin)
+12:01:14.031 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on artifact cache (/Users/zoray/Developer/Zoframenco/core/assets/caches/modules-2).
+12:01:14.032 [DEBUG] [org.gradle.api.internal.artifacts.ivyservice.resolveengine.store.CachedStoreFactory] Resolution result cache closed. Cache reads: 0, disk reads: 0 (avg: 0.0 secs, total: 0.0 secs)
+12:01:14.033 [DEBUG] [org.gradle.api.internal.artifacts.ivyservice.resolveengine.store.CachedStoreFactory] Resolution result cache closed. Cache reads: 57, disk reads: 18 (avg: 0.001 secs, total: 0.028 secs)
+12:01:14.033 [DEBUG] [org.gradle.api.internal.artifacts.ivyservice.resolveengine.store.ResolutionResultsStoreFactory] Deleted 2 resolution results binary files in 0.001 secs
+12:01:14.034 [DEBUG] [org.gradle.cache.internal.DefaultCacheAccess] Cache Plugin Resolution Cache (/Users/zoray/Developer/Zoframenco/core/assets/caches/2.10/plugin-resolution) was closed 0 times.
+12:01:14.034 [DEBUG] [org.gradle.api.internal.tasks.compile.daemon.CompilerDaemonManager] Stopping 0 compiler daemon(s).
+12:01:14.034 [INFO] [org.gradle.api.internal.tasks.compile.daemon.CompilerDaemonManager] Stopped 0 compiler daemon(s).
+12:01:14.034 [DEBUG] [org.gradle.launcher.daemon.server.exec.ExecuteBuild] The daemon has finished executing the build.
+12:01:14.035 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: finished waiting for DaemonCommandExecution[command = Build{id=56f29b28-f2e9-4540-8507-e053fa2b4b42.1, currentDir=/Users/zoray/Developer/Zoframenco}, connection = org.gradle.launcher.daemon.server.DefaultDaemonConnection@119ecb2e]. Result org.gradle.launcher.daemon.server.DaemonStateCoordinator@45bf1032 with state Running
+12:01:14.035 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Command execution: completed DaemonCommandExecution[command = Build{id=56f29b28-f2e9-4540-8507-e053fa2b4b42.1, currentDir=/Users/zoray/Developer/Zoframenco}, connection = org.gradle.launcher.daemon.server.DefaultDaemonConnection@119ecb2e]
+12:01:14.036 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] updating lastActivityAt to 1459530074036
+12:01:14.036 [INFO] [org.gradle.launcher.daemon.server.DomainRegistryUpdater] Marking the daemon as idle, address: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]]
+12:01:14.037 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Marking idle by address: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]]
+12:01:14.037 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+12:01:14.038 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired.
+12:01:14.041 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+12:01:14.042 [DEBUG] [org.gradle.launcher.daemon.server.exec.ReturnResult] Daemon is dispatching the build result: Success[value=org.gradle.tooling.internal.provider.BuildActionResult@58014838]
+12:01:14.042 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Daemon is idle, sleeping until state change or idle timeout at Fri Apr 01 15:01:14 CDT 2016
+12:01:14.042 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 13: dispatching class org.gradle.launcher.daemon.protocol.Success
+12:01:14.052 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Finishing executing command: Build{id=56f29b28-f2e9-4540-8507-e053fa2b4b42.1, currentDir=/Users/zoray/Developer/Zoframenco}
+12:01:14.062 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 23: received class org.gradle.launcher.daemon.protocol.Finished
+12:01:14.063 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] Received non-IO message from client: org.gradle.launcher.daemon.protocol.Finished@5153f926
+12:01:14.063 [DEBUG] [org.gradle.launcher.daemon.server.DefaultIncomingConnectionHandler] Received finished message: org.gradle.launcher.daemon.protocol.Finished@5153f926
+12:01:14.063 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 13: stopping connection
+12:01:14.063 [DEBUG] [org.gradle.messaging.remote.internal.inet.SocketConnection] Discarding EOFException: java.io.EOFException
+12:01:14.064 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 23: received null
+12:01:14.064 [DEBUG] [org.gradle.launcher.daemon.server.DefaultDaemonConnection] Received end-of-input from client.
+12:01:14.064 [DEBUG] [org.gradle.launcher.daemon.server.SynchronizedDispatchConnection] thread 13: stopping connection
+15:26:39.102 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Idle timeout: daemon has been idle for requested period. Stopping now.
+15:26:39.108 [DEBUG] [org.gradle.launcher.daemon.server.DaemonStateCoordinator] Marking daemon stopped due to idle timeout. The daemon is running a build: false
+15:26:39.108 [DEBUG] [org.gradle.launcher.daemon.server.Daemon] stop() called on daemon
+15:26:39.108 [INFO] [org.gradle.launcher.daemon.server.Daemon] Stop requested. Daemon is removing its presence from the registry...
+15:26:39.110 [DEBUG] [org.gradle.launcher.daemon.server.DomainRegistryUpdater] Removing our presence to clients, eg. removing this address from the registry: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]]
+15:26:39.110 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Removing daemon address: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]]
+15:26:39.118 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+15:26:39.119 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired.
+15:26:39.127 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.
+15:26:39.128 [DEBUG] [org.gradle.launcher.daemon.server.DomainRegistryUpdater] Address removed from registry.
+Daemon vm is shutting down... The daemon has exited normally or was terminated in response to a user interrupt.
+15:26:39.134 [DEBUG] [org.gradle.launcher.daemon.registry.PersistentDaemonRegistry] Removing daemon address: [1726ad0c-0a5a-4665-a35b-1ee15084a509 port:57001, addresses:[/0:0:0:0:0:0:0:1, /127.0.0.1]]
+15:26:39.135 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Waiting to acquire exclusive lock on daemon addresses registry.
+15:26:39.135 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Lock acquired.
+15:26:39.135 [DEBUG] [org.gradle.cache.internal.DefaultFileLockManager] Releasing lock on daemon addresses registry.

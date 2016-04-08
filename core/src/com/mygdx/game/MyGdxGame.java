@@ -11,6 +11,10 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.mygdx.game.objects.Car;
+import com.mygdx.game.objects.Location;
+import com.mygdx.game.objects.Passenger;
+import com.mygdx.game.screens.HomeScreen;
 
 import java.util.HashMap;
 
@@ -23,20 +27,15 @@ public class MyGdxGame extends Game {
     public boolean gameStarted = false;
     private Texture taxiImg;
     public static Car taxi;
-    TiledMap tiledMap;
+    public TiledMap tiledMap;
     public static OrthographicCamera camera;
 
-    float[] decelleration = new float[2];
+    private float[] deceleration = new float[2];
     private Passenger passenger1;
     private Passenger passenger2;
     private HashMap<Integer, Location> locations;
     private final int NUM_LOCATIONS = 18;
     private Texture person;
-
-
-
-
-
 
     @Override
     public void create () {
@@ -53,9 +52,6 @@ public class MyGdxGame extends Game {
 
     }
 
-
-
-
     public void createCar() {
         taxiImg = new Texture("tiny_car_square.png");
         taxi = this.taxi;
@@ -67,13 +63,11 @@ public class MyGdxGame extends Game {
         taxi.setOrientation(0, 1);
     }
 
-
     public void createPassengers(){
         person = new Texture("stick_figure.png");
         passenger1 = new Passenger(person, locations);
         passenger2 = new Passenger(person, locations);
     }
-
 
         public void createLocations(){
         locations = new HashMap<Integer, Location>();
@@ -97,9 +91,6 @@ public class MyGdxGame extends Game {
         locations.put(17, new Location(630, 930));
     }
 
-
-
-
     @Override
     public void render () {
         super.render();
@@ -112,12 +103,10 @@ public class MyGdxGame extends Game {
         font.dispose();
     }
 
-
-
-    public void applyFriction(float[] decelleration) {
+    public void applyFriction(float[] deceleration) {
         if (taxi.velociy[0] > -10 && taxi.velociy[1] > -10) {
-            taxi.velociy[0] -= taxi.velociy[0] * 0.05;//decelleration[0];
-            taxi.velociy[1] -= taxi.velociy[1] * 0.05;//decelleration[1];
+            taxi.velociy[0] -= taxi.velociy[0] * 0.05;//deceleration[0];
+            taxi.velociy[1] -= taxi.velociy[1] * 0.05;//deceleration[1];
             // taxi.driveForward(tiledMap);
         }
     }
@@ -202,8 +191,8 @@ public class MyGdxGame extends Game {
         }
     }
 
-
-
-
+    public float[] getDeceleration() {
+        return deceleration;
+    }
 
 }
