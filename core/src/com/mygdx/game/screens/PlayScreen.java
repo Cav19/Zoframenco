@@ -23,7 +23,6 @@ public class PlayScreen implements Screen {
     private Viewport gamePort;
     private Hud hud;
 
-
     //public static TiledMap tiledMap;
     TiledMapRenderer tiledMapRenderer;
     float[] decelleration = new float[2];
@@ -32,8 +31,6 @@ public class PlayScreen implements Screen {
     private final SpriteBatch batch;
     //public static OrthographicCamera camera;
     //public Car taxi;
-
-
 
     public PlayScreen(MyGdxGame game){
         Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
@@ -94,7 +91,6 @@ public class PlayScreen implements Screen {
 
 
     }
-
 
     @Override
     public void resize(int width, int height) {

@@ -91,5 +91,4 @@ public class Hud {
         score += value;
         scoreLabel.setText(String.format("%02d", score));
     }
-
 }

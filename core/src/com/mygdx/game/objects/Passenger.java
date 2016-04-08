@@ -18,7 +18,6 @@ public class Passenger {
     private Location origin;
     private Location destination;
 
-
     public Passenger(Texture texture, HashMap<Integer, Location> locations){
         this.texture = texture;
         this.sprite = new Sprite(texture);

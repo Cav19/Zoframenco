@@ -16,7 +16,6 @@ public class HomeScreen implements Screen{
 
     final MyGdxGame game;
 
-
     public HomeScreen(final MyGdxGame game){
         this.game = game;
     }

@@ -194,5 +194,4 @@ public class MyGdxGame extends Game {
     public float[] getDeceleration() {
         return deceleration;
     }
-
 }

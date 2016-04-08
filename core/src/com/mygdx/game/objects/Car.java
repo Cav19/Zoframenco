@@ -44,7 +44,6 @@ public class Car {
         this.camera = camera;
         this.full = false;
         this.game=game;
-
     }
 
     public Car(MyGdxGame game){
