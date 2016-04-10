@@ -8,8 +8,6 @@ About: City traffic and construction sounds from busy intersection in kill devil
 Uploaded: 06.03.09 | License: Attribution 3.0 | Recorded by Mike Koenig | File Size: 4.66 MB | Downloads: 42600
 
 */
-
-
 package com.mygdx.game;
 
 import com.badlogic.gdx.ApplicationAdapter;
@@ -34,17 +32,17 @@ public class UberGame extends ApplicationAdapter {
 
     //public float width = (float)screenSize.getWidth();
     //public float height =(float)screenSize.getHeight();
-    public float width = 1000;
-    public float height = 1000;
-    SpriteBatch batch;
-    TiledMap tiledMap;
-    TiledMapRenderer tiledMapRenderer;
+    public static final int V_WIDTH = 1000;
+    public static final int V_HEIGHT = 1000;
+    public SpriteBatch batch;
+    public TiledMap tiledMap;
+    public TiledMapRenderer tiledMapRenderer;
     Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     float[] decelleration = new float[2];
     boolean gameStarted = false;
     private Texture taxiImg;
     private Texture person;
-    private OrthographicCamera camera;
+    public static OrthographicCamera camera;
     private Car taxi;
     private Passenger passenger1;
     private Passenger passenger2;
@@ -67,10 +65,10 @@ public class UberGame extends ApplicationAdapter {
     }
 
     public void setUpScreen() {
-        Gdx.graphics.setWindowedMode((int) width, (int) height);
+        Gdx.graphics.setWindowedMode((int) V_WIDTH, (int) V_HEIGHT);
         batch = new SpriteBatch();
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, width, height);
+        camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         tiledMap = new TmxMapLoader().load("map@9March.tmx");
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         camera.update();
@@ -79,10 +77,10 @@ public class UberGame extends ApplicationAdapter {
     public void createCar() {
         taxiImg = new Texture("tiny_car_square.png");
         taxi = new Car(taxiImg, this.camera);
-        taxi.getSprite().setPosition((int) (width / 2), (int) (height / 2));
-        taxi.X_pos = (int) (width / 2);
-        taxi.Y_pos = (int) (height / 2);
-        taxi.getSprite().setSize((int) (width / 25), (int) (width / 25));
+        taxi.getSprite().setPosition((int) (V_WIDTH / 2), (int) (V_HEIGHT / 2));
+        taxi.X_pos = (int) (V_WIDTH / 2);
+        taxi.Y_pos = (int) (V_HEIGHT / 2);
+        taxi.getSprite().setSize((int) (V_WIDTH / 25), (int) (V_WIDTH / 25));
         taxi.setOrientation(0, 1);
     }
 
