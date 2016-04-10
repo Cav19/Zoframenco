@@ -71,7 +71,7 @@ public class UberGame extends ApplicationAdapter {
         batch = new SpriteBatch();
         camera = new OrthographicCamera();
         camera.setToOrtho(false, width, height);
-        tiledMap = new TmxMapLoader().load("map@9March.tmx");
+        tiledMap = new TmxMapLoader().load("map@1April.tmx");
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         camera.update();
     }
@@ -79,7 +79,7 @@ public class UberGame extends ApplicationAdapter {
     public void createCar() {
         taxiImg = new Texture("tiny_car_square.png");
         taxi = new Car(taxiImg, this.camera);
-        taxi.getSprite().setPosition((int) (width / 2), (int) (height / 2));
+        taxi.getSprite().setPosition((int) (width / 2+60), (int) (height / 2));
         taxi.X_pos = (int) (width / 2);
         taxi.Y_pos = (int) (height / 2);
         taxi.getSprite().setSize((int) (width / 25), (int) (width / 25));

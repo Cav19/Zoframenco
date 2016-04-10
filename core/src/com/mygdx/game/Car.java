@@ -67,9 +67,8 @@ public class Car {
 
     public boolean isCellBLocked(float x, float y, TiledMap tiledMap) {
 
-
         MapLayers allLayers = tiledMap.getLayers();
-        TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(1);
+        TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
 
         return (cell != null) &&  (cell.getTile() != null)  &&  (!(cell.getTile().getProperties().containsKey("road")));
@@ -83,7 +82,6 @@ public class Car {
         collisionWithMap = isCellBLocked(x, y, tiledMap);   // isCellBLocked(x+Car.this.width, y, tiledMap) || isCellBLocked(x-Car.this.width, y, tiledMap) ||  isCellBLocked(x, (int)(y+Car.this.height), tiledMap);
         return collisionWithMap;
     }
-
 
     private boolean checkCollisions(float[] velociy, TiledMap tiledMap) {
         boolean collision = false;
@@ -128,7 +126,6 @@ public class Car {
             velociy[0]=0;
             velociy[1]=0;
         }
-
         return collision;
 
     }
