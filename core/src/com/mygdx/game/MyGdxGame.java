@@ -14,6 +14,7 @@ import com.badlogic.gdx.maps.tiled.TiledMap;
 
 import java.util.HashMap;
 
+
 public class MyGdxGame extends Game {
 
     public static final int V_WIDTH = 1000;
@@ -81,7 +82,7 @@ public class MyGdxGame extends Game {
     }
 
 
-        public void createLocations(){
+    public void createLocations(){
         locations = new HashMap<Integer, Location>();
         locations.put(0, new Location(70, 130));
         locations.put(1, new Location(230, 10));
@@ -148,7 +149,7 @@ public class MyGdxGame extends Game {
 
     public void play() {
 
-       // addDebugDot(taxi.X_pos, taxi.Y_pos);
+        // addDebugDot(taxi.X_pos, taxi.Y_pos);
 
         if (!gameStarted) {
 
