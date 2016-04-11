@@ -68,13 +68,9 @@ public class UberGame extends ApplicationAdapter {
         Gdx.graphics.setWindowedMode((int) V_WIDTH, (int) V_HEIGHT);
         batch = new SpriteBatch();
         camera = new OrthographicCamera();
-<<<<<<< HEAD
-        camera.setToOrtho(false, width, height);
-        tiledMap = new TmxMapLoader().load("map@1April.tmx");
-=======
+
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
-        tiledMap = new TmxMapLoader().load("map@9March.tmx");
->>>>>>> 06b865f42146ffff2b3fc64dfbe74031175410a7
+        tiledMap = new TmxMapLoader().load("map@1April.tmx");
         tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         camera.update();
     }
@@ -82,17 +78,10 @@ public class UberGame extends ApplicationAdapter {
     public void createCar() {
         taxiImg = new Texture("tiny_car_square.png");
         taxi = new Car(taxiImg, this.camera);
-<<<<<<< HEAD
-        taxi.getSprite().setPosition((int) (width / 2+60), (int) (height / 2));
-        taxi.X_pos = (int) (width / 2);
-        taxi.Y_pos = (int) (height / 2);
-        taxi.getSprite().setSize((int) (width / 25), (int) (width / 25));
-=======
-        taxi.getSprite().setPosition((int) (V_WIDTH / 2), (int) (V_HEIGHT / 2));
+        taxi.getSprite().setPosition((int) (V_WIDTH / 2+55), (int) (V_HEIGHT / 2-55));
         taxi.X_pos = (int) (V_WIDTH / 2);
         taxi.Y_pos = (int) (V_HEIGHT / 2);
         taxi.getSprite().setSize((int) (V_WIDTH / 25), (int) (V_WIDTH / 25));
->>>>>>> 06b865f42146ffff2b3fc64dfbe74031175410a7
         taxi.setOrientation(0, 1);
     }
 
