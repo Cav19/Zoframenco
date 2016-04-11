@@ -14,21 +14,18 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 /**
  * Created by zoray on 3/10/16.
  */
+
+
 public class PlayScreen implements Screen {
 
     private MyGdxGame game;
     private Viewport gamePort;
     private Hud hud;
-
-
-    //public static TiledMap tiledMap;
     TiledMapRenderer tiledMapRenderer;
     float[] decelleration = new float[2];
     boolean gameStarted = false;
     private Texture taxiImg;
     private final SpriteBatch batch;
-    //public static OrthographicCamera camera;
-    //public Car taxi;
 
 
 
@@ -36,10 +33,8 @@ public class PlayScreen implements Screen {
         Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         this.game = game;
         hud = new Hud(game, game.batch);
-        //camera = new OrthographicCamera();
         gamePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, game.camera);
         game.camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
-        //taxi=game.taxi;
         game.tiledMap = new TmxMapLoader().load("map@1April.tmx");
         batch = new SpriteBatch();
     }
@@ -51,21 +46,33 @@ public class PlayScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        game.play();
-
-        Gdx.gl.glClearColor(0, 0, 0, 0);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
-        game.camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
-        game.camera.update();
-
+        setUpScreen();
+        drawHud();
         drawGameObjects();
+        game.play();
+    }
 
-        game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
+
+
+
+
+
+
+
+    private void drawHud(){
         hud.stage.draw();
     }
 
-    public void drawGameObjects() {
+    private void setUpScreen(){
+        Gdx.gl.glClearColor(0, 0, 0, 0);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+        game.camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
+        game.camera.update();
+        game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
+
+    }
+
+    private void drawGameObjects() {
         drawMap();
         drawCar(game.V_WIDTH, game.V_HEIGHT, game.taxi);
     }
@@ -76,21 +83,20 @@ public class PlayScreen implements Screen {
         tiledMapRenderer.render();
     }
 
-    public void drawCar(int width, int height, Car taxi){
+    private void drawCar(int width, int height, Car taxi){
         taxi.getSprite().setSize( (width / 30),(width / 30));
         batch.begin();
         taxi.getSprite().draw(batch);
         batch.end();
-        /*System.out.println("the taxi I am drawing is "+ taxi.toString());
-        Texture taxi2texture = new Texture("tiny_car_square.png");
-        System.out.println("Velocity of game car is : " +taxi.velociy[0]+" and "+taxi.velociy[1]);
-        Car taxi2= new Car(taxi2texture);
-        System.out.println("Another taxi would be called: " +taxi2.toString());
-        */
         game.camera.update();
 
-
     }
+
+
+
+
+
+
 
 
     @Override

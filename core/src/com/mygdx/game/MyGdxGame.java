@@ -32,6 +32,7 @@ public class MyGdxGame extends Game {
     private HashMap<Integer, Location> locations;
     private final int NUM_LOCATIONS = 18;
     private Texture person;
+    Sprite initialPosition= new Sprite();
 
 
 
@@ -42,7 +43,6 @@ public class MyGdxGame extends Game {
     public void create () {
 
         this.tiledMap = new TiledMap();
-        this.taxi = new Car(this);
         batch = new SpriteBatch();
         font = new BitmapFont();
         camera=new OrthographicCamera();
@@ -58,12 +58,18 @@ public class MyGdxGame extends Game {
 
     public void createCar() {
         taxiImg = new Texture("tiny_car_square.png");
-        taxi = this.taxi;
+        taxi = new Car(this);
         taxi.setTexture(taxiImg);
         taxi.setSprite(taxiImg);
-        taxi.X_pos = (float) ( V_WIDTH / 25);
-        taxi.Y_pos = (float)(V_HEIGHT / 25);
+        initialPosition.setPosition( (float) V_WIDTH / 25, (float)( V_HEIGHT / 2.45));
+        taxi.X_pos = initialPosition.getX();
+        taxi.Y_pos = initialPosition.getY();
+
+
+
+
         taxi.getSprite().setSize((int) ( V_WIDTH / 100), (int) ( V_HEIGHT / 100));
+        taxi.getSprite().setPosition(taxi.X_pos, taxi.Y_pos);
         taxi.setOrientation(0, 1);
     }
 
@@ -142,7 +148,7 @@ public class MyGdxGame extends Game {
 
     public void play() {
 
-        addDebugDot(taxi.X_pos, taxi.Y_pos);
+       // addDebugDot(taxi.X_pos, taxi.Y_pos);
 
         if (!gameStarted) {
 
@@ -160,7 +166,7 @@ public class MyGdxGame extends Game {
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             if (!(taxi.orientation[0] == -1 && taxi.orientation[1] == 0)) {
-                taxi.turnLeft(tiledMap);
+                taxi.turnLeft();
                 taxi.playTiresNoise();
             }
             taxi.move(25);
@@ -169,7 +175,7 @@ public class MyGdxGame extends Game {
 
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             if (!(taxi.orientation[0] == 1 && taxi.orientation[1] == 0)) {
-                taxi.turnRight(tiledMap);
+                taxi.turnRight();
                 taxi.playTiresNoise();
 
             }
@@ -178,7 +184,7 @@ public class MyGdxGame extends Game {
 
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             if (!(taxi.orientation[0] == 0 && taxi.orientation[1] == 1)) {
-                taxi.turnUp(tiledMap);
+                taxi.turnUp();
                 taxi.playTiresNoise();
             }
             taxi.move(25);

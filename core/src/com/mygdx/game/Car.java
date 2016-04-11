@@ -83,8 +83,8 @@ public class Car {
         MapLayers allLayers = tiledMap.getLayers();
         TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
-      //  System.out.println((cell != null) &&  (cell.getTile() != null)  &&  (!(cell.getTile().getProperties().containsKey("road"))));
-        return (cell != null) &&  (cell.getTile() != null)  &&  (!(cell.getTile().getProperties().containsKey("road")));
+       // System.out.println((cell != null) &&  (cell.getTile() != null)  &&  (!(cell.getTile().getProperties().containsKey("road"))));
+        return (cell != null) &&  (cell.getTile() != null)  &&  ((cell.getTile().getProperties().containsKey("road")));
 
     }
 
@@ -159,12 +159,12 @@ public class Car {
         driveForward(tiledMap);
     }
 
-    public void turnUp(TiledMap tiledMap) {
+    public void turnUp() {
         velociy[0]=(velociy[0]*orientation[0]+velociy[1]*orientation[1]);
         velociy[1]=velociy[0]*orientation[0]+velociy[1]*orientation[1];
 
         if (!(orientation[0] == 0 && orientation[1] == 1)) {
-            turnLeft(tiledMap);
+            turnLeft();
             sprite.rotate90(true);
             setOrientation(0,1);
             velociy[0]=velociy[0]*orientation[0];
@@ -207,7 +207,7 @@ public class Car {
 
         if (!(orientation[0] == 0 && orientation[1] == -1)) {
 
-            turnLeft(tiledMap);
+            turnLeft();
             sprite.rotate90(false);
             setOrientation(0,-1);
             velociy[0]=velociy[0]*orientation[0];
@@ -229,7 +229,7 @@ public class Car {
 
 
 
-    public void turnLeft(TiledMap tiledMap) {
+    public void turnLeft() {
         velociy[0]=(velociy[1]*orientation[1] +velociy[0]*orientation[0]);
         velociy[1]=velociy[0]*orientation[0] + velociy[1]*orientation[1];
 
@@ -252,10 +252,10 @@ public class Car {
 
     }
 
-    public void turnRight(TiledMap tiledMap) {
+    public void turnRight() {
 
         if (!((orientation[0] == 1) && (orientation[1] == 0))) {
-            turnUp(tiledMap);
+            turnUp();
             velociy[0]=(velociy[0]*orientation[0]+velociy[1]*orientation[1]);
             velociy[1]=velociy[0]*orientation[0]+velociy[1]*orientation[1];
             sprite.rotate90(true);
