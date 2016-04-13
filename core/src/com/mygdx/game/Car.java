@@ -35,7 +35,7 @@ public class Car {
     public float X_pos = 0;
     public float Y_pos = 0;
     public Camera camera;
-    public float[] velociy= new float[2];
+    public float[] velocity = new float[2];
     public int[] orientation= new int[2];
 
 
@@ -57,11 +57,6 @@ public class Car {
     public void setSprite(Texture texture) {
         this.sprite=new Sprite(texture);
     }
-
-
-
-
-
 
     //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     //public float width = (float)screenSize.getWidth();
@@ -145,25 +140,25 @@ public class Car {
     }
 
     public void accellerate(TiledMap tiledMap, float accelleration){
-        if (this.velociy[0]==0){ this.velociy[0]+=orientation[0]*0.3;}
-        if (this.velociy[1]==0){ this.velociy[1]+=orientation[1]*0.3;}
-        if ((velociy[0]>-3) && (velociy[0]<3) && (velociy[1]>-3) && (velociy[1]<3)) {
-            this.velociy[0] += (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0];
-            this.velociy[1] += (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1];
+        if (this.velocity[0]==0){ this.velocity[0]+=orientation[0]*0.3;}
+        if (this.velocity[1]==0){ this.velocity[1]+=orientation[1]*0.3;}
+        if ((velocity[0]>-3) && (velocity[0]<3) && (velocity[1]>-3) && (velocity[1]<3)) {
+            this.velocity[0] += (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0];
+            this.velocity[1] += (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1];
         }
         driveForward(tiledMap);
     }
 
     public void turnUp() {
-        velociy[0]=(velociy[0]*orientation[0]+velociy[1]*orientation[1]);
-        velociy[1]=velociy[0]*orientation[0]+velociy[1]*orientation[1];
+        velocity[0]=(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+        velocity[1]= velocity[0]*orientation[0]+ velocity[1]*orientation[1];
 
         if (!(orientation[0] == 0 && orientation[1] == 1)) {
             turnLeft();
             sprite.rotate90(true);
             setOrientation(0,1);
-            velociy[0]=velociy[0]*orientation[0];
-            velociy[1]=velociy[1]*orientation[1];
+            velocity[0]= velocity[0]*orientation[0];
+            velocity[1]= velocity[1]*orientation[1];
         }
     }
 
@@ -184,7 +179,7 @@ public class Car {
         Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
         collisionNoise.setPosition((float) 50);
         collisionNoise.setVolume(75);
-        if (velociy[0]*orientation[0] + velociy[1]*orientation[1] !=0) {
+        if (velocity[0]*orientation[0] + velocity[1]*orientation[1] !=0) {
             collisionNoise.play();
         }
 
@@ -192,21 +187,17 @@ public class Car {
 
     }
 
-
-
-
-
     public void turnDown(TiledMap tiledMap){
-        velociy[0]=(velociy[0]*orientation[0]+velociy[1]*orientation[1]);
-        velociy[1]=velociy[0]*orientation[0]+velociy[1]*orientation[1];
+        velocity[0]=(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+        velocity[1]= velocity[0]*orientation[0]+ velocity[1]*orientation[1];
 
         if (!(orientation[0] == 0 && orientation[1] == -1)) {
 
             turnLeft();
             sprite.rotate90(false);
             setOrientation(0,-1);
-            velociy[0]=velociy[0]*orientation[0];
-            velociy[1]=velociy[1]*orientation[1];
+            velocity[0]= velocity[0]*orientation[0];
+            velocity[1]= velocity[1]*orientation[1];
         }
 
     }
@@ -214,7 +205,7 @@ public class Car {
     public void driveForward( TiledMap tiledMap) {
         float old_X = X_pos;
         float old_Y = Y_pos;
-        if (!checkCollisions(velociy, tiledMap)) {
+        if (!checkCollisions(velocity, tiledMap)) {
             sprite.setPosition(X_pos, Y_pos);
         } else {
             X_pos = old_X;
@@ -222,11 +213,9 @@ public class Car {
         }
     }
 
-
-
     public void turnLeft() {
-        velociy[0]=(velociy[1]*orientation[1] +velociy[0]*orientation[0]);
-        velociy[1]=velociy[0]*orientation[0] + velociy[1]*orientation[1];
+        velocity[0]=(velocity[1]*orientation[1] + velocity[0]*orientation[0]);
+        velocity[1]= velocity[0]*orientation[0] + velocity[1]*orientation[1];
 
 
         if (!((orientation[0] == -1) && (orientation[1] == 0))) {
@@ -242,8 +231,8 @@ public class Car {
         }
         setOrientation(-1, 0);
 
-        velociy[0]=velociy[0]*orientation[0];
-        velociy[1]=velociy[1]*orientation[1];
+        velocity[0]= velocity[0]*orientation[0];
+        velocity[1]= velocity[1]*orientation[1];
 
     }
 
@@ -251,12 +240,12 @@ public class Car {
 
         if (!((orientation[0] == 1) && (orientation[1] == 0))) {
             turnUp();
-            velociy[0]=(velociy[0]*orientation[0]+velociy[1]*orientation[1]);
-            velociy[1]=velociy[0]*orientation[0]+velociy[1]*orientation[1];
+            velocity[0]=(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+            velocity[1]= velocity[0]*orientation[0]+ velocity[1]*orientation[1];
             sprite.rotate90(true);
             setOrientation(1, 0);
-            velociy[0]=velociy[0]*orientation[0];
-            velociy[1]=velociy[1]*orientation[1];
+            velocity[0]= velocity[0]*orientation[0];
+            velocity[1]= velocity[1]*orientation[1];
         }
     }
     public Sprite getSprite() {
@@ -295,8 +284,8 @@ public class Car {
         }
         game.taxi.accellerate(game.tiledMap, accelleration);
 
-        game.decelleration[0] = (float) (this.velociy[0] * 0.15);
-        game.decelleration[1] = (float) (this.velociy[1] * 0.15);
+        game.decelleration[0] = (float) (this.velocity[0] * 0.15);
+        game.decelleration[1] = (float) (this.velocity[1] * 0.15);
         game.applyFriction(game.decelleration);
         this.driveForward(game.tiledMap);
         game.camera.update();
