@@ -62,7 +62,7 @@ public class MyGdxGame extends Game {
         taxi = new Car(this);
         taxi.setTexture(taxiImg);
         taxi.setSprite(taxiImg);
-        initialPosition.setPosition( (float) V_WIDTH / 25, (float)( V_HEIGHT / 2.45));
+        initialPosition.setPosition( (float) V_WIDTH / 2, (float)( V_HEIGHT / 2));
         taxi.X_pos = initialPosition.getX();
         taxi.Y_pos = initialPosition.getY();
 

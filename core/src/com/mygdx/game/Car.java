@@ -25,11 +25,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.MapLayers;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.math.Vector;
-import com.badlogic.gdx.math.Vector2;
-import com.sun.org.apache.xalan.internal.xsltc.util.IntegerArray;
-
-import java.awt.*;
 
 
 public class Car {
@@ -84,7 +79,7 @@ public class Car {
         TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
        // System.out.println((cell != null) &&  (cell.getTile() != null)  &&  (!(cell.getTile().getProperties().containsKey("road"))));
-        return (cell != null) &&  (cell.getTile() != null)  &&  ((cell.getTile().getProperties().containsKey("road")));
+        return (cell != null) &&  (cell.getTile() != null)  &&  (!(cell.getTile().getProperties().containsKey("road")));
 
     }
 
