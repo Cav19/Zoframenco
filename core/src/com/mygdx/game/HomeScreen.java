@@ -30,7 +30,7 @@ public class HomeScreen implements Screen{
 
     @Override
     public void render(float delta) {
-        Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
+       //Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
 
         Gdx.gl.glClearColor(250/255f, 236/255f, 129/255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
