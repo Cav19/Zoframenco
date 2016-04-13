@@ -35,11 +35,6 @@ public class MyGdxGame extends Game {
     private Texture person;
     Sprite initialPosition= new Sprite();
 
-
-
-
-
-
     @Override
     public void create () {
 
@@ -65,10 +60,7 @@ public class MyGdxGame extends Game {
         initialPosition.setPosition( (float) V_WIDTH / 25, (float)( V_HEIGHT / 2.45));
         taxi.X_pos = initialPosition.getX();
         taxi.Y_pos = initialPosition.getY();
-
-
-
-
+        
         taxi.getSprite().setSize((int) ( V_WIDTH / 100), (int) ( V_HEIGHT / 100));
         taxi.getSprite().setPosition(taxi.X_pos, taxi.Y_pos);
         taxi.setOrientation(0, 1);
@@ -122,9 +114,9 @@ public class MyGdxGame extends Game {
 
 
     public void applyFriction(float[] decelleration) {
-        if (taxi.velociy[0] > -10 && taxi.velociy[1] > -10) {
-            taxi.velociy[0] -= taxi.velociy[0] * 0.05;//decelleration[0];
-            taxi.velociy[1] -= taxi.velociy[1] * 0.05;//decelleration[1];
+        if (taxi.velocity[0] > -10 && taxi.velocity[1] > -10) {
+            taxi.velocity[0] -= taxi.velocity[0] * 0.05;//decelleration[0];
+            taxi.velocity[1] -= taxi.velocity[1] * 0.05;//decelleration[1];
             // taxi.driveForward(tiledMap);
         }
     }
@@ -208,9 +200,5 @@ public class MyGdxGame extends Game {
             System.exit(-1);
         }
     }
-
-
-
-
 
 }
