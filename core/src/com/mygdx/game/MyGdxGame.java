@@ -60,7 +60,7 @@ public class MyGdxGame extends Game {
         initialPosition.setPosition( (float) V_WIDTH / 25, (float)( V_HEIGHT / 2.45));
         taxi.X_pos = initialPosition.getX();
         taxi.Y_pos = initialPosition.getY();
-        
+
         taxi.getSprite().setSize((int) ( V_WIDTH / 100), (int) ( V_HEIGHT / 100));
         taxi.getSprite().setPosition(taxi.X_pos, taxi.Y_pos);
         taxi.setOrientation(0, 1);
