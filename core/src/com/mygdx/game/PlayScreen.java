@@ -47,8 +47,8 @@ public class PlayScreen implements Screen {
     @Override
     public void render(float delta) {
         setUpScreen();
-        drawHud();
         drawGameObjects();
+        drawHud();
         game.play();
     }
 
