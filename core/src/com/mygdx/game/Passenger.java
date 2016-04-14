@@ -61,6 +61,11 @@ public class Passenger {
         do{
             int num = (int)(Math.random() * 18);
             destination = locations.get(num);
+            while (destination.equals(origin)){
+                num = (int)(Math.random() * 18);
+                destination = locations.get(num);
+            }
+
         } while(destination.isFull());
         return destination;
     }

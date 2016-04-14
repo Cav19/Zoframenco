@@ -11,6 +11,7 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
+import com.badlogic.gdx.math.Rectangle;
 
 import java.util.HashMap;
 
@@ -92,11 +93,19 @@ public class MyGdxGame extends Game {
             if (taxiHasArrived()) {
                 passenger.enterTaxi();
                 taxi.full=true;
-                addDebugDot(passenger.getDestination().getX(),passenger.getDestination().getX() );
                 System.out.println("taxi has arrived");
 
             }
 
+        }
+
+        if (taxi.full){
+            addDebugDot(passenger.getDestination().getX(),passenger.getDestination().getY() );
+            Rectangle destinatioRectangle= Rectangle.tmp2.setPosition(passenger.destination.getX(), passenger.destination.getY());
+            destinatioRectangle.setSize(25,25);
+            if (taxi.hasReachedDestination(destinatioRectangle)){
+                System.out.println("passenger has arrived");
+            }
         }
 
     }
@@ -234,7 +243,7 @@ public class MyGdxGame extends Game {
         Sprite debugSprite = new Sprite(txt);// our "rectangular"
         debugSprite.setPosition(x,y);
         debugSprite.setOrigin(x,y);
-        debugSprite.setSize(10,10);
+        debugSprite.setSize(25,25);
         debugSprite.setColor(Color.RED);
         SpriteBatch debugBatch=new SpriteBatch();
         debugBatch.begin();

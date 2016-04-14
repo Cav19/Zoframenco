@@ -1,5 +1,6 @@
 package com.mygdx.game;
 
+import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 
 /**
@@ -13,6 +14,7 @@ public class Location {
     private int x;
     private int y;
     private Rectangle rectangle;
+    public Sprite sprite;
 
     public Location(int x, int y){
         //this.name = name;

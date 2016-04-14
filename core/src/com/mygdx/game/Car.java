@@ -25,6 +25,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.MapLayers;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
+import com.badlogic.gdx.math.Rectangle;
 
 
 public class Car {
@@ -67,14 +68,14 @@ public class Car {
 
     private float shift;
 
-    public boolean isCellBLocked(float x, float y, TiledMap tiledMap) {
+    public static boolean isCellProperty(float x, float y, TiledMap tiledMap, String property) {
 
 
         MapLayers allLayers = tiledMap.getLayers();
         TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
        // System.out.println((cell != null) &&  (cell.getTile() != null)  &&  (!(cell.getTile().getProperties().containsKey("road"))));
-        return (cell != null) &&  (cell.getTile() != null)  &&  (!(cell.getTile().getProperties().containsKey("road")));
+        return (cell != null) &&  (cell.getTile() != null)  &&  ((cell.getTile().getProperties().containsKey(property)));
 
     }
 
@@ -82,7 +83,7 @@ public class Car {
 
     public boolean blocked(float x, float y, TiledMap tiledMap) {
         boolean collisionWithMap = false;
-        collisionWithMap = isCellBLocked(x, y, tiledMap);   // isCellBLocked(x+Car.this.width, y, tiledMap) || isCellBLocked(x-Car.this.width, y, tiledMap) ||  isCellBLocked(x, (int)(y+Car.this.height), tiledMap);
+        collisionWithMap = !isCellProperty(x, y, tiledMap, "road");   // isCellBLocked(x+Car.this.width, y, tiledMap) || isCellBLocked(x-Car.this.width, y, tiledMap) ||  isCellBLocked(x, (int)(y+Car.this.height), tiledMap);
         return collisionWithMap;
     }
 
@@ -292,5 +293,8 @@ public class Car {
 
     }
 
+    public boolean hasReachedDestination( Rectangle destinationRectangle){
+        return this.getSprite().getBoundingRectangle().overlaps(destinationRectangle);
+    }
 
 }
