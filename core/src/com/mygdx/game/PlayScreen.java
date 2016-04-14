@@ -50,7 +50,7 @@ public class PlayScreen implements Screen {
         drawGameObjects();
         drawHud();
         hud.updateTime(Gdx.graphics.getDeltaTime());
-        game.play();
+            game.play();
     }
 
 

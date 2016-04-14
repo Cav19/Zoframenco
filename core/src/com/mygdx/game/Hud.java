@@ -20,7 +20,7 @@ public class Hud {
     //score/time tracking variables
     private Integer worldTimer;
     private float timeCount;
-    private static Integer score;
+    private static int score;
 
     //Scene2D widgets
     private static Label scoreLabel;
@@ -32,6 +32,7 @@ public class Hud {
 
     private Label messageLabel;
     private Label messageTextLabel;
+
 
     public Hud(MyGdxGame game, SpriteBatch sb) {
         worldTimer = 100;
@@ -80,6 +81,16 @@ public class Hud {
             countdownLabel.setText(String.valueOf(worldTimer));
             timeCount = 0;
         }
+        if (worldTimer<=0){
+            System.out.println("GAME OVER");
+            System.out.println("FINAL SCORE: "+ score);
+            stage.dispose();
+            System.exit(-1);
+        }
+    }
+
+    public int getTime(){
+        return this.worldTimer;
     }
 
     public void updateMessage(String msg){

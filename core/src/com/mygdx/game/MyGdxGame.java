@@ -69,6 +69,7 @@ public class MyGdxGame extends Game {
 
     public void play() {
 
+
         listenToInput();
 
 
@@ -91,13 +92,10 @@ public class MyGdxGame extends Game {
         else if (passengersWaiting) {
             addDebugDot(passenger.getSprite().getX(), passenger.getSprite().getY());
             addDebugDot(taxi.getSprite().getX(), taxi.getSprite().getY());
-            System.out.println("Passenger at: " + passenger.getSprite().getX() + " " + passenger.getSprite().getY());
-            System.out.println("car at: " + taxi.getSprite().getX() + " " + taxi.getSprite().getY());
 
             if (taxiHasArrived()) {
                 passenger.enterTaxi();
                 taxi.full=true;
-                System.out.println("taxi has arrived");
 
             }
 
