@@ -26,9 +26,9 @@ public class MyGdxGame extends Game {
     public static Car taxi;
     TiledMap tiledMap;
     public static OrthographicCamera camera;
-
+    boolean passengersWaiting=false;
     float[] decelleration = new float[2];
-    public Passenger passenger1;
+    public Passenger passenger;
     private HashMap<Integer, Location> locations;
     private final int NUM_LOCATIONS = 18;
     Sprite initialPosition= new Sprite();
@@ -42,7 +42,6 @@ public class MyGdxGame extends Game {
         camera=new OrthographicCamera();
         createCar();
         createLocations();
-        createPassenger();
         setScreen(new HomeScreen(this));
 
     }
@@ -51,6 +50,9 @@ public class MyGdxGame extends Game {
     @Override
     public void render () {
         super.render();
+        if (passengersWaiting){
+            passenger.drawPassenger();
+        }
 
     }
 
@@ -69,20 +71,60 @@ public class MyGdxGame extends Game {
         listenToInput();
 
 
-        boolean passengersWaiting=false;
         if (!gameStarted) {
-
             Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
             backgroundMusic.setLooping(true);
             backgroundMusic.setVolume((float)0.1);
             backgroundMusic.play();
             gameStarted = true;
+            passenger= new Passenger(locations);
+            passengersWaiting=true;
+            passenger.game= this;
+            camera.update();
         }
 
+        else if (passengersWaiting) {
+            addDebugDot(passenger.getSprite().getX(), passenger.getSprite().getY());
+            addDebugDot(taxi.getSprite().getX(), taxi.getSprite().getY());
+            System.out.println("Passenger at: " + passenger.getSprite().getX() + " " + passenger.getSprite().getY());
+            System.out.println("car at: " + taxi.getSprite().getX() + " " + taxi.getSprite().getY());
 
+            if (taxiHasArrived()) {
+                System.out.println("taxi has arrived");
 
+            }
+
+        }
 
     }
+
+        private boolean taxiHasArrived(){
+        if(taxi.getSprite().getBoundingRectangle().overlaps(passenger.getSprite().getBoundingRectangle())){
+            return true;
+        }
+        else return false;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     private void listenToInput() {
 
@@ -151,9 +193,6 @@ public class MyGdxGame extends Game {
         taxi.setOrientation(0, 1);
     }
 
-    public void createPassenger(){
-        passenger1 = new Passenger( locations);
-    }
 
     public void createLocations(){
         locations = new HashMap<Integer, Location>();

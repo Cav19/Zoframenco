@@ -31,7 +31,7 @@ public class Car {
     private MyGdxGame game;
     private Sprite sprite;
     private Texture texture;
-    private boolean full;
+    public boolean full;
     public float X_pos = 0;
     public float Y_pos = 0;
     public Camera camera;
@@ -123,7 +123,7 @@ public class Car {
             velociy[1]=0;
         }
 
-        if (blocked(X_pos, Y_pos, tiledMap) || blocked(X_pos + 15, Y_pos+5, tiledMap) || blocked(X_pos, Y_pos + 25, tiledMap)) {
+        if (blocked(X_pos, Y_pos, tiledMap) || blocked(X_pos + this.getSprite().getWidth()/4, Y_pos+this.getSprite().getHeight() , tiledMap) || blocked(X_pos, Y_pos+this.getSprite().getHeight(), tiledMap)) {
             collision = true;
             playCollisionNoise();
 

@@ -18,6 +18,7 @@ public class Passenger {
     private int timer;
     private Location origin;
     private Location destination;
+    public MyGdxGame game;
 
 
     public Passenger(HashMap<Integer, Location> locations){
@@ -60,8 +61,8 @@ public class Passenger {
         return destination;
     }
 
-    private void drawPassengers(){
-        SpriteBatch batch= new SpriteBatch();
+    public void drawPassenger(){
+        SpriteBatch batch= game.batch;
         batch.begin();
         this.getSprite().draw(batch);
         batch.end();
