@@ -16,8 +16,10 @@ public class HomeScreen implements Screen{
     final MyGdxGame game;
 
 
+
     public HomeScreen(final MyGdxGame game){
         this.game = game;
+        Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
     }
 
     @Override
@@ -26,7 +28,6 @@ public class HomeScreen implements Screen{
 
     @Override
     public void render(float delta) {
-        //Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
 
         Gdx.gl.glClearColor(250/255f, 236/255f, 129/255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);

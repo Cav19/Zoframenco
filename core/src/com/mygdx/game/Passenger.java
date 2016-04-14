@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.HashMap;
 
@@ -10,7 +11,7 @@ import java.util.HashMap;
  */
 public class Passenger {
 
-    private Texture texture;
+    public Texture texture;
     private Sprite sprite;
 
     private int fare;
@@ -19,8 +20,8 @@ public class Passenger {
     private Location destination;
 
 
-    public Passenger(Texture texture, HashMap<Integer, Location> locations){
-        this.texture = texture;
+    public Passenger(HashMap<Integer, Location> locations){
+        this.texture = new Texture("stick_figure.png");
         this.sprite = new Sprite(texture);
         this.origin = setOrigin(locations);
         this.destination = setDestination(locations);
@@ -58,6 +59,14 @@ public class Passenger {
         } while(destination.isFull());
         return destination;
     }
+
+    private void drawPassengers(){
+        SpriteBatch batch= new SpriteBatch();
+        batch.begin();
+        this.getSprite().draw(batch);
+        batch.end();
+    }
+
 
     public double getTravelDistance(Location location, Location destination){
         float xDist = Math.abs(location.getX() - destination.getX());

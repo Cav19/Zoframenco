@@ -58,6 +58,9 @@ public class PlayScreen implements Screen {
         hud.stage.draw();
     }
 
+
+
+
     private void setUpScreen(){
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -79,7 +82,6 @@ public class PlayScreen implements Screen {
     }
 
     private void drawCar(int width, int height, Car taxi){
-        taxi.getSprite().setSize( (width / 30),(width / 30));
         batch.begin();
         taxi.getSprite().draw(batch);
         batch.end();
