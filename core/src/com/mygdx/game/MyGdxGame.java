@@ -78,6 +78,10 @@ public class MyGdxGame extends Game {
             backgroundMusic.setVolume((float)0.1);
             backgroundMusic.play();
             gameStarted = true;
+
+        }
+
+        if (!passengersWaiting){
             passenger= new Passenger(locations);
             passengersWaiting=true;
             passenger.game= this;
@@ -104,6 +108,10 @@ public class MyGdxGame extends Game {
             Rectangle destinatioRectangle= Rectangle.tmp2.setPosition(passenger.destination.getX(), passenger.destination.getY());
             destinatioRectangle.setSize(25,25);
             if (taxi.hasReachedDestination(destinatioRectangle)){
+                Hud.addScore(1);
+                taxi.full=false;
+                passenger=null;
+                passengersWaiting=false;
                 System.out.println("passenger has arrived");
             }
         }
