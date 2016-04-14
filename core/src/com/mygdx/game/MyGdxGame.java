@@ -91,6 +91,7 @@ public class MyGdxGame extends Game {
 
             if (taxiHasArrived()) {
                 passenger.enterTaxi();
+                taxi.full=true;
                 addDebugDot(passenger.getDestination().getX(),passenger.getDestination().getX() );
                 System.out.println("taxi has arrived");
 

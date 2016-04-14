@@ -74,6 +74,7 @@ public class Passenger {
 
     public void enterTaxi(){
         this.getSprite().setAlpha(0);
+
     }
 
 
