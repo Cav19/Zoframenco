@@ -17,7 +17,7 @@ public class Passenger {
     private int fare;
     private int timer;
     private Location origin;
-    private Location destination;
+    public Location destination;
     public MyGdxGame game;
 
 
@@ -52,6 +52,10 @@ public class Passenger {
         return origin;
     }
 
+    public  Location getDestination(){
+        return this.destination;
+    }
+
     public Location setDestination(HashMap<Integer, Location> locations){
         Location destination;
         do{
@@ -66,6 +70,10 @@ public class Passenger {
         batch.begin();
         this.getSprite().draw(batch);
         batch.end();
+    }
+
+    public void enterTaxi(){
+        this.getSprite().setAlpha(0);
     }
 
 

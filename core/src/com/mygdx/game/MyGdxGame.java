@@ -90,6 +90,8 @@ public class MyGdxGame extends Game {
             System.out.println("car at: " + taxi.getSprite().getX() + " " + taxi.getSprite().getY());
 
             if (taxiHasArrived()) {
+                passenger.enterTaxi();
+                addDebugDot(passenger.getDestination().getX(),passenger.getDestination().getX() );
                 System.out.println("taxi has arrived");
 
             }
