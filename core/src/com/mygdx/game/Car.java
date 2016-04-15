@@ -123,7 +123,7 @@ public class Car {
             velociy[1]=0;
         }
 
-        if (blocked(X_pos, Y_pos, tiledMap) || blocked(X_pos + this.getSprite().getWidth()/4, Y_pos+this.getSprite().getHeight() , tiledMap) || blocked(X_pos, Y_pos+this.getSprite().getHeight(), tiledMap)) {
+        if (blocked(X_pos, Y_pos, tiledMap) || blocked(X_pos + this.getSprite().getWidth()/2, Y_pos+this.getSprite().getHeight() , tiledMap) || blocked(X_pos, Y_pos+this.getSprite().getHeight(), tiledMap)) {
             collision = true;
             playCollisionNoise();
 
@@ -172,7 +172,6 @@ public class Car {
         }
         else time_sinceLastNoise++;
     }
-
 
 
     public void playCollisionNoise() {
@@ -248,6 +247,7 @@ public class Car {
             velocity[1]= velocity[1]*orientation[1];
         }
     }
+
     public Sprite getSprite() {
         return sprite;
     }
@@ -268,14 +268,6 @@ public class Car {
     public void setTexture(Texture texture) {
         this.texture = texture;
     }
-
-
-    public void restart(TiledMap tiledmap) {
-        Y_pos = (int) (height / 2);
-        X_pos = (int) (width / 2);
-        this.sprite.setPosition(X_pos, Y_pos);
-    }
-
 
 
     public void move(int accelleration) {

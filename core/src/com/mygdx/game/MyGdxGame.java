@@ -3,7 +3,6 @@ package com.mygdx.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -73,14 +72,6 @@ public class MyGdxGame extends Game {
         listenToInput();
 
 
-        if (!gameStarted) {
-            Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
-            backgroundMusic.setLooping(true);
-            backgroundMusic.setVolume((float)0.1);
-            backgroundMusic.play();
-            gameStarted = true;
-
-        }
 
         if (!passengersWaiting){
             passenger= new Passenger(locations);
@@ -90,8 +81,6 @@ public class MyGdxGame extends Game {
         }
 
         else if (passengersWaiting) {
-            addDebugDot(passenger.getSprite().getX(), passenger.getSprite().getY());
-            addDebugDot(taxi.getSprite().getX(), taxi.getSprite().getY());
 
             if (taxiHasArrived()) {
                 passenger.enterTaxi();
@@ -187,7 +176,7 @@ public class MyGdxGame extends Game {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-            taxi.restart(tiledMap);
+            restart();
         }
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             System.exit(-1);
@@ -259,6 +248,19 @@ public class MyGdxGame extends Game {
         MyGdxGame.camera.update();
 
     }
+    public void restart() {
+        //this.taxi.Y_pos = (int) ( this.initialPosition.getOriginX());
+        //this.taxi.X_pos = (int) (this.initialPosition.getOriginY());
+        //this.taxi.getSprite().setPosition(this.taxi.X_pos, this.taxi.Y_pos);
+        taxi.full=false;
+        passenger=new Passenger(locations);
+        passengersWaiting=true;
+        passenger.game= this;
+        camera.update();
+
+
+    }
+
 
 
 

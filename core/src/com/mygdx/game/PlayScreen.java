@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -41,6 +42,11 @@ public class PlayScreen implements Screen {
 
     @Override
     public void show() {
+
+        Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
+        backgroundMusic.setLooping(true);
+        backgroundMusic.setVolume((float)0.1);
+        backgroundMusic.play();
 
     }
 
@@ -121,5 +127,8 @@ public class PlayScreen implements Screen {
     @Override
     public void dispose() {
 
+        batch.dispose();
     }
+
+
 }
