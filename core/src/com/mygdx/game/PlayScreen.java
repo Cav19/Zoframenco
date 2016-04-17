@@ -36,7 +36,7 @@ public class PlayScreen implements Screen {
         hud = new Hud(game, game.batch);
         gamePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, game.camera);
         game.camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
-        game.tiledMap = new TmxMapLoader().load("map@1April.tmx");
+        game.tiledMap = new TmxMapLoader().load("map@17April.tmx");
         batch = new SpriteBatch();
     }
 
@@ -97,13 +97,6 @@ public class PlayScreen implements Screen {
 
     }
 
-
-
-
-
-
-
-
     @Override
     public void resize(int width, int height) {
         gamePort.update(width, height);
@@ -129,6 +122,4 @@ public class PlayScreen implements Screen {
 
         batch.dispose();
     }
-
-
 }

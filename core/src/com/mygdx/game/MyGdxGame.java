@@ -112,27 +112,6 @@ public class MyGdxGame extends Game {
         else return false;
     }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     private void listenToInput() {
 
         if (!(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))) {
