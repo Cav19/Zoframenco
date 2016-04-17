@@ -15,8 +15,6 @@ public class HomeScreen implements Screen{
 
     final MyGdxGame game;
 
-
-
     public HomeScreen(final MyGdxGame game){
         this.game = game;
         Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);

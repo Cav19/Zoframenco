@@ -12,9 +12,7 @@ Uploaded: 03.04.11 | License: Attribution 3.0 | Recorded by Mike Koenig | File S
 
  */
 
-
 package com.mygdx.game;
-
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
@@ -26,7 +24,6 @@ import com.badlogic.gdx.maps.MapLayers;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
-
 
 public class Car {
     private MyGdxGame game;
@@ -70,7 +67,6 @@ public class Car {
 
     public static boolean isCellProperty(float x, float y, TiledMap tiledMap, String property) {
 
-
         MapLayers allLayers = tiledMap.getLayers();
         TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
@@ -85,7 +81,6 @@ public class Car {
         collisionWithMap = !isCellProperty(x, y, tiledMap, "road");   // isCellBLocked(x+Car.this.width, y, tiledMap) || isCellBLocked(x-Car.this.width, y, tiledMap) ||  isCellBLocked(x, (int)(y+Car.this.height), tiledMap);
         return collisionWithMap;
     }
-
 
     private boolean checkCollisions(float[] velociy, TiledMap tiledMap) {
         boolean collision = false;
@@ -172,7 +167,6 @@ public class Car {
         }
         else time_sinceLastNoise++;
     }
-
 
     public void playCollisionNoise() {
         Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));

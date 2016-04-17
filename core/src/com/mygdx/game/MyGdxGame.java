@@ -14,7 +14,6 @@ import com.badlogic.gdx.math.Rectangle;
 
 import java.util.HashMap;
 
-
 public class MyGdxGame extends Game {
 
     public static final int V_WIDTH = 1000;
@@ -46,7 +45,6 @@ public class MyGdxGame extends Game {
 
     }
 
-
     @Override
     public void render () {
         super.render();
@@ -62,16 +60,9 @@ public class MyGdxGame extends Game {
         font.dispose();
     }
 
-
-
-
-
     public void play() {
 
-
         listenToInput();
-
-
 
         if (!passengersWaiting){
             passenger= new Passenger(locations);
@@ -111,27 +102,6 @@ public class MyGdxGame extends Game {
         }
         else return false;
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     private void listenToInput() {
 
@@ -184,7 +154,6 @@ public class MyGdxGame extends Game {
 
     }
 
-
     public void createCar() {
         taxiImg = new Texture("tiny_car_square.png");
         taxi = new Car(this);
@@ -199,7 +168,6 @@ public class MyGdxGame extends Game {
         taxi.getSprite().setPosition(initialPosition.getX(), initialPosition.getY());
         taxi.setOrientation(0, 1);
     }
-
 
     public void createLocations(){
         locations = new HashMap<Integer, Location>();
@@ -260,8 +228,5 @@ public class MyGdxGame extends Game {
 
 
     }
-
-
-
 
 }
