@@ -16,7 +16,6 @@ import com.badlogic.gdx.utils.viewport.Viewport;
  * Created by zoray on 3/10/16.
  */
 
-
 public class PlayScreen implements Screen {
 
     private MyGdxGame game;
@@ -27,8 +26,6 @@ public class PlayScreen implements Screen {
     boolean gameStarted = false;
     private Texture taxiImg;
     private final SpriteBatch batch;
-
-
 
     public PlayScreen(MyGdxGame game){
         Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
@@ -56,10 +53,7 @@ public class PlayScreen implements Screen {
         drawGameObjects();
         drawHud();
         game.play();
-
     }
-
-
 
     private void drawHud() {
         hud.updateTime(Gdx.graphics.getDeltaTime());
@@ -98,13 +92,6 @@ public class PlayScreen implements Screen {
 
     }
 
-
-
-
-
-
-
-
     @Override
     public void resize(int width, int height) {
         gamePort.update(width, height);
@@ -130,6 +117,5 @@ public class PlayScreen implements Screen {
 
         batch.dispose();
     }
-
 
 }
