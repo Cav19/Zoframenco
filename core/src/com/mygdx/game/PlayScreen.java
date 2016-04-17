@@ -28,8 +28,6 @@ public class PlayScreen implements Screen {
     private Texture taxiImg;
     private final SpriteBatch batch;
 
-
-
     public PlayScreen(MyGdxGame game){
         Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         this.game = game;
@@ -59,8 +57,6 @@ public class PlayScreen implements Screen {
 
     }
 
-
-
     private void drawHud() {
         hud.updateTime(Gdx.graphics.getDeltaTime());
         hud.stage.draw();
@@ -68,7 +64,6 @@ public class PlayScreen implements Screen {
             hud.updateMessage(game.passenger.destination.getName());
         }
     }
-
 
     private void setUpScreen(){
         Gdx.gl.glClearColor(0, 0, 0, 1);
