@@ -53,7 +53,6 @@ public class PlayScreen implements Screen {
         drawGameObjects();
         drawHud();
         game.play();
-
     }
 
     private void drawHud() {
