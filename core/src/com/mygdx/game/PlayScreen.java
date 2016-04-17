@@ -56,19 +56,20 @@ public class PlayScreen implements Screen {
     }
 
     private void drawHud() {
+        if (game.passenger != null && game.taxi.full) {
+            hud.updateMessage("Drop me at " + game.passenger.destination.toString());
+        }
         hud.updateTime(Gdx.graphics.getDeltaTime());
         hud.stage.draw();
-        if (game.passenger != null && game.taxi.full) {
-            hud.updateMessage(game.passenger.destination.getName());
-        }
+
     }
 
     private void setUpScreen(){
-        Gdx.gl.glClearColor(0, 0, 0, 1);
+        Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
         game.camera.update();
-        game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
+        //game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
 
     }
 
@@ -116,8 +117,5 @@ public class PlayScreen implements Screen {
 
         batch.dispose();
     }
-<<<<<<< HEAD
-=======
 
->>>>>>> 6597710b5d1ae655b6878937be0ffea234649745
 }
