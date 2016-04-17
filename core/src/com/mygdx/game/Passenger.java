@@ -106,4 +106,8 @@ public class Passenger {
         return fare;
     }
 
+    public Location getOrigin(){
+        return origin;
+    }
+
 }

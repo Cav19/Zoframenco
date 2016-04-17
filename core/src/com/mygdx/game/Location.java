@@ -23,7 +23,6 @@ public class Location {
         this.y = y;
     }
 
-
     public void addPassenger(){
         isFull = true;
     }

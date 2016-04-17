@@ -16,7 +16,6 @@ import com.badlogic.gdx.utils.viewport.Viewport;
  * Created by zoray on 3/10/16.
  */
 
-
 public class PlayScreen implements Screen {
 
     private MyGdxGame game;
@@ -54,7 +53,6 @@ public class PlayScreen implements Screen {
         drawGameObjects();
         drawHud();
         game.play();
-
     }
 
     private void drawHud() {
@@ -118,4 +116,8 @@ public class PlayScreen implements Screen {
 
         batch.dispose();
     }
+<<<<<<< HEAD
+=======
+
+>>>>>>> 6597710b5d1ae655b6878937be0ffea234649745
 }
