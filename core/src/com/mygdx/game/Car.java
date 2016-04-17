@@ -59,8 +59,8 @@ public class Car {
     //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     //public float width = (float)screenSize.getWidth();
     //public float height =(float)screenSize.getHeight();
-    public float width = 1000;
-    public float height = 1000;
+   // public float width = game.V_WIDTH;
+    //public float height = game.V_WIDTH;
     public float time_sinceLastNoise=Gdx.app.getGraphics().getDeltaTime();
 
     private float shift;
@@ -87,7 +87,7 @@ public class Car {
         X_pos+=velociy[0];
         Y_pos+=velociy[1];
 
-        if (X_pos + (int) this.getSprite().getWidth() >= width) {
+        if (X_pos + (int) this.getSprite().getWidth() >= game.V_WIDTH) {
             collision = true;
             playCollisionNoise();
             velociy[0]=0;
@@ -101,7 +101,7 @@ public class Car {
             velociy[1]=0;
 
         }
-        if (Y_pos + (int) this.getSprite().getWidth() >= height) {
+        if (Y_pos + (int) this.getSprite().getWidth() >= game.V_HEIGHT) {
 
             collision = true;
             playCollisionNoise();

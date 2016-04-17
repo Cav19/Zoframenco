@@ -31,8 +31,8 @@ public class PlayScreen implements Screen {
         Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         this.game = game;
         hud = new Hud(game, game.batch);
-        gamePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, game.camera);
         game.camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
+        gamePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, game.camera);
         game.tiledMap = new TmxMapLoader().load("map@17April.tmx");
         batch = new SpriteBatch();
     }
@@ -70,13 +70,13 @@ public class PlayScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
         game.camera.update();
-        //game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
+        game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
 
     }
 
     private void drawGameObjects() {
         drawMap();
-        drawCar(game.V_WIDTH, game.V_HEIGHT, game.taxi);
+        drawCar( game.taxi);
     }
 
     private void drawMap() {
@@ -85,7 +85,7 @@ public class PlayScreen implements Screen {
         tiledMapRenderer.render();
     }
 
-    private void drawCar(int width, int height, Car taxi){
+    private void drawCar( Car taxi){
         batch.begin();
         taxi.getSprite().draw(batch);
         batch.end();

@@ -90,7 +90,6 @@ public class MyGdxGame extends Game {
                 taxi.full=false;
                 passenger=null;
                 passengersWaiting=false;
-                System.out.println("passenger has arrived");
             }
         }
 
