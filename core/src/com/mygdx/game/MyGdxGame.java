@@ -85,7 +85,7 @@ public class MyGdxGame extends Game {
             if (taxiHasArrived()) {
                 passenger.enterTaxi();
                 taxi.full=true;
-
+                passenger.getOrigin().removePassenger();
             }
 
         }
@@ -250,9 +250,9 @@ public class MyGdxGame extends Game {
     }
     public void restart() {
         taxi.full=false;
-        passenger= null;
-        Passenger passenger2=new Passenger(locations);
-        passenger=passenger2;
+        passenger.getOrigin().removePassenger();
+        passenger = null;
+        passenger = new Passenger(locations);
         passengersWaiting=true;
         passenger.game= this;
         camera.update();
