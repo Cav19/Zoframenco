@@ -45,6 +45,7 @@ public class Passenger {
         do{
             int num = (int)(Math.random() * 18);
             origin = locations.get(num);
+
         } while(origin.isFull());
         sprite.setX(origin.getX());
         sprite.setY(origin.getY());

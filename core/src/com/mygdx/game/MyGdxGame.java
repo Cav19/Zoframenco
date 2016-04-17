@@ -24,7 +24,7 @@ public class MyGdxGame extends Game {
     public boolean gameStarted = false;
     private Texture taxiImg;
     public static Car taxi;
-    TiledMap tiledMap;
+    public TiledMap tiledMap;
     public static OrthographicCamera camera;
     boolean passengersWaiting=false;
     float[] decelleration = new float[2];
@@ -193,7 +193,7 @@ public class MyGdxGame extends Game {
         initialPosition.setPosition( (float) V_WIDTH / 25, (float)( V_HEIGHT / 2.45));
         taxi.X_pos = initialPosition.getX();
         taxi.Y_pos = initialPosition.getY();
-        int taxiSize= V_WIDTH / 28;
+        int taxiSize= V_WIDTH / 25;
 
         taxi.getSprite().setSize(taxiSize, taxiSize);
         taxi.getSprite().setPosition(initialPosition.getX(), initialPosition.getY());
@@ -249,15 +249,11 @@ public class MyGdxGame extends Game {
 
     }
     public void restart() {
-        //this.taxi.Y_pos = (int) ( this.initialPosition.getOriginX());
-        //this.taxi.X_pos = (int) (this.initialPosition.getOriginY());
-        //this.taxi.getSprite().setPosition(this.taxi.X_pos, this.taxi.Y_pos);
         taxi.full=false;
         passenger=new Passenger(locations);
         passengersWaiting=true;
         passenger.game= this;
         camera.update();
-
 
     }
 

@@ -68,7 +68,7 @@ public class Car {
 
     private float shift;
 
-    public static boolean isCellProperty(float x, float y, TiledMap tiledMap, String property) {
+    public boolean isCellProperty(float x, float y, TiledMap tiledMap, String property) {
 
 
         MapLayers allLayers = tiledMap.getLayers();
@@ -139,13 +139,21 @@ public class Car {
         return checkCollisions(velociy, tiledMap);
     }
 
+    //TO DO: revise this method to fix "hiccups" in car movement
+
     public void accellerate(TiledMap tiledMap, float accelleration){
         if (this.velocity[0]==0){ this.velocity[0]+=orientation[0]*0.3;}
         if (this.velocity[1]==0){ this.velocity[1]+=orientation[1]*0.3;}
-        if ((velocity[0]>-3) && (velocity[0]<3) && (velocity[1]>-3) && (velocity[1]<3)) {
+        if (((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0])>-3) && ((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration)<3) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1]>-3) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1]<3))) {
             this.velocity[0] += (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0];
             this.velocity[1] += (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1];
         }
+        else {
+            this.velocity[0] = 3 * orientation[0];
+            this.velocity[1] = 3 * orientation[1];
+
+        }
+
         driveForward(tiledMap);
     }
 
@@ -274,7 +282,8 @@ public class Car {
         if (game.tiledMap==null) {
             System.out.println("Tiledmap always null");
         }
-        game.taxi.accellerate(game.tiledMap, accelleration);
+
+        this.accellerate(game.tiledMap, accelleration);
 
         game.decelleration[0] = (float) (this.velocity[0] * 0.15);
         game.decelleration[1] = (float) (this.velocity[1] * 0.15);
