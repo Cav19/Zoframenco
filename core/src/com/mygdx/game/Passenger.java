@@ -11,8 +11,8 @@ import java.util.HashMap;
  */
 public class Passenger {
 
-    public Texture texture;
-    private Sprite sprite;
+    public Texture texture= new Texture("stick_figure.png");;
+    private Sprite sprite= new Sprite(texture);
 
     private int fare;
     private int timer;
@@ -22,8 +22,6 @@ public class Passenger {
 
 
     public Passenger(HashMap<Integer, Location> locations){
-        this.texture = new Texture("stick_figure.png");
-        this.sprite = new Sprite(texture);
         this.origin = setOrigin(locations);
         this.destination = setDestination(locations);
         this.fare = (int)(getTravelDistance(origin, destination) / 2);

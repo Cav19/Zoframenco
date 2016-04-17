@@ -250,7 +250,9 @@ public class MyGdxGame extends Game {
     }
     public void restart() {
         taxi.full=false;
-        passenger=new Passenger(locations);
+        passenger= null;
+        Passenger passenger2=new Passenger(locations);
+        passenger=passenger2;
         passengersWaiting=true;
         passenger.game= this;
         camera.update();
