@@ -55,13 +55,14 @@ public class PlayScreen implements Screen {
         setUpScreen();
         drawGameObjects();
         drawHud();
-        hud.updateTime(Gdx.graphics.getDeltaTime());
-            game.play();
+        game.play();
+
     }
 
 
 
     private void drawHud() {
+        hud.updateTime(Gdx.graphics.getDeltaTime());
         hud.stage.draw();
         if (game.passenger != null && game.taxi.full) {
             hud.updateMessage(game.passenger.destination.getName());
@@ -70,7 +71,7 @@ public class PlayScreen implements Screen {
 
 
     private void setUpScreen(){
-        Gdx.gl.glClearColor(0, 0, 0, 0);
+        Gdx.gl.glClearColor(0, 0, 0, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
         game.camera.update();
