@@ -191,10 +191,10 @@ public class MyGdxGame extends Game {
     }
 
     public void applyFriction(float[] decelleration) {
-        if (taxi.velocity[0] > -10 && taxi.velocity[1] > -10) {
+        //if (taxi.velocity[0] > -10 && taxi.velocity[1] > -10) {
             taxi.velocity[0] -= taxi.velocity[0] * 0.05;//decelleration[0];
             taxi.velocity[1] -= taxi.velocity[1] * 0.05;//decelleration[1];
-        }
+       // }
     }
 
     public static void addDebugDot(float x, float y){
