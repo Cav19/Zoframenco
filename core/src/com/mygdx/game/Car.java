@@ -130,18 +130,20 @@ public class Car {
 
     }
 
-    private boolean check_BackwardCollisions(float[] velociy, TiledMap tiledMap) {
-        return checkCollisions(velociy, tiledMap);
-    }
 
     //TO DO: revise this method to fix "hiccups" in car movement
 
-    public void accellerate(TiledMap tiledMap, float accelleration){
-        if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.15);}
-        if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.15);}
+    public void accelerate(TiledMap tiledMap, float accelleration){
+        if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.5);}
+        if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.5);}
+        else {
+
+            this.velocity[0] = (10 - 1/ this.velocity[0]) * (float)(0.15* Gdx.graphics.getDeltaTime() * orientation[0]);
+            this.velocity[1] = (10 - 1 / this.velocity[1]) * (float) (0.15* Gdx.graphics.getDeltaTime()* orientation[1]);
+        }
         //if (((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0])>-5) && ((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration)<5) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1]>-5) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1]<5))) {
-            this.velocity[0] += (float) (0.2 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0];
-            this.velocity[1] += (float) (0.2 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1];
+            //this.velocity[0] += (float) (0.2 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0];
+            //this.velocity[1] += (float) (0.2 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1];
        // }
         //else {
           //  this.velocity[0] = 5 * orientation[0];
@@ -277,12 +279,14 @@ public class Car {
             System.out.println("Tiledmap always null");
         }
 
-        this.accellerate(game.tiledMap, accelleration);
+        System.out.println("Speed before accelleraton is ( "+ game.taxi.velocity[0]+","+ game.taxi.velocity[1]+")");
+        this.accelerate(game.tiledMap, accelleration);
 
         game.decelleration[0] = (float) (this.velocity[0] * 0.15);
         game.decelleration[1] = (float) (this.velocity[1] * 0.15);
         game.applyFriction(game.decelleration);
-        this.driveForward(game.tiledMap);
+        System.out.println("Speed after accelleraton is ( "+ game.taxi.velocity[0]+","+ game.taxi.velocity[1]+")");
+
         game.camera.update();
 
     }
