@@ -39,12 +39,10 @@ public class PlayScreen implements Screen {
 
     @Override
     public void show() {
-
         Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
         backgroundMusic.setLooping(true);
         backgroundMusic.setVolume((float)0.1);
         backgroundMusic.play();
-
     }
 
     @Override
@@ -55,14 +53,12 @@ public class PlayScreen implements Screen {
 
         game.play();
     }
-
     private void drawHud() {
         if (game.passenger != null && game.taxi.full) {
             hud.updateMessage("Drop me at " + game.passenger.destination.toString());
         }
         hud.updateTime(Gdx.graphics.getDeltaTime());
         hud.stage.draw();
-
     }
 
     private void setUpScreen(){
@@ -71,7 +67,6 @@ public class PlayScreen implements Screen {
         game.camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
         game.camera.update();
         game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
-
     }
 
     private void drawGameObjects() {
@@ -90,7 +85,6 @@ public class PlayScreen implements Screen {
         taxi.getSprite().draw(batch);
         batch.end();
         game.camera.update();
-
     }
 
     @Override
