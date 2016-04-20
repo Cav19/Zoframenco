@@ -171,9 +171,9 @@ public class MyGdxGame extends Game {
     public void createLocations(){
         locations = new HashMap<Integer, Location>();
         locations.put(0, new Location(60, 940));
-        locations.put(1, new Location(200, 1040));
+        locations.put(1, new Location(200, 1000));
         locations.put(2, new Location(500, 940));
-        locations.put(3, new Location(900, 1040));
+        locations.put(3, new Location(900, 1000));
         locations.put(4, new Location(150, 740));
         locations.put(5, new Location(450, 870));
         locations.put(6, new Location(700, 740));
@@ -215,6 +215,8 @@ public class MyGdxGame extends Game {
         MyGdxGame.camera.update();
 
     }
+
+
     public void restart() {
         taxi.full=false;
         passenger.getOrigin().removePassenger();

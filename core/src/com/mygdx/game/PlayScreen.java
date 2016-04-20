@@ -50,7 +50,6 @@ public class PlayScreen implements Screen {
         setUpScreen();
         drawGameObjects();
         drawHud();
-
         game.play();
     }
     private void drawHud() {
