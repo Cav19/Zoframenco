@@ -3,9 +3,11 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
 /**
  * Created by zoray on 3/23/16.
@@ -33,7 +35,17 @@ public class HomeScreen implements Screen{
         game.camera.update();
         game.batch = new SpriteBatch();
         game.font = new BitmapFont();
-        //game.batch.setProjectionMatrix(game.GameObjects.camera.combined);
+
+        //Setting up font size using FreeTypeFontGenerator
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("SIXTY.TTF"));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = 50;
+        parameter.color = Color.BLACK;
+        game.font = generator.generateFont(parameter); // font size 12 pixels
+        //parameter.borderColor = Color.BLACK;
+        //parameter.Color = Color.BLUE;
+        parameter.borderWidth = 3;
+        generator.dispose();
 
         game.batch.begin();
 

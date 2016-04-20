@@ -1,7 +1,9 @@
 package com.mygdx.game;
+import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.utils.viewport.FitViewport;
@@ -12,6 +14,10 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
  * Created by zoray on 3/8/16.
  * Reference: https://www.youtube.com/watch?v=gqxkeKaw1MY
  */
+
+
+
+
 public class Hud {
     //stage and viewport
     public Stage stage;
@@ -34,7 +40,21 @@ public class Hud {
     private Label messageTextLabel;
 
 
+    ////
+    private BitmapFont font;
+
     public Hud(MyGdxGame game, SpriteBatch sb) {
+
+        //Setting up font size using FreeTypeFontGenerator
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("LiberationMono-Regular.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = 25;
+        font = generator.generateFont(parameter); // font size 12 pixels
+        //parameter.borderColor = Color.GREEN;
+        //parameter.shadowColor = Color.BLUE;
+        parameter.borderWidth = 3;
+        generator.dispose();
+
         worldTimer = 100;
         timeCount = 0;
         score = 0;
@@ -46,17 +66,17 @@ public class Hud {
         table.bottom();
         table.setFillParent(true);
 
-        countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        timeLabel = new Label("TIME", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(font,Color.BLACK));  // Color.WHITE
+        timeLabel = new Label("TIME", new Label.LabelStyle(font, Color.BLACK));
 
-        gameNameLabel = new Label("CrazyUber", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        groupNameLabel = new Label("Zoframenco", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        gameNameLabel = new Label("CrazyUber", new Label.LabelStyle(font, Color.BLACK));
+        groupNameLabel = new Label("Zoframenco", new Label.LabelStyle(font, Color.BLACK));
 
-        scoreTextLabel = new Label("Score", new Label.LabelStyle(new BitmapFont(), Color.WHITE));
-        scoreLabel = new Label(String.format("%02d", score), new Label.LabelStyle(new BitmapFont(), Color.WHITE));
+        scoreTextLabel = new Label("Score", new Label.LabelStyle(font, Color.BLACK));
+        scoreLabel = new Label(String.format("%02d", score), new Label.LabelStyle(font, Color.BLACK));
 
-        messageTextLabel = new Label("Message: ", new Label.LabelStyle(new BitmapFont(), Color.GREEN));
-        messageLabel = new Label("Yo! Welcome to CrazyUber!", new Label.LabelStyle(new BitmapFont(), Color.GREEN));
+        messageTextLabel = new Label("Message: ", new Label.LabelStyle(font, Color.GREEN));
+        messageLabel = new Label("Yo! Welcome to CrazyUber!", new Label.LabelStyle(font, Color.GREEN));
 
         table.add(gameNameLabel).expandX().padTop(10);
         table.add(scoreTextLabel).expandX().padTop(10);

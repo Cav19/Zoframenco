@@ -5,12 +5,15 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
+import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+
+//import com.badlogic.gdx.graphics.g2d.freetype;
 
 /**
  * Created by zoray on 3/10/16.
@@ -26,6 +29,7 @@ public class PlayScreen implements Screen {
     boolean gameStarted = false;
     private Texture taxiImg;
     private final SpriteBatch batch;
+
 
     public PlayScreen(MyGdxGame game){
         Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
@@ -50,8 +54,8 @@ public class PlayScreen implements Screen {
     @Override
     public void render(float delta) {
         setUpScreen();
-        drawHud();
         drawGameObjects();
+        drawHud();
         game.play();
     }
 

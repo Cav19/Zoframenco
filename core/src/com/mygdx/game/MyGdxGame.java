@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -11,8 +12,9 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
-
 import java.util.HashMap;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+
 
 public class MyGdxGame extends Game {
 
@@ -37,7 +39,7 @@ public class MyGdxGame extends Game {
 
         this.tiledMap = new TiledMap();
         batch = new SpriteBatch();
-        font = new BitmapFont();
+
         camera=new OrthographicCamera();
         createCar();
         createLocations();
@@ -57,7 +59,7 @@ public class MyGdxGame extends Game {
     @Override
     public void dispose(){
         batch.dispose();
-        font.dispose();
+        //font.dispose();
     }
 
     public void play() {
@@ -214,8 +216,8 @@ public class MyGdxGame extends Game {
         debugBatch.end();
         //end of debug code
         MyGdxGame.camera.update();
-
     }
+
     public void restart() {
         taxi.full=false;
         passenger.getOrigin().removePassenger();
@@ -224,7 +226,6 @@ public class MyGdxGame extends Game {
         passengersWaiting=true;
         passenger.game= this;
         camera.update();
-
     }
 
 }
