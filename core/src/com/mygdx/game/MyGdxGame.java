@@ -36,15 +36,12 @@ public class MyGdxGame extends Game {
 
     @Override
     public void create () {
-
         this.tiledMap = new TiledMap();
         batch = new SpriteBatch();
-
         camera=new OrthographicCamera();
         createCar();
         createLocations();
         setScreen(new HomeScreen(this));
-
     }
 
     @Override
@@ -59,7 +56,6 @@ public class MyGdxGame extends Game {
     @Override
     public void dispose(){
         batch.dispose();
-        //font.dispose();
     }
 
     public void play() {
@@ -74,7 +70,6 @@ public class MyGdxGame extends Game {
         }
 
         else if (passengersWaiting) {
-
             if (taxiHasArrived()) {
                 passenger.enterTaxi();
                 taxi.full=true;

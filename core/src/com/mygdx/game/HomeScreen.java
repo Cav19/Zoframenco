@@ -36,17 +36,10 @@ public class HomeScreen implements Screen{
     @Override
     public void render(float delta) {
 
-        //Gdx.gl.glClearColor(250/255f, 236/255f, 129/255f, 1);
-        //Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-
         game.camera.update();
         game.batch = new SpriteBatch();
         game.font = new BitmapFont();
         background = new Texture(Gdx.files.internal("main_menu_small.png"));
-        //sprite = new Sprite(background);
-        //sprite.setSize(1f,
-                //1f * sprite.getHeight() / sprite.getWidth() );
-        //game.batch.setProjectionMatrix(game.GameObjects.camera.combined);
 
         //Setting up font size using FreeTypeFontGenerator
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("SIXTY.TTF"));
@@ -54,8 +47,6 @@ public class HomeScreen implements Screen{
         parameter.size = 50;
         parameter.color = Color.BLACK;
         game.font = generator.generateFont(parameter); // font size 12 pixels
-        //parameter.borderColor = Color.BLACK;
-        //parameter.Color = Color.BLUE;
         parameter.borderWidth = 3;
         generator.dispose();
 

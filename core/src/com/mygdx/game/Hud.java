@@ -15,9 +15,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
  * Reference: https://www.youtube.com/watch?v=gqxkeKaw1MY
  */
 
-
-
-
 public class Hud {
     //stage and viewport
     public Stage stage;
@@ -50,8 +47,6 @@ public class Hud {
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 25;
         font = generator.generateFont(parameter); // font size 12 pixels
-        //parameter.borderColor = Color.GREEN;
-        //parameter.shadowColor = Color.BLUE;
         parameter.borderWidth = 3;
         generator.dispose();
 
