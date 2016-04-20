@@ -25,7 +25,6 @@ public class HomeScreen implements Screen{
         this.game = game;
         Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         //gamePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, game.camera);
-
     }
 
     @Override
