@@ -18,7 +18,7 @@ import java.util.HashMap;
 public class MyGdxGame extends Game {
 
     public static final int V_WIDTH = 1000;
-    public static final int V_HEIGHT = 1100;
+    public static final int V_HEIGHT = 1150;
     public SpriteBatch batch;
     public BitmapFont font;
     private Texture taxiImg;
@@ -152,7 +152,7 @@ public class MyGdxGame extends Game {
         taxi = new Car(this);
         taxi.setTexture(taxiImg);
         taxi.setSprite(taxiImg);
-        initialPosition.setPosition( (float) V_WIDTH / 2, (float)( V_HEIGHT / 2.17));
+        initialPosition.setPosition( (float) V_WIDTH / 2, (float)( V_HEIGHT / 2.25));
         taxi.X_pos = initialPosition.getX();
         taxi.Y_pos = initialPosition.getY();
         int taxiSize= V_WIDTH / 20;

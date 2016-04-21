@@ -46,7 +46,12 @@ public class HomeScreen implements Screen{
 
         game.batch.begin();
         game.batch.draw(background,0,0);
-        game.font.draw(game.batch, "THE DAILY RIDER!", (game.V_HEIGHT/2)-275, (game.V_HEIGHT/2)+parameter.size/2);
+        game.font.draw(game.batch, "THE DAILY RIDER!", (game.V_WIDTH/2)-250, (game.V_HEIGHT/2)+parameter.size/2);
+        game.font.draw(game.batch, "HIGH SCORES:", (game.V_WIDTH/2)-250, (game.V_HEIGHT/2)+parameter.size/2-150);
+        String HighScores= Hud.getHighScores();
+
+
+        game.font.draw(game.batch,  Hud.Scores.prettyPrint(Hud.score), (game.V_WIDTH/2)-250, (game.V_HEIGHT/2)+parameter.size/2-250);
         game.batch.end();
 
 
