@@ -4,13 +4,10 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
-import com.badlogic.gdx.utils.viewport.Viewport;
 
 /**
  * Created by zoray on 3/23/16.
@@ -19,43 +16,41 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 public class HomeScreen implements Screen{
 
     final MyGdxGame game;
-    private Texture background;
-    private Sprite sprite;
-    private Viewport gamePort;
+    private Texture background= new Texture(Gdx.files.internal("main_menu_small.png"));;
+    public FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("SIXTY.TTF"));
+    public FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
 
 
     public HomeScreen(final MyGdxGame game){
         this.game = game;
-        Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
+        Gdx.graphics.setWindowedMode(game.V_WIDTH, game.V_HEIGHT);
+        parameter.size = 60;
+        parameter.color = Color.BLACK;
+        parameter.borderWidth = 1;
+        // font size 12 pixels
+
     }
 
     @Override
     public void show(){
+        game.batch = new SpriteBatch();
+        game.font = new BitmapFont();
+        game.font = generator.generateFont(parameter);
+        generator.dispose();
+
     }
 
     @Override
     public void render(float delta) {
 
-        game.camera.update();
-        game.batch = new SpriteBatch();
-        game.font = new BitmapFont();
-        background = new Texture(Gdx.files.internal("main_menu_small.png"));
-
-        //Setting up font size using FreeTypeFontGenerator
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("SIXTY.TTF"));
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 50;
-        parameter.color = Color.BLACK;
-        game.font = generator.generateFont(parameter); // font size 12 pixels
-        parameter.borderWidth = 3;
-        generator.dispose();
-
         game.batch.begin();
 
         game.batch.draw(background,0,0);
-        game.font.draw(game.batch, "THE DAILY RIDER!", 40, 600);
-
+        game.font.draw(game.batch, "THE DAILY RIDER!", (game.V_HEIGHT/2)-275, (game.V_HEIGHT/2)+parameter.size/2);
         game.batch.end();
+
+
+        //Setting up font size using FreeTypeFontGenerator
 
         if (Gdx.input.isTouched()) {
             game.setScreen(new com.mygdx.game.PlayScreen(game));

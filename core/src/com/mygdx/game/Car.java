@@ -134,22 +134,21 @@ public class Car {
     //TO DO: revise this method to fix "hiccups" in car movement
 
     public void accelerate(TiledMap tiledMap, float accelleration){
-        if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.5);}
-        if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.5);}
+        if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.3);}
+        if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.3);}
 
 
            // this.velocity[0] = (10 - 1/ this.velocity[0]) * (float)(0.15* Gdx.graphics.getDeltaTime() * orientation[0]);
            // this.velocity[1] = (10 - 1 / this.velocity[1]) * (float) (0.15* Gdx.graphics.getDeltaTime()* orientation[1]);
 
-        //if (((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0])>-5) && ((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration)<5) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1]>-5) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1]<5))) {
+        if (((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0])>-5) && ((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration)<5) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1]>-5) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1]<5))) {
             this.velocity[0] += (float) (0.4 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0];
             this.velocity[1] += (float) (0.4 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1];
-       // }
-        //else {
-          //  this.velocity[0] = 5 * orientation[0];
-        //    this.velocity[1] = 5 * orientation[1];
-
-       // }
+        }
+        else {
+            this.velocity[0] = 5 * orientation[0];
+            this.velocity[1] = 5 * orientation[1];
+        }
 
         driveForward(tiledMap);
     }
