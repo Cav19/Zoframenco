@@ -35,17 +35,8 @@ public class Car {
     public Camera camera;
     public float[] velocity = new float[2];
     public int[] orientation= new int[2];
+    private Sound tiresNoise = Gdx.audio.newSound(Gdx.files.internal("tiresNoise.mp3"));
 
-
-    public Car(Texture texture, Camera camera) {
-        this.texture = texture;
-        this.orientation = orientation;
-        this.sprite = new Sprite(texture);
-        this.camera = camera;
-        this.full = false;
-        this.game=game;
-
-    }
 
     public Car(MyGdxGame game){
         this.camera = game.camera;
@@ -55,15 +46,8 @@ public class Car {
     public void setSprite(Texture texture) {
         this.sprite=new Sprite(texture);
     }
-
-    //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    //public float width = (float)screenSize.getWidth();
-    //public float height =(float)screenSize.getHeight();
-   // public float width = game.V_WIDTH;
-    //public float height = game.V_WIDTH;
     public float time_sinceLastNoise=Gdx.app.getGraphics().getDeltaTime();
 
-    private float shift;
 
     public boolean isCellProperty(float x, float y, TiledMap tiledMap, String property) {
 
@@ -77,9 +61,8 @@ public class Car {
     //www.norakomi.com/tutorial_mambow2_collision.php
 
     public boolean blocked(float x, float y, TiledMap tiledMap) {
-        boolean collisionWithMap = false;
-        collisionWithMap = !isCellProperty(x, y, tiledMap, "road");   
-        return collisionWithMap;
+        return !isCellProperty(x, y, tiledMap, "road");
+
     }
 
     private boolean checkCollisions(float[] velocity, TiledMap tiledMap) {
@@ -138,18 +121,11 @@ public class Car {
         if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.3);}
 
 
-           // this.velocity[0] = (10 - 1/ this.velocity[0]) * (float)(0.15* Gdx.graphics.getDeltaTime() * orientation[0]);
-           // this.velocity[1] = (10 - 1 / this.velocity[1]) * (float) (0.15* Gdx.graphics.getDeltaTime()* orientation[1]);
 
-        if (((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[0])>-5) && ((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * acceleration)<5) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[1]>-5) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[1]<5))) {
+        if ((velocity[0]>-5) && ((velocity[0]< 5) && (velocity[1] < 5) && (velocity[1]> - 5))) {
             this.velocity[0] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[0];
             this.velocity[1] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[1];
         }
-        else {
-            this.velocity[0] = 5 * orientation[0];
-            this.velocity[1] = 5 * orientation[1];
-        }
-
         driveForward(tiledMap);
     }
 
@@ -169,9 +145,6 @@ public class Car {
     public void playTiresNoise() {
         if (time_sinceLastNoise == 30) {
             time_sinceLastNoise = 1;
-            Sound tiresNoise = Gdx.audio.newSound(Gdx.files.internal("tiresNoise.mp3"));
-
-
             tiresNoise.play((float)0.3);
         }
         else time_sinceLastNoise++;
@@ -273,11 +246,9 @@ public class Car {
     }
 
 
-    public void move(int acceleration) {
+    public void move(float acceleration) {
         this.accelerate(game.tiledMap, acceleration);
-        game.decelleration[0] = (float) (this.velocity[0] * 0.15);
-        game.decelleration[1] = (float) (this.velocity[1] * 0.15);
-        game.applyFriction(game.decelleration);
+        game.applyFriction();
         game.camera.update();
 
     }
