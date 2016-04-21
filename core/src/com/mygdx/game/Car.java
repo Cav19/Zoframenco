@@ -279,20 +279,25 @@ public class Car {
             System.out.println("Tiledmap always null");
         }
 
-        System.out.println("Speed before accelleraton is ( "+ game.taxi.velocity[0]+","+ game.taxi.velocity[1]+")");
+        //System.out.println("Speed before accelleraton is ( "+ game.taxi.velocity[0]+","+ game.taxi.velocity[1]+")");
         this.accelerate(game.tiledMap, acceleration);
 
         game.decelleration[0] = (float) (this.velocity[0] * 0.15);
         game.decelleration[1] = (float) (this.velocity[1] * 0.15);
         game.applyFriction(game.decelleration);
-        System.out.println("Speed after acceleraton is ( "+ game.taxi.velocity[0]+","+ game.taxi.velocity[1]+")");
+        //System.out.println("Speed after acceleraton is ( "+ game.taxi.velocity[0]+","+ game.taxi.velocity[1]+")");
 
         game.camera.update();
 
     }
 
-    public boolean hasReachedDestination( Rectangle destinationRectangle){
-        return this.getSprite().getBoundingRectangle().overlaps(destinationRectangle);
+    public boolean hasReachedDestination(Rectangle destinationRectangle){
+        if((this.getSprite().getX() >= destinationRectangle.getX() - 20 && this.getSprite().getX() <= destinationRectangle.getX() + 20) && (this.getSprite().getY() >= destinationRectangle.getY() - 20) && this.getSprite().getY() <= destinationRectangle.getY() +20){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 }

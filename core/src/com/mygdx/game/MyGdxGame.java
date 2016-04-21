@@ -92,8 +92,8 @@ public class MyGdxGame extends Game {
 
     }
 
-        private boolean taxiHasArrived(){
-        if(taxi.getSprite().getBoundingRectangle().overlaps(passenger.getSprite().getBoundingRectangle())){
+    private boolean taxiHasArrived(){
+        if((taxi.getSprite().getX() >= passenger.getSprite().getX() - 20 && taxi.getSprite().getX() <= passenger.getSprite().getX() + 20) && (taxi.getSprite().getY() >= passenger.getSprite().getY() - 20 && taxi.getSprite().getY() <= passenger.getSprite().getY() + 20)){
             return true;
         }
         else return false;
