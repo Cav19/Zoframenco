@@ -26,6 +26,7 @@ public class Passenger {
         this.destination = setDestination(locations);
         this.fare = (int)(getTravelDistance(origin, destination) / 12);
         this.timer = (int)(getTravelDistance(origin, destination) / 4 + 15);
+        this.getSprite().setSize(60,65);
         sprite.setRegionWidth(75);
         sprite.setRegionHeight(75);
         sprite.setX(origin.getX());

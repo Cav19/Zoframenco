@@ -21,6 +21,7 @@ public class HomeScreen implements Screen{
     public FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
 
 
+
     public HomeScreen(final MyGdxGame game){
         this.game = game;
         Gdx.graphics.setWindowedMode(game.V_WIDTH, game.V_HEIGHT);
@@ -44,7 +45,6 @@ public class HomeScreen implements Screen{
     public void render(float delta) {
 
         game.batch.begin();
-
         game.batch.draw(background,0,0);
         game.font.draw(game.batch, "THE DAILY RIDER!", (game.V_HEIGHT/2)-275, (game.V_HEIGHT/2)+parameter.size/2);
         game.batch.end();

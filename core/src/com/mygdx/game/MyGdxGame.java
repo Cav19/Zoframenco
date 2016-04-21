@@ -3,7 +3,6 @@ package com.mygdx.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
-import com.badlogic.gdx.files.FileHandle;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -12,8 +11,8 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
+
 import java.util.HashMap;
-import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 
 
 public class MyGdxGame extends Game {
@@ -22,16 +21,14 @@ public class MyGdxGame extends Game {
     public static final int V_HEIGHT = 1100;
     public SpriteBatch batch;
     public BitmapFont font;
-    public boolean gameStarted = false;
     private Texture taxiImg;
     public static Car taxi;
     public TiledMap tiledMap;
     public static OrthographicCamera camera;
     boolean passengersWaiting=false;
-    float[] decelleration = new float[2];
     public Passenger passenger;
     private HashMap<Integer, Location> locations;
-    private final int NUM_LOCATIONS = 18;
+    //private final int NUM_LOCATIONS = 18;
     Sprite initialPosition= new Sprite();
 
     @Override
@@ -158,7 +155,7 @@ public class MyGdxGame extends Game {
         initialPosition.setPosition( (float) V_WIDTH / 2, (float)( V_HEIGHT / 2.17));
         taxi.X_pos = initialPosition.getX();
         taxi.Y_pos = initialPosition.getY();
-        int taxiSize= V_WIDTH / 25;
+        int taxiSize= V_WIDTH / 20;
 
         taxi.getSprite().setSize(taxiSize, taxiSize);
         taxi.getSprite().setPosition(initialPosition.getX(), initialPosition.getY());
@@ -187,16 +184,15 @@ public class MyGdxGame extends Game {
         locations.put(17, new Location(610, 140));
     }
 
-    public void applyFriction(float[] decelleration) {
+    public void applyFriction() {
         if (taxi.velocity[0] > -10 && taxi.velocity[1] > -10) {
-            taxi.velocity[0] -= taxi.velocity[0] * 0.05;//decelleration[0];
-            taxi.velocity[1] -= taxi.velocity[1] * 0.05;//decelleration[1];
+            taxi.velocity[0] -= taxi.velocity[0] * 0.05;
+            taxi.velocity[1] -= taxi.velocity[1] * 0.05;
         }
     }
 
     public static void addDebugDot(float x, float y){
         //graphic debug code from http://gamedev.stackexchange.com/questions/72449/how-to-draw-a-rectangle-or-curve-between-two-co-ordinates-in-libgdx
-        //
 
         Texture txt = new Texture ("collision_Tile.jpg");
         Sprite debugSprite = new Sprite(txt);// our "rectangular"
@@ -208,7 +204,6 @@ public class MyGdxGame extends Game {
         debugBatch.begin();
         debugSprite.draw(debugBatch);
         debugBatch.end();
-        //end of debug code
         MyGdxGame.camera.update();
     }
 
