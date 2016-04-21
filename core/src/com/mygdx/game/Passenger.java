@@ -24,11 +24,13 @@ public class Passenger {
     public Passenger(HashMap<Integer, Location> locations){
         this.origin = setOrigin(locations);
         this.destination = setDestination(locations);
-        this.fare = (int)(getTravelDistance(origin, destination) / 2);
+        this.fare = (int)(getTravelDistance(origin, destination) / 12);
         this.timer = (int)(getTravelDistance(origin, destination) / 4 + 15);
         this.getSprite().setSize(60,65);
         sprite.setRegionWidth(75);
-        sprite.setRegionHeight(65);
+        sprite.setRegionHeight(75);
+        sprite.setX(origin.getX());
+        sprite.setY(origin.getY());
     }
 
     public Texture getTexture(){
@@ -86,9 +88,7 @@ public class Passenger {
     public double getTravelDistance(Location location, Location destination){
         float xDist = Math.abs(location.getX() - destination.getX());
         float yDist = Math.abs(location.getY() - destination.getY());
-        double distance = Math.sqrt(xDist * xDist + yDist * yDist);
-
-        return distance;
+        return Math.sqrt(xDist * xDist + yDist * yDist);
     }
 
     public void setFare(int fare){
