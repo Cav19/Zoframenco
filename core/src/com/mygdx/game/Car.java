@@ -78,27 +78,27 @@ public class Car {
 
     public boolean blocked(float x, float y, TiledMap tiledMap) {
         boolean collisionWithMap = false;
-        collisionWithMap = !isCellProperty(x, y, tiledMap, "road");   // isCellBLocked(x+Car.this.width, y, tiledMap) || isCellBLocked(x-Car.this.width, y, tiledMap) ||  isCellBLocked(x, (int)(y+Car.this.height), tiledMap);
+        collisionWithMap = !isCellProperty(x, y, tiledMap, "road");   
         return collisionWithMap;
     }
 
-    private boolean checkCollisions(float[] velociy, TiledMap tiledMap) {
+    private boolean checkCollisions(float[] velocity, TiledMap tiledMap) {
         boolean collision = false;
-        X_pos+=velociy[0];
-        Y_pos+=velociy[1];
+        X_pos+=velocity[0];
+        Y_pos+=velocity[1];
 
         if (X_pos + (int) this.getSprite().getWidth() >= game.V_WIDTH) {
             collision = true;
             playCollisionNoise();
-            velociy[0]=0;
-            velociy[1]=0;
+            velocity[0]=0;
+            velocity[1]=0;
         }
         if (X_pos <= 0) {
             collision = true;
             playCollisionNoise();
 
-            velociy[0]=0;
-            velociy[1]=0;
+            velocity[0]=0;
+            velocity[1]=0;
 
         }
         if (Y_pos + (int) this.getSprite().getWidth() >= game.V_HEIGHT) {
@@ -106,24 +106,24 @@ public class Car {
             collision = true;
             playCollisionNoise();
 
-            velociy[0]=0;
-            velociy[1]=0;
+            velocity[0]=0;
+            velocity[1]=0;
         }
         if (Y_pos <= 0) {
 
             collision = true;
             playCollisionNoise();
 
-            velociy[0]=0;
-            velociy[1]=0;
+            velocity[0]=0;
+            velocity[1]=0;
         }
 
         if (blocked(X_pos+ this.getSprite().getWidth()/4, Y_pos+this.getSprite().getWidth()/4, tiledMap) || blocked(X_pos + this.getSprite().getWidth()/4, Y_pos+this.getSprite().getHeight()/(float) 1.5 , tiledMap) || blocked(X_pos+this.getSprite().getWidth()/4, Y_pos+this.getSprite().getHeight()/ (float) 1.5, tiledMap)) {
             collision = true;
             playCollisionNoise();
 
-            velociy[0]=0;
-            velociy[1]=0;
+            velocity[0]=0;
+            velocity[1]=0;
         }
 
         return collision;
@@ -133,23 +133,22 @@ public class Car {
 
     //TO DO: revise this method to fix "hiccups" in car movement
 
-    public void accelerate(TiledMap tiledMap, float accelleration){
-        if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.5);}
-        if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.5);}
+    public void accelerate(TiledMap tiledMap, float acceleration){
+        if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.3);}
+        if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.3);}
 
 
            // this.velocity[0] = (10 - 1/ this.velocity[0]) * (float)(0.15* Gdx.graphics.getDeltaTime() * orientation[0]);
            // this.velocity[1] = (10 - 1 / this.velocity[1]) * (float) (0.15* Gdx.graphics.getDeltaTime()* orientation[1]);
 
-        //if (((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0])>-5) && ((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration)<5) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1]>-5) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1]<5))) {
-            this.velocity[0] += (float) (0.4 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[0];
-            this.velocity[1] += (float) (0.4 * Gdx.graphics.getDeltaTime() * accelleration) * orientation[1];
-       // }
-        //else {
-          //  this.velocity[0] = 5 * orientation[0];
-        //    this.velocity[1] = 5 * orientation[1];
-
-       // }
+        if (((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[0])>-5) && ((velocity[0]+ (float) (0.15 * Gdx.graphics.getDeltaTime() * acceleration)<5) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[1]>-5) && (velocity[1] + (float) (0.15 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[1]<5))) {
+            this.velocity[0] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[0];
+            this.velocity[1] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[1];
+        }
+        else {
+            this.velocity[0] = 5 * orientation[0];
+            this.velocity[1] = 5 * orientation[1];
+        }
 
         driveForward(tiledMap);
     }
@@ -275,18 +274,10 @@ public class Car {
 
 
     public void move(int acceleration) {
-        if (game.tiledMap==null) {
-            System.out.println("Tiledmap always null");
-        }
-
-        //System.out.println("Speed before accelleraton is ( "+ game.taxi.velocity[0]+","+ game.taxi.velocity[1]+")");
         this.accelerate(game.tiledMap, acceleration);
-
         game.decelleration[0] = (float) (this.velocity[0] * 0.15);
         game.decelleration[1] = (float) (this.velocity[1] * 0.15);
         game.applyFriction(game.decelleration);
-        //System.out.println("Speed after acceleraton is ( "+ game.taxi.velocity[0]+","+ game.taxi.velocity[1]+")");
-
         game.camera.update();
 
     }
