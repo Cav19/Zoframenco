@@ -1,6 +1,5 @@
 package com.mygdx.game;
 
-
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
@@ -27,6 +26,9 @@ public class HomeScreen implements Screen{
     private Sprite sprite;
     private Viewport gamePort;
     private Skin skin;
+    private Stage stage = new Stage();
+    private Table buttonTable = new Table();
+
 
 
     public HomeScreen(final MyGdxGame game){
@@ -65,8 +67,6 @@ public class HomeScreen implements Screen{
     }
 
     private void createButton() {
-        Stage stage = new Stage();
-        Table buttonTable = new Table();
         TextButton startGameButton = new TextButton("Let's get started!", skin);
         buttonTable.add(startGameButton);
         buttonTable.row();
@@ -87,18 +87,15 @@ public class HomeScreen implements Screen{
 
     private void createSkin(){
 
-        //Font of the skin
         BitmapFont font = game.font;
         skin = new Skin();
         skin.add("button", font);
 
-        //Texture of the skin
         Pixmap pixmap = new Pixmap((int)Gdx.graphics.getWidth()/6,(int)Gdx.graphics.getHeight()/10, Pixmap.Format.RGB888);
         pixmap.setColor(Color.BLUE);
         pixmap.fill();
         skin.add("background",new Texture(pixmap));
 
-        //Style of the skin
         TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
         textButtonStyle.up = skin.newDrawable("background", Color.GRAY);
         textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);

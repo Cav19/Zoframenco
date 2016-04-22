@@ -32,24 +32,13 @@ public class Hud {
     private Label gameNameLabel;
     private Label groupNameLabel;
     private Label scoreTextLabel;
-
     private Label messageLabel;
     private Label messageTextLabel;
 
-
-    ////
+    //font
     private BitmapFont font;
 
     public Hud(MyGdxGame game, SpriteBatch sb) {
-
-        //Setting up font size using FreeTypeFontGenerator
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("LiberationMono-Regular.ttf"));
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 25;
-        font = generator.generateFont(parameter); // font size 12 pixels
-        parameter.borderWidth = 3;
-        generator.dispose();
-
         worldTimer = 100;
         timeCount = 0;
         score = 0;
@@ -57,21 +46,37 @@ public class Hud {
         viewport = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, game.camera);
         stage = new Stage(viewport, sb);
 
+        setUpHudFont();
+
+        setUpLabels();
+    }
+
+    private void setUpHudFont() {
+        //Setting up font size using FreeTypeFontGenerator
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("LiberationMono-Regular.ttf"));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = 25;
+        font = generator.generateFont(parameter);
+        parameter.borderWidth = 3;
+        generator.dispose();
+    }
+
+    private void setUpLabels() {
         Table table = new Table();
         table.bottom();
         table.setFillParent(true);
 
-        countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(font,Color.BLACK));  // Color.WHITE
+        countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(font, Color.BLACK));  // Color.WHITE
         timeLabel = new Label("TIME", new Label.LabelStyle(font, Color.BLACK));
 
-        gameNameLabel = new Label("CrazyUber", new Label.LabelStyle(font, Color.BLACK));
+        gameNameLabel = new Label("The Daily Rider", new Label.LabelStyle(font, Color.BLACK));
         groupNameLabel = new Label("Zoframenco", new Label.LabelStyle(font, Color.BLACK));
 
         scoreTextLabel = new Label("Score", new Label.LabelStyle(font, Color.BLACK));
         scoreLabel = new Label(String.format("%02d", score), new Label.LabelStyle(font, Color.BLACK));
 
-        messageTextLabel = new Label("Message: ", new Label.LabelStyle(font, Color.GREEN));
-        messageLabel = new Label("Yo! Welcome to CrazyUber!", new Label.LabelStyle(font, Color.GREEN));
+        messageTextLabel = new Label("Message: ", new Label.LabelStyle(font, Color.BLACK));
+        messageLabel = new Label("Yo! Welcome to The Daily Rider!", new Label.LabelStyle(font, Color.BLUE));
 
         table.add(gameNameLabel).expandX().padTop(10);
         table.add(scoreTextLabel).expandX().padTop(10);
