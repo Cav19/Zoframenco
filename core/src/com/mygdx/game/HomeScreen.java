@@ -4,12 +4,16 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.scenes.scene2d.Stage;
+import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
 /**
@@ -22,6 +26,7 @@ public class HomeScreen implements Screen{
     private Texture background;
     private Sprite sprite;
     private Viewport gamePort;
+    private Skin skin;
 
 
     public HomeScreen(final MyGdxGame game){
@@ -41,19 +46,15 @@ public class HomeScreen implements Screen{
         game.font = new BitmapFont();
         background = new Texture(Gdx.files.internal("main_menu_small.png"));
 
-        //Setting up font size using FreeTypeFontGenerator
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("SIXTY.TTF"));
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 50;
-        parameter.color = Color.BLACK;
-        game.font = generator.generateFont(parameter); // font size 12 pixels
-        parameter.borderWidth = 3;
-        generator.dispose();
+        createSkin();
 
+        //createButton();
+
+        setUpFont();
         game.batch.begin();
-
         game.batch.draw(background,0,0);
-        game.font.draw(game.batch, "THE DAILY RIDER!", 40, 600);
+        game.font.draw(game.batch, "THE DAILY RIDER!", 20, 660);
+        game.font.draw(game.batch, "Team Zoframenco", 20, 600);
 
         game.batch.end();
 
@@ -61,6 +62,50 @@ public class HomeScreen implements Screen{
             game.setScreen(new com.mygdx.game.PlayScreen(game));
             dispose();
         }
+    }
+
+    private void createButton() {
+        Stage stage = new Stage();
+        Table buttonTable = new Table();
+        TextButton startGameButton = new TextButton("Let's get started!", skin);
+        buttonTable.add(startGameButton);
+        buttonTable.row();
+        buttonTable.setFillParent(true);
+        stage.addActor(buttonTable);
+    }
+
+    private void setUpFont() {
+        //Setting up font size using FreeTypeFontGenerator
+        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("SIXTY.TTF"));
+        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        parameter.size = 44;
+        parameter.color = Color.YELLOW;
+        game.font = generator.generateFont(parameter); // font size 12 pixels
+        parameter.borderWidth = 3;
+        generator.dispose();
+    }
+
+    private void createSkin(){
+
+        //Font of the skin
+        BitmapFont font = game.font;
+        skin = new Skin();
+        skin.add("button", font);
+
+        //Texture of the skin
+        Pixmap pixmap = new Pixmap((int)Gdx.graphics.getWidth()/6,(int)Gdx.graphics.getHeight()/10, Pixmap.Format.RGB888);
+        pixmap.setColor(Color.BLUE);
+        pixmap.fill();
+        skin.add("background",new Texture(pixmap));
+
+        //Style of the skin
+        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
+        textButtonStyle.up = skin.newDrawable("background", Color.GRAY);
+        textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);
+        textButtonStyle.checked = skin.newDrawable("background", Color.DARK_GRAY);
+        textButtonStyle.over = skin.newDrawable("background", Color.LIGHT_GRAY);
+        textButtonStyle.font = skin.getFont("button");
+        skin.add("button", textButtonStyle);
     }
 
     @Override

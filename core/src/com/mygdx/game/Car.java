@@ -56,11 +56,6 @@ public class Car {
         this.sprite=new Sprite(texture);
     }
 
-    //Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    //public float width = (float)screenSize.getWidth();
-    //public float height =(float)screenSize.getHeight();
-   // public float width = game.V_WIDTH;
-    //public float height = game.V_WIDTH;
     public float time_sinceLastNoise=Gdx.app.getGraphics().getDeltaTime();
 
     private float shift;
@@ -279,13 +274,13 @@ public class Car {
             System.out.println("Tiledmap always null");
         }
 
-        System.out.println("Speed before accelleraton is ( "+ game.taxi.velocity[0]+","+ game.taxi.velocity[1]+")");
+        //System.out.println("Speed before acceleraton is ( "+ game.taxi.velocity[0]+","+ game.taxi.velocity[1]+")");
         this.accelerate(game.tiledMap, acceleration);
 
         game.decelleration[0] = (float) (this.velocity[0] * 0.15);
         game.decelleration[1] = (float) (this.velocity[1] * 0.15);
         game.applyFriction(game.decelleration);
-        System.out.println("Speed after acceleraton is ( "+ game.taxi.velocity[0]+","+ game.taxi.velocity[1]+")");
+        //System.out.println("Speed after acceleraton is ( "+ game.taxi.velocity[0]+","+ game.taxi.velocity[1]+")");
 
         game.camera.update();
 
