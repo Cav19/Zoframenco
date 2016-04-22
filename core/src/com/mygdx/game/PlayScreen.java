@@ -35,6 +35,7 @@ public class PlayScreen implements Screen {
         batch = new SpriteBatch();
         backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
 
+
     }
 
     @Override

@@ -85,6 +85,7 @@ public class Passenger {
     }
 
     public void exitTaxi(){
+        //not quite right graphically, trying to show passenger leaving the cab
         this.origin=this.destination;
         this.getSprite().setPosition(origin.getX(), origin.getY());
         this.getSprite().setAlpha(1);
