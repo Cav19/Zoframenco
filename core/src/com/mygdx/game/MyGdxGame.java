@@ -31,6 +31,7 @@ public class MyGdxGame extends Game {
     //private final int NUM_LOCATIONS = 18;
     Sprite initialPosition= new Sprite();
 
+
     @Override
     public void create () {
         this.tiledMap = new TiledMap();
@@ -77,20 +78,24 @@ public class MyGdxGame extends Game {
 
         if (taxi.full){
             addDebugDot(passenger.getDestination().getX(),passenger.getDestination().getY() );
-            Rectangle destinatioRectangle= Rectangle.tmp2.setPosition(passenger.destination.getX(), passenger.destination.getY());
-            destinatioRectangle.setSize(25,25);
-            if (taxi.hasReachedDestination(destinatioRectangle)){
+            Rectangle destinationRectangle= Rectangle.tmp2.setPosition(passenger.destination.getX(), passenger.destination.getY());
+            destinationRectangle.setSize(25,25);
+            if (taxi.hasReachedDestination(destinationRectangle)) {
+                passenger.exitTaxi();
+                taxi.moneySound.play();
                 Hud.addScore(passenger.getFare());
-                taxi.full=false;
-                passenger=null;
-                passengersWaiting=false;
+                if (Math.abs(taxi.velocity[0]) >1.5 | Math.abs(taxi.velocity[1]) >1.5 ) {
+                    taxi.full = false;
+                    passenger = null;
+                    passengersWaiting = false;
+                }
             }
         }
 
     }
 
     private boolean taxiHasArrived(){
-        if((taxi.getSprite().getX() >= passenger.getSprite().getX() - 20 && taxi.getSprite().getX() <= passenger.getSprite().getX() + 20) && (taxi.getSprite().getY() >= passenger.getSprite().getY() - 20 && taxi.getSprite().getY() <= passenger.getSprite().getY() + 20)){
+        if(((int)taxi.velocity[0]==0) && ((int)taxi.velocity[1]==0) && (taxi.getSprite().getX() >= passenger.getSprite().getX() - 20 && taxi.getSprite().getX() <= passenger.getSprite().getX() + 20) && (taxi.getSprite().getY() >= passenger.getSprite().getY() - 20 && taxi.getSprite().getY() <= passenger.getSprite().getY() + 20)){
             return true;
         }
         else return false;

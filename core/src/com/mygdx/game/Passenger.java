@@ -22,7 +22,7 @@ public class Passenger {
 
 
     public Passenger(HashMap<Integer, Location> locations){
-        this.origin = setOrigin(locations);
+        this.origin = setOrigin(chooseLocation( locations));
         this.destination = setDestination(locations);
         this.fare = (int)(getTravelDistance(origin, destination) / 12);
         this.timer = (int)(getTravelDistance(origin, destination) / 4 + 15);
@@ -41,13 +41,14 @@ public class Passenger {
         return sprite;
     }
 
-    public Location setOrigin(HashMap<Integer, Location> locations){
-        Location origin;
-        do{
-            int num = (int)(Math.random() * 18);
-            origin = locations.get(num);
 
-        } while(origin.isFull());
+    private Location chooseLocation(HashMap<Integer, Location> locations){
+        int num = (int)(Math.random() * 18);
+        Location location = locations.get(num);
+        return location;
+
+    }
+    public Location setOrigin(Location origin){
         sprite.setX(origin.getX());
         sprite.setY(origin.getY());
         origin.addPassenger();
@@ -81,7 +82,12 @@ public class Passenger {
 
     public void enterTaxi(){
         this.getSprite().setAlpha(0);
+    }
 
+    public void exitTaxi(){
+        this.origin=this.destination;
+        this.getSprite().setPosition(origin.getX(), origin.getY());
+        this.getSprite().setAlpha(1);
     }
 
 

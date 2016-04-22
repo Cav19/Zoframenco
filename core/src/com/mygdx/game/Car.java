@@ -16,7 +16,6 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.audio.Sound;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
@@ -35,7 +34,11 @@ public class Car {
     public Camera camera;
     public float[] velocity = new float[2];
     public int[] orientation= new int[2];
-    private Sound tiresNoise = Gdx.audio.newSound(Gdx.files.internal("tiresNoise.mp3"));
+    private Music tiresNoise = Gdx.audio.newMusic(Gdx.files.internal("tiresNoise.mp3"));
+    private Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
+    public Music moneySound= Gdx.audio.newMusic(Gdx.files.absolute("moneySound.mp3"));
+
+
 
 
     public Car(MyGdxGame game){
@@ -145,13 +148,12 @@ public class Car {
     public void playTiresNoise() {
         if (time_sinceLastNoise == 30) {
             time_sinceLastNoise = 1;
-            tiresNoise.play((float)0.3);
+            tiresNoise.play();
         }
         else time_sinceLastNoise++;
     }
 
     public void playCollisionNoise() {
-        Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
         collisionNoise.setPosition((float) 50);
         collisionNoise.setVolume(75);
         if (velocity[0]*orientation[0] + velocity[1]*orientation[1] !=0) {

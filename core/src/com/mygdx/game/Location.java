@@ -17,7 +17,6 @@ public class Location {
     public Sprite sprite;
 
     public Location(int x, int y){
-        //this.name = name;
         this.isFull = false;
         this.x = x;
         this.y = y;
