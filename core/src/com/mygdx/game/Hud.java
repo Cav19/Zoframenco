@@ -73,7 +73,7 @@ public class Hud {
         groupNameLabel = new Label("Zoframenco", new Label.LabelStyle(font, Color.BLACK));
 
         scoreTextLabel = new Label("Score", new Label.LabelStyle(font, Color.BLACK));
-        scoreLabel = new Label(String.format("%02d", score), new Label.LabelStyle(font, Color.BLACK));
+        scoreLabel = new Label("$" + String.format("%02d", score), new Label.LabelStyle(font, Color.BLACK));
 
         messageTextLabel = new Label("Message: ", new Label.LabelStyle(font, Color.BLACK));
         messageLabel = new Label("Yo! Welcome to The Daily Rider!", new Label.LabelStyle(font, Color.BLUE));
@@ -119,7 +119,7 @@ public class Hud {
 
     public static void addScore(int value){
         score += value;
-        scoreLabel.setText(String.format("%02d", score));
+        scoreLabel.setText("$" + String.format("%02d", score));
     }
 
 }
