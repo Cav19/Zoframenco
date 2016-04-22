@@ -4,16 +4,12 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
-import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-
-//import com.badlogic.gdx.graphics.g2d.freetype;
 
 /**
  * Created by zoray on 3/10/16.
@@ -24,26 +20,25 @@ public class PlayScreen implements Screen {
     private MyGdxGame game;
     private Viewport gamePort;
     private Hud hud;
-    TiledMapRenderer tiledMapRenderer;
-    float[] decelleration = new float[2];
-    boolean gameStarted = false;
-    private Texture taxiImg;
+    private TiledMapRenderer tiledMapRenderer;
     private final SpriteBatch batch;
+    private Music backgroundMusic;
 
 
     public PlayScreen(MyGdxGame game){
-        Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         this.game = game;
+        Gdx.graphics.setWindowedMode(game.V_WIDTH, game.V_HEIGHT);
         hud = new Hud(game, game.batch);
         game.camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         gamePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, game.camera);
         game.tiledMap = new TmxMapLoader().load("map@17April.tmx");
         batch = new SpriteBatch();
+        backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
+
     }
 
     @Override
     public void show() {
-        Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
         backgroundMusic.setLooping(true);
         backgroundMusic.setVolume((float)0.1);
         backgroundMusic.play();
