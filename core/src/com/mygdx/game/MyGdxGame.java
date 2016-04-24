@@ -19,7 +19,7 @@ import java.util.HashMap;
 public class MyGdxGame extends Game {
 
     public static final int V_WIDTH = 1000;
-    public static final int V_HEIGHT = 1100;
+    public static final int V_HEIGHT = 1150;
     public SpriteBatch batch;
     public BitmapFont font;
     private Texture taxiImg;
@@ -31,6 +31,7 @@ public class MyGdxGame extends Game {
     private HashMap<Integer, Location> locations;
     //private final int NUM_LOCATIONS = 18;
     Sprite initialPosition= new Sprite();
+
 
     @Override
     public void create () {
@@ -79,20 +80,24 @@ public class MyGdxGame extends Game {
         if (taxi.full){
             //addDebugDot(passenger.getDestination().getX(),passenger.getDestination().getY() );
             highlightDestination(passenger);
-            Rectangle destinatioRectangle= Rectangle.tmp2.setPosition(passenger.getDestination().getX(), passenger.getDestination().getY());
-            destinatioRectangle.setSize(25,25);
-            if (taxi.hasReachedDestination(destinatioRectangle)){
+            Rectangle destinationRectangle= Rectangle.tmp2.setPosition(passenger.getDestination().getX(), passenger.getDestination().getY());
+            destinationRectangle.setSize(25,25);
+            if (taxi.hasReachedDestination(destinationRectangle)) {
+                passenger.exitTaxi();
+                taxi.moneySound.play();
                 Hud.addScore(passenger.getFare());
-                taxi.full=false;
-                passenger=null;
-                passengersWaiting=false;
+                if (Math.abs(taxi.velocity[0]) >1.5 | Math.abs(taxi.velocity[1]) >1.5 ) {
+                    taxi.full = false;
+                    passenger = null;
+                    passengersWaiting = false;
+                }
             }
         }
 
     }
 
     private boolean taxiHasArrived(){
-        if((taxi.getSprite().getX() >= passenger.getSprite().getX() - 20 && taxi.getSprite().getX() <= passenger.getSprite().getX() + 20) && (taxi.getSprite().getY() >= passenger.getSprite().getY() - 20 && taxi.getSprite().getY() <= passenger.getSprite().getY() + 20)){
+        if(((int)taxi.velocity[0]==0) && ((int)taxi.velocity[1]==0) && (taxi.getSprite().getX() >= passenger.getSprite().getX() - 20 && taxi.getSprite().getX() <= passenger.getSprite().getX() + 20) && (taxi.getSprite().getY() >= passenger.getSprite().getY() - 20 && taxi.getSprite().getY() <= passenger.getSprite().getY() + 20)){
             return true;
         }
         else return false;
@@ -154,7 +159,7 @@ public class MyGdxGame extends Game {
         taxi = new Car(this);
         taxi.setTexture(taxiImg);
         taxi.setSprite(taxiImg);
-        initialPosition.setPosition( (float) V_WIDTH / 2, (float)( V_HEIGHT / 2.17));
+        initialPosition.setPosition( (float) V_WIDTH / 2, (float)( V_HEIGHT / 2.25));
         taxi.X_pos = initialPosition.getX();
         taxi.Y_pos = initialPosition.getY();
         int taxiSize= V_WIDTH / 20;

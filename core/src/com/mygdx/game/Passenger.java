@@ -41,15 +41,12 @@ public class Passenger {
         return sprite;
     }
 
-    public Location setOrigin(HashMap<Integer, Location> locations){
+    private Location setOrigin(HashMap<Integer, Location> locations) {
         Location origin;
-        do{
-            int num = (int)(Math.random() * 18);
+        do {
+            int num = (int) (Math.random() * 18);
             origin = locations.get(num);
-        } while(origin.isFull());
-        sprite.setX(origin.getX());
-        sprite.setY(origin.getY());
-        origin.addPassenger();
+        } while (origin.isFull());
         return origin;
     }
 
@@ -75,6 +72,13 @@ public class Passenger {
 
     public void enterTaxi(){
         this.getSprite().setAlpha(0);
+    }
+
+    public void exitTaxi(){
+        //not quite right graphically, trying to show passenger leaving the cab
+        this.origin=this.destination;
+        this.getSprite().setPosition(origin.getX(), origin.getY());
+        this.getSprite().setAlpha(1);
     }
 
 

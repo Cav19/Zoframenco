@@ -6,14 +6,12 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.utils.viewport.Viewport;
 
 /**
  * Created by zoray on 3/23/16.
@@ -22,37 +20,41 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 public class HomeScreen implements Screen{
 
     final MyGdxGame game;
-    private Texture background;
-    private Sprite sprite;
-    private Viewport gamePort;
+    private Texture background= new Texture(Gdx.files.internal("main_menu_small.png"));;
+    public FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("SIXTY.TTF"));
+    public FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
     private Skin skin;
     private Stage stage = new Stage();
     private Table buttonTable = new Table();
 
 
-
     public HomeScreen(final MyGdxGame game){
         this.game = game;
-        Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
+        Gdx.graphics.setWindowedMode(game.V_WIDTH, game.V_HEIGHT);
+        parameter.size = 60;
+        parameter.color = Color.BLACK;
+        parameter.borderWidth = 1;
+        // font size 12 pixels
+
     }
 
     @Override
     public void show(){
-    }
-
-    @Override
-    public void render(float delta) {
-
-        game.camera.update();
         game.batch = new SpriteBatch();
         game.font = new BitmapFont();
-        background = new Texture(Gdx.files.internal("main_menu_small.png"));
-
+        game.font = generator.generateFont(parameter);
+        generator.dispose();
         createSkin();
 
         //createButton();
 
         setUpFont();
+
+    }
+
+    @Override
+    public void render(float delta) {
+
         game.batch.begin();
         game.batch.draw(background,0,0);
         game.font.draw(game.batch, "THE DAILY RIDER!", 20, 660);

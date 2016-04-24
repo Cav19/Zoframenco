@@ -4,11 +4,12 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
+import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
+import com.badlogic.gdx.utils.Json;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
-import com.badlogic.gdx.scenes.scene2d.Stage;
 
 /**
  * Created by zoray on 3/8/16.
@@ -23,7 +24,7 @@ public class Hud {
     //score/time tracking variables
     private Integer worldTimer;
     private float timeCount;
-    private static int score;
+    public static int score;
 
     //Scene2D widgets
     private static Label scoreLabel;
@@ -32,11 +33,16 @@ public class Hud {
     private Label gameNameLabel;
     private Label groupNameLabel;
     private Label scoreTextLabel;
+
     private Label messageLabel;
     private Label messageTextLabel;
 
-    //font
-    private BitmapFont font;
+
+    ////
+    public BitmapFont font;
+
+    public static Json Scores = new Json();
+
 
     public Hud(MyGdxGame game, SpriteBatch sb) {
         worldTimer = 100;
@@ -56,7 +62,7 @@ public class Hud {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("LiberationMono-Regular.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 25;
-        font = generator.generateFont(parameter);
+        font = generator.generateFont(parameter); // font size 12 pixels
         parameter.borderWidth = 3;
         generator.dispose();
     }
@@ -105,8 +111,16 @@ public class Hud {
             System.out.println("GAME OVER");
             System.out.println("FINAL SCORE: "+ score);
             stage.dispose();
+            System.out.println(Scores.toJson(score));
             System.exit(-1);
+
         }
+    }
+
+    public static String getHighScores(){
+        Scores.prettyPrint(score);
+        String HighScores= Scores.prettyPrint(score);
+        return HighScores;
     }
 
     public int getTime(){
