@@ -81,7 +81,6 @@ public class Passenger {
         this.getSprite().setAlpha(1);
     }
 
-
     public double getTravelDistance(Location location, Location destination){
         float xDist = Math.abs(location.getX() - destination.getX());
         float yDist = Math.abs(location.getY() - destination.getY());
