@@ -18,7 +18,6 @@ public class Passenger {
     private int timer;
     private Location origin;
     private Location destination;
-    public MyGdxGame game;
 
 
     public Passenger(HashMap<Integer, Location> locations){
@@ -31,10 +30,6 @@ public class Passenger {
         sprite.setRegionHeight(75);
         sprite.setX(origin.getX());
         sprite.setY(origin.getY());
-    }
-
-    public Texture getTexture(){
-        return texture;
     }
 
     public Sprite getSprite(){

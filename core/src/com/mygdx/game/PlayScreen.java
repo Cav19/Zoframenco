@@ -3,12 +3,16 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
+import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -27,15 +31,16 @@ public class PlayScreen implements Screen {
     public static TiledMap tiledMap;
     private static SpriteBatch batch;
     private Music backgroundMusic;
+    public static OrthographicCamera camera = new OrthographicCamera();
 
 
     public PlayScreen(MyGdxGame game){
         this.game = game;
         batch = new SpriteBatch();
         Gdx.graphics.setWindowedMode(V_WIDTH, V_HEIGHT);
-        hud = new Hud(game, batch);
-        game.camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
-        gamePort = new FitViewport(V_WIDTH, V_HEIGHT, game.camera);
+        hud = new Hud(game, batch, camera);
+        camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
+        gamePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
         tiledMap = new TmxMapLoader().load("map@17April.tmx");
         backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
 
@@ -56,8 +61,9 @@ public class PlayScreen implements Screen {
         drawHud();
         game.play();
     }
+
     private void drawHud() {
-        if (game.passenger != null && game.taxi.isFull()) {
+        if (game.passenger != null && MyGdxGame.taxi.isFull()) {
             hud.updateMessage("Drop me at " + game.passenger.getDestination().toString());
         }
         hud.updateTime(Gdx.graphics.getDeltaTime());
@@ -67,8 +73,8 @@ public class PlayScreen implements Screen {
     private void setUpScreen(){
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        game.camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
-        game.camera.update();
+        camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
+        camera.update();
         batch.setProjectionMatrix(hud.stage.getCamera().combined);
     }
 
@@ -85,7 +91,7 @@ public class PlayScreen implements Screen {
 
     private void drawMap() {
         TiledMapRenderer tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
-        tiledMapRenderer.setView(game.camera);
+        tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
     }
 
@@ -93,7 +99,16 @@ public class PlayScreen implements Screen {
         batch.begin();
         taxi.getSprite().draw(batch);
         batch.end();
-        game.camera.update();
+        camera.update();
+    }
+
+    public static void highlightDestination(Passenger passenger){
+        Rectangle box = passenger.getDestination().getRectangle();
+        ShapeRenderer renderer = new ShapeRenderer();
+        renderer.begin(ShapeRenderer.ShapeType.Line);
+        renderer.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight(), Color.RED, Color.RED, Color.RED, Color.RED);
+        renderer.end();
+        camera.update();
     }
 
     @Override
@@ -118,7 +133,6 @@ public class PlayScreen implements Screen {
 
     @Override
     public void dispose() {
-
         batch.dispose();
     }
 

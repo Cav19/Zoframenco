@@ -5,11 +5,9 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.math.Rectangle;
 
 import java.util.HashMap;
@@ -18,17 +16,15 @@ import java.util.HashMap;
 public class MyGdxGame extends Game {
 
     public static Car taxi;
-    public static OrthographicCamera camera;
-    boolean passengersWaiting=false;
+    private boolean passengersWaiting = false;
     public Passenger passenger;
     private HashMap<Integer, Location> locations;
-//    private Music moneySound = Gdx.audio.newMusic(Gdx.files.absolute("moneySound.mp3"));
+    //private Music moneySound = Gdx.audio.newMusic(Gdx.files.absolute("moneySound.mp3"));
     //private final int NUM_LOCATIONS = 18;
 
 
     @Override
     public void create () {
-        camera=new OrthographicCamera();
         createCar();
         createLocations();
         setScreen(new HomeScreen(this));
@@ -51,8 +47,7 @@ public class MyGdxGame extends Game {
         if (!passengersWaiting){
             passenger= new Passenger(locations);
             passengersWaiting=true;
-            passenger.game= this;
-            camera.update();
+            //camera.update();
         }
 
         else if (passengersWaiting) {
@@ -66,7 +61,7 @@ public class MyGdxGame extends Game {
 
         if (taxi.isFull()){
             //addDebugDot(passenger.getDestination().getX(),passenger.getDestination().getY() );
-            highlightDestination(passenger);
+            PlayScreen.highlightDestination(passenger);
             Rectangle destinationRectangle= Rectangle.tmp2.setPosition(passenger.getDestination().getX(), passenger.getDestination().getY());
             destinationRectangle.setSize(25,25);
             if (taxi.hasReachedDestination(destinationRectangle)) {
@@ -182,16 +177,7 @@ public class MyGdxGame extends Game {
         debugBatch.begin();
         debugSprite.draw(debugBatch);
         debugBatch.end();
-        MyGdxGame.camera.update();
-    }
-
-    public void highlightDestination(Passenger passenger){
-        Rectangle box = passenger.getDestination().getRectangle();
-        ShapeRenderer renderer = new ShapeRenderer();
-        renderer.begin(ShapeRenderer.ShapeType.Line);
-        renderer.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight(), Color.RED, Color.RED, Color.RED, Color.RED);
-        renderer.end();
-        MyGdxGame.camera.update();
+        //camera.update();
     }
 
     public void restart() {
@@ -200,8 +186,7 @@ public class MyGdxGame extends Game {
         passenger = null;
         passenger = new Passenger(locations);
         passengersWaiting=true;
-        passenger.game= this;
-        camera.update();
+        //camera.update();
     }
 
 }

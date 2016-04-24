@@ -231,8 +231,7 @@ public class Car {
     public void move(float acceleration) {
         this.accelerate(acceleration);
         applyFriction();
-        MyGdxGame.camera.update();
-
+        PlayScreen.camera.update();
     }
 
     public void applyFriction() {

@@ -1,5 +1,6 @@
 package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -44,12 +45,12 @@ public class Hud {
     public static Json Scores = new Json();
 
 
-    public Hud(MyGdxGame game, SpriteBatch sb) {
+    public Hud(MyGdxGame game, SpriteBatch sb, Camera camera) {
         worldTimer = 100;
         timeCount = 0;
         score = 0;
 
-        viewport = new FitViewport(PlayScreen.V_WIDTH, PlayScreen.V_HEIGHT, game.camera);
+        viewport = new FitViewport(PlayScreen.V_WIDTH, PlayScreen.V_HEIGHT, camera);
         stage = new Stage(viewport, sb);
 
         setUpHudFont();
