@@ -49,7 +49,7 @@ public class Hud {
         timeCount = 0;
         score = 0;
 
-        viewport = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, game.camera);
+        viewport = new FitViewport(PlayScreen.V_WIDTH, PlayScreen.V_HEIGHT, game.camera);
         stage = new Stage(viewport, sb);
 
         setUpHudFont();

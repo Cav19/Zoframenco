@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
+import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
@@ -16,15 +17,13 @@ import java.util.HashMap;
 
 public class MyGdxGame extends Game {
 
-    public static final int V_WIDTH = 1000;
-    public static final int V_HEIGHT = 1150;
     public static Car taxi;
     public static OrthographicCamera camera;
     boolean passengersWaiting=false;
     public Passenger passenger;
     private HashMap<Integer, Location> locations;
+//    private Music moneySound = Gdx.audio.newMusic(Gdx.files.absolute("moneySound.mp3"));
     //private final int NUM_LOCATIONS = 18;
-    Sprite initialPosition = new Sprite();
 
 
     @Override
@@ -72,7 +71,7 @@ public class MyGdxGame extends Game {
             destinationRectangle.setSize(25,25);
             if (taxi.hasReachedDestination(destinationRectangle)) {
                 passenger.exitTaxi();
-                taxi.moneySound.play();
+                //moneySound.play();
                 Hud.addScore(passenger.getFare());
                 if (Math.abs(taxi.getVelocity()[0]) >1.5 | Math.abs(taxi.getVelocity()[1]) >1.5 ) {
                     taxi.empty();
@@ -99,7 +98,7 @@ public class MyGdxGame extends Game {
 
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            if (!(taxi.orientation[0] == -1 && taxi.orientation[1] == 0)) {
+            if (!(taxi.getOrientation()[0] == -1 && taxi.getOrientation()[1] == 0)) {
                 taxi.turnLeft();
                 taxi.playTiresNoise();
             }
@@ -108,7 +107,7 @@ public class MyGdxGame extends Game {
 
 
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            if (!(taxi.orientation[0] == 1 && taxi.orientation[1] == 0)) {
+            if (!(taxi.getOrientation()[0] == 1 && taxi.getOrientation()[1] == 0)) {
                 taxi.turnRight();
                 taxi.playTiresNoise();
 
@@ -117,7 +116,7 @@ public class MyGdxGame extends Game {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            if (!(taxi.orientation[0] == 0 && taxi.orientation[1] == 1)) {
+            if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == 1)) {
                 taxi.turnUp();
                 taxi.playTiresNoise();
             }
@@ -126,7 +125,7 @@ public class MyGdxGame extends Game {
 
 
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            if (!(taxi.orientation[0] == 0 && taxi.orientation[1] == -1)) {
+            if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == -1)) {
                 taxi.turnDown();
                 taxi.playTiresNoise();
             }

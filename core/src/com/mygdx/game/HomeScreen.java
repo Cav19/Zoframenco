@@ -31,7 +31,7 @@ public class HomeScreen implements Screen{
 
     public HomeScreen(final MyGdxGame game){
         this.game = game;
-        Gdx.graphics.setWindowedMode(game.V_WIDTH, game.V_HEIGHT);
+        Gdx.graphics.setWindowedMode(PlayScreen.V_WIDTH, PlayScreen.V_HEIGHT);
         parameter.size = 60;
         parameter.color = Color.BLACK;
         parameter.borderWidth = 1;

@@ -18,6 +18,9 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class PlayScreen implements Screen {
 
+    public static final int V_WIDTH = 1000;
+    public static final int V_HEIGHT = 1150;
+
     private MyGdxGame game;
     private Viewport gamePort;
     private Hud hud;
@@ -29,10 +32,10 @@ public class PlayScreen implements Screen {
     public PlayScreen(MyGdxGame game){
         this.game = game;
         batch = new SpriteBatch();
-        Gdx.graphics.setWindowedMode(game.V_WIDTH, game.V_HEIGHT);
+        Gdx.graphics.setWindowedMode(V_WIDTH, V_HEIGHT);
         hud = new Hud(game, batch);
-        game.camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
-        gamePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, game.camera);
+        game.camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
+        gamePort = new FitViewport(V_WIDTH, V_HEIGHT, game.camera);
         tiledMap = new TmxMapLoader().load("map@17April.tmx");
         backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
 
@@ -64,7 +67,7 @@ public class PlayScreen implements Screen {
     private void setUpScreen(){
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        game.camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
+        game.camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         game.camera.update();
         batch.setProjectionMatrix(hud.stage.getCamera().combined);
     }

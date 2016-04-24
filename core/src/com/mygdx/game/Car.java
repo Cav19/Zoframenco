@@ -16,7 +16,6 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.audio.Music;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.MapLayers;
@@ -25,53 +24,37 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.math.Rectangle;
 
 public class Car {
-    private MyGdxGame game;
     private Sprite sprite;
-    private Texture texture;
     private boolean full;
     private float X_pos;
     private float Y_pos;
-    public Camera camera;
     private float[] velocity = new float[2];
-    public int[] orientation= new int[2];
+    private int[] orientation= new int[2];
     private Music tiresNoise = Gdx.audio.newMusic(Gdx.files.internal("tiresNoise.mp3"));
     private Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
-    public Music moneySound= Gdx.audio.newMusic(Gdx.files.absolute("moneySound.mp3"));
-
-
-
+    private float time_sinceLastNoise=Gdx.app.getGraphics().getDeltaTime();
 
     public Car(){
-        texture = new Texture("tiny_car_square.png");
-        sprite = new Sprite(texture);
-        sprite.setSize(MyGdxGame.V_WIDTH / 20, MyGdxGame.V_WIDTH / 20);
+        sprite = new Sprite(new Texture("tiny_car_square.png"));
+        sprite.setSize(PlayScreen.V_WIDTH / 20, PlayScreen.V_WIDTH / 20);
         sprite.setPosition(X_pos, Y_pos);
-        X_pos = MyGdxGame.V_WIDTH / 2;
-        Y_pos = (float)(MyGdxGame.V_HEIGHT / 2.25);
+        X_pos = PlayScreen.V_WIDTH / 2;
+        Y_pos = (float)(PlayScreen.V_HEIGHT / 2.25);
         setOrientation(0, 1);
     }
 
-    public void setSprite(Texture texture) {
-        this.sprite=new Sprite(texture);
-    }
-
-    public float time_sinceLastNoise=Gdx.app.getGraphics().getDeltaTime();
-
 
     public boolean isCellProperty(float x, float y, TiledMap tiledMap, String property) {
-
         MapLayers allLayers = tiledMap.getLayers();
         TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
         return (cell != null) &&  (cell.getTile() != null)  &&  ((cell.getTile().getProperties().containsKey(property)));
-
     }
 
     //www.norakomi.com/tutorial_mambow2_collision.php
 
     public boolean blocked(float x, float y, TiledMap tiledMap) {
         return !isCellProperty(x, y, tiledMap, "road");
-
     }
 
     private boolean checkCollisions(float[] velocity, TiledMap tiledMap) {
@@ -79,7 +62,7 @@ public class Car {
         X_pos+=velocity[0];
         Y_pos+=velocity[1];
 
-        if (X_pos + (int) this.getSprite().getWidth() >= MyGdxGame.V_WIDTH) {
+        if (X_pos + (int) this.getSprite().getWidth() >= PlayScreen.V_WIDTH) {
             collision = true;
             playCollisionNoise();
             velocity[0]=0;
@@ -93,7 +76,7 @@ public class Car {
             velocity[1]=0;
 
         }
-        if (Y_pos + (int) this.getSprite().getWidth() >= MyGdxGame.V_HEIGHT) {
+        if (Y_pos + (int) this.getSprite().getWidth() >= PlayScreen.V_HEIGHT) {
 
             collision = true;
             playCollisionNoise();
@@ -236,12 +219,8 @@ public class Car {
         return sprite;
     }
 
-    public int []  getOrientation() {
+    public int [] getOrientation() {
         return orientation;
-    }
-
-    public Texture getTexture() {
-        return texture;
     }
 
     public void setOrientation(int x, int y) {
@@ -249,15 +228,10 @@ public class Car {
         this.orientation[1]=y;
     }
 
-    public void setTexture(Texture texture) {
-        this.texture = texture;
-    }
-
-
     public void move(float acceleration) {
         this.accelerate(acceleration);
         applyFriction();
-        game.camera.update();
+        MyGdxGame.camera.update();
 
     }
 
