@@ -17,7 +17,7 @@ public class Passenger {
     private int fare;
     private int timer;
     private Location origin;
-    public Location destination;
+    private Location destination;
     public MyGdxGame game;
 
 
@@ -46,7 +46,6 @@ public class Passenger {
         do{
             int num = (int)(Math.random() * 18);
             origin = locations.get(num);
-
         } while(origin.isFull());
         sprite.setX(origin.getX());
         sprite.setY(origin.getY());
@@ -63,12 +62,7 @@ public class Passenger {
         do{
             int num = (int)(Math.random() * 18);
             destination = locations.get(num);
-            while (destination.equals(origin)){
-                num = (int)(Math.random() * 18);
-                destination = locations.get(num);
-            }
-
-        } while(destination.isFull());
+        } while(destination.isFull() && destination.equals(origin));
         return destination;
     }
 
@@ -81,7 +75,6 @@ public class Passenger {
 
     public void enterTaxi(){
         this.getSprite().setAlpha(0);
-
     }
 
 

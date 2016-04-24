@@ -9,6 +9,7 @@ import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
 
@@ -76,8 +77,9 @@ public class MyGdxGame extends Game {
         }
 
         if (taxi.full){
-            addDebugDot(passenger.getDestination().getX(),passenger.getDestination().getY() );
-            Rectangle destinatioRectangle= Rectangle.tmp2.setPosition(passenger.destination.getX(), passenger.destination.getY());
+            //addDebugDot(passenger.getDestination().getX(),passenger.getDestination().getY() );
+            highlightDestination(passenger);
+            Rectangle destinatioRectangle= Rectangle.tmp2.setPosition(passenger.getDestination().getX(), passenger.getDestination().getY());
             destinatioRectangle.setSize(25,25);
             if (taxi.hasReachedDestination(destinatioRectangle)){
                 Hud.addScore(passenger.getFare());
@@ -207,7 +209,14 @@ public class MyGdxGame extends Game {
         MyGdxGame.camera.update();
     }
 
-
+    public void highlightDestination(Passenger passenger){
+        Rectangle box = passenger.getDestination().getRectangle();
+        ShapeRenderer renderer = new ShapeRenderer();
+        renderer.begin(ShapeRenderer.ShapeType.Line);
+        renderer.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight(), Color.RED, Color.RED, Color.RED, Color.RED);
+        renderer.end();
+        MyGdxGame.camera.update();
+    }
 
     public void restart() {
         taxi.full=false;
