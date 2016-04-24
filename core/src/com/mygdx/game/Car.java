@@ -29,10 +29,10 @@ public class Car {
     private Sprite sprite;
     private Texture texture;
     private boolean full;
-    public float X_pos = 0;
-    public float Y_pos = 0;
+    private float X_pos;
+    private float Y_pos;
     public Camera camera;
-    public float[] velocity = new float[2];
+    private float[] velocity = new float[2];
     public int[] orientation= new int[2];
     private Music tiresNoise = Gdx.audio.newMusic(Gdx.files.internal("tiresNoise.mp3"));
     private Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
@@ -41,14 +41,20 @@ public class Car {
 
 
 
-    public Car(MyGdxGame game){
-        this.camera = game.camera;
-        this.game=game;
+    public Car(){
+        texture = new Texture("tiny_car_square.png");
+        sprite = new Sprite(texture);
+        sprite.setSize(MyGdxGame.V_WIDTH / 20, MyGdxGame.V_WIDTH / 20);
+        sprite.setPosition(X_pos, Y_pos);
+        X_pos = MyGdxGame.V_WIDTH / 2;
+        Y_pos = (float)(MyGdxGame.V_HEIGHT / 2.25);
+        setOrientation(0, 1);
     }
 
     public void setSprite(Texture texture) {
         this.sprite=new Sprite(texture);
     }
+
     public float time_sinceLastNoise=Gdx.app.getGraphics().getDeltaTime();
 
 
@@ -73,7 +79,7 @@ public class Car {
         X_pos+=velocity[0];
         Y_pos+=velocity[1];
 
-        if (X_pos + (int) this.getSprite().getWidth() >= game.V_WIDTH) {
+        if (X_pos + (int) this.getSprite().getWidth() >= MyGdxGame.V_WIDTH) {
             collision = true;
             playCollisionNoise();
             velocity[0]=0;
@@ -87,7 +93,7 @@ public class Car {
             velocity[1]=0;
 
         }
-        if (Y_pos + (int) this.getSprite().getWidth() >= game.V_HEIGHT) {
+        if (Y_pos + (int) this.getSprite().getWidth() >= MyGdxGame.V_HEIGHT) {
 
             collision = true;
             playCollisionNoise();
@@ -250,9 +256,16 @@ public class Car {
 
     public void move(float acceleration) {
         this.accelerate(acceleration);
-        game.applyFriction();
+        applyFriction();
         game.camera.update();
 
+    }
+
+    public void applyFriction() {
+        if (velocity[0] > -10 && velocity[1] > -10) {
+            velocity[0] -= velocity[0] * 0.05;
+            velocity[1] -= velocity[1] * 0.05;
+        }
     }
 
     public boolean hasReachedDestination(Rectangle destinationRectangle){
@@ -270,5 +283,9 @@ public class Car {
 
     public void empty(){
         full = false;
+    }
+
+    public float[] getVelocity(){
+        return velocity;
     }
 }

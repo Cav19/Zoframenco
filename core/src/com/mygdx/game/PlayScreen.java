@@ -71,7 +71,7 @@ public class PlayScreen implements Screen {
 
     private void drawGameObjects() {
         drawMap();
-        drawCar( game.taxi);
+        drawCar(game.taxi);
     }
 
     public static void drawPassenger(Passenger passenger){
@@ -86,7 +86,7 @@ public class PlayScreen implements Screen {
         tiledMapRenderer.render();
     }
 
-    private void drawCar( Car taxi){
+    public void drawCar(Car taxi){
         batch.begin();
         taxi.getSprite().draw(batch);
         batch.end();

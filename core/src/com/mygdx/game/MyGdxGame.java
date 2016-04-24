@@ -24,7 +24,7 @@ public class MyGdxGame extends Game {
     public Passenger passenger;
     private HashMap<Integer, Location> locations;
     //private final int NUM_LOCATIONS = 18;
-    Sprite initialPosition= new Sprite();
+    Sprite initialPosition = new Sprite();
 
 
     @Override
@@ -74,7 +74,7 @@ public class MyGdxGame extends Game {
                 passenger.exitTaxi();
                 taxi.moneySound.play();
                 Hud.addScore(passenger.getFare());
-                if (Math.abs(taxi.velocity[0]) >1.5 | Math.abs(taxi.velocity[1]) >1.5 ) {
+                if (Math.abs(taxi.getVelocity()[0]) >1.5 | Math.abs(taxi.getVelocity()[1]) >1.5 ) {
                     taxi.empty();
                     passenger = null;
                     passengersWaiting = false;
@@ -85,7 +85,7 @@ public class MyGdxGame extends Game {
     }
 
     private boolean taxiHasArrived(){
-        if(((int)taxi.velocity[0]==0) && ((int)taxi.velocity[1]==0) && (taxi.getSprite().getX() >= passenger.getSprite().getX() - 20 && taxi.getSprite().getX() <= passenger.getSprite().getX() + 20) && (taxi.getSprite().getY() >= passenger.getSprite().getY() - 20 && taxi.getSprite().getY() <= passenger.getSprite().getY() + 20)){
+        if(((int)taxi.getVelocity()[0]==0) && ((int)taxi.getVelocity()[1]==0) && (taxi.getSprite().getX() >= passenger.getSprite().getX() - 20 && taxi.getSprite().getX() <= passenger.getSprite().getX() + 20) && (taxi.getSprite().getY() >= passenger.getSprite().getY() - 20 && taxi.getSprite().getY() <= passenger.getSprite().getY() + 20)){
             return true;
         }
         else return false;
@@ -143,18 +143,7 @@ public class MyGdxGame extends Game {
     }
 
     public void createCar() {
-        Texture taxiImg = new Texture("tiny_car_square.png");
-        taxi = new Car(this);
-        taxi.setTexture(taxiImg);
-        taxi.setSprite(taxiImg);
-        initialPosition.setPosition( (float) V_WIDTH / 2, (float)( V_HEIGHT / 2.25));
-        taxi.X_pos = initialPosition.getX();
-        taxi.Y_pos = initialPosition.getY();
-        int taxiSize= V_WIDTH / 20;
-
-        taxi.getSprite().setSize(taxiSize, taxiSize);
-        taxi.getSprite().setPosition(initialPosition.getX(), initialPosition.getY());
-        taxi.setOrientation(0, 1);
+        taxi = new Car();
     }
 
     public void createLocations(){
@@ -179,12 +168,7 @@ public class MyGdxGame extends Game {
         locations.put(17, new Location(610, 140));
     }
 
-    public void applyFriction() {
-        if (taxi.velocity[0] > -10 && taxi.velocity[1] > -10) {
-            taxi.velocity[0] -= taxi.velocity[0] * 0.05;
-            taxi.velocity[1] -= taxi.velocity[1] * 0.05;
-        }
-    }
+
 
     public static void addDebugDot(float x, float y){
         //graphic debug code from http://gamedev.stackexchange.com/questions/72449/how-to-draw-a-rectangle-or-curve-between-two-co-ordinates-in-libgdx
