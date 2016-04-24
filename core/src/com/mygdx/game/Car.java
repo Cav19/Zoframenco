@@ -21,7 +21,6 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.maps.MapLayers;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.math.Rectangle;
 
 public class Car {
     private Sprite sprite;
@@ -108,7 +107,7 @@ public class Car {
 
     //TO DO: revise this method to fix "hiccups" in car movement
 
-    public void accelerate(float acceleration){
+    public void accelerate(float acceleration, TiledMap tiledMap){
         if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.3);}
         if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.3);}
 
@@ -118,7 +117,7 @@ public class Car {
             this.velocity[0] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[0];
             this.velocity[1] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[1];
         }
-        driveForward();
+        driveForward(tiledMap);
     }
 
     public void turnUp() {
@@ -168,10 +167,10 @@ public class Car {
 
     }
 
-    public void driveForward() {
+    public void driveForward(TiledMap tiledMap) {
         float old_X = X_pos;
         float old_Y = Y_pos;
-        if (!checkCollisions(velocity, PlayScreen.tiledMap)) {
+        if (!checkCollisions(velocity, tiledMap)) {
             sprite.setPosition(X_pos, Y_pos);
         } else {
             X_pos = old_X;
@@ -228,10 +227,9 @@ public class Car {
         this.orientation[1]=y;
     }
 
-    public void move(float acceleration) {
-        this.accelerate(acceleration);
+    public void move(float acceleration, TiledMap tiledMap) {
+        accelerate(acceleration, tiledMap);
         applyFriction();
-        PlayScreen.camera.update();
     }
 
     public void applyFriction() {
@@ -241,8 +239,8 @@ public class Car {
         }
     }
 
-    public boolean hasReachedDestination(Rectangle destinationRectangle){
-        if((this.getSprite().getX() >= destinationRectangle.getX() - 20 && this.getSprite().getX() <= destinationRectangle.getX() + 20) && (this.getSprite().getY() >= destinationRectangle.getY() - 20) && this.getSprite().getY() <= destinationRectangle.getY() +20){
+    public boolean hasArrived(Location location){
+        if((this.getSprite().getX() >= location.getX() - 20 && this.getSprite().getX() <= location.getX() + 20) && (this.getSprite().getY() >= location.getY() - 20) && this.getSprite().getY() <= location.getY() +20){
             return true;
         }
         else{
@@ -252,6 +250,10 @@ public class Car {
 
     public boolean isFull(){
         return full;
+    }
+
+    public void addPassenger(){
+        full = true;
     }
 
     public void empty(){

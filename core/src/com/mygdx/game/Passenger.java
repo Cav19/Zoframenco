@@ -42,6 +42,7 @@ public class Passenger {
             int num = (int) (Math.random() * 18);
             origin = locations.get(num);
         } while (origin.isFull());
+        origin.addPassenger();
         return origin;
     }
 
@@ -57,8 +58,6 @@ public class Passenger {
         } while(destination.isFull() && destination.equals(origin));
         return destination;
     }
-
-
 
     public void enterTaxi(){
         this.getSprite().setAlpha(0);

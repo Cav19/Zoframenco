@@ -14,12 +14,14 @@ public class Location {
     private int x;
     private int y;
     private Rectangle rectangle;
+    private int id;
 
-    public Location(int x, int y){
+    public Location(int x, int y, int id){
         this.isFull = false;
         this.x = x;
         this.y = y;
-        this.rectangle = new Rectangle(x, y - 100, 65, 25);
+        this.rectangle = new Rectangle(x, y, 65, 25);
+        this.id = id;
     }
 
     public void addPassenger(){
@@ -48,5 +50,9 @@ public class Location {
 
     public Rectangle getRectangle(){
         return rectangle;
+    }
+
+    public int getId(){
+        return id;
     }
 }
