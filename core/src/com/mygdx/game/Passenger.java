@@ -63,12 +63,7 @@ public class Passenger {
         return destination;
     }
 
-    public void drawPassenger(){
-        SpriteBatch batch= game.batch;
-        batch.begin();
-        this.getSprite().draw(batch);
-        batch.end();
-    }
+
 
     public void enterTaxi(){
         this.getSprite().setAlpha(0);

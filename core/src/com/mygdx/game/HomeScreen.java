@@ -26,6 +26,7 @@ public class HomeScreen implements Screen{
     private Skin skin;
     private Stage stage = new Stage();
     private Table buttonTable = new Table();
+    private BitmapFont font;
 
 
     public HomeScreen(final MyGdxGame game){
@@ -46,15 +47,15 @@ public class HomeScreen implements Screen{
     @Override
     public void render(float delta) {
 
-        game.batch = new SpriteBatch();
-        game.font = new BitmapFont();
-        game.font = generator.generateFont(parameter);
+        SpriteBatch batch = new SpriteBatch();
+        font = new BitmapFont();
+        font = generator.generateFont(parameter);
 
-        game.batch.begin();
-        game.batch.draw(background,0,0);
-        game.font.draw(game.batch, "THE DAILY RIDER!", 20, 660);
-        game.font.draw(game.batch, "Team Zoframenco", 20, 600);
-        game.batch.end();
+        batch.begin();
+        batch.draw(background,0,0);
+        font.draw(batch, "THE DAILY RIDER!", 20, 660);
+        font.draw(batch, "Team Zoframenco", 20, 600);
+        batch.end();
 
         createSkin();
 
@@ -82,14 +83,13 @@ public class HomeScreen implements Screen{
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 44;
         parameter.color = Color.YELLOW;
-        game.font = generator.generateFont(parameter); // font size 12 pixels
+        font = generator.generateFont(parameter); // font size 12 pixels
         parameter.borderWidth = 3;
         generator.dispose();
     }
 
     private void createSkin(){
 
-        BitmapFont font = game.font;
         skin = new Skin();
         skin.add("button", font);
 

@@ -28,7 +28,7 @@ public class Car {
     private MyGdxGame game;
     private Sprite sprite;
     private Texture texture;
-    public boolean full;
+    private boolean full;
     public float X_pos = 0;
     public float Y_pos = 0;
     public Camera camera;
@@ -264,4 +264,11 @@ public class Car {
         }
     }
 
+    public boolean isFull(){
+        return full;
+    }
+
+    public void empty(){
+        full = false;
+    }
 }

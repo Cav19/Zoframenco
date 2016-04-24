@@ -6,7 +6,6 @@ import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
-import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
@@ -19,9 +18,6 @@ public class MyGdxGame extends Game {
 
     public static final int V_WIDTH = 1000;
     public static final int V_HEIGHT = 1150;
-    public SpriteBatch batch;
-    public BitmapFont font;
-    private Texture taxiImg;
     public static Car taxi;
     public static OrthographicCamera camera;
     boolean passengersWaiting=false;
@@ -33,7 +29,6 @@ public class MyGdxGame extends Game {
 
     @Override
     public void create () {
-        batch = new SpriteBatch();
         camera=new OrthographicCamera();
         createCar();
         createLocations();
@@ -44,15 +39,11 @@ public class MyGdxGame extends Game {
     public void render () {
         super.render();
         if (passengersWaiting){
-            passenger.drawPassenger();
+            PlayScreen.drawPassenger(passenger);
         }
 
     }
 
-    @Override
-    public void dispose(){
-        batch.dispose();
-    }
 
     public void play() {
 
@@ -68,13 +59,13 @@ public class MyGdxGame extends Game {
         else if (passengersWaiting) {
             if (taxiHasArrived()) {
                 passenger.enterTaxi();
-                taxi.full=true;
+                taxi.isFull();
                 passenger.getOrigin().removePassenger();
             }
 
         }
 
-        if (taxi.full){
+        if (taxi.isFull()){
             //addDebugDot(passenger.getDestination().getX(),passenger.getDestination().getY() );
             highlightDestination(passenger);
             Rectangle destinationRectangle= Rectangle.tmp2.setPosition(passenger.getDestination().getX(), passenger.getDestination().getY());
@@ -84,7 +75,7 @@ public class MyGdxGame extends Game {
                 taxi.moneySound.play();
                 Hud.addScore(passenger.getFare());
                 if (Math.abs(taxi.velocity[0]) >1.5 | Math.abs(taxi.velocity[1]) >1.5 ) {
-                    taxi.full = false;
+                    taxi.empty();
                     passenger = null;
                     passengersWaiting = false;
                 }
@@ -152,7 +143,7 @@ public class MyGdxGame extends Game {
     }
 
     public void createCar() {
-        taxiImg = new Texture("tiny_car_square.png");
+        Texture taxiImg = new Texture("tiny_car_square.png");
         taxi = new Car(this);
         taxi.setTexture(taxiImg);
         taxi.setSprite(taxiImg);
@@ -221,7 +212,7 @@ public class MyGdxGame extends Game {
     }
 
     public void restart() {
-        taxi.full=false;
+        taxi.empty();
         passenger.getOrigin().removePassenger();
         passenger = null;
         passenger = new Passenger(locations);

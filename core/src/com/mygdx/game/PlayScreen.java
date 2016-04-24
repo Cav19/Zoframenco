@@ -21,20 +21,19 @@ public class PlayScreen implements Screen {
     private MyGdxGame game;
     private Viewport gamePort;
     private Hud hud;
-    private TiledMapRenderer tiledMapRenderer;
     public static TiledMap tiledMap;
-    private final SpriteBatch batch;
+    private static SpriteBatch batch;
     private Music backgroundMusic;
 
 
     public PlayScreen(MyGdxGame game){
         this.game = game;
+        batch = new SpriteBatch();
         Gdx.graphics.setWindowedMode(game.V_WIDTH, game.V_HEIGHT);
-        hud = new Hud(game, game.batch);
+        hud = new Hud(game, batch);
         game.camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         gamePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, game.camera);
         tiledMap = new TmxMapLoader().load("map@17April.tmx");
-        batch = new SpriteBatch();
         backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
 
 
@@ -55,7 +54,7 @@ public class PlayScreen implements Screen {
         game.play();
     }
     private void drawHud() {
-        if (game.passenger != null && game.taxi.full) {
+        if (game.passenger != null && game.taxi.isFull()) {
             hud.updateMessage("Drop me at " + game.passenger.getDestination().toString());
         }
         hud.updateTime(Gdx.graphics.getDeltaTime());
@@ -67,7 +66,7 @@ public class PlayScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         game.camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
         game.camera.update();
-        game.batch.setProjectionMatrix(hud.stage.getCamera().combined);
+        batch.setProjectionMatrix(hud.stage.getCamera().combined);
     }
 
     private void drawGameObjects() {
@@ -75,8 +74,14 @@ public class PlayScreen implements Screen {
         drawCar( game.taxi);
     }
 
+    public static void drawPassenger(Passenger passenger){
+        batch.begin();
+        passenger.getSprite().draw(batch);
+        batch.end();
+    }
+
     private void drawMap() {
-        tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
+        TiledMapRenderer tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         tiledMapRenderer.setView(game.camera);
         tiledMapRenderer.render();
     }
