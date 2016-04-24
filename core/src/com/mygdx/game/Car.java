@@ -29,9 +29,7 @@ public class Car {
     private float Y_pos;
     private float[] velocity = new float[2];
     private int[] orientation= new int[2];
-    private Music tiresNoise = Gdx.audio.newMusic(Gdx.files.internal("tiresNoise.mp3"));
     private Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
-    private float time_sinceLastNoise=Gdx.app.getGraphics().getDeltaTime();
 
     public Car(){
         sprite = new Sprite(new Texture("tiny_car_square.png"));
@@ -133,13 +131,7 @@ public class Car {
         }
     }
 
-    public void playTiresNoise() {
-        if (time_sinceLastNoise == 30) {
-            time_sinceLastNoise = 1;
-            tiresNoise.play();
-        }
-        else time_sinceLastNoise++;
-    }
+
 
     public void playCollisionNoise() {
         collisionNoise.setPosition((float) 50);

@@ -37,8 +37,8 @@ public class PlayScreen implements Screen {
     private Passenger passenger;
     private boolean passengersWaiting = false;
     private Music moneySound = Gdx.audio.newMusic(Gdx.files.absolute("moneySound.mp3"));
-
-
+    private Music tiresNoise = Gdx.audio.newMusic(Gdx.files.internal("tiresNoise.mp3"));
+    private float time_sinceLastNoise=Gdx.app.getGraphics().getDeltaTime();
 
 
     public PlayScreen(MyGdxGame game){
@@ -163,7 +163,7 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             if (!(taxi.getOrientation()[0] == -1 && taxi.getOrientation()[1] == 0)) {
                 taxi.turnLeft();
-                taxi.playTiresNoise();
+                playTiresNoise();
             }
             taxi.move(25, tiledMap);
         }
@@ -172,7 +172,7 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             if (!(taxi.getOrientation()[0] == 1 && taxi.getOrientation()[1] == 0)) {
                 taxi.turnRight();
-                taxi.playTiresNoise();
+                playTiresNoise();
 
             }
             taxi.move(25, tiledMap);
@@ -181,7 +181,7 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == 1)) {
                 taxi.turnUp();
-                taxi.playTiresNoise();
+                playTiresNoise();
             }
             taxi.move(25,tiledMap);
         }
@@ -190,7 +190,7 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == -1)) {
                 taxi.turnDown();
-                taxi.playTiresNoise();
+                playTiresNoise();
             }
             taxi.move(25, tiledMap);
         }
@@ -202,6 +202,14 @@ public class PlayScreen implements Screen {
             System.exit(-1);
         }
 
+    }
+
+    public void playTiresNoise() {
+        if (time_sinceLastNoise == 30) {
+            time_sinceLastNoise = 1;
+            tiresNoise.play();
+        }
+        else time_sinceLastNoise++;
     }
 
     public void restart() {
