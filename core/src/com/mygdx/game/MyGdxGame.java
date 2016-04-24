@@ -10,7 +10,6 @@ import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
-import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.math.Rectangle;
 
 import java.util.HashMap;
@@ -24,7 +23,6 @@ public class MyGdxGame extends Game {
     public BitmapFont font;
     private Texture taxiImg;
     public static Car taxi;
-    public TiledMap tiledMap;
     public static OrthographicCamera camera;
     boolean passengersWaiting=false;
     public Passenger passenger;
@@ -35,7 +33,6 @@ public class MyGdxGame extends Game {
 
     @Override
     public void create () {
-        this.tiledMap = new TiledMap();
         batch = new SpriteBatch();
         camera=new OrthographicCamera();
         createCar();
@@ -139,7 +136,7 @@ public class MyGdxGame extends Game {
 
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             if (!(taxi.orientation[0] == 0 && taxi.orientation[1] == -1)) {
-                taxi.turnDown(tiledMap);
+                taxi.turnDown();
                 taxi.playTiresNoise();
             }
             taxi.move(25);

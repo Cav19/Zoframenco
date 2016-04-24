@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
@@ -21,6 +22,7 @@ public class PlayScreen implements Screen {
     private Viewport gamePort;
     private Hud hud;
     private TiledMapRenderer tiledMapRenderer;
+    public static TiledMap tiledMap;
     private final SpriteBatch batch;
     private Music backgroundMusic;
 
@@ -31,7 +33,7 @@ public class PlayScreen implements Screen {
         hud = new Hud(game, game.batch);
         game.camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         gamePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, game.camera);
-        game.tiledMap = new TmxMapLoader().load("map@17April.tmx");
+        tiledMap = new TmxMapLoader().load("map@17April.tmx");
         batch = new SpriteBatch();
         backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
 
@@ -54,7 +56,7 @@ public class PlayScreen implements Screen {
     }
     private void drawHud() {
         if (game.passenger != null && game.taxi.full) {
-            hud.updateMessage("Drop me at " + game.passenger.destination.toString());
+            hud.updateMessage("Drop me at " + game.passenger.getDestination().toString());
         }
         hud.updateTime(Gdx.graphics.getDeltaTime());
         hud.stage.draw();
@@ -74,7 +76,7 @@ public class PlayScreen implements Screen {
     }
 
     private void drawMap() {
-        tiledMapRenderer = new OrthogonalTiledMapRenderer(game.tiledMap);
+        tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         tiledMapRenderer.setView(game.camera);
         tiledMapRenderer.render();
     }

@@ -119,7 +119,7 @@ public class Car {
 
     //TO DO: revise this method to fix "hiccups" in car movement
 
-    public void accelerate(TiledMap tiledMap, float acceleration){
+    public void accelerate(float acceleration){
         if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.3);}
         if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.3);}
 
@@ -129,7 +129,7 @@ public class Car {
             this.velocity[0] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[0];
             this.velocity[1] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[1];
         }
-        driveForward(tiledMap);
+        driveForward();
     }
 
     public void turnUp() {
@@ -164,7 +164,7 @@ public class Car {
 
     }
 
-    public void turnDown(TiledMap tiledMap){
+    public void turnDown(){
         velocity[0]=(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
         velocity[1]= velocity[0]*orientation[0]+ velocity[1]*orientation[1];
 
@@ -179,10 +179,10 @@ public class Car {
 
     }
 
-    public void driveForward( TiledMap tiledMap) {
+    public void driveForward() {
         float old_X = X_pos;
         float old_Y = Y_pos;
-        if (!checkCollisions(velocity, tiledMap)) {
+        if (!checkCollisions(velocity, PlayScreen.tiledMap)) {
             sprite.setPosition(X_pos, Y_pos);
         } else {
             X_pos = old_X;
@@ -249,7 +249,7 @@ public class Car {
 
 
     public void move(float acceleration) {
-        this.accelerate(game.tiledMap, acceleration);
+        this.accelerate(acceleration);
         game.applyFriction();
         game.camera.update();
 

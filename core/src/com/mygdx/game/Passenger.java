@@ -11,7 +11,7 @@ import java.util.HashMap;
  */
 public class Passenger {
 
-    public Texture texture= new Texture("stick_figure.png");;
+    private Texture texture= new Texture("stick_figure.png");
     private Sprite sprite= new Sprite(texture);
 
     private int fare;

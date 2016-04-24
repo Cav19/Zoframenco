@@ -14,12 +14,12 @@ public class Location {
     private int x;
     private int y;
     private Rectangle rectangle;
-    public Sprite sprite;
 
     public Location(int x, int y){
         this.isFull = false;
         this.x = x;
         this.y = y;
+        this.rectangle = new Rectangle(x, y - 100, 65, 25);
     }
 
     public void addPassenger(){
@@ -44,5 +44,9 @@ public class Location {
 
     public float getY(){
         return y;
+    }
+
+    public Rectangle getRectangle(){
+        return rectangle;
     }
 }
