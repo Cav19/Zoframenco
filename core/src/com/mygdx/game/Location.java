@@ -45,4 +45,8 @@ public class Location {
     public float getY(){
         return y;
     }
+
+    public Rectangle getRectangle(){
+        return rectangle;
+    }
 }

@@ -40,27 +40,27 @@ public class HomeScreen implements Screen{
 
     @Override
     public void show(){
-        game.batch = new SpriteBatch();
-        game.font = new BitmapFont();
-        game.font = generator.generateFont(parameter);
-        generator.dispose();
-        createSkin();
-
-        //createButton();
-
-        setUpFont();
 
     }
 
     @Override
     public void render(float delta) {
 
+        game.batch = new SpriteBatch();
+        game.font = new BitmapFont();
+        game.font = generator.generateFont(parameter);
+
         game.batch.begin();
         game.batch.draw(background,0,0);
         game.font.draw(game.batch, "THE DAILY RIDER!", 20, 660);
         game.font.draw(game.batch, "Team Zoframenco", 20, 600);
-
         game.batch.end();
+
+        createSkin();
+
+        //createButton();
+
+        setUpFont();
 
         if (Gdx.input.isTouched()) {
             game.setScreen(new com.mygdx.game.PlayScreen(game));
@@ -129,6 +129,6 @@ public class HomeScreen implements Screen{
 
     @Override
     public void dispose() {
-
+        generator.dispose();
     }
 }

@@ -54,7 +54,7 @@ public class PlayScreen implements Screen {
     }
     private void drawHud() {
         if (game.passenger != null && game.taxi.full) {
-            hud.updateMessage("Drop me at " + game.passenger.destination.toString());
+            hud.updateMessage("Drop me at " + game.passenger.getDestination().toString());
         }
         hud.updateTime(Gdx.graphics.getDeltaTime());
         hud.stage.draw();
