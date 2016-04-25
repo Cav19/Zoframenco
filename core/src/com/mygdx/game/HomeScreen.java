@@ -32,11 +32,6 @@ public class HomeScreen implements Screen{
     public HomeScreen(final MyGdxGame game){
         this.game = game;
         Gdx.graphics.setWindowedMode(PlayScreen.V_WIDTH, PlayScreen.V_HEIGHT);
-        parameter.size = 60;
-        parameter.color = Color.BLACK;
-        parameter.borderWidth = 1;
-        // font size 12 pixels
-
     }
 
     @Override
@@ -49,19 +44,19 @@ public class HomeScreen implements Screen{
 
         SpriteBatch batch = new SpriteBatch();
         font = new BitmapFont();
-        font = generator.generateFont(parameter);
+        setUpFont();
 
         batch.begin();
+
         batch.draw(background,0,0);
         font.draw(batch, "THE DAILY RIDER!", 20, 660);
         font.draw(batch, "Team Zoframenco", 20, 600);
+
         batch.end();
 
         createSkin();
 
         //createButton();
-
-        setUpFont();
 
         if (Gdx.input.isTouched()) {
             game.setScreen(new com.mygdx.game.PlayScreen(game));
@@ -78,14 +73,10 @@ public class HomeScreen implements Screen{
     }
 
     private void setUpFont() {
-        //Setting up font size using FreeTypeFontGenerator
-        FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("SIXTY.TTF"));
-        FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 44;
         parameter.color = Color.YELLOW;
-        font = generator.generateFont(parameter); // font size 12 pixels
-        parameter.borderWidth = 3;
-        generator.dispose();
+        font = generator.generateFont(parameter);
+        parameter.borderWidth = 2;
     }
 
     private void createSkin(){

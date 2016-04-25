@@ -2,7 +2,6 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 import java.util.HashMap;
 
@@ -68,6 +67,7 @@ public class Passenger {
         this.origin=this.destination;
         this.getSprite().setPosition(origin.getX(), origin.getY());
         this.getSprite().setAlpha(1);
+
     }
 
     public double getTravelDistance(Location location, Location destination){

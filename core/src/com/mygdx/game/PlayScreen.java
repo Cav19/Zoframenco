@@ -38,10 +38,8 @@ public class PlayScreen implements Screen {
     private static Car taxi = new Car();
     private Passenger passenger;
     private boolean passengersWaiting = false;
-    private Music moneySound = Gdx.audio.newMusic(Gdx.files.absolute("moneySound.mp3"));
-    private Music tiresNoise = Gdx.audio.newMusic(Gdx.files.internal("tiresNoise.mp3"));
-    private static Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
     private float time_sinceLastNoise=Gdx.app.getGraphics().getDeltaTime();
+    private static soundPlayer gameSoundPlayer = new soundPlayer();
 
 
     public PlayScreen(MyGdxGame game){
@@ -52,14 +50,15 @@ public class PlayScreen implements Screen {
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         gamePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
         tiledMap = new TmxMapLoader().load("map@17April.tmx");
-        backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
     }
 
     @Override
     public void show() {
-        backgroundMusic.setLooping(true);
-        backgroundMusic.setVolume((float)0.1);
-        backgroundMusic.play();
+       playBackGroundMusic();
+    }
+
+    private void playBackGroundMusic(){
+        gameSoundPlayer.playBackGroundMusic();
     }
 
     @Override
@@ -143,14 +142,14 @@ public class PlayScreen implements Screen {
             Rectangle destinationRectangle= Rectangle.tmp2.setPosition(passenger.getDestination().getX(), passenger.getDestination().getY());
             destinationRectangle.setSize(25,25);
             if (taxi.hasArrived(passenger.getDestination())) {
-                if (Math.abs(taxi.getVelocity()[0]) >1.5 | Math.abs(taxi.getVelocity()[1]) >1.5 ) {
-                    moneySound.play();
-                    Hud.addScore(passenger.getFare());
+               // if (Math.abs(taxi.getVelocity()[0]) >1.5 | Math.abs(taxi.getVelocity()[1]) >1.5 ) {
+                    gameSoundPlayer.playMoneySound();
+                Hud.addScore(passenger.getFare());
                     passenger.exitTaxi();
                     taxi.empty();
                     passenger = null;
                     passengersWaiting = false;
-                }
+               // }
             }
         }
 
@@ -166,7 +165,6 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             if (!(taxi.getOrientation()[0] == -1 && taxi.getOrientation()[1] == 0)) {
                 taxi.turnLeft();
-                playTiresNoise();
             }
             taxi.move(25);
         }
@@ -175,7 +173,6 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             if (!(taxi.getOrientation()[0] == 1 && taxi.getOrientation()[1] == 0)) {
                 taxi.turnRight();
-                playTiresNoise();
 
             }
             taxi.move(25);
@@ -184,7 +181,6 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == 1)) {
                 taxi.turnUp();
-                playTiresNoise();
             }
             taxi.move(25);
         }
@@ -193,7 +189,6 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == -1)) {
                 taxi.turnDown();
-                playTiresNoise();
             }
             taxi.move(25);
         }
@@ -205,6 +200,9 @@ public class PlayScreen implements Screen {
             System.exit(-1);
         }
 
+        if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
+            playTiresNoise();
+        }
     }
 
 
@@ -267,23 +265,19 @@ public class PlayScreen implements Screen {
         return (cell != null) &&  (cell.getTile() != null)  &&  ((cell.getTile().getProperties().containsKey(property)));
     }
 
-    public void playTiresNoise() {
-        if (time_sinceLastNoise == 30) {
-            time_sinceLastNoise = 1;
-            tiresNoise.play();
+    private void playTiresNoise() {
+        gameSoundPlayer.playTiresNoise();
         }
-        else time_sinceLastNoise++;
+
+
+
+    private static void playCollisionNoise() {
+        if (Math.abs(taxi.getVelocity()[0] * taxi.getOrientation()[0] + taxi.getVelocity()[1] * taxi.getOrientation()[1]) > 0.7) {
+            gameSoundPlayer.playCollisionNoise();
+        }
     }
 
 
-    public static void playCollisionNoise() {
-        collisionNoise.setPosition((float) 50);
-        collisionNoise.setVolume(75);
-        if (taxi.getVelocity()[0]*taxi.getOrientation()[0] + taxi.getVelocity()[1]*taxi.getOrientation()[1] !=0) {
-            collisionNoise.play();
-        }
-        else collisionNoise.stop();
-    }
 
     public void restart() {
         taxi.empty();
