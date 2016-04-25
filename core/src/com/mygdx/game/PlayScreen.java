@@ -277,12 +277,10 @@ public class PlayScreen implements Screen {
 
 
     public static void playCollisionNoise() {
-        collisionNoise.setPosition((float) 50);
         collisionNoise.setVolume(75);
-        if (taxi.getVelocity()[0]*taxi.getOrientation()[0] + taxi.getVelocity()[1]*taxi.getOrientation()[1] !=0) {
+        if (Math.abs(taxi.getVelocity()[0]*taxi.getOrientation()[0] + taxi.getVelocity()[1]*taxi.getOrientation()[1]) >0.7) {
             collisionNoise.play();
         }
-        else collisionNoise.stop();
     }
 
     public void restart() {
