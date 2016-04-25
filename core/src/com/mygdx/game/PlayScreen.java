@@ -37,7 +37,7 @@ public class PlayScreen implements Screen {
     private Passenger passenger;
     private boolean passengersWaiting = false;
     private float time_sinceLastNoise=Gdx.app.getGraphics().getDeltaTime();
-    private static soundPlayer gameSoundPlayer= new soundPlayer();
+    public static soundPlayer gameSoundPlayer= new soundPlayer();
 
 
     public PlayScreen(MyGdxGame game){
@@ -271,7 +271,7 @@ public class PlayScreen implements Screen {
 
     private static void playCollisionNoise() {
         if (Math.abs(taxi.getVelocity()[0] * taxi.getOrientation()[0] + taxi.getVelocity()[1] * taxi.getOrientation()[1]) > 0.7) {
-            gameSoundPlayer.playTiresNoise();
+            gameSoundPlayer.playCollisionNoise();
         }
     }
 
