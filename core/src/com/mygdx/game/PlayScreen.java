@@ -9,8 +9,10 @@ import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.badlogic.gdx.maps.MapLayers;
 import com.badlogic.gdx.maps.tiled.TiledMap;
 import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
+import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
@@ -33,11 +35,12 @@ public class PlayScreen implements Screen {
     private static SpriteBatch batch;
     private Music backgroundMusic;
     public static OrthographicCamera camera = new OrthographicCamera();
-    private Car taxi = new Car();
+    private static Car taxi = new Car();
     private Passenger passenger;
     private boolean passengersWaiting = false;
     private Music moneySound = Gdx.audio.newMusic(Gdx.files.absolute("moneySound.mp3"));
     private Music tiresNoise = Gdx.audio.newMusic(Gdx.files.internal("tiresNoise.mp3"));
+    private static Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
     private float time_sinceLastNoise=Gdx.app.getGraphics().getDeltaTime();
 
 
@@ -156,7 +159,7 @@ public class PlayScreen implements Screen {
     private void listenToInput() {
 
         if (!(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))) {
-            taxi.move(0, tiledMap);
+            taxi.move(0);
         }
 
 
@@ -165,7 +168,7 @@ public class PlayScreen implements Screen {
                 taxi.turnLeft();
                 playTiresNoise();
             }
-            taxi.move(25, tiledMap);
+            taxi.move(25);
         }
 
 
@@ -175,7 +178,7 @@ public class PlayScreen implements Screen {
                 playTiresNoise();
 
             }
-            taxi.move(25, tiledMap);
+            taxi.move(25);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
@@ -183,7 +186,7 @@ public class PlayScreen implements Screen {
                 taxi.turnUp();
                 playTiresNoise();
             }
-            taxi.move(25,tiledMap);
+            taxi.move(25);
         }
 
 
@@ -192,7 +195,7 @@ public class PlayScreen implements Screen {
                 taxi.turnDown();
                 playTiresNoise();
             }
-            taxi.move(25, tiledMap);
+            taxi.move(25);
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
@@ -204,12 +207,82 @@ public class PlayScreen implements Screen {
 
     }
 
+
+    public static boolean checkCollisions(float[] velocity) {
+        boolean collision = false;
+        taxi.setX(taxi.getX() + velocity[0]);
+        taxi.setY(taxi.getY() + velocity[1]);
+
+        if (taxi.getX() + (int) taxi.getSprite().getWidth() >= PlayScreen.V_WIDTH) {
+            collision = true;
+            playCollisionNoise();
+            velocity[0]=0;
+            velocity[1]=0;
+        }
+        if (taxi.getX()<= 0) {
+            collision = true;
+            playCollisionNoise();
+
+            velocity[0]=0;
+            velocity[1]=0;
+
+        }
+        if (taxi.getY()+ (int) taxi.getSprite().getWidth() >= PlayScreen.V_HEIGHT) {
+
+            collision = true;
+            playCollisionNoise();
+
+            velocity[0]=0;
+            velocity[1]=0;
+        }
+        if (taxi.getY() <= 0) {
+
+            collision = true;
+            playCollisionNoise();
+
+            velocity[0]=0;
+            velocity[1]=0;
+        }
+
+        if (blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getWidth()/4, tiledMap) || blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getHeight()/(float) 1.5 , tiledMap) || blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getHeight()/ (float) 1.5, tiledMap)) {
+            collision = true;
+            playCollisionNoise();
+
+            velocity[0]=0;
+            velocity[1]=0;
+        }
+
+        return collision;
+
+    }
+
+    private static boolean blocked(float x, float y, TiledMap tiledMap) {
+        return !isCellProperty(x, y, tiledMap, "road");
+    }
+
+    private static boolean isCellProperty(float x, float y, TiledMap tiledMap, String property) {
+        MapLayers allLayers = tiledMap.getLayers();
+        TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
+        TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
+        return (cell != null) &&  (cell.getTile() != null)  &&  ((cell.getTile().getProperties().containsKey(property)));
+    }
+
     public void playTiresNoise() {
         if (time_sinceLastNoise == 30) {
             time_sinceLastNoise = 1;
             tiresNoise.play();
         }
         else time_sinceLastNoise++;
+    }
+
+
+    public static void playCollisionNoise() {
+        collisionNoise.setPosition((float) 50);
+        collisionNoise.setVolume(75);
+        if (taxi.getVelocity()[0]*taxi.getOrientation()[0] + taxi.getVelocity()[1]*taxi.getOrientation()[1] !=0) {
+            collisionNoise.play();
+        }
+        else collisionNoise.stop();
     }
 
     public void restart() {

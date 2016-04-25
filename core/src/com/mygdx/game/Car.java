@@ -15,12 +15,8 @@ Uploaded: 03.04.11 | License: Attribution 3.0 | Recorded by Mike Koenig | File S
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.maps.MapLayers;
-import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 
 public class Car {
     private Sprite sprite;
@@ -29,7 +25,6 @@ public class Car {
     private float Y_pos;
     private float[] velocity = new float[2];
     private int[] orientation= new int[2];
-    private Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
 
     public Car(){
         sprite = new Sprite(new Texture("tiny_car_square.png"));
@@ -41,71 +36,9 @@ public class Car {
     }
 
 
-    public boolean isCellProperty(float x, float y, TiledMap tiledMap, String property) {
-        MapLayers allLayers = tiledMap.getLayers();
-        TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
-        TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
-        return (cell != null) &&  (cell.getTile() != null)  &&  ((cell.getTile().getProperties().containsKey(property)));
-    }
-
-    //www.norakomi.com/tutorial_mambow2_collision.php
-
-    public boolean blocked(float x, float y, TiledMap tiledMap) {
-        return !isCellProperty(x, y, tiledMap, "road");
-    }
-
-    private boolean checkCollisions(float[] velocity, TiledMap tiledMap) {
-        boolean collision = false;
-        X_pos+=velocity[0];
-        Y_pos+=velocity[1];
-
-        if (X_pos + (int) this.getSprite().getWidth() >= PlayScreen.V_WIDTH) {
-            collision = true;
-            playCollisionNoise();
-            velocity[0]=0;
-            velocity[1]=0;
-        }
-        if (X_pos <= 0) {
-            collision = true;
-            playCollisionNoise();
-
-            velocity[0]=0;
-            velocity[1]=0;
-
-        }
-        if (Y_pos + (int) this.getSprite().getWidth() >= PlayScreen.V_HEIGHT) {
-
-            collision = true;
-            playCollisionNoise();
-
-            velocity[0]=0;
-            velocity[1]=0;
-        }
-        if (Y_pos <= 0) {
-
-            collision = true;
-            playCollisionNoise();
-
-            velocity[0]=0;
-            velocity[1]=0;
-        }
-
-        if (blocked(X_pos+ this.getSprite().getWidth()/4, Y_pos+this.getSprite().getWidth()/4, tiledMap) || blocked(X_pos + this.getSprite().getWidth()/4, Y_pos+this.getSprite().getHeight()/(float) 1.5 , tiledMap) || blocked(X_pos+this.getSprite().getWidth()/4, Y_pos+this.getSprite().getHeight()/ (float) 1.5, tiledMap)) {
-            collision = true;
-            playCollisionNoise();
-
-            velocity[0]=0;
-            velocity[1]=0;
-        }
-
-        return collision;
-
-    }
-
-
     //TO DO: revise this method to fix "hiccups" in car movement
 
-    public void accelerate(float acceleration, TiledMap tiledMap){
+    public void accelerate(float acceleration){
         if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.3);}
         if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.3);}
 
@@ -115,7 +48,7 @@ public class Car {
             this.velocity[0] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[0];
             this.velocity[1] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[1];
         }
-        driveForward(tiledMap);
+        driveForward();
     }
 
     public void turnUp() {
@@ -132,18 +65,6 @@ public class Car {
     }
 
 
-
-    public void playCollisionNoise() {
-        collisionNoise.setPosition((float) 50);
-        collisionNoise.setVolume(75);
-        if (velocity[0]*orientation[0] + velocity[1]*orientation[1] !=0) {
-            collisionNoise.play();
-        }
-
-        else collisionNoise.stop();
-
-    }
-
     public void turnDown(){
         velocity[0]=(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
         velocity[1]= velocity[0]*orientation[0]+ velocity[1]*orientation[1];
@@ -159,10 +80,10 @@ public class Car {
 
     }
 
-    public void driveForward(TiledMap tiledMap) {
+    public void driveForward() {
         float old_X = X_pos;
         float old_Y = Y_pos;
-        if (!checkCollisions(velocity, tiledMap)) {
+        if (!PlayScreen.checkCollisions(velocity)) {
             sprite.setPosition(X_pos, Y_pos);
         } else {
             X_pos = old_X;
@@ -194,7 +115,6 @@ public class Car {
     }
 
     public void turnRight() {
-
         if (!((orientation[0] == 1) && (orientation[1] == 0))) {
             turnUp();
             velocity[0]=(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
@@ -219,8 +139,8 @@ public class Car {
         this.orientation[1]=y;
     }
 
-    public void move(float acceleration, TiledMap tiledMap) {
-        accelerate(acceleration, tiledMap);
+    public void move(float acceleration) {
+        accelerate(acceleration);
         applyFriction();
     }
 
@@ -254,5 +174,21 @@ public class Car {
 
     public float[] getVelocity(){
         return velocity;
+    }
+
+    public float getX(){
+        return X_pos;
+    }
+
+    public float getY(){
+        return Y_pos;
+    }
+
+    public void setX(float pos){
+        X_pos = pos;
+    }
+
+    public void setY(float pos){
+        Y_pos = pos;
     }
 }
