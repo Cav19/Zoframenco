@@ -20,6 +20,9 @@ public class MyGdxGame extends Game {
 
     }
 
+    /**
+     * Creates each of the 18 parking lot locations and places them inside a HashMap for quick access.
+     */
     private void createLocations(){
         locations = new HashMap<Integer, Location>();
         locations.put(0, new Location(60, 940, 0));

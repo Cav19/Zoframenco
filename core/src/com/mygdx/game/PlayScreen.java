@@ -57,14 +57,22 @@ public class PlayScreen implements Screen {
        playBackGroundMusic();
     }
 
+    /**
+     * Plays background sound effect.
+     */
     private void playBackGroundMusic(){
         gameSoundPlayer.playBackGroundMusic();
     }
 
+    /**
+     * Renders the game objects onto the screen.
+     * @param delta
+     */
     @Override
     public void render(float delta) {
         setUpScreen();
-        drawGameObjects();
+        drawMap();
+        drawCar(taxi);
         drawHud();
         play();
         if (passengersWaiting){
@@ -72,6 +80,9 @@ public class PlayScreen implements Screen {
         }
     }
 
+    /**
+     * Draws the hud at the bottom of the screen.
+     */
     private void drawHud() {
         if (passenger != null && taxi.isFull()) {
             hud.updateMessage("Drop me at " + passenger.getDestination().toString());
@@ -80,6 +91,9 @@ public class PlayScreen implements Screen {
         hud.stage.draw();
     }
 
+    /**
+     * Sets up the main game screen and initiates the camera's view.
+     */
     private void setUpScreen(){
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
@@ -88,29 +102,39 @@ public class PlayScreen implements Screen {
         batch.setProjectionMatrix(hud.stage.getCamera().combined);
     }
 
-    private void drawGameObjects() {
-        drawMap();
-        drawCar(taxi);
-    }
-
+    /**
+     * Draws a passenger onto the screen at their designated location.
+     * @param passenger The instance of passenger to be drawn.
+     */
     public void drawPassenger(Passenger passenger){
         batch.begin();
         passenger.getSprite().draw(batch);
         batch.end();
     }
 
+    /**
+     * Draws the TiledMap to the screen.
+     */
     private void drawMap() {
         TiledMapRenderer tiledMapRenderer = new OrthogonalTiledMapRenderer(tiledMap);
         tiledMapRenderer.setView(camera);
         tiledMapRenderer.render();
     }
 
+    /**
+     * Draws the user's car onto the screen.
+     * @param taxi The instance of car to be drawn.
+     */
     public void drawCar(Car taxi){
         batch.begin();
         taxi.getSprite().draw(batch);
         batch.end();
     }
 
+    /**
+     * Highlights the destination of the passenger currently in the user's car.
+     * @param passenger The passenger currently in the user's car.
+     */
     public void highlightDestination(Passenger passenger){
         Rectangle box = passenger.getDestination().getRectangle();
         ShapeRenderer renderer = new ShapeRenderer();
@@ -119,6 +143,9 @@ public class PlayScreen implements Screen {
         renderer.end();
     }
 
+    /**
+     * The main play function of the game which controls the game flow.
+     */
     public void play() {
 
         listenToInput();
@@ -155,6 +182,9 @@ public class PlayScreen implements Screen {
 
     }
 
+    /**
+     * The method that listens to all of the input from the user.
+     */
     private void listenToInput() {
 
         if (!(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))) {
@@ -206,6 +236,11 @@ public class PlayScreen implements Screen {
     }
 
 
+    /**
+     * Checks for collisions between the car and any buildings on screen. Also ensures that the car cannot drive off the side of the screen.
+     * @param velocity An array of float numbers representing the velocity of the car.
+     * @return True if a collision occurs, false if one does not.
+     */
     public static boolean checkCollisions(float[] velocity) {
         boolean collision = false;
         taxi.setX(taxi.getX() + velocity[0]);
@@ -254,10 +289,25 @@ public class PlayScreen implements Screen {
 
     }
 
+    /**
+     * Checks to see if a specific cell on the map is blocked meaning that the car should not be allowed to drive on it.
+     * @param x The x coordinate of the cell.
+     * @param y The y coordinate of the cell.
+     * @param tiledMap The map itself.
+     * @return True if the cell is blocked, false if not.
+     */
     private static boolean blocked(float x, float y, TiledMap tiledMap) {
         return !isCellProperty(x, y, tiledMap, "road");
     }
 
+    /**
+     * Checks the property of a specific cell on the map.
+     * @param x The x coordinate of the cell.
+     * @param y The y coordinate of the cell.
+     * @param tiledMap The map itself.
+     * @param property The property to check the cell for.
+     * @return True if the cell in question matches the property provided, false if it does not match.
+     */
     private static boolean isCellProperty(float x, float y, TiledMap tiledMap, String property) {
         MapLayers allLayers = tiledMap.getLayers();
         TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
@@ -265,12 +315,16 @@ public class PlayScreen implements Screen {
         return (cell != null) &&  (cell.getTile() != null)  &&  ((cell.getTile().getProperties().containsKey(property)));
     }
 
+    /**
+     * Plays tire sound effect.
+     */
     private void playTiresNoise() {
         gameSoundPlayer.playTiresNoise();
-        }
+    }
 
-
-
+    /**
+     * Plays sound effect of car colliding with a solid object.
+     */
     private static void playCollisionNoise() {
         if (Math.abs(taxi.getVelocity()[0] * taxi.getOrientation()[0] + taxi.getVelocity()[1] * taxi.getOrientation()[1]) > 0.7) {
             gameSoundPlayer.playCollisionNoise();
@@ -278,7 +332,9 @@ public class PlayScreen implements Screen {
     }
 
 
-
+    /**
+     * Resets the game to a point at which the car is empty and there is a passenger on screen.
+     */
     public void restart() {
         taxi.empty();
         passenger.getOrigin().removePassenger();
