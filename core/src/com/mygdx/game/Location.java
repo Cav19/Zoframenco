@@ -19,7 +19,7 @@ public class Location {
         this.isFull = false;
         this.x = x;
         this.y = y;
-        this.rectangle = new Rectangle(x, y, 65, 25);
+        this.rectangle = new Rectangle(x - 35, y - 15, 70, 30);
         this.id = id;
     }
 

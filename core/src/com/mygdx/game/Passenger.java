@@ -31,8 +31,8 @@ public class Passenger {
         this.getSprite().setSize(60,65);
         sprite.setRegionWidth(75);
         sprite.setRegionHeight(75);
-        sprite.setX(origin.getX());
-        sprite.setY(origin.getY());
+        sprite.setX(origin.getX() - 30);
+        sprite.setY(origin.getY() - 33);
     }
 
     public Sprite getSprite(){

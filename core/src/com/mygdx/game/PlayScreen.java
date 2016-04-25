@@ -3,7 +3,6 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input;
 import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.audio.Music;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.OrthographicCamera;
@@ -19,6 +18,7 @@ import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
+
 /**
  * Created by zoray on 3/10/16.
  */
@@ -33,12 +33,10 @@ public class PlayScreen implements Screen {
     private Hud hud;
     private static TiledMap tiledMap;
     private static SpriteBatch batch;
-    private Music backgroundMusic;
     private static OrthographicCamera camera = new OrthographicCamera();
     private static Car taxi = new Car();
     private Passenger passenger;
     private boolean passengersWaiting = false;
-    private float time_sinceLastNoise=Gdx.app.getGraphics().getDeltaTime();
     private static soundPlayer gameSoundPlayer = new soundPlayer();
 
 
@@ -133,15 +131,19 @@ public class PlayScreen implements Screen {
 
     /**
      * Highlights the destination of the passenger currently in the user's car.
-     * @param passenger The passenger currently in the user's car.
+     * @param destination The destination on the map to be highlighted.
      */
-    public void highlightDestination(Passenger passenger){
-        Rectangle box = passenger.getDestination().getRectangle();
+    public void highlightDestination(Location destination){
+        Gdx.gl20.glLineWidth(2.75f);
+        Rectangle box = destination.getRectangle();
         ShapeRenderer renderer = new ShapeRenderer();
+        renderer.setProjectionMatrix(camera.combined);
+        renderer.updateMatrices();
         renderer.begin(ShapeRenderer.ShapeType.Line);
         renderer.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight(), Color.RED, Color.RED, Color.RED, Color.RED);
         renderer.end();
     }
+
 
     /**
      * The main play function of the game which controls the game flow.
@@ -165,7 +167,7 @@ public class PlayScreen implements Screen {
         }
 
         if (taxi.isFull()){
-            highlightDestination(passenger);
+            highlightDestination(passenger.getDestination());
             Rectangle destinationRectangle= Rectangle.tmp2.setPosition(passenger.getDestination().getX(), passenger.getDestination().getY());
             destinationRectangle.setSize(25,25);
             if (taxi.hasArrived(passenger.getDestination())) {
@@ -233,6 +235,10 @@ public class PlayScreen implements Screen {
         if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
             playTiresNoise();
         }
+
+        //if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)){
+        //    System.out.println("Coordinates: " + Gdx.input.getX() + ", " + Gdx.input.getY());
+        //}
     }
 
 

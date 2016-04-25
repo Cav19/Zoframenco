@@ -26,6 +26,7 @@ public class Car {
     private float[] velocity = new float[2];
     private int[] orientation= new int[2];
 
+
     public Car(){
         sprite = new Sprite(new Texture("tiny_car_square.png"));
         sprite.setSize(PlayScreen.V_WIDTH / 20, PlayScreen.V_WIDTH / 20);
@@ -152,7 +153,7 @@ public class Car {
     }
 
     public boolean hasArrived(Location location){
-        if((this.getSprite().getX() >= location.getX() - 20 && this.getSprite().getX() <= location.getX() + 20) && (this.getSprite().getY() >= location.getY() - 20) && this.getSprite().getY() <= location.getY() +20){
+        if((this.getSprite().getX() + this.getSprite().getWidth() / 2 >= location.getX() - 10 && this.getSprite().getX() + this.getSprite().getWidth() / 2 <= location.getX() + 10) && (this.getSprite().getY() + this.getSprite().getHeight() / 2 >= location.getY() - 10) && this.getSprite().getY() + this.getSprite().getHeight() / 2 <= location.getY() + 10){
             return true;
         }
         else{
