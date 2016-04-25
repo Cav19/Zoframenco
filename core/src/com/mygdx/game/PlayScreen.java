@@ -166,7 +166,6 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             if (!(taxi.getOrientation()[0] == -1 && taxi.getOrientation()[1] == 0)) {
                 taxi.turnLeft();
-                playTiresNoise();
             }
             taxi.move(25);
         }
@@ -175,7 +174,6 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             if (!(taxi.getOrientation()[0] == 1 && taxi.getOrientation()[1] == 0)) {
                 taxi.turnRight();
-                playTiresNoise();
 
             }
             taxi.move(25);
@@ -184,7 +182,6 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == 1)) {
                 taxi.turnUp();
-                playTiresNoise();
             }
             taxi.move(25);
         }
@@ -193,7 +190,6 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == -1)) {
                 taxi.turnDown();
-                playTiresNoise();
             }
             taxi.move(25);
         }
@@ -205,6 +201,9 @@ public class PlayScreen implements Screen {
             System.exit(-1);
         }
 
+        if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
+            playTiresNoise();
+        }
     }
 
 
@@ -268,12 +267,9 @@ public class PlayScreen implements Screen {
     }
 
     public void playTiresNoise() {
-        if (time_sinceLastNoise == 30) {
-            time_sinceLastNoise = 1;
             tiresNoise.play();
         }
-        else time_sinceLastNoise++;
-    }
+
 
 
     public static void playCollisionNoise() {
