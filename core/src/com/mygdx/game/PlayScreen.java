@@ -31,10 +31,10 @@ public class PlayScreen implements Screen {
     private MyGdxGame game;
     private Viewport gamePort;
     private Hud hud;
-    public static TiledMap tiledMap;
+    private static TiledMap tiledMap;
     private static SpriteBatch batch;
     private Music backgroundMusic;
-    public static OrthographicCamera camera = new OrthographicCamera();
+    private static OrthographicCamera camera = new OrthographicCamera();
     private static Car taxi = new Car();
     private Passenger passenger;
     private boolean passengersWaiting = false;

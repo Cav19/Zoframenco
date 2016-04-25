@@ -76,14 +76,6 @@ public class Passenger {
         return Math.sqrt(xDist * xDist + yDist * yDist);
     }
 
-    public void setFare(int fare){
-        this.fare = fare;
-    }
-
-    public void setTimer(int timer){
-        this.timer = timer;
-    }
-
     public int getTimer(){
         return timer;
     }
