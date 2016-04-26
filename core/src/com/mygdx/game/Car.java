@@ -25,7 +25,7 @@ public class Car {
     private float Y_pos;
     private float[] velocity = new float[2];
     private int[] orientation= new int[2];
-
+    private Direction currentDirection;
 
     public Car(){
         sprite = new Sprite(new Texture("tiny_car_square.png"));
@@ -34,10 +34,10 @@ public class Car {
         X_pos = PlayScreen.V_WIDTH / 2;
         Y_pos = (float)(PlayScreen.V_HEIGHT / 2.25);
         setOrientation(0, 1);
+        currentDirection=PlayScreen.UP;
+
     }
 
-
-    //TO DO: revise this method to fix "hiccups" in car movement
 
     private void accelerate(float acceleration){
         if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.3);}
@@ -51,6 +51,22 @@ public class Car {
         }
         driveForward();
     }
+
+
+
+    public void driveForward() {
+        float old_X = X_pos;
+        float old_Y = Y_pos;
+        if (!PlayScreen.checkCollisions(velocity)) {
+            sprite.setPosition(X_pos, Y_pos);
+        } else {
+            X_pos = old_X;
+            Y_pos = old_Y;
+        }
+    }
+
+
+    /*
 
     public void turnUp() {
         velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
@@ -81,16 +97,7 @@ public class Car {
 
     }
 
-    private void driveForward() {
-        float old_X = X_pos;
-        float old_Y = Y_pos;
-        if (!PlayScreen.checkCollisions(velocity)) {
-            sprite.setPosition(X_pos, Y_pos);
-        } else {
-            X_pos = old_X;
-            Y_pos = old_Y;
-        }
-    }
+
 
     public void turnLeft() {
         velocity[0]=(velocity[1]*orientation[1] + velocity[0]*orientation[0]);
@@ -113,6 +120,9 @@ public class Car {
         velocity[0]= velocity[0]*orientation[0];
         velocity[1]= velocity[1]*orientation[1];
 
+        System.out.println(this.sprite.getRotation());
+
+
     }
 
     public void turnRight() {
@@ -125,6 +135,62 @@ public class Car {
             velocity[0]= velocity[0]*orientation[0];
             velocity[1]= velocity[1]*orientation[1];
         }
+    }
+
+    */
+
+    public void turn(Direction direction){  //change to enumerator
+        int rotations=0;
+        velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+        velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+
+
+        rotations= direction.id - currentDirection.id;
+        boolean clockwise=true;
+        if (rotations<0){
+            clockwise=false;
+            rotations= Math.abs(rotations);
+        }
+
+
+
+        if (direction== PlayScreen.LEFT) {
+             //rotations = (Math.max(Math.abs(-1 - this.orientation[0]), Math.abs(0 - this.orientation[1])));
+            this.orientation[0]=-1;
+            this.orientation[1]=-0;
+            System.out.println(rotations);
+
+        } else if (direction==PlayScreen.RIGHT) {
+          //  rotations = (Math.max(Math.abs(1 - this.orientation[0]), Math.abs(0 - this.orientation[1])));
+            this.orientation[0]=1;
+            this.orientation[1]=-0;
+            System.out.println(rotations);
+
+        } else if (direction== PlayScreen.UP) {
+           //  rotations = (Math.max(Math.abs(0 - this.orientation[0]), Math.abs(1 - this.orientation[1])));
+            this.orientation[0]=0;
+            this.orientation[1]=1;
+            System.out.println(rotations);
+
+        } else if (direction==PlayScreen.DOWN) {
+           //  rotations = (Math.max(Math.abs(0 - this.orientation[0]),Math.abs( -1 - this.orientation[1])));
+            this.orientation[0]=0;
+            this.orientation[1]=-1;
+            System.out.println(rotations);
+
+        }
+
+
+       // int r;
+
+        for ( int r =0; r<rotations; r++){
+            System.out.println("rotating");
+            sprite.rotate90(clockwise);
+        }
+
+        velocity[0]= velocity[0]*orientation[0];
+        velocity[1]= velocity[1]*orientation[1];
+
     }
 
     public Sprite getSprite() {
