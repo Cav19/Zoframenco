@@ -84,7 +84,7 @@ public class PlayScreen implements Screen {
         }
 
         if (Gdx.input.isTouched()) {
-            game.setScreen(new com.mygdx.game.EndScreen(game));
+            //game.setScreen(new com.mygdx.game.EndScreen(game));
             dispose();
         }
     }
@@ -237,6 +237,11 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
             restart();
         }
+
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
+            gameSoundPlayer.playCarHorn();
+        }
+
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             System.exit(-1);
         }
@@ -244,10 +249,6 @@ public class PlayScreen implements Screen {
         if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
             playTiresNoise();
         }
-
-        //if(Gdx.input.isButtonPressed(Input.Buttons.LEFT)){
-        //    System.out.println("Coordinates: " + Gdx.input.getX() + ", " + Gdx.input.getY());
-        //}
     }
 
 

@@ -12,6 +12,7 @@ public class soundPlayer {
     private Music tiresNoise = Gdx.audio.newMusic(Gdx.files.internal("tiresNoise.mp3"));
     private  Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
     private Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
+    private Music carHorn = Gdx.audio.newMusic(Gdx.files.internal("carhorn.mp3"));
 
     public soundPlayer() {}
 
@@ -33,5 +34,9 @@ public class soundPlayer {
 
     public void playMoneySound() {
         moneySound.play();
+    }
+
+    public void playCarHorn(){
+        carHorn.play();
     }
 }
