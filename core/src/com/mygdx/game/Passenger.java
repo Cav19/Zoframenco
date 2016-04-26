@@ -54,7 +54,7 @@ public class Passenger {
         return origin;
     }
 
-    public  Location getDestination(){
+    public Location getDestination(){
         return this.destination;
     }
 
@@ -63,7 +63,7 @@ public class Passenger {
      * @param locations A HashMap of all possible locations for the destination to be.
      * @return The location of the passenger's destination.
      */
-    public Location setDestination(HashMap<Integer, Location> locations){
+    private Location setDestination(HashMap<Integer, Location> locations){
         Location destination;
         do{
             int num = (int)(Math.random() * 18);
@@ -72,7 +72,11 @@ public class Passenger {
         return destination;
     }
 
+    /**
+     * Makes the passenger enter the taxi and removes them from the screen.
+     */
     public void enterTaxi(){
+        origin.removePassenger();
         this.getSprite().setAlpha(0);
     }
 
@@ -81,7 +85,6 @@ public class Passenger {
         this.origin=this.destination;
         this.getSprite().setPosition(origin.getX(), origin.getY());
         this.getSprite().setAlpha(1);
-
     }
 
     /**
@@ -90,7 +93,7 @@ public class Passenger {
      * @param destination The passenger's destination.
      * @return The distance between the passenger's origin and destination.
      */
-    public double getTravelDistance(Location origin, Location destination){
+    private double getTravelDistance(Location origin, Location destination){
         float xDist = Math.abs(origin.getX() - destination.getX());
         float yDist = Math.abs(origin.getY() - destination.getY());
         return Math.sqrt(xDist * xDist + yDist * yDist);

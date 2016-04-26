@@ -15,12 +15,13 @@ public class Location {
     private Rectangle rectangle;
     private int id;
 
-    public Location(int x, int y, int id){
+    public Location(int x, int y, int id, String name){
         this.isFull = false;
         this.x = x;
         this.y = y;
         this.rectangle = new Rectangle(x - 35, y - 15, 70, 30);
         this.id = id;
+        this.name = name;
     }
 
     public void addPassenger(){
@@ -53,5 +54,9 @@ public class Location {
 
     public int getId(){
         return id;
+    }
+
+    public String toString(){
+        return name;
     }
 }
