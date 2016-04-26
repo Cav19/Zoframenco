@@ -104,7 +104,7 @@ public class PlayScreen implements Screen {
      * Draws a passenger onto the screen at their designated location.
      * @param passenger The instance of passenger to be drawn.
      */
-    public void drawPassenger(Passenger passenger){
+    private void drawPassenger(Passenger passenger){
         batch.begin();
         passenger.getSprite().draw(batch);
         batch.end();
@@ -123,7 +123,7 @@ public class PlayScreen implements Screen {
      * Draws the user's car onto the screen.
      * @param taxi The instance of car to be drawn.
      */
-    public void drawCar(Car taxi){
+    private void drawCar(Car taxi){
         batch.begin();
         taxi.getSprite().draw(batch);
         batch.end();
@@ -133,22 +133,23 @@ public class PlayScreen implements Screen {
      * Highlights the destination of the passenger currently in the user's car.
      * @param destination The destination on the map to be highlighted.
      */
-    public void highlightDestination(Location destination){
-        Gdx.gl20.glLineWidth(2.75f);
+    private void highlightDestination(Location destination){
+        Gdx.gl20.glLineWidth(2.85f);
         Rectangle box = destination.getRectangle();
         ShapeRenderer renderer = new ShapeRenderer();
         renderer.setProjectionMatrix(camera.combined);
         renderer.updateMatrices();
+        renderer.setColor(Color.RED);
         renderer.begin(ShapeRenderer.ShapeType.Line);
-        renderer.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight(), Color.RED, Color.RED, Color.RED, Color.RED);
+        renderer.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
         renderer.end();
     }
 
 
     /**
-     * The main play function of the game which controls the game flow.
+     * The main play function of the game which controls the game flow and individual game states.
      */
-    public void play() {
+    private void play() {
 
         listenToInput();
 
@@ -161,19 +162,16 @@ public class PlayScreen implements Screen {
             if (taxi.hasArrived(passenger.getOrigin())) {
                 passenger.enterTaxi();
                 taxi.addPassenger();
-                passenger.getOrigin().removePassenger();
             }
 
         }
 
         if (taxi.isFull()){
             highlightDestination(passenger.getDestination());
-            Rectangle destinationRectangle= Rectangle.tmp2.setPosition(passenger.getDestination().getX(), passenger.getDestination().getY());
-            destinationRectangle.setSize(25,25);
             if (taxi.hasArrived(passenger.getDestination())) {
                // if (Math.abs(taxi.getVelocity()[0]) >1.5 | Math.abs(taxi.getVelocity()[1]) >1.5 ) {
                     gameSoundPlayer.playMoneySound();
-                Hud.addScore(passenger.getFare());
+                    Hud.addScore(passenger.getFare());
                     passenger.exitTaxi();
                     taxi.empty();
                     passenger = null;
@@ -341,7 +339,7 @@ public class PlayScreen implements Screen {
     /**
      * Resets the game to a point at which the car is empty and there is a passenger on screen.
      */
-    public void restart() {
+    private void restart() {
         taxi.empty();
         passenger.getOrigin().removePassenger();
         passenger = null;

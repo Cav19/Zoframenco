@@ -39,7 +39,7 @@ public class Car {
 
     //TO DO: revise this method to fix "hiccups" in car movement
 
-    public void accelerate(float acceleration){
+    private void accelerate(float acceleration){
         if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.3);}
         if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.3);}
 
@@ -81,7 +81,7 @@ public class Car {
 
     }
 
-    public void driveForward() {
+    private void driveForward() {
         float old_X = X_pos;
         float old_Y = Y_pos;
         if (!PlayScreen.checkCollisions(velocity)) {
@@ -145,7 +145,7 @@ public class Car {
         applyFriction();
     }
 
-    public void applyFriction() {
+    private void applyFriction() {
         if (velocity[0] > -10 && velocity[1] > -10) {
             velocity[0] -= velocity[0] * 0.05;
             velocity[1] -= velocity[1] * 0.05;
