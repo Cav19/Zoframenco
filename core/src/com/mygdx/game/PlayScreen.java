@@ -33,21 +33,26 @@ public class PlayScreen implements Screen {
     private Hud hud;
     private static TiledMap tiledMap;
     private static SpriteBatch batch;
-    private static OrthographicCamera camera = new OrthographicCamera();
+    private static OrthographicCamera camera;
     private static Car taxi = new Car();
     private Passenger passenger;
     private boolean passengersWaiting = false;
-    private static soundPlayer gameSoundPlayer = new soundPlayer();
+    private static soundPlayer gameSoundPlayer;
 
 
     public PlayScreen(MyGdxGame game){
         this.game = game;
         batch = new SpriteBatch();
         Gdx.graphics.setWindowedMode(V_WIDTH, V_HEIGHT);
+
+        camera = new OrthographicCamera();
         hud = new Hud(game, batch, camera);
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
+
         gamePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+
         tiledMap = new TmxMapLoader().load("map@17April.tmx");
+        gameSoundPlayer = new soundPlayer();
     }
 
     @Override
@@ -75,6 +80,11 @@ public class PlayScreen implements Screen {
         play();
         if (passengersWaiting){
             drawPassenger(passenger);
+        }
+
+        if (Gdx.input.isTouched()) {
+            game.setScreen(new com.mygdx.game.EndScreen(game));
+            dispose();
         }
     }
 

@@ -3,7 +3,6 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
-import com.badlogic.gdx.graphics.Pixmap;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -54,10 +53,6 @@ public class HomeScreen implements Screen{
 
         batch.end();
 
-        createSkin();
-
-        //createButton();
-
         if (Gdx.input.isTouched()) {
             game.setScreen(new com.mygdx.game.PlayScreen(game));
             dispose();
@@ -79,24 +74,6 @@ public class HomeScreen implements Screen{
         parameter.borderWidth = 2;
     }
 
-    private void createSkin(){
-
-        skin = new Skin();
-        skin.add("button", font);
-
-        Pixmap pixmap = new Pixmap((int)Gdx.graphics.getWidth()/6,(int)Gdx.graphics.getHeight()/10, Pixmap.Format.RGB888);
-        pixmap.setColor(Color.BLUE);
-        pixmap.fill();
-        skin.add("background",new Texture(pixmap));
-
-        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
-        textButtonStyle.up = skin.newDrawable("background", Color.GRAY);
-        textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);
-        textButtonStyle.checked = skin.newDrawable("background", Color.DARK_GRAY);
-        textButtonStyle.over = skin.newDrawable("background", Color.LIGHT_GRAY);
-        textButtonStyle.font = skin.getFont("button");
-        skin.add("button", textButtonStyle);
-    }
 
     @Override
     public void resize(int width, int height) {
