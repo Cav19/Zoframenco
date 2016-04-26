@@ -237,7 +237,7 @@ public class PlayScreen implements Screen {
             restart();
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.H)){
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
             gameSoundPlayer.playCarHorn();
         }
 
