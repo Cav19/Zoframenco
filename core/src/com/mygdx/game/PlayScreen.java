@@ -176,6 +176,7 @@ public class PlayScreen implements Screen {
             if(taxi.hasArrived(allPassengers.get(i).getOrigin()) && !taxi.isFull()){
                 taxi.addPassenger(allPassengers.get(i));
                 allPassengers.removeIndex(i);
+                gameSoundPlayer.playCarDoor();
             }
         }
 
