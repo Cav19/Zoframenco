@@ -15,6 +15,7 @@ import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
+import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
@@ -35,7 +36,7 @@ public class PlayScreen implements Screen {
     private static SpriteBatch batch;
     private static OrthographicCamera camera;
     private static Car taxi = new Car();
-    private Passenger passenger;
+    private Array<Passenger> allPassengers = new Array<Passenger>();
     private boolean passengersWaiting = false;
     private static soundPlayer gameSoundPlayer;
     public static Direction UP= new Direction(1, "UP");
@@ -80,7 +81,9 @@ public class PlayScreen implements Screen {
         drawHud();
         play();
         if (passengersWaiting){
-            drawPassenger(passenger);
+            for(Passenger pass : allPassengers){
+                drawPassenger(pass);
+            }
         }
 
         if (Gdx.input.isTouched()) {
@@ -93,8 +96,8 @@ public class PlayScreen implements Screen {
      * Draws the hud at the bottom of the screen.
      */
     private void drawHud() {
-        if (passenger != null && taxi.isFull()) {
-            hud.updateMessage("Drop me at " + passenger.getDestination().toString());
+        if (taxi.isFull()) {
+            hud.updateMessage("Drop me at " + taxi.getPassenger().getDestination().getName());
         }
         hud.updateTime(Gdx.graphics.getDeltaTime());
         hud.stage.draw();
@@ -161,37 +164,45 @@ public class PlayScreen implements Screen {
      * The main play function of the game which controls the game flow and individual game states.
      */
     private void play() {
-
         listenToInput();
 
         if (!passengersWaiting){
-            passenger= new Passenger(MyGdxGame.locations);
-            passengersWaiting=true;
+            spawnPassengers();
         }
 
-        else if (passengersWaiting) {
-            if (taxi.hasArrived(passenger.getOrigin())) {
-                passenger.enterTaxi();
-                taxi.addPassenger();
+        for(Passenger pass : allPassengers){
+            if(taxi.hasArrived(pass.getOrigin())){
+                taxi.addPassenger(pass);
+                clearLocations();
+                allPassengers.clear();
             }
-
         }
 
         if (taxi.isFull()){
-            highlightDestination(passenger.getDestination());
-            if (taxi.hasArrived(passenger.getDestination())) {
-               // if (Math.abs(taxi.getVelocity()[0]) >1.5 | Math.abs(taxi.getVelocity()[1]) >1.5 ) {
-                    gameSoundPlayer.playMoneySound();
-                    Hud.addScore(passenger.getFare());
-                    passenger.exitTaxi();
-                    taxi.empty();
-                    passenger = null;
-                    passengersWaiting = false;
-               // }
+            highlightDestination(taxi.getPassenger().getDestination());
+            if (taxi.hasArrived(taxi.getPassenger().getDestination())) {
+                gameSoundPlayer.playMoneySound();
+                Hud.addScore(taxi.getPassenger().getFare());
+                taxi.empty();
+                passengersWaiting = false;
             }
         }
 
     }
+
+    private void spawnPassengers(){
+        for (int i = 0; i < 3; i++) {
+            allPassengers.add(new Passenger(MyGdxGame.locations));
+        }
+        passengersWaiting = true;
+    }
+
+    private void clearLocations(){
+        for(Location location : MyGdxGame.locations.values()){
+            location.removePassenger();
+        }
+    }
+
 
     /**
      * The method that listens to all of the input from the user.
@@ -235,7 +246,7 @@ public class PlayScreen implements Screen {
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-            restart();
+            resetPassengers();
         }
 
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
@@ -351,11 +362,15 @@ public class PlayScreen implements Screen {
     /**
      * Resets the game to a point at which the car is empty and there is a passenger on screen.
      */
-    private void restart() {
+    private void resetPassengers() {
         taxi.empty();
-        passenger.getOrigin().removePassenger();
-        passenger = null;
-        passenger = new Passenger(MyGdxGame.locations);
+        Array<Passenger> newPassengers = new Array<Passenger>();
+        for(Passenger pass : allPassengers){
+            pass.getOrigin().removePassenger();
+            pass = new Passenger(MyGdxGame.locations);
+            newPassengers.add(pass);
+        }
+        allPassengers = newPassengers;
         passengersWaiting=true;
     }
 

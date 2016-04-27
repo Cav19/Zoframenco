@@ -24,8 +24,10 @@ public class Car {
     private float X_pos;
     private float Y_pos;
     private float[] velocity = new float[2];
-    private int[] orientation= new int[2];
     private Direction currentDirection;
+    private int[] orientation = new int[2];
+    private Passenger passenger;
+
 
     public Car(){
         sprite = new Sprite(new Texture("tiny_car_square.png"));
@@ -231,11 +233,15 @@ public class Car {
         return full;
     }
 
-    public void addPassenger(){
+    public void addPassenger(Passenger passenger){
+        //passenger.enterTaxi();
+        this.passenger = passenger;
         full = true;
     }
 
     public void empty(){
+        //passenger.exitTaxi();
+        passenger = null;
         full = false;
     }
 
@@ -257,5 +263,9 @@ public class Car {
 
     public void setY(float pos){
         Y_pos = pos;
+    }
+
+    public Passenger getPassenger(){
+        return passenger;
     }
 }
