@@ -56,7 +56,4 @@ public class Location {
         return id;
     }
 
-    public String toString(){
-        return name;
-    }
 }
