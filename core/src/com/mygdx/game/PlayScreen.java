@@ -194,6 +194,7 @@ public class PlayScreen implements Screen {
     private void spawnPassenger(){
         Passenger pass = new Passenger(MyGdxGame.locations);
         allPassengers.add(pass);
+        gameSoundPlayer.playTaxiWhistle();
     }
 
 

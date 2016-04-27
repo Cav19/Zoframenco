@@ -14,6 +14,7 @@ public class soundPlayer {
     private Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
     private Music carHorn = Gdx.audio.newMusic(Gdx.files.internal("carhorn.mp3"));
     private Music carDoor = Gdx.audio.newMusic(Gdx.files.internal("car_door.mp3"));
+    private Music taxiWhistle = Gdx.audio.newMusic(Gdx.files.internal("taxi_whistle.mp3"));
 
     public soundPlayer() {}
 
@@ -42,5 +43,9 @@ public class soundPlayer {
 
     public void playCarDoor(){
         carDoor.play();
+    }
+
+    public void playTaxiWhistle(){
+        taxiWhistle.play();
     }
 }
