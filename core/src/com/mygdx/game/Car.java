@@ -154,7 +154,7 @@ public class Car {
     }
 
     public boolean hasArrived(Location location){
-        if((this.getSprite().getX() + this.getSprite().getWidth() / 2 >= location.getX() - 10 && this.getSprite().getX() + this.getSprite().getWidth() / 2 <= location.getX() + 10) && (this.getSprite().getY() + this.getSprite().getHeight() / 2 >= location.getY() - 10) && this.getSprite().getY() + this.getSprite().getHeight() / 2 <= location.getY() + 10){
+        if((this.getSprite().getX() + this.getSprite().getWidth() / 2 >= location.getX() - 15 && this.getSprite().getX() + this.getSprite().getWidth() / 2 <= location.getX() + 15) && (this.getSprite().getY() + this.getSprite().getHeight() / 2 >= location.getY() - 15) && this.getSprite().getY() + this.getSprite().getHeight() / 2 <= location.getY() + 15){
             return true;
         }
         else{
@@ -167,14 +167,12 @@ public class Car {
     }
 
     public void addPassenger(Passenger passenger){
-        //passenger.enterTaxi();
         this.passenger = passenger;
         passenger.getOrigin().removePassenger();
         full = true;
     }
 
     public void empty(){
-        //passenger.exitTaxi();
         passenger = null;
         full = false;
     }
