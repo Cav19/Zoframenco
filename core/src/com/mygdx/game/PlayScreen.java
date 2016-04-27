@@ -36,7 +36,7 @@ public class PlayScreen implements Screen {
     private Viewport gamePort;
     private Hud hud;
     private static TiledMap tiledMap;
-    private static SpriteBatch batch;
+    public static SpriteBatch batch;
     private static OrthographicCamera camera;
     private static Car taxi = new Car();
     private Array<Passenger> allPassengers = new Array<Passenger>();
@@ -47,7 +47,7 @@ public class PlayScreen implements Screen {
     public static Direction RIGHT=  new Direction(2, "RIGHT");
     private long timeOfLastPassenger;
     private long spawnTime;
-
+    private Timer timer = new Timer();
 
     public PlayScreen(MyGdxGame game){
         this.game = game;
@@ -58,8 +58,9 @@ public class PlayScreen implements Screen {
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         gamePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
         tiledMap = new TmxMapLoader().load("map@17April.tmx");
+
         gameSoundPlayer = new soundPlayer();
-        allPassengers.add(new Passenger(MyGdxGame.locations));
+        allPassengers.add(new Passenger());
         spawnTime = setNextSpawnTime();
 
         timeOfLastPassenger = TimeUtils.millis();
@@ -87,6 +88,9 @@ public class PlayScreen implements Screen {
         drawMap();
         drawCar(taxi);
         drawHud();
+        if (taxi.isFull()){
+            drawTimer(timer);
+        }
         play();
             for (Passenger pass : allPassengers) {
                 drawPassenger(pass);
@@ -151,6 +155,17 @@ public class PlayScreen implements Screen {
         taxi.getSprite().draw(batch);
         batch.end();
     }
+
+    /**
+     * Draws a timer onto the screen at their designated location.
+     * @param timer The instance of timer to be drawn.
+     */
+    private void drawTimer(Timer timer){
+        batch.begin();
+        timer.getSprite().draw(batch);
+        batch.end();
+    }
+
 
     /**
      * Highlights the destination of the passenger currently in the user's car.
@@ -225,8 +240,7 @@ public class PlayScreen implements Screen {
      * Spawns a new passenger inside the game.
      */
     private void spawnPassenger(){
-        Passenger pass = new Passenger(MyGdxGame.locations);
-        allPassengers.add(pass);
+        allPassengers.add(new Passenger());
         gameSoundPlayer.playTaxiWhistle();
     }
 
@@ -346,7 +360,8 @@ public class PlayScreen implements Screen {
      * @param tiledMap The map itself.
      * @return True if the cell is blocked, false if not.
      */
-    private static boolean blocked(float x, float y, TiledMap tiledMap) {
+    // change to public
+    public static boolean blocked(float x, float y, TiledMap tiledMap) {
         return !isCellProperty(x, y, tiledMap, "road");
     }
 
