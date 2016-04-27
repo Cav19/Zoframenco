@@ -1,4 +1,5 @@
 package com.mygdx.game;
+import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
@@ -38,6 +39,7 @@ public class Hud {
     private Label messageLabel;
     private Label messageTextLabel;
 
+    private final MyGdxGame game;
 
     ////
     public BitmapFont font;
@@ -52,6 +54,8 @@ public class Hud {
 
         viewport = new FitViewport(PlayScreen.V_WIDTH, PlayScreen.V_HEIGHT, camera);
         stage = new Stage(viewport, sb);
+
+        this.game = game;
 
         setUpHudFont();
 
@@ -113,8 +117,7 @@ public class Hud {
             System.out.println("FINAL SCORE: "+ score);
             stage.dispose();
             System.out.println(Scores.toJson(score));
-            System.exit(-1);
-
+            game.setScreen(new com.mygdx.game.EndScreen(game));
         }
     }
 

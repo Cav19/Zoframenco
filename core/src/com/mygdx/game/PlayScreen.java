@@ -84,11 +84,6 @@ public class PlayScreen implements Screen {
                 drawPassenger(pass);
             }
         }
-
-        if (Gdx.input.isTouched()) {
-            //game.setScreen(new com.mygdx.game.EndScreen(game));
-            dispose();
-        }
     }
 
     /**
@@ -244,10 +239,6 @@ public class PlayScreen implements Screen {
             taxi.move(25);
         }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.R)) {
-            resetPassengers();
-        }
-
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
             gameSoundPlayer.playCarHorn();
         }
@@ -355,22 +346,6 @@ public class PlayScreen implements Screen {
         if (Math.abs(taxi.getVelocity()[0] * taxi.getOrientation()[0] + taxi.getVelocity()[1] * taxi.getOrientation()[1]) > 0.7) {
             gameSoundPlayer.playCollisionNoise();
         }
-    }
-
-
-    /**
-     * Resets the game to a point at which the car is empty and there is a passenger on screen.
-     */
-    private void resetPassengers() {
-        taxi.empty();
-        Array<Passenger> newPassengers = new Array<Passenger>();
-        for(Passenger pass : allPassengers){
-            pass.getOrigin().removePassenger();
-            pass = new Passenger(MyGdxGame.locations);
-            newPassengers.add(pass);
-        }
-        allPassengers = newPassengers;
-        passengersWaiting=true;
     }
 
     @Override
