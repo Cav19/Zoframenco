@@ -19,8 +19,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 public class HomeScreen implements Screen{
 
     private final MyGdxGame game;
-    private Texture background= new Texture(Gdx.files.internal("main_menu_small.png"));
-    private FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("SIXTY.TTF"));
+    private Texture background= new Texture(Gdx.files.internal("images/main_menu_small.png"));
+    private FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/SIXTY.TTF"));
     private FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
     private Skin skin;
     private Stage stage = new Stage();
