@@ -87,7 +87,7 @@ public class PlayScreen implements Screen {
         }
 
         if (Gdx.input.isTouched()) {
-            //game.setScreen(new com.mygdx.game.EndScreen(game));
+            game.setScreen(new com.mygdx.game.EndScreen(game));
             dispose();
         }
     }
@@ -216,7 +216,7 @@ public class PlayScreen implements Screen {
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             if (!(taxi.getOrientation()[0] == -1 && taxi.getOrientation()[1] == 0)) {
-                taxi.turn("LEFT");
+                taxi.turn(LEFT);
             }
             taxi.move(25);
         }
@@ -224,7 +224,7 @@ public class PlayScreen implements Screen {
 
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             if (!(taxi.getOrientation()[0] == 1 && taxi.getOrientation()[1] == 0)) {
-                taxi.turn("RIGHT");
+                taxi.turn(RIGHT);
 
             }
             taxi.move(25);
@@ -232,7 +232,7 @@ public class PlayScreen implements Screen {
 
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == 1)) {
-                taxi.turn("UP");
+                taxi.turn(UP);
             }
             taxi.move(25);
         }
@@ -240,7 +240,7 @@ public class PlayScreen implements Screen {
 
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == -1)) {
-                taxi.turn("DOWN");
+                taxi.turn(DOWN);
             }
             taxi.move(25);
         }

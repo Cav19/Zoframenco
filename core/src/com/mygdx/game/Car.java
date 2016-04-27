@@ -142,12 +142,12 @@ public class Car {
     */
 
     public void turn(Direction direction){  //change to enumerator
+
         int rotations=0;
-        velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
-        velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+      //  velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+      //  velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
 
-
-        rotations= direction.id - currentDirection.id;
+      //  rotations= direction.id - currentDirection.id;
         boolean clockwise=true;
         if (rotations<0){
             clockwise=false;
@@ -160,7 +160,6 @@ public class Car {
              //rotations = (Math.max(Math.abs(-1 - this.orientation[0]), Math.abs(0 - this.orientation[1])));
             this.orientation[0]=-1;
             this.orientation[1]=-0;
-            System.out.println(rotations);
 
         } else if (direction==PlayScreen.RIGHT) {
           //  rotations = (Math.max(Math.abs(1 - this.orientation[0]), Math.abs(0 - this.orientation[1])));
