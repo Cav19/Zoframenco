@@ -35,17 +35,17 @@ public class Passenger {
             case 1:case 2:case 3:case 4:case 5:case 6:case 7:
                 type = "Normal";
                 fare = setFare(12);
-                sprite = new Sprite(new Texture("stick_figure.png"));
+                sprite = new Sprite(new Texture("images/stick_figure.png"));
                 break;
             case 8:case 9:
                 type = "Poor";
                 fare = setFare(15);
-                sprite = new Sprite(new Texture("poor_person.png"));
+                sprite = new Sprite(new Texture("images/poor_person.png"));
                 break;
             case 10:
                 type = "Richie";
                 fare = setFare(7);
-                sprite = new Sprite(new Texture("richie.png"));
+                sprite = new Sprite(new Texture("images/richie.png"));
                 break;
         }
     }

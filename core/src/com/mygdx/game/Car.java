@@ -29,7 +29,7 @@ public class Car {
 
 
     public Car(){
-        sprite = new Sprite(new Texture("tiny_car_square.png"));
+        sprite = new Sprite(new Texture("images/tiny_car_square.png"));
         sprite.setSize(PlayScreen.V_WIDTH / 20, PlayScreen.V_WIDTH / 20);
         sprite.setPosition(X_pos, Y_pos);
         X_pos = PlayScreen.V_WIDTH / 2;

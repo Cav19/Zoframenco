@@ -8,13 +8,13 @@ import com.badlogic.gdx.audio.Music;
  */
 public class soundPlayer {
 
-    private Music moneySound = Gdx.audio.newMusic(Gdx.files.absolute("cash_register.mp3"));
-    private Music tiresNoise = Gdx.audio.newMusic(Gdx.files.internal("tiresNoise.mp3"));
-    private  Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
-    private Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
-    private Music carHorn = Gdx.audio.newMusic(Gdx.files.internal("carhorn.mp3"));
-    private Music carDoor = Gdx.audio.newMusic(Gdx.files.internal("car_door.mp3"));
-    private Music taxiWhistle = Gdx.audio.newMusic(Gdx.files.internal("taxi_whistle.mp3"));
+    private Music moneySound = Gdx.audio.newMusic(Gdx.files.absolute("sounds/cash_register.mp3"));
+    private Music tiresNoise = Gdx.audio.newMusic(Gdx.files.internal("sounds/tiresNoise.mp3"));
+    private  Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("sounds/crash.mp3"));
+    private Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("sounds/City_Traffic.mp3"));
+    private Music carHorn = Gdx.audio.newMusic(Gdx.files.internal("sounds/carhorn.mp3"));
+    private Music carDoor = Gdx.audio.newMusic(Gdx.files.internal("sounds/car_door.mp3"));
+    private Music taxiWhistle = Gdx.audio.newMusic(Gdx.files.internal("sounds/taxi_whistle.mp3"));
 
     public soundPlayer() {}
 
