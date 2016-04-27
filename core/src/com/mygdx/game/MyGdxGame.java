@@ -4,7 +4,6 @@ import com.badlogic.gdx.Game;
 
 import java.util.HashMap;
 
-
 public class MyGdxGame extends Game {
     public static HashMap<Integer, Location> locations;
 
