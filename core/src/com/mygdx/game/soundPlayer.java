@@ -8,11 +8,13 @@ import com.badlogic.gdx.audio.Music;
  */
 public class soundPlayer {
 
-    private Music moneySound = Gdx.audio.newMusic(Gdx.files.absolute("moneySound.mp3"));
+    private Music moneySound = Gdx.audio.newMusic(Gdx.files.absolute("cash_register.mp3"));
     private Music tiresNoise = Gdx.audio.newMusic(Gdx.files.internal("tiresNoise.mp3"));
     private  Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("crash.mp3"));
     private Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("City_Traffic.mp3"));
     private Music carHorn = Gdx.audio.newMusic(Gdx.files.internal("carhorn.mp3"));
+    private Music carDoor = Gdx.audio.newMusic(Gdx.files.internal("car_door.mp3"));
+    private Music taxiWhistle = Gdx.audio.newMusic(Gdx.files.internal("taxi_whistle.mp3"));
 
     public soundPlayer() {}
 
@@ -24,7 +26,6 @@ public class soundPlayer {
         collisionNoise.setVolume(75);
         collisionNoise.play();
     }
-
 
     public void playBackGroundMusic(){
         backgroundMusic.setLooping(true);
@@ -38,5 +39,13 @@ public class soundPlayer {
 
     public void playCarHorn(){
         carHorn.play();
+    }
+
+    public void playCarDoor(){
+        carDoor.play();
+    }
+
+    public void playTaxiWhistle(){
+        taxiWhistle.play();
     }
 }

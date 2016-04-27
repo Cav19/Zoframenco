@@ -73,21 +73,6 @@ public class Passenger {
     }
 
     /**
-     * Makes the passenger enter the taxi and removes them from the screen.
-     */
-    public void enterTaxi(){
-        origin.removePassenger();
-        this.getSprite().setAlpha(0);
-    }
-
-    public void exitTaxi(){
-        //not quite right graphically, trying to show passenger leaving the cab
-        this.origin=this.destination;
-        this.getSprite().setPosition(origin.getX(), origin.getY());
-        this.getSprite().setAlpha(1);
-    }
-
-    /**
      * Calculates the distance between the passenger's location and their destination. This is also used to calculate the passenger's fare.
      * @param origin The passenger's origin.
      * @param destination The passenger's destination.

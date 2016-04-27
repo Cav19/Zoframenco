@@ -8,6 +8,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
+import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
@@ -22,6 +23,8 @@ public class EndScreen implements Screen{
     private Stage stage;
     private TextButton restartButton;
     private SpriteBatch batch;
+    private ScorePanel scores;
+    private Table scoreTable;
 
     public static final int V_WIDTH = 1000;
     public static final int V_HEIGHT = 1150;
@@ -30,6 +33,7 @@ public class EndScreen implements Screen{
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
+        scores = new ScorePanel(game, batch, camera);
     }
 
     @Override
@@ -43,12 +47,14 @@ public class EndScreen implements Screen{
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         stage = new Stage();
-        Gdx.input.setInputProcessor(stage);// Make the stage consume events
+        Gdx.input.setInputProcessor(stage);
 
-        createBasicSkin();
+        scoreTable = scores.getTable();
+        stage.addActor(scores.getTable());
 
-        restartButton = new TextButton("New game", skin);
-        restartButton.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/8 , Gdx.graphics.getHeight()/2);
+        createButtonSkin();
+        restartButton = new TextButton("Restart", skin);
+        restartButton.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/10 , Gdx.graphics.getHeight()/10);
         stage.addActor(restartButton);
 
         stage.act();
@@ -56,7 +62,8 @@ public class EndScreen implements Screen{
 
         restartButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                //game.setScreen(new com.mygdx.game.PlayScreen(game));
+                MyGdxGame g = new MyGdxGame();
+                g.setScreen(new com.mygdx.game.PlayScreen(game));
                 dispose();
             }
         });
@@ -87,7 +94,7 @@ public class EndScreen implements Screen{
 
     }
 
-    private void createBasicSkin(){
+    private void createButtonSkin(){
         //Create a font
         BitmapFont font = new BitmapFont();
         skin = new Skin();
