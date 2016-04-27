@@ -14,14 +14,13 @@ import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
 import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
 import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
+import com.badlogic.gdx.math.MathUtils;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
 import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import java.sql.Time;
-import java.util.Iterator;
 
 
 /**
@@ -42,7 +41,8 @@ public class PlayScreen implements Screen {
     private static Car taxi = new Car();
     private Array<Passenger> allPassengers = new Array<Passenger>();
     private static soundPlayer gameSoundPlayer;
-    private long time;
+    private long timeOfLastPassenger;
+    private long spawnTime;
 
 
     public PlayScreen(MyGdxGame game){
@@ -59,8 +59,9 @@ public class PlayScreen implements Screen {
         tiledMap = new TmxMapLoader().load("map@17April.tmx");
         gameSoundPlayer = new soundPlayer();
         allPassengers.add(new Passenger(MyGdxGame.locations));
+        spawnTime = setNextSpawnTime();
 
-        time = TimeUtils.millis();
+        timeOfLastPassenger = TimeUtils.millis();
     }
 
     @Override
@@ -77,7 +78,7 @@ public class PlayScreen implements Screen {
 
     /**
      * Renders the game objects onto the screen.
-     * @param delta
+     * @param delta The amount of time passed since the previous render.
      */
     @Override
     public void render(float delta) {
@@ -163,15 +164,23 @@ public class PlayScreen implements Screen {
      * The main play function of the game which controls the game flow and individual game states.
      */
     private void play() {
-        long elapsedTime = TimeUtils.timeSinceMillis(time);
+        long timeSinceLastPassenger = TimeUtils.timeSinceMillis(timeOfLastPassenger);
 
         listenToInput();
 
-        if(elapsedTime >= 7000){
+        /**
+         * Spawns a new passenger if the time since the last passenger has exceeded the designated spawn timer.
+         */
+        if(timeSinceLastPassenger >= spawnTime){
             spawnPassenger();
-            time = TimeUtils.millis();
+            timeOfLastPassenger = TimeUtils.millis();
+            spawnTime = setNextSpawnTime();
         }
 
+        /**
+         * Game State: Taxi is empty and is driving around, looking for passengers.
+         * Checks to see if the taxi has arrived at a passenger and makes the taxi pick up that passenger if it has.
+         */
         for(int i = 0; i < allPassengers.size; i++){
             if(taxi.hasArrived(allPassengers.get(i).getOrigin()) && !taxi.isFull()){
                 taxi.addPassenger(allPassengers.get(i));
@@ -180,6 +189,10 @@ public class PlayScreen implements Screen {
             }
         }
 
+        /**
+         * Game State: Taxi is full and is driving towards destination.
+         * Highlights the target destination and unloads the passenger from the taxi upon arrival.
+         */
         if (taxi.isFull()){
             highlightDestination(taxi.getPassenger().getDestination());
             if (taxi.hasArrived(taxi.getPassenger().getDestination())) {
@@ -191,6 +204,17 @@ public class PlayScreen implements Screen {
 
     }
 
+    /**
+     * Sets the spawn time for the next passenger.
+     * @return The spawn time of the next passenger in milliseconds.
+     */
+    private long setNextSpawnTime(){
+        return MathUtils.random(6000, 12000);
+    }
+
+    /**
+     * Spawns a new passenger inside the game.
+     */
     private void spawnPassenger(){
         Passenger pass = new Passenger(MyGdxGame.locations);
         allPassengers.add(pass);
