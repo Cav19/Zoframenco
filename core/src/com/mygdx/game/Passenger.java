@@ -2,6 +2,7 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.MathUtils;
 
 import java.util.HashMap;
 
@@ -10,29 +11,43 @@ import java.util.HashMap;
  */
 public class Passenger {
 
-    private Texture texture= new Texture("stick_figure.png");
-    private Sprite sprite= new Sprite(texture);
+    private Sprite sprite;
 
     private int fare;
-    private int timer;
     private Location origin;
     private Location destination;
+    private String type;
 
 
-    /**
-     * Creates a new instance of a passenger with a set origin and destination.
-     * @param locations A HashMap of all possible locations for the passenger to be placed at.
-     */
-    public Passenger(HashMap<Integer, Location> locations){
-        this.origin = setOrigin(locations);
-        this.destination = setDestination(locations);
-        this.fare = (int)(getTravelDistance(origin, destination) / 12);
-        this.timer = (int)(getTravelDistance(origin, destination) / 4 + 15);
-        this.getSprite().setSize(60,65);
+    public Passenger(){
+        this.origin = setOrigin(MyGdxGame.locations);
+        this.destination = setDestination(MyGdxGame.locations);
+        generateType();
+        sprite.setSize(75,75);
         sprite.setRegionWidth(75);
         sprite.setRegionHeight(75);
         sprite.setX(origin.getX() - 30);
         sprite.setY(origin.getY() - 33);
+    }
+
+    private void generateType(){
+        switch(MathUtils.random(1, 10)){
+            case 1:case 2:case 3:case 4:case 5:case 6:case 7:
+                type = "Normal";
+                fare = setFare(12);
+                sprite = new Sprite(new Texture("stick_figure.png"));
+                break;
+            case 8:case 9:
+                type = "Poor";
+                fare = setFare(15);
+                sprite = new Sprite(new Texture("poor_person.png"));
+                break;
+            case 10:
+                type = "Richie";
+                fare = setFare(7);
+                sprite = new Sprite(new Texture("richie.png"));
+                break;
+        }
     }
 
     public Sprite getSprite(){
@@ -84,8 +99,8 @@ public class Passenger {
         return Math.sqrt(xDist * xDist + yDist * yDist);
     }
 
-    public int getTimer(){
-        return timer;
+    private int setFare(int modifier){
+        return (int)(getTravelDistance(origin, destination) / modifier);
     }
 
     public int getFare(){
