@@ -16,8 +16,12 @@ import com.badlogic.gdx.maps.tiled.TmxMapLoader;
 import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.utils.Array;
+import com.badlogic.gdx.utils.TimeUtils;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
+
+import java.sql.Time;
+import java.util.Iterator;
 
 
 /**
@@ -37,8 +41,8 @@ public class PlayScreen implements Screen {
     private static OrthographicCamera camera;
     private static Car taxi = new Car();
     private Array<Passenger> allPassengers = new Array<Passenger>();
-    private boolean passengersWaiting = false;
     private static soundPlayer gameSoundPlayer;
+    private long time;
 
 
     public PlayScreen(MyGdxGame game){
@@ -54,6 +58,9 @@ public class PlayScreen implements Screen {
 
         tiledMap = new TmxMapLoader().load("map@17April.tmx");
         gameSoundPlayer = new soundPlayer();
+        allPassengers.add(new Passenger(MyGdxGame.locations));
+
+        time = TimeUtils.millis();
     }
 
     @Override
@@ -79,10 +86,8 @@ public class PlayScreen implements Screen {
         drawCar(taxi);
         drawHud();
         play();
-        if (passengersWaiting){
-            for(Passenger pass : allPassengers){
-                drawPassenger(pass);
-            }
+        for(Passenger pass : allPassengers){
+            drawPassenger(pass);
         }
     }
 
@@ -158,17 +163,19 @@ public class PlayScreen implements Screen {
      * The main play function of the game which controls the game flow and individual game states.
      */
     private void play() {
+        long elapsedTime = TimeUtils.timeSinceMillis(time);
+
         listenToInput();
 
-        if (!passengersWaiting){
-            spawnPassengers();
+        if(elapsedTime >= 7000){
+            spawnPassenger();
+            time = TimeUtils.millis();
         }
 
-        for(Passenger pass : allPassengers){
-            if(taxi.hasArrived(pass.getOrigin())){
-                taxi.addPassenger(pass);
-                clearLocations();
-                allPassengers.clear();
+        for(int i = 0; i < allPassengers.size; i++){
+            if(taxi.hasArrived(allPassengers.get(i).getOrigin()) && !taxi.isFull()){
+                taxi.addPassenger(allPassengers.get(i));
+                allPassengers.removeIndex(i);
             }
         }
 
@@ -178,23 +185,14 @@ public class PlayScreen implements Screen {
                 gameSoundPlayer.playMoneySound();
                 Hud.addScore(taxi.getPassenger().getFare());
                 taxi.empty();
-                passengersWaiting = false;
             }
         }
 
     }
 
-    private void spawnPassengers(){
-        for (int i = 0; i < 3; i++) {
-            allPassengers.add(new Passenger(MyGdxGame.locations));
-        }
-        passengersWaiting = true;
-    }
-
-    private void clearLocations(){
-        for(Location location : MyGdxGame.locations.values()){
-            location.removePassenger();
-        }
+    private void spawnPassenger(){
+        Passenger pass = new Passenger(MyGdxGame.locations);
+        allPassengers.add(pass);
     }
 
 

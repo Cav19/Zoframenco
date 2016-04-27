@@ -169,6 +169,7 @@ public class Car {
     public void addPassenger(Passenger passenger){
         //passenger.enterTaxi();
         this.passenger = passenger;
+        passenger.getOrigin().removePassenger();
         full = true;
     }
 
