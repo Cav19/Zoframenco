@@ -12,7 +12,6 @@ import java.util.HashMap;
 public class Passenger {
 
     private Sprite sprite;
-
     private int fare;
     private Location origin;
     private Location destination;
@@ -23,29 +22,54 @@ public class Passenger {
         this.origin = setOrigin(MyGdxGame.locations);
         this.destination = setDestination(MyGdxGame.locations);
         generateType();
-        sprite.setSize(75,75);
+        sprite.setSize(75,100);
         sprite.setRegionWidth(75);
-        sprite.setRegionHeight(75);
+        sprite.setRegionHeight(100);
         sprite.setX(origin.getX() - 30);
         sprite.setY(origin.getY() - 33);
     }
 
     private void generateType(){
-        switch(MathUtils.random(1, 10)){
-            case 1:case 2:case 3:case 4:case 5:case 6:case 7:
+        switch(MathUtils.random(1, 8)){
+            case 1:
                 type = "Normal";
                 fare = setFare(12);
                 sprite = new Sprite(new Texture("images/stick_figure.png"));
                 break;
-            case 8:case 9:
+            case 2:
+                type = "Normal";
+                fare = setFare(12);
+                sprite = new Sprite(new Texture("images/stick_figure2.png"));
+                break;
+            case 3:
+                type = "Normal";
+                fare = setFare(12);
+                sprite = new Sprite(new Texture("images/stick_figure3.png"));
+                break;
+            case 4:
                 type = "Poor";
-                fare = setFare(15);
+                fare = setFare(7);
                 sprite = new Sprite(new Texture("images/poor_person.png"));
                 break;
-            case 10:
-                type = "Richie";
+            case 5:
+                type = "Poor";
                 fare = setFare(7);
+                sprite = new Sprite(new Texture("images/poor_person2.png"));
+                break;
+            case 6:
+                type = "Richie";
+                fare = setFare(15);
                 sprite = new Sprite(new Texture("images/richie.png"));
+                break;
+            case 7:
+                type = "Richie";
+                fare = setFare(15);
+                sprite = new Sprite(new Texture("images/richie2.png"));
+                break;
+            case 8:
+                type = "Pirate";
+                fare = setFare(0);
+                sprite = new Sprite(new Texture("images/pirate.png"));
                 break;
         }
     }
