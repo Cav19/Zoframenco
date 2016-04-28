@@ -41,13 +41,10 @@ public class PlayScreen implements Screen {
     private static Car taxi = new Car();
     private Array<Passenger> allPassengers = new Array<Passenger>();
     private static soundPlayer gameSoundPlayer;
-    public static Direction UP= new Direction(1, "UP");
-    public static Direction DOWN=  new Direction(3, "DOWN");
-    public static Direction LEFT=  new Direction(4, "LEFT");
-    public static Direction RIGHT=  new Direction(2, "RIGHT");
+
     private long timeOfLastPassenger;
     private long spawnTime;
-    private Timer timer = new Timer();
+   // private Timer timer = new Timer();
 
     public PlayScreen(MyGdxGame game){
         this.game = game;
@@ -89,7 +86,7 @@ public class PlayScreen implements Screen {
         drawCar(taxi);
         drawHud();
         if (taxi.isFull()){
-            drawTimer(timer);
+            //drawTimer(timer);
         }
         play();
             for (Passenger pass : allPassengers) {
@@ -257,7 +254,7 @@ public class PlayScreen implements Screen {
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             if (!(taxi.getOrientation()[0] == -1 && taxi.getOrientation()[1] == 0)) {
-                taxi.turn(LEFT);
+                taxi.turn("LEFT");
             }
             taxi.move(25);
         }
@@ -265,7 +262,7 @@ public class PlayScreen implements Screen {
 
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             if (!(taxi.getOrientation()[0] == 1 && taxi.getOrientation()[1] == 0)) {
-                taxi.turn(RIGHT);
+                taxi.turn("RIGHT");
 
             }
             taxi.move(25);
@@ -273,7 +270,7 @@ public class PlayScreen implements Screen {
 
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == 1)) {
-                taxi.turn(UP);
+                taxi.turn("UP");
             }
             taxi.move(25);
         }
@@ -281,7 +278,7 @@ public class PlayScreen implements Screen {
 
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == -1)) {
-                taxi.turn(DOWN);
+                taxi.turn("DOWN");
             }
             taxi.move(25);
         }

@@ -27,6 +27,10 @@ public class Car {
     private Direction currentDirection;
     private int[] orientation = new int[2];
     private Passenger passenger;
+    public static Direction UP= new Direction(1, "UP");
+    public static Direction RIGHT=  new Direction(2, "RIGHT");
+    public static Direction DOWN=  new Direction(3, "DOWN");
+    public static Direction LEFT=  new Direction(4, "LEFT");
 
 
     public Car(){
@@ -36,7 +40,7 @@ public class Car {
         X_pos = PlayScreen.V_WIDTH / 2;
         Y_pos = (float)(PlayScreen.V_HEIGHT / 2.25);
         setOrientation(0, 1);
-        currentDirection=PlayScreen.UP;
+        currentDirection=UP;
 
     }
 
@@ -68,130 +72,54 @@ public class Car {
     }
 
 
-    /*
 
-    public void turnUp() {
-        velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
-        velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
-
-        if (!(orientation[0] == 0 && orientation[1] == 1)) {
-            turnLeft();
-            sprite.rotate90(true);
-            setOrientation(0,1);
-            velocity[0]= velocity[0]*orientation[0];
-            velocity[1]= velocity[1]*orientation[1];
-        }
-    }
+    public void turn(String direction) {  //change to enumerator
+        Direction newDirection= getDirection(direction);
+        if (currentDirection.id != newDirection.id) {
+              velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+              velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
 
 
-    public void turnDown(){
-        velocity[0]=(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
-        velocity[1]= velocity[0]*orientation[0]+ velocity[1]*orientation[1];
-
-        if (!(orientation[0] == 0 && orientation[1] == -1)) {
-
-            turnLeft();
-            sprite.rotate90(false);
-            setOrientation(0,-1);
-            velocity[0]= velocity[0]*orientation[0];
-            velocity[1]= velocity[1]*orientation[1];
-        }
-
-    }
+            int rotations = 360 - (newDirection.id - currentDirection.id) * 90;
 
 
+            if (newDirection == LEFT) {
+                this.setOrientation(-1, 0);
+                currentDirection= LEFT;
+            } else if (newDirection == RIGHT) {
+                this.setOrientation(1, 0);
+                currentDirection= RIGHT;
 
-    public void turnLeft() {
-        velocity[0]=(velocity[1]*orientation[1] + velocity[0]*orientation[0]);
-        velocity[1]= velocity[0]*orientation[0] + velocity[1]*orientation[1];
+            } else if (newDirection == UP) {
+                this.setOrientation(0, 1);
+                currentDirection= UP;
 
+            } else if (newDirection == DOWN) {
+                this.setOrientation(0, -1);
+                currentDirection= DOWN;
 
-        if (!((orientation[0] == -1) && (orientation[1] == 0))) {
-
-            if (orientation[0] == 0 && orientation[1] == 1) {
-                sprite.rotate90(false);
-            } else if (orientation[0] == 0 && orientation[1] == -1) {
-                sprite.rotate90(true);
-            } else if (orientation[0] == 1 && orientation[1] == 0) {
-                sprite.rotate90(false);
-                sprite.rotate90(false);
             }
-        }
-        setOrientation(-1, 0);
-
-        velocity[0]= velocity[0]*orientation[0];
-        velocity[1]= velocity[1]*orientation[1];
-
-        System.out.println(this.sprite.getRotation());
 
 
-    }
+            // int r;
+            sprite.rotate(rotations);
+            velocity[0] = velocity[0] * orientation[0];
+            velocity[1] = velocity[1] * orientation[1];
 
-    public void turnRight() {
-        if (!((orientation[0] == 1) && (orientation[1] == 0))) {
-            turnUp();
-            velocity[0]=(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
-            velocity[1]= velocity[0]*orientation[0]+ velocity[1]*orientation[1];
-            sprite.rotate90(true);
-            setOrientation(1, 0);
-            velocity[0]= velocity[0]*orientation[0];
-            velocity[1]= velocity[1]*orientation[1];
         }
     }
 
-    */
-
-    public void turn(Direction direction){  //change to enumerator
-
-        int rotations=0;
-      //  velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
-      //  velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
-
-      //  rotations= direction.id - currentDirection.id;
-        boolean clockwise=true;
-        if (rotations<0){
-            clockwise=false;
-            rotations= Math.abs(rotations);
+    private Direction getDirection(String direction) {
+        if (direction=="UP"){
+            return UP;
         }
-
-
-
-        if (direction== PlayScreen.LEFT) {
-             //rotations = (Math.max(Math.abs(-1 - this.orientation[0]), Math.abs(0 - this.orientation[1])));
-            this.orientation[0]=-1;
-            this.orientation[1]=-0;
-
-        } else if (direction==PlayScreen.RIGHT) {
-          //  rotations = (Math.max(Math.abs(1 - this.orientation[0]), Math.abs(0 - this.orientation[1])));
-            this.orientation[0]=1;
-            this.orientation[1]=-0;
-            System.out.println(rotations);
-
-        } else if (direction== PlayScreen.UP) {
-           //  rotations = (Math.max(Math.abs(0 - this.orientation[0]), Math.abs(1 - this.orientation[1])));
-            this.orientation[0]=0;
-            this.orientation[1]=1;
-            System.out.println(rotations);
-
-        } else if (direction==PlayScreen.DOWN) {
-           //  rotations = (Math.max(Math.abs(0 - this.orientation[0]),Math.abs( -1 - this.orientation[1])));
-            this.orientation[0]=0;
-            this.orientation[1]=-1;
-            System.out.println(rotations);
-
+        else if (direction=="DOWN"){
+            return  DOWN;
         }
-
-
-       // int r;
-
-        for ( int r =0; r<rotations; r++){
-            System.out.println("rotating");
-            sprite.rotate90(clockwise);
+        else if (direction=="LEFT"){
+            return LEFT;
         }
-
-        velocity[0]= velocity[0]*orientation[0];
-        velocity[1]= velocity[1]*orientation[1];
-
+        else return  RIGHT;
     }
 
     public Sprite getSprite() {
