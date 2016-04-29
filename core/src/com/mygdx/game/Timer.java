@@ -37,7 +37,8 @@ public class Timer {
         }
         while(PlayScreen.blocked(X_pos,Y_pos,tiledMap)) {
             this.X_pos =  generator.nextInt(PlayScreen.V_WIDTH) + 1;
-            this.Y_pos =  generator.nextInt(PlayScreen.V_HEIGHT) + 1;};
+            this.Y_pos =  generator.nextInt(PlayScreen.V_HEIGHT) + 1;
+        }
     }
 
     public Sprite getSprite(){
