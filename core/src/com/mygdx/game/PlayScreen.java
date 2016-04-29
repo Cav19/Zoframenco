@@ -41,22 +41,22 @@ public class PlayScreen implements Screen {
     private static Car taxi = new Car();
     private Array<Passenger> allPassengers = new Array<Passenger>();
     private static soundPlayer gameSoundPlayer;
+
     private long timeOfLastPassenger;
     private long spawnTime;
     //private Timer timer = new Timer();
+
 
     public PlayScreen(MyGdxGame game){
         this.game = game;
         batch = new SpriteBatch();
         Gdx.graphics.setWindowedMode(V_WIDTH, V_HEIGHT);
-
         camera = new OrthographicCamera();
         hud = new Hud(game, batch, camera);
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
-
         gamePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+        tiledMap = new TmxMapLoader().load("map@17April.tmx");
 
-        tiledMap = new TmxMapLoader().load("map_assets/map@17April.tmx");
         gameSoundPlayer = new soundPlayer();
         allPassengers.add(new Passenger());
         spawnTime = setNextSpawnTime();
@@ -90,8 +90,16 @@ public class PlayScreen implements Screen {
             //drawTimer(timer);
         }
         play();
-        for(Passenger pass : allPassengers){
-            drawPassenger(pass);
+            for (Passenger pass : allPassengers) {
+                drawPassenger(pass);
+            }
+
+        if (Gdx.input.isTouched()) {
+            game.setScreen(new com.mygdx.game.EndScreen(game));
+            dispose();
+            for (Passenger pass : allPassengers) {
+                drawPassenger(pass);
+            }
         }
     }
 
@@ -247,7 +255,7 @@ public class PlayScreen implements Screen {
 
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             if (!(taxi.getOrientation()[0] == -1 && taxi.getOrientation()[1] == 0)) {
-                taxi.turnLeft();
+                taxi.turn("LEFT");
             }
             taxi.move(25);
         }
@@ -255,7 +263,7 @@ public class PlayScreen implements Screen {
 
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             if (!(taxi.getOrientation()[0] == 1 && taxi.getOrientation()[1] == 0)) {
-                taxi.turnRight();
+                taxi.turn("RIGHT");
 
             }
             taxi.move(25);
@@ -263,7 +271,7 @@ public class PlayScreen implements Screen {
 
         if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == 1)) {
-                taxi.turnUp();
+                taxi.turn("UP");
             }
             taxi.move(25);
         }
@@ -271,7 +279,7 @@ public class PlayScreen implements Screen {
 
         if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == -1)) {
-                taxi.turnDown();
+                taxi.turn("DOWN");
             }
             taxi.move(25);
         }
