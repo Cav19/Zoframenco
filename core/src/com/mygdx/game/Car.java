@@ -33,6 +33,7 @@ public class Car {
     public static Direction LEFT=  new Direction(4, "LEFT");
 
 
+
     public Car(){
         sprite = new Sprite(new Texture("images/tiny_car_square.png"));
         sprite.setSize(PlayScreen.V_WIDTH / 20, PlayScreen.V_WIDTH / 20);
