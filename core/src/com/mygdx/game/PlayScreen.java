@@ -43,7 +43,7 @@ public class PlayScreen implements Screen {
     private static soundPlayer gameSoundPlayer;
     private long timeOfLastPassenger;
     private long spawnTime;
-    private Timer timer = new Timer();
+    //private Timer timer = new Timer();
 
     public PlayScreen(MyGdxGame game){
         this.game = game;
@@ -87,7 +87,7 @@ public class PlayScreen implements Screen {
         drawCar(taxi);
         drawHud();
         if (taxi.isFull()){
-            drawTimer(timer);
+            //drawTimer(timer);
         }
         play();
         for(Passenger pass : allPassengers){
@@ -295,48 +295,27 @@ public class PlayScreen implements Screen {
      * @param velocity An array of float numbers representing the velocity of the car.
      * @return True if a collision occurs, false if one does not.
      */
-    public static boolean checkCollisions(float[] velocity) {
+    public static boolean checkCollisions() {
         boolean collision = false;
-        taxi.setX(taxi.getX() + velocity[0]);
-        taxi.setY(taxi.getY() + velocity[1]);
+        taxi.setX(taxi.getX() + taxi.getVelocity()[0]);
+        taxi.setY(taxi.getY() + taxi.getVelocity()[1]);
 
         if (taxi.getX() + (int) taxi.getSprite().getWidth() >= PlayScreen.V_WIDTH) {
             collision = true;
-            playCollisionNoise();
-            velocity[0]=0;
-            velocity[1]=0;
         }
-        if (taxi.getX()<= 0) {
+        if (taxi.getX() <= 0) {
             collision = true;
-            playCollisionNoise();
-
-            velocity[0]=0;
-            velocity[1]=0;
-
         }
+
         if (taxi.getY()+ (int) taxi.getSprite().getWidth() >= PlayScreen.V_HEIGHT) {
-
             collision = true;
-            playCollisionNoise();
-
-            velocity[0]=0;
-            velocity[1]=0;
         }
         if (taxi.getY() <= 0) {
-
             collision = true;
-            playCollisionNoise();
-
-            velocity[0]=0;
-            velocity[1]=0;
         }
 
         if (blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getWidth()/4, tiledMap) || blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getHeight()/(float) 1.5 , tiledMap) || blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getHeight()/ (float) 1.5, tiledMap)) {
             collision = true;
-            playCollisionNoise();
-
-            velocity[0]=0;
-            velocity[1]=0;
         }
 
         return collision;
@@ -380,7 +359,7 @@ public class PlayScreen implements Screen {
     /**
      * Plays sound effect of car colliding with a solid object.
      */
-    private static void playCollisionNoise() {
+    public static void playCollisionNoise() {
         if (Math.abs(taxi.getVelocity()[0] * taxi.getOrientation()[0] + taxi.getVelocity()[1] * taxi.getOrientation()[1]) > 0.7) {
             gameSoundPlayer.playCollisionNoise();
         }

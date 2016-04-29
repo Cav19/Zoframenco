@@ -29,11 +29,11 @@ public class Car {
 
 
     public Car(){
-        sprite = new Sprite(new Texture("images/tiny_car_square.png"));
-        sprite.setSize(PlayScreen.V_WIDTH / 20, PlayScreen.V_WIDTH / 20);
-        sprite.setPosition(X_pos, Y_pos);
+        sprite = new Sprite(new Texture("images/48car.png"));
+        sprite.setSize(48, 48);
         X_pos = PlayScreen.V_WIDTH / 2;
-        Y_pos = (float)(PlayScreen.V_HEIGHT / 2.25);
+        Y_pos = (float)(PlayScreen.V_HEIGHT / 2.3);
+        sprite.setPosition(X_pos, Y_pos);
         setOrientation(0, 1);
     }
 
@@ -83,14 +83,22 @@ public class Car {
     }
 
     private void driveForward() {
-        float old_X = X_pos;
-        float old_Y = Y_pos;
-        if (!PlayScreen.checkCollisions(velocity)) {
+        float oldX = X_pos;
+        float oldY = Y_pos;
+        if (!PlayScreen.checkCollisions()) {
             sprite.setPosition(X_pos, Y_pos);
         } else {
-            X_pos = old_X;
-            Y_pos = old_Y;
+            X_pos = oldX;
+            Y_pos = oldY;
+            collide();
         }
+    }
+
+    public void collide(){
+        velocity[0] = 0;
+        velocity[1] = 0;
+        PlayScreen.playCollisionNoise();
+        //sprite.setPosition(X_pos, Y_pos);
     }
 
     public void turnLeft() {
