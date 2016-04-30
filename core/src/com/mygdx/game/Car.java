@@ -17,6 +17,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import org.jetbrains.annotations.Contract;
 
 public class Car {
     private Sprite sprite;
@@ -27,10 +28,10 @@ public class Car {
     private Direction currentDirection;
     private int[] orientation = new int[2];
     private Passenger passenger;
-    public static Direction UP= new Direction(1, "UP");
-    public static Direction RIGHT=  new Direction(2, "RIGHT");
-    public static Direction DOWN=  new Direction(3, "DOWN");
-    public static Direction LEFT=  new Direction(4, "LEFT");
+    public static Direction UP= new Direction(1, "UP",0,1);
+    public static Direction RIGHT=  new Direction(2, "RIGHT",1,0);
+    public static Direction DOWN=  new Direction(3, "DOWN",0,-1);
+    public static Direction LEFT=  new Direction(4, "LEFT",-1,0);
 
 
 
@@ -87,29 +88,13 @@ public class Car {
               velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
 
 
-            int rotations = 360 - (newDirection.id - currentDirection.id) * 90;
+            int rotations = - (newDirection.id - currentDirection.id) * 90;
 
-
-            if (newDirection == LEFT) {
-                this.setOrientation(-1, 0);
-                currentDirection= LEFT;
-            } else if (newDirection == RIGHT) {
-                this.setOrientation(1, 0);
-                currentDirection= RIGHT;
-
-            } else if (newDirection == UP) {
-                this.setOrientation(0, 1);
-                currentDirection= UP;
-
-            } else if (newDirection == DOWN) {
-                this.setOrientation(0, -1);
-                currentDirection= DOWN;
-
-            }
-
-
-            // int r;
+            this.setOrientation(newDirection.x,newDirection.y);
+            currentDirection=newDirection;
+            //sprite.setPosition(X_pos+sprite.getWidth(), Y_pos+sprite.getHeight());
             sprite.rotate(rotations);
+            sprite.setPosition(this.X_pos, this.Y_pos);
             velocity[0] = velocity[0] * orientation[0];
             velocity[1] = velocity[1] * orientation[1];
 
