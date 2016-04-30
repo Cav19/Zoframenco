@@ -44,7 +44,7 @@ public class PlayScreen implements Screen {
 
     private long timeOfLastPassenger;
     private long spawnTime;
-    //private Timer timer = new Timer();
+    private Timer timer = new Timer();
     public static boolean playingAGame;
 
 
@@ -89,7 +89,7 @@ public class PlayScreen implements Screen {
         drawCar(taxi);
         drawHud();
         if (taxi.isFull()){
-            //drawTimer(timer);
+            drawTimer(timer);
         }
         play();
             for (Passenger pass : allPassengers) {
