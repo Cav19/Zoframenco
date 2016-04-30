@@ -45,6 +45,8 @@ public class PlayScreen implements Screen {
     private long timeOfLastPassenger;
     private long spawnTime;
     //private Timer timer = new Timer();
+    public static boolean playingAGame;
+
 
 
     public PlayScreen(MyGdxGame game){
@@ -96,10 +98,9 @@ public class PlayScreen implements Screen {
 
         if (Gdx.input.isTouched()) {
             game.setScreen(new com.mygdx.game.EndScreen(game));
+            gameSoundPlayer.playCarHorn();
+            gameSoundPlayer.stop();
             dispose();
-            for (Passenger pass : allPassengers) {
-                drawPassenger(pass);
-            }
         }
     }
 

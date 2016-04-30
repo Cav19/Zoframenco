@@ -7,10 +7,12 @@ import java.util.HashMap;
 public class MyGdxGame extends Game {
     public static HashMap<Integer, Location> locations;
 
+
     @Override
     public void create () {
         createLocations();
         setScreen(new HomeScreen(this));
+
     }
 
     @Override

@@ -57,6 +57,7 @@ public class HomeScreen implements Screen{
             game.setScreen(new com.mygdx.game.PlayScreen(game));
             dispose();
         }
+
     }
 
     private void createButton() {
