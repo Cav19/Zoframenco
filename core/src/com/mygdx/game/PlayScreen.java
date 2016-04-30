@@ -40,7 +40,7 @@ public class PlayScreen implements Screen {
     private static OrthographicCamera camera;
     private static Car taxi = new Car();
     private Array<Passenger> allPassengers = new Array<Passenger>();
-    private static soundPlayer gameSoundPlayer;
+    public static soundPlayer gameSoundPlayer;
 
     private long timeOfLastPassenger;
     private long spawnTime;

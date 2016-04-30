@@ -17,7 +17,6 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import org.jetbrains.annotations.Contract;
 
 public class Car {
     private Sprite sprite;
@@ -75,10 +74,9 @@ public class Car {
     }
 
     public void collide(){
+        PlayScreen.playCollisionNoise();
         velocity[0] = 0;
         velocity[1] = 0;
-        PlayScreen.playCollisionNoise();
-        //sprite.setPosition(X_pos, Y_pos);
     }
 
     public void turn(String direction) {  //change to enumerator
