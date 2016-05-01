@@ -17,6 +17,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
 
 public class Car {
     private Sprite sprite;
@@ -27,10 +28,11 @@ public class Car {
     private Direction currentDirection;
     private int[] orientation = new int[2];
     private Passenger passenger;
-    public static Direction UP= new Direction(1, "UP",0,1);
-    public static Direction RIGHT=  new Direction(2, "RIGHT",1,0);
-    public static Direction DOWN=  new Direction(3, "DOWN",0,-1);
-    public static Direction LEFT=  new Direction(4, "LEFT",-1,0);
+    public static Direction UP= new Direction(1, "UP",0,1,360);
+    public static Direction RIGHT=  new Direction(2, "RIGHT",1,0,-270);
+    public static Direction DOWN=  new Direction(3, "DOWN",0,-1, -180);
+    public static Direction LEFT=  new Direction(4, "LEFT",-1,0, -90);
+    public float currentAngle= 0;
 
 
 
@@ -46,6 +48,12 @@ public class Car {
     }
 
 
+    public void drawDebugRect(){
+        Rectangle bounds= this.getSprite().getBoundingRectangle();
+
+    }
+
+
     private void accelerate(float acceleration){
         if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.3);}
         if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.3);}
@@ -53,8 +61,8 @@ public class Car {
 
 
         if ((velocity[0]>-5) && ((velocity[0]< 5) && (velocity[1] < 5) && (velocity[1]> - 5))) {
-            this.velocity[0] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[0];
-            this.velocity[1] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[1];
+            this.velocity[0] += (float)(Gdx.graphics.getDeltaTime() * acceleration) * orientation[0];
+            this.velocity[1] += (float) ( Gdx.graphics.getDeltaTime() * acceleration) * orientation[1];
         }
         driveForward();
     }
@@ -81,25 +89,28 @@ public class Car {
 
     public void turn(String direction) {  //change to enumerator
         Direction newDirection= getDirection(direction);
-        if (currentDirection.id != newDirection.id) {
-              velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
-              velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+        if (currentAngle != newDirection.angle) {
+              //velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+             // velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
 
 
-            int rotations = - (newDirection.id - currentDirection.id) * 90;
+            int roationAngle=  (int) (newDirection.angle-currentAngle);
+            sprite.rotate(-roationAngle);
+            currentAngle= currentAngle+ roationAngle;
 
-            this.setOrientation(newDirection.x,newDirection.y);
-            currentDirection=newDirection;
-            //sprite.setPosition(X_pos+sprite.getWidth(), Y_pos+sprite.getHeight());
-            sprite.rotate(rotations);
+            if (Math.abs(currentAngle)>360){
+                currentAngle=Math.abs(currentAngle)-360;
+            }
+            if (currentAngle == newDirection.angle) {
+                currentDirection = newDirection;
+            }
+            System.out.println(currentAngle);
             sprite.setPosition(this.X_pos, this.Y_pos);
-            velocity[0] = velocity[0] * orientation[0];
-            velocity[1] = velocity[1] * orientation[1];
 
         }
     }
 
-    private Direction getDirection(String direction) {
+    public Direction getDirection(String direction) {
         if (direction=="UP"){
             return UP;
         }
@@ -131,8 +142,10 @@ public class Car {
     }
 
     private void applyFriction() {
-        if (velocity[0] > -10 && velocity[1] > -10) {
+        if (velocity[0] > -10) {
             velocity[0] -= velocity[0] * 0.05;
+        }
+        if (velocity[1] > -10) {
             velocity[1] -= velocity[1] * 0.05;
         }
     }
@@ -145,6 +158,12 @@ public class Car {
             return false;
         }
     }
+
+
+    public void setVelocity(float x, float y){
+        this.velocity[0]=x;
+        this.velocity[1]=y;
+    };
 
     public boolean isFull(){
         return full;

@@ -22,9 +22,12 @@ public class Timer {
         sprite = new Sprite(texture);
         sprite.setSize(60,40);
         Random generator = new Random();
-        X_pos =  generator.nextInt(PlayScreen.V_WIDTH) + 1;
+        /*X_pos =  generator.nextInt(PlayScreen.V_WIDTH) + 1;
         Y_pos =  generator.nextInt(PlayScreen.V_HEIGHT) + 1;
         checkPosition(X_pos, Y_pos);
+        */
+        X_pos = PlayScreen.V_WIDTH / 2;
+        Y_pos = (float)(PlayScreen.V_HEIGHT / 2.3);
         sprite.setPosition(X_pos, Y_pos);
        }
 
@@ -39,6 +42,7 @@ public class Timer {
             this.Y_pos =  generator.nextInt(PlayScreen.V_HEIGHT) + 1;
         }
     }
+
 
     public Sprite getSprite(){
         return sprite;

@@ -8,12 +8,15 @@ public class Direction {
      String name;
      int x;
      int y;
+     float angle;
 
-    public Direction(int id, String name,int x, int y){
+    public Direction(int id, String name,int x, int y, float angle){
         this.id=id;
         this.name=name;
         this.x=x;
         this.y=y;
+        this.angle=angle;
     }
+
 
 }
