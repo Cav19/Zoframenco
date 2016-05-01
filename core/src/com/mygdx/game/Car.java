@@ -4,6 +4,7 @@ Title: Tires Squealing
 About: Sound of a truck or large cars tires squealing loud and clear. sound recorded in stereo. great city, car, or similar sound effect.
 Uploaded: 11.14.09 | License: Attribution 3.0 | Recorded by Mike Koenig | File Size: 163 KB
 
+
 CRASH SOUND:
 
 Title: Strong Punch
@@ -17,6 +18,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
+import com.badlogic.gdx.math.Rectangle;
 
 public class Car {
     private Sprite sprite;
@@ -27,10 +29,12 @@ public class Car {
     private Direction currentDirection;
     private int[] orientation = new int[2];
     private Passenger passenger;
-    public static Direction UP= new Direction(1, "UP");
-    public static Direction RIGHT=  new Direction(2, "RIGHT");
-    public static Direction DOWN=  new Direction(3, "DOWN");
-    public static Direction LEFT=  new Direction(4, "LEFT");
+    public static Direction UP= new Direction(1, "UP",0,1,360);
+    public static Direction RIGHT=  new Direction(2, "RIGHT",1,0,-270);
+    public static Direction DOWN=  new Direction(3, "DOWN",0,-1, -180);
+    public static Direction LEFT=  new Direction(4, "LEFT",-1,0, -90);
+    public float currentAngle= 0;
+
 
 
     public Car(){
@@ -45,18 +49,31 @@ public class Car {
     }
 
 
-    private void accelerate(float acceleration){
-        if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.3);}
-        if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.3);}
+    public void drawDebugRect(){
+        Rectangle bounds= this.getSprite().getBoundingRectangle();
 
-
-
-        if ((velocity[0]>-5) && ((velocity[0]< 5) && (velocity[1] < 5) && (velocity[1]> - 5))) {
-            this.velocity[0] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[0];
-            this.velocity[1] += (float) (0.4 * Gdx.graphics.getDeltaTime() * acceleration) * orientation[1];
-        }
-        driveForward();
     }
+
+
+    private void accelerate(float acceleration){
+        //TO BE UNCOMMENTED AFTER FIXING COLLISION
+       // if (!PlayScreen.checkCollisions()) {
+
+            if (this.velocity[0] == 0) {
+                this.velocity[0] = (float) (orientation[0] * 0.3);
+            }
+            if (this.velocity[1] == 0) {
+                this.velocity[1] = (float) (orientation[1] * 0.3);
+            }
+
+
+            if ((velocity[0] > -3) && ((velocity[0] < 3) && (velocity[1] < 3) && (velocity[1] > -3))) {
+                this.velocity[0] += (float) (Gdx.graphics.getDeltaTime() * acceleration) * orientation[0] * 3;
+                this.velocity[1] += (float) (Gdx.graphics.getDeltaTime() * acceleration) * orientation[1] * 3;
+            }
+            driveForward();
+        }
+   // }
 
 
 
@@ -73,48 +90,35 @@ public class Car {
     }
 
     public void collide(){
+        PlayScreen.playCollisionNoise();
         velocity[0] = 0;
         velocity[1] = 0;
-        PlayScreen.playCollisionNoise();
     }
 
     public void turn(String direction) {  //change to enumerator
+        move(this.getSprite().getHeight()/4);
         Direction newDirection= getDirection(direction);
-        if (currentDirection.id != newDirection.id) {
-              velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
-              velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+        if (currentAngle != newDirection.angle) {
+              //velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+             // velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
 
 
-            int rotations = 360 - (newDirection.id - currentDirection.id) * 90;
+            int roationAngle=  (int) (newDirection.angle-currentAngle);
+            sprite.rotate(-roationAngle);
+            currentAngle= currentAngle+ roationAngle;
 
-
-            if (newDirection == LEFT) {
-                this.setOrientation(-1, 0);
-                currentDirection= LEFT;
-            } else if (newDirection == RIGHT) {
-                this.setOrientation(1, 0);
-                currentDirection= RIGHT;
-
-            } else if (newDirection == UP) {
-                this.setOrientation(0, 1);
-                currentDirection= UP;
-
-            } else if (newDirection == DOWN) {
-                this.setOrientation(0, -1);
-                currentDirection= DOWN;
-
+            if (Math.abs(currentAngle)>360){
+                currentAngle=Math.abs(currentAngle)-360;
             }
-
-
-            // int r;
-            sprite.rotate(rotations);
-            velocity[0] = velocity[0] * orientation[0];
-            velocity[1] = velocity[1] * orientation[1];
+            if (currentAngle == newDirection.angle) {
+                currentDirection = newDirection;
+            }
+            sprite.setPosition(this.X_pos, this.Y_pos);
 
         }
     }
 
-    private Direction getDirection(String direction) {
+    public Direction getDirection(String direction) {
         if (direction.equals("UP")){
             return UP;
         }
@@ -146,9 +150,11 @@ public class Car {
     }
 
     private void applyFriction() {
-        if (velocity[0] > -10 && velocity[1] > -10) {
-            velocity[0] -= velocity[0] * 0.05;
-            velocity[1] -= velocity[1] * 0.05;
+        if (velocity[0] > -10) {
+            velocity[0] -= velocity[0] * 0.2;
+        }
+        if (velocity[1] > -10) {
+            velocity[1] -= velocity[1] * 0.2;
         }
     }
 
@@ -160,6 +166,12 @@ public class Car {
             return false;
         }
     }
+
+
+    public void setVelocity(float x, float y){
+        this.velocity[0]=x;
+        this.velocity[1]=y;
+    };
 
     public boolean isFull(){
         return full;

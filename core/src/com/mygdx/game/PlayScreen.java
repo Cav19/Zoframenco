@@ -40,11 +40,15 @@ public class PlayScreen implements Screen {
     private static OrthographicCamera camera;
     private static Car taxi = new Car();
     private Array<Passenger> allPassengers = new Array<Passenger>();
-    private static soundPlayer gameSoundPlayer;
+    public static soundPlayer gameSoundPlayer;
 
     private long timeOfLastPassenger;
     private long spawnTime;
-    //private Timer timer = new Timer();
+    private Timer timer = new Timer();
+    public static boolean playingAGame;
+    String inputKey="";
+
+
 
 
     public PlayScreen(MyGdxGame game){
@@ -56,11 +60,9 @@ public class PlayScreen implements Screen {
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         gamePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
         tiledMap = new TmxMapLoader().load("map_assets/map@17April.tmx");
-
         gameSoundPlayer = new soundPlayer();
         allPassengers.add(new Passenger());
         spawnTime = setNextSpawnTime();
-
         timeOfLastPassenger = TimeUtils.millis();
     }
 
@@ -87,7 +89,7 @@ public class PlayScreen implements Screen {
         drawCar(taxi);
         drawHud();
         if (taxi.isFull()){
-            //drawTimer(timer);
+            drawTimer(timer);
         }
         play();
             for (Passenger pass : allPassengers) {
@@ -95,12 +97,15 @@ public class PlayScreen implements Screen {
             }
 
         if (Gdx.input.isTouched()) {
-            game.setScreen(new com.mygdx.game.EndScreen(game));
-            dispose();
-            for (Passenger pass : allPassengers) {
-                drawPassenger(pass);
-            }
+            endGame();
         }
+    }
+
+    private void endGame(){
+        game.setScreen(new com.mygdx.game.EndScreen(game));
+        gameSoundPlayer.playCarHorn();
+        gameSoundPlayer.stop();
+        dispose();
     }
 
     /**
@@ -170,12 +175,12 @@ public class PlayScreen implements Screen {
      * @param destination The destination on the map to be highlighted.
      */
     private void highlightDestination(Location destination){
-        Gdx.gl20.glLineWidth(2.85f);
+        Gdx.gl20.glLineWidth(5f);
         Rectangle box = destination.getRectangle();
         ShapeRenderer renderer = new ShapeRenderer();
         renderer.setProjectionMatrix(camera.combined);
         renderer.updateMatrices();
-        renderer.setColor(Color.RED);
+        renderer.setColor(Color.MAGENTA);
         renderer.begin(ShapeRenderer.ShapeType.Line);
         renderer.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
         renderer.end();
@@ -246,56 +251,67 @@ public class PlayScreen implements Screen {
     /**
      * The method that listens to all of the input from the user.
      */
-    private void listenToInput() {
 
+
+    private void updateInputKey() {
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+            inputKey = "LEFT";
+            if (taxi.getVelocity()[0] != 0 && taxi.getVelocity()[1] != 0) {
+                taxi.setVelocity(taxi.getVelocity()[0], taxi.getVelocity()[1] /(float)1.2);
+            }
+        } else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+            inputKey = "RIGHT";
+            if (taxi.getVelocity()[0] != 0 && taxi.getVelocity()[1] != 0) {
+                taxi.setVelocity(taxi.getVelocity()[0], taxi.getVelocity()[1] /(float)1.2);
+            }
+        } else if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+            inputKey = "UP";
+            if (taxi.getVelocity()[0] != 0 && taxi.getVelocity()[1] != 0) {
+                taxi.setVelocity(taxi.getVelocity()[0] /(float)1.2, taxi.getVelocity()[1]);
+            }
+        } else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+            inputKey = "DOWN";
+            if (taxi.getVelocity()[0] != 0 && taxi.getVelocity()[1] != 0) {
+                taxi.setVelocity(taxi.getVelocity()[0] /(float)1.2, taxi.getVelocity()[1]);
+            }
+        }
+    }
+
+
+    private void listenToInput() {
         if (!(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))) {
             taxi.move(0);
         }
 
+       updateInputKey();
 
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
-            if (!(taxi.getOrientation()[0] == -1 && taxi.getOrientation()[1] == 0)) {
-                taxi.turn("LEFT");
-            }
-            taxi.move(25);
-        }
-
-
-        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
-            if (!(taxi.getOrientation()[0] == 1 && taxi.getOrientation()[1] == 0)) {
-                taxi.turn("RIGHT");
+            if ((taxi.currentAngle != taxi.getDirection(inputKey).angle)&& !inputKey.isEmpty()) {
+                taxi.turn(inputKey);
 
             }
-            taxi.move(25);
-        }
 
-        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
-            if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == 1)) {
-                taxi.turn("UP");
+
+
+
+            if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+                gameSoundPlayer.playCarHorn();
             }
-            taxi.move(25);
-        }
 
-
-        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
-            if (!(taxi.getOrientation()[0] == 0 && taxi.getOrientation()[1] == -1)) {
-                taxi.turn("DOWN");
+            else if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+                System.exit(-1);
             }
-            taxi.move(25);
-        }
-
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)){
-            gameSoundPlayer.playCarHorn();
-        }
-
-        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-            System.exit(-1);
-        }
-
-        if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
+       else if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
+            taxi.move(1);
             playTiresNoise();
         }
-    }
+        else  if ((taxi.currentAngle == taxi.getDirection(inputKey).angle)&&(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))) {
+                taxi.setOrientation(taxi.getDirection(inputKey).x,taxi.getDirection(inputKey).y);
+                taxi.move(15);
+                //taxi.setVelocity(taxi.getVelocity()[0] * Math.abs(taxi.getOrientation()[0]), taxi.getVelocity()[1] * Math.abs(taxi.getOrientation()[1]));
+                }
+
+        }
+
 
 
     /**
@@ -371,6 +387,7 @@ public class PlayScreen implements Screen {
     public static void playCollisionNoise() {
         if (Math.abs(taxi.getVelocity()[0] * taxi.getOrientation()[0] + taxi.getVelocity()[1] * taxi.getOrientation()[1]) > 0.7) {
             gameSoundPlayer.playCollisionNoise();
+            gameSoundPlayer.playCarHorn();
         }
     }
 

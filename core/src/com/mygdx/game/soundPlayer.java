@@ -33,6 +33,15 @@ public class soundPlayer {
         backgroundMusic.play();
     }
 
+    public void stop(){
+        backgroundMusic.stop();
+        moneySound.stop();
+        tiresNoise.stop();
+        carDoor.stop();
+        carDoor.stop();
+        taxiWhistle.stop();
+    }
+
     public void playMoneySound() {
         moneySound.play();
     }
