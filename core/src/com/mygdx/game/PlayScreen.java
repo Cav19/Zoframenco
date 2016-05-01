@@ -55,7 +55,7 @@ public class PlayScreen implements Screen {
         hud = new Hud(game, batch, camera);
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         gamePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
-        tiledMap = new TmxMapLoader().load("map@17April.tmx");
+        tiledMap = new TmxMapLoader().load("map_assets/map@17April.tmx");
 
         gameSoundPlayer = new soundPlayer();
         allPassengers.add(new Passenger());
@@ -300,7 +300,6 @@ public class PlayScreen implements Screen {
 
     /**
      * Checks for collisions between the car and any buildings on screen. Also ensures that the car cannot drive off the side of the screen.
-     * @param velocity An array of float numbers representing the velocity of the car.
      * @return True if a collision occurs, false if one does not.
      */
     public static boolean checkCollisions() {
@@ -322,7 +321,9 @@ public class PlayScreen implements Screen {
             collision = true;
         }
 
-        if (blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getWidth()/4, tiledMap) || blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getHeight()/(float) 1.5 , tiledMap) || blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getHeight()/ (float) 1.5, tiledMap)) {
+        if (blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getWidth()/4, tiledMap)
+         || blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getHeight()/ (float) 1.5, tiledMap)
+         || blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getHeight()/ (float) 1.5, tiledMap)) {
             collision = true;
         }
 

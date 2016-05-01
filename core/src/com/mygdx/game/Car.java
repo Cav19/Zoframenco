@@ -38,10 +38,10 @@ public class Car {
         sprite.setSize(48, 48);
         X_pos = PlayScreen.V_WIDTH / 2;
         Y_pos = (float)(PlayScreen.V_HEIGHT / 2.3);
+        sprite.setCenter(sprite.getX() + sprite.getWidth(), sprite.getY() + sprite.getHeight());
         sprite.setPosition(X_pos, Y_pos);
         setOrientation(0, 1);
         currentDirection=UP;
-
     }
 
 
@@ -76,7 +76,6 @@ public class Car {
         velocity[0] = 0;
         velocity[1] = 0;
         PlayScreen.playCollisionNoise();
-        //sprite.setPosition(X_pos, Y_pos);
     }
 
     public void turn(String direction) {  //change to enumerator
@@ -116,13 +115,13 @@ public class Car {
     }
 
     private Direction getDirection(String direction) {
-        if (direction=="UP"){
+        if (direction.equals("UP")){
             return UP;
         }
-        else if (direction=="DOWN"){
+        else if (direction.equals("DOWN")){
             return  DOWN;
         }
-        else if (direction=="LEFT"){
+        else if (direction.equals("LEFT")){
             return LEFT;
         }
         else return  RIGHT;
