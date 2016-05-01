@@ -55,8 +55,8 @@ public class Car {
 
 
     private void accelerate(float acceleration){
-        //if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.3);}
-       // if (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.3);}
+          if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.3);}
+         if   (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.3);}
 
 
 
@@ -88,7 +88,7 @@ public class Car {
     }
 
     public void turn(String direction) {  //change to enumerator
-        move(this.getSprite().getHeight()/2);
+        move(this.getSprite().getHeight()/4);
         Direction newDirection= getDirection(direction);
         if (currentAngle != newDirection.angle) {
               //velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
@@ -144,10 +144,10 @@ public class Car {
 
     private void applyFriction() {
         if (velocity[0] > -10) {
-            velocity[0] -= velocity[0] * 0.1;
+            velocity[0] -= velocity[0] * 0.2;
         }
         if (velocity[1] > -10) {
-            velocity[1] -= velocity[1] * 0.1;
+            velocity[1] -= velocity[1] * 0.2;
         }
     }
 
