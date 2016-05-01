@@ -18,7 +18,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.math.Rectangle;
+
 
 public class Car {
     private Sprite sprite;
@@ -42,22 +42,22 @@ public class Car {
         sprite.setSize(48, 48);
         X_pos = PlayScreen.V_WIDTH / 2;
         Y_pos = (float)(PlayScreen.V_HEIGHT / 2.3);
-        sprite.setCenter(sprite.getX() + sprite.getWidth(), sprite.getY() + sprite.getHeight());
+        //sprite.setCenter(sprite.getX() + sprite.getWidth() / 2, sprite.getY() + sprite.getHeight() / 2);
         sprite.setPosition(X_pos, Y_pos);
+        sprite.setOrigin(24, 24);
         setOrientation(0, 1);
         currentDirection=UP;
+        System.out.println(sprite.getX() + ", " + sprite.getY());
+        System.out.println(sprite.getOriginX() + ", " + sprite.getOriginY());
     }
 
 
-    public void drawDebugRect(){
-        Rectangle bounds= this.getSprite().getBoundingRectangle();
 
-    }
 
 
     private void accelerate(float acceleration){
         //TO BE UNCOMMENTED AFTER FIXING COLLISION
-       // if (!PlayScreen.checkCollisions()) {
+        //if (!PlayScreen.checkCarCollisions()) {
 
             if (this.velocity[0] == 0) {
                 this.velocity[0] = (float) (orientation[0] * 0.3);
@@ -73,14 +73,12 @@ public class Car {
             }
             driveForward();
         }
-   // }
-
-
+    //}
 
     private void driveForward() {
         float oldX = X_pos;
         float oldY = Y_pos;
-        if (!PlayScreen.checkCollisions()) {
+        if (!PlayScreen.checkCarCollisions()) {
             sprite.setPosition(X_pos, Y_pos);
         } else {
             X_pos = oldX;
@@ -96,7 +94,7 @@ public class Car {
     }
 
     public void turn(String direction) {  //change to enumerator
-        move(this.getSprite().getHeight()/4);
+        move(sprite.getHeight()/4);
         Direction newDirection= getDirection(direction);
         if (currentAngle != newDirection.angle) {
               //velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
@@ -113,7 +111,7 @@ public class Car {
             if (currentAngle == newDirection.angle) {
                 currentDirection = newDirection;
             }
-            sprite.setPosition(this.X_pos, this.Y_pos);
+            sprite.setPosition(X_pos, Y_pos);
 
         }
     }
@@ -159,7 +157,10 @@ public class Car {
     }
 
     public boolean hasArrived(Location location){
-        if((this.getSprite().getX() + this.getSprite().getWidth() / 2 >= location.getX() - 15 && this.getSprite().getX() + this.getSprite().getWidth() / 2 <= location.getX() + 15) && (this.getSprite().getY() + this.getSprite().getHeight() / 2 >= location.getY() - 15) && this.getSprite().getY() + this.getSprite().getHeight() / 2 <= location.getY() + 15){
+        if((this.getSprite().getX() + this.getSprite().getWidth() / 2 >= location.getX() - 15
+                && this.getSprite().getX() + this.getSprite().getWidth() / 2 <= location.getX() + 15)
+                && (this.getSprite().getY() + this.getSprite().getHeight() / 2 >= location.getY() - 15)
+                && this.getSprite().getY() + this.getSprite().getHeight() / 2 <= location.getY() + 15){
             return true;
         }
         else{

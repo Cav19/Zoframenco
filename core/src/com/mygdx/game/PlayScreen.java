@@ -86,6 +86,7 @@ public class PlayScreen implements Screen {
         drawMap();
         drawCar(taxi);
         drawHud();
+        drawTaxiDebugRect();
         if (taxi.isFull()){
             drawTimer(timer);
         }
@@ -97,6 +98,16 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isTouched()) {
             //endGame();
         }
+    }
+
+    public void drawTaxiDebugRect(){
+        Rectangle bounds = taxi.getSprite().getBoundingRectangle();
+        ShapeRenderer renderer = new ShapeRenderer();
+        renderer.setProjectionMatrix(camera.combined);
+        renderer.begin(ShapeRenderer.ShapeType.Line);
+        renderer.setColor(Color.RED);
+        renderer.rect(bounds.getX(), bounds.getY(), bounds.getWidth(), bounds.getHeight());
+        renderer.end();
     }
 
     private void endGame(){
@@ -316,56 +327,57 @@ public class PlayScreen implements Screen {
      * Checks for collisions between the car and any buildings on screen. Also ensures that the car cannot drive off the side of the screen.
      * @return True if a collision occurs, false if one does not.
      */
-    public static boolean checkCollisions() {
-        boolean collision = false;
+    public static boolean checkCarCollisions() {
         taxi.setX(taxi.getX() + taxi.getVelocity()[0]);
         taxi.setY(taxi.getY() + taxi.getVelocity()[1]);
 
         if (taxi.getX() + (int) taxi.getSprite().getWidth() >= PlayScreen.V_WIDTH) {
-            collision = true;
+            return true;
         }
         if (taxi.getX() <= 0) {
-            collision = true;
+            return true;
         }
-
         if (taxi.getY()+ (int) taxi.getSprite().getWidth() >= PlayScreen.V_HEIGHT) {
-            collision = true;
+            return true;
         }
         if (taxi.getY() <= 0) {
-            collision = true;
+            return true;
         }
 
-        if (blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getWidth()/4, tiledMap)
-         || blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getHeight()/ (float) 1.5, tiledMap)
-         || blocked(taxi.getX() + taxi.getSprite().getWidth()/4, taxi.getY() + taxi.getSprite().getHeight()/ (float) 1.5, tiledMap)) {
-            collision = true;
+        if (!(isTileType(taxi.getSprite().getX() + taxi.getSprite().getWidth() / 2, taxi.getSprite().getY() + taxi.getSprite().getHeight(), "road")
+         || isTileType(taxi.getSprite().getX() + taxi.getSprite().getWidth(), taxi.getSprite().getY() + taxi.getSprite().getHeight() / 2, "road")
+         || isTileType(taxi.getSprite().getX() + taxi.getSprite().getWidth() / 2, taxi.getSprite().getY(), "road")
+         || isTileType(taxi.getSprite().getX(), taxi.getSprite().getY() + taxi.getSprite().getHeight() / 2, "road"))) {
+            return true;
         }
 
-        return collision;
+        return false;
 
+    }
+
+    public static boolean isTileType(float x, float y, String type){
+        return isCellProperty(x, y, type);
     }
 
     /**
      * Checks to see if a specific cell on the map is blocked meaning that the car should not be allowed to drive on it.
      * @param x The x coordinate of the cell.
      * @param y The y coordinate of the cell.
-     * @param tiledMap The map itself.
      * @return True if the cell is blocked, false if not.
      */
     // change to public
-    public static boolean blocked(float x, float y, TiledMap tiledMap) {
-        return !isCellProperty(x, y, tiledMap, "road");
+    public static boolean blocked(float x, float y) {
+        return !isCellProperty(x, y, "road");
     }
 
     /**
      * Checks the property of a specific cell on the map.
      * @param x The x coordinate of the cell.
      * @param y The y coordinate of the cell.
-     * @param tiledMap The map itself.
      * @param property The property to check the cell for.
      * @return True if the cell in question matches the property provided, false if it does not match.
      */
-    private static boolean isCellProperty(float x, float y, TiledMap tiledMap, String property) {
+    private static boolean isCellProperty(float x, float y, String property) {
         MapLayers allLayers = tiledMap.getLayers();
         TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
