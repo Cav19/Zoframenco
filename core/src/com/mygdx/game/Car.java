@@ -4,6 +4,7 @@ Title: Tires Squealing
 About: Sound of a truck or large cars tires squealing loud and clear. sound recorded in stereo. great city, car, or similar sound effect.
 Uploaded: 11.14.09 | License: Attribution 3.0 | Recorded by Mike Koenig | File Size: 163 KB
 
+
 CRASH SOUND:
 
 Title: Strong Punch
@@ -55,17 +56,24 @@ public class Car {
 
 
     private void accelerate(float acceleration){
-          if (this.velocity[0]==0){ this.velocity[0]= (float) (orientation[0]*0.3);}
-         if   (this.velocity[1]==0){ this.velocity[1]=(float) (orientation[1]*0.3);}
+        //TO BE UNCOMMENTED AFTER FIXING COLLISION
+       // if (!PlayScreen.checkCollisions()) {
+
+            if (this.velocity[0] == 0) {
+                this.velocity[0] = (float) (orientation[0] * 0.3);
+            }
+            if (this.velocity[1] == 0) {
+                this.velocity[1] = (float) (orientation[1] * 0.3);
+            }
 
 
-
-        if ((velocity[0]>-3) && ((velocity[0]< 3) && (velocity[1] < 3) && (velocity[1]> - 3))) {
-            this.velocity[0] += (float)(Gdx.graphics.getDeltaTime() * acceleration) * orientation[0]*3;
-            this.velocity[1] += (float) ( Gdx.graphics.getDeltaTime() * acceleration) * orientation[1]*3;
+            if ((velocity[0] > -3) && ((velocity[0] < 3) && (velocity[1] < 3) && (velocity[1] > -3))) {
+                this.velocity[0] += (float) (Gdx.graphics.getDeltaTime() * acceleration) * orientation[0] * 3;
+                this.velocity[1] += (float) (Gdx.graphics.getDeltaTime() * acceleration) * orientation[1] * 3;
+            }
+            driveForward();
         }
-        driveForward();
-    }
+   // }
 
 
 
@@ -105,7 +113,6 @@ public class Car {
             if (currentAngle == newDirection.angle) {
                 currentDirection = newDirection;
             }
-            System.out.println(currentAngle);
             sprite.setPosition(this.X_pos, this.Y_pos);
 
         }
