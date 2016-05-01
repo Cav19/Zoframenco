@@ -25,6 +25,8 @@ public class HomeScreen implements Screen{
     private Skin skin;
     private Stage stage = new Stage();
     private Table buttonTable = new Table();
+    private TextButton startGameButton;
+    private TextButton instructionButton;
     private BitmapFont font;
 
 
@@ -57,12 +59,15 @@ public class HomeScreen implements Screen{
             game.setScreen(new com.mygdx.game.PlayScreen(game));
             dispose();
         }
-
     }
 
-    private void createButton() {
-        TextButton startGameButton = new TextButton("Let's get started!", skin);
+    private void createButtonTable() {
+        startGameButton = new TextButton("Started game", skin);
         buttonTable.add(startGameButton);
+
+        instructionButton = new TextButton("Instructions", skin);
+        buttonTable.add(instructionButton);
+
         buttonTable.row();
         buttonTable.setFillParent(true);
         stage.addActor(buttonTable);

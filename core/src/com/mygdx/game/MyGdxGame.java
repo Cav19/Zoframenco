@@ -6,6 +6,7 @@ import java.util.HashMap;
 
 public class MyGdxGame extends Game {
     public static HashMap<Integer, Location> locations;
+    public static int score;
 
 
     @Override
@@ -44,5 +45,9 @@ public class MyGdxGame extends Game {
         locations.put(15, new Location(315, 165, 15, "Zora's house"));
         locations.put(16, new Location(515, 285, 16, "the hospital"));
         locations.put(17, new Location(635, 165, 17, "the gas station"));
+    }
+
+    public void addScore(int value){
+        score += value;
     }
 }

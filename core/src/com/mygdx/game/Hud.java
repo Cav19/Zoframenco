@@ -25,7 +25,6 @@ public class Hud {
     //score/time tracking variables
     private Integer worldTimer;
     private float timeCount;
-    public static int score;
 
     //Scene2D widgets
     private static Label scoreLabel;
@@ -40,16 +39,14 @@ public class Hud {
 
     private final MyGdxGame game;
 
-    ////
     public BitmapFont font;
 
     public static Json Scores = new Json();
 
-
     public Hud(MyGdxGame game, SpriteBatch sb, Camera camera) {
         worldTimer = 100;
         timeCount = 0;
-        score = 0;
+        game.score = 0;
 
         viewport = new FitViewport(PlayScreen.V_WIDTH, PlayScreen.V_HEIGHT, camera);
         stage = new Stage(viewport, sb);
@@ -83,7 +80,7 @@ public class Hud {
         groupNameLabel = new Label("Zoframenco", new Label.LabelStyle(font, Color.BLACK));
 
         scoreTextLabel = new Label("Score", new Label.LabelStyle(font, Color.BLACK));
-        scoreLabel = new Label("$" + String.format("%02d", score), new Label.LabelStyle(font, Color.BLACK));
+        scoreLabel = new Label("$" + String.format("%02d", game.score), new Label.LabelStyle(font, Color.BLACK));
 
         messageTextLabel = new Label("Message: ", new Label.LabelStyle(font, Color.BLACK));
         messageLabel = new Label("Yo! Welcome to The Daily Rider!", new Label.LabelStyle(font, Color.BLUE));
@@ -113,16 +110,16 @@ public class Hud {
         }
         if (worldTimer<=0){
             System.out.println("GAME OVER");
-            System.out.println("FINAL SCORE: "+ score);
+            System.out.println("FINAL SCORE: "+ game.score);
             stage.dispose();
-            System.out.println(Scores.toJson(score));
+            System.out.println(Scores.toJson(game.score));
             game.setScreen(new com.mygdx.game.EndScreen(game));
         }
     }
 
-    public static String getHighScores(){
-        Scores.prettyPrint(score);
-        String HighScores= Scores.prettyPrint(score);
+    public String getHighScores(){
+        Scores.prettyPrint(game.score);
+        String HighScores= Scores.prettyPrint(game.score);
         return HighScores;
     }
 
@@ -134,9 +131,8 @@ public class Hud {
         messageLabel.setText(msg);
     }
 
-    public static void addScore(int value){
-        score += value;
-        scoreLabel.setText("$" + String.format("%02d", score));
+    public void updateScore (){
+        scoreLabel.setText("$" + String.format("%02d", game.score));
     }
 
 }
