@@ -309,7 +309,7 @@ public class PlayScreen implements Screen {
         }
         else  if ((taxi.currentAngle == taxi.getDirection(inputKey).angle)&&(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))) {
                 taxi.setOrientation(taxi.getDirection(inputKey).x,taxi.getDirection(inputKey).y);
-                taxi.move(10);
+                taxi.move(15);
                 System.out.println(taxi.getVelocity()[0]);
                 System.out.println(taxi.getVelocity()[1]);
 
