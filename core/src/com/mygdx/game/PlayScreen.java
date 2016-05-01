@@ -49,8 +49,6 @@ public class PlayScreen implements Screen {
     String inputKey="";
 
 
-
-
     public PlayScreen(MyGdxGame game){
         this.game = game;
         batch = new SpriteBatch();
@@ -97,7 +95,7 @@ public class PlayScreen implements Screen {
             }
 
         if (Gdx.input.isTouched()) {
-            endGame();
+            //endGame();
         }
     }
 
@@ -224,11 +222,11 @@ public class PlayScreen implements Screen {
             highlightDestination(taxi.getPassenger().getDestination());
             if (taxi.hasArrived(taxi.getPassenger().getDestination())) {
                 gameSoundPlayer.playMoneySound();
-                Hud.addScore(taxi.getPassenger().getFare());
+                game.addScore(taxi.getPassenger().getFare());
+                hud.updateScore();
                 taxi.empty();
             }
         }
-
     }
 
     /**
