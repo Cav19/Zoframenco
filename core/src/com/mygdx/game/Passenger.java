@@ -29,6 +29,26 @@ public class Passenger {
         sprite.setY(origin.getY() - 33);
     }
 
+    public Passenger(String type){
+        this.origin = setOrigin(MyGdxGame.locations);
+        this.destination = setDestination(MyGdxGame.locations);
+        this.type = type;
+        if(type.equals("Normal")){
+            fare = setFare(12);
+        }
+        else if(type.equals("Poor")){
+            fare = setFare(15);
+        }
+        else{
+            fare = setFare(7);
+        }
+        sprite.setSize(75,100);
+        sprite.setRegionWidth(75);
+        sprite.setRegionHeight(100);
+        sprite.setX(origin.getX() - 30);
+        sprite.setY(origin.getY() - 33);
+    }
+
     private void generateType(){
         switch(MathUtils.random(1, 7)){
             case 1:

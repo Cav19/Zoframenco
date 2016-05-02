@@ -57,7 +57,7 @@ public class PlayScreen implements Screen {
         gamePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
         tiledMap = new TmxMapLoader().load("map_assets/map@17April.tmx");
         gameSoundPlayer = new soundPlayer();
-        allPassengers.add(new Passenger());
+        allPassengers.add(new Passenger("Normal"));
         spawnTime = setNextSpawnTime();
         timeOfLastPassenger = TimeUtils.millis();
     }
@@ -340,14 +340,10 @@ public class PlayScreen implements Screen {
             return true;
         }
 
-        return (!isTileType((float)(taxi.getX() + 0.68 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-                ||!isTileType((float)(taxi.getX() + 0.32 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-                ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.68 * taxi.getSprite().getHeight()), "road"))
-                ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.32 * taxi.getSprite().getHeight()), "road");
-    }
-
-    public static boolean isTileType(float x, float y, String type){
-        return isCellProperty(x, y, type);
+        return (!isCellProperty((float)(taxi.getX() + 0.68 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+                ||!isCellProperty((float)(taxi.getX() + 0.32 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+                ||!isCellProperty(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.68 * taxi.getSprite().getHeight()), "road"))
+                ||!isCellProperty(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.32 * taxi.getSprite().getHeight()), "road");
     }
 
     /**
@@ -357,7 +353,7 @@ public class PlayScreen implements Screen {
      * @param property The property to check the cell for.
      * @return True if the cell in question matches the property provided, false if it does not match.
      */
-    private static boolean isCellProperty(float x, float y, String property) {
+    public static boolean isCellProperty(float x, float y, String property) {
         MapLayers allLayers = tiledMap.getLayers();
         TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
@@ -377,7 +373,6 @@ public class PlayScreen implements Screen {
     public static void playCollisionNoise() {
         if (Math.abs(taxi.getVelocity()[0] * taxi.getOrientation()[0] + taxi.getVelocity()[1] * taxi.getOrientation()[1]) > 0.7) {
             gameSoundPlayer.playCollisionNoise();
-            gameSoundPlayer.playCarHorn();
         }
     }
 
