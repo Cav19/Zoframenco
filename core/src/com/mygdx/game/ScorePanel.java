@@ -44,7 +44,7 @@ public class ScorePanel extends Actor {
         table = new Table();
         table.setFillParent(true);
 
-        placeLabel = new Label("Top 3", new Label.LabelStyle(font, Color.BLACK));
+        placeLabel = new Label("High Scores", new Label.LabelStyle(font, Color.BLACK));
         firstSymbol = new Label("Paul Cantrell", new Label.LabelStyle(font, Color.DARK_GRAY));
         secondSymbol = new Label("Kofi Annan", new Label.LabelStyle(font, Color.DARK_GRAY));
         thirdSymbol = new Label("Brian Rosenberg", new Label.LabelStyle(font, Color.DARK_GRAY));
@@ -60,8 +60,8 @@ public class ScorePanel extends Actor {
         table.add(scoreLabel).padTop(10);
 
         table.row();
-        table.add(firstSymbol).padTop(10);
-        table.add(firstLabel).padTop(10);
+        table.add(firstSymbol).padTop(30);
+        table.add(firstLabel).padTop(30);
 
         table.row();
         table.add(secondSymbol).padTop(10);
@@ -72,8 +72,8 @@ public class ScorePanel extends Actor {
         table.add(thirdLabel).padTop(10);
 
         table.row();
-        table.add(currentSymbol).padTop(10);
-        table.add(currentLabel).padTop(10);
+        table.add(currentSymbol).padTop(30);
+        table.add(currentLabel).padTop(30);
     }
 
     private void setUpHudFont() {
