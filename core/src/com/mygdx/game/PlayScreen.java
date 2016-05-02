@@ -84,17 +84,19 @@ public class PlayScreen implements Screen {
         drawMap();
         drawCar(taxi);
         drawHud();
-
+        play();
         if (taxi.isFull()){
             drawTimer(timer);
         }
-        play();
         for (Passenger pass : allPassengers) {
             drawPassenger(pass);
         }
 
-        if (Gdx.input.isTouched()) {
-            //endGame();
+        if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
+            endGame();
+        }
+        if(MyGdxGame.worldTimer <= 0){
+            endGame();
         }
     }
 
@@ -110,6 +112,10 @@ public class PlayScreen implements Screen {
     }
 
     private void endGame(){
+        allPassengers.clear();
+        taxi.empty();
+        taxi.setX(V_WIDTH / 2);
+        taxi.setY((float)(PlayScreen.V_HEIGHT / 2.3));
         game.setScreen(new com.mygdx.game.EndScreen(game));
         gameSoundPlayer.playCarHorn();
         gameSoundPlayer.stop();

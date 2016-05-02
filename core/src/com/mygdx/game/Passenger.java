@@ -35,12 +35,15 @@ public class Passenger {
         this.type = type;
         if(type.equals("Normal")){
             fare = setFare(12);
+            sprite = new Sprite(new Texture("images/stick_figure.png"));
         }
         else if(type.equals("Poor")){
             fare = setFare(15);
+            sprite = new Sprite(new Texture("images/poor_person.png"));
         }
         else{
             fare = setFare(7);
+            sprite = new Sprite(new Texture("images/richie.png"));
         }
         sprite.setSize(75,100);
         sprite.setRegionWidth(75);

@@ -111,8 +111,8 @@ public class Hud {
             System.out.println("GAME OVER");
             System.out.println("FINAL SCORE: "+ game.score);
             stage.dispose();
-            System.out.println(Scores.toJson(game.score));
-            game.setScreen(new com.mygdx.game.EndScreen(game));
+            //System.out.println(Scores.toJson(game.score));
+            //game.setScreen(new com.mygdx.game.EndScreen(game));
         }
     }
 
