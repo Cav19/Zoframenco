@@ -89,9 +89,9 @@ public class PlayScreen implements Screen {
             drawTimer(timer);
         }
         play();
-            for (Passenger pass : allPassengers) {
-                drawPassenger(pass);
-            }
+        for (Passenger pass : allPassengers) {
+            drawPassenger(pass);
+        }
 
         if (Gdx.input.isTouched()) {
             //endGame();
@@ -340,10 +340,10 @@ public class PlayScreen implements Screen {
             return true;
         }
 
-        return (!isTileType((float)(taxi.getX() + 0.75 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-                ||!isTileType((float)(taxi.getX() + 0.25 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-                ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.75 * taxi.getSprite().getHeight()), "road"))
-                ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.25 * taxi.getSprite().getHeight()), "road");
+        return (!isTileType((float)(taxi.getX() + 0.68 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+                ||!isTileType((float)(taxi.getX() + 0.32 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+                ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.68 * taxi.getSprite().getHeight()), "road"))
+                ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.32 * taxi.getSprite().getHeight()), "road");
     }
 
     public static boolean isTileType(float x, float y, String type){
