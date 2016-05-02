@@ -9,7 +9,6 @@ import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
-import com.badlogic.gdx.utils.Json;
 
 import java.util.HashMap;
 
@@ -36,14 +35,11 @@ public class ScorePanel extends Actor {
 
     public BitmapFont font;
 
-    public static Json Scores = new Json();
-
-
     public ScorePanel (MyGdxGame game, SpriteBatch sb, Camera camera) {
         scores = new HashMap<Integer, Integer>();
-        scores.put(1, 300);
-        scores.put(2, 200);
-        scores.put(3, 100);
+        scores.put(1, 0);
+        scores.put(2, 0);
+        scores.put(3, 0);
 
         setUpHudFont();
         setUpTable();

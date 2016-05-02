@@ -7,6 +7,7 @@ import java.util.HashMap;
 public class MyGdxGame extends Game {
     public static HashMap<Integer, Location> locations;
     public static int score;
+    public static Integer worldTimer;
 
 
     @Override
@@ -49,5 +50,8 @@ public class MyGdxGame extends Game {
 
     public void addScore(int value){
         score += value;
+    }
+
+    public void updateScorePanel(){
     }
 }

@@ -23,7 +23,6 @@ public class Hud {
     private Viewport viewport;
 
     //score/time tracking variables
-    private Integer worldTimer;
     private float timeCount;
 
     //Scene2D widgets
@@ -44,7 +43,7 @@ public class Hud {
     public static Json Scores = new Json();
 
     public Hud(MyGdxGame game, SpriteBatch sb, Camera camera) {
-        worldTimer = 100;
+        game.worldTimer = 100;
         timeCount = 0;
         game.score = 0;
 
@@ -73,7 +72,7 @@ public class Hud {
         table.bottom();
         table.setFillParent(true);
 
-        countdownLabel = new Label(String.format("%03d", worldTimer), new Label.LabelStyle(font, Color.BLACK));  // Color.WHITE
+        countdownLabel = new Label(String.format("%03d", game.worldTimer), new Label.LabelStyle(font, Color.BLACK));  // Color.WHITE
         timeLabel = new Label("TIME", new Label.LabelStyle(font, Color.BLACK));
 
         gameNameLabel = new Label("The Daily Rider", new Label.LabelStyle(font, Color.BLACK));
@@ -104,11 +103,11 @@ public class Hud {
     public void updateTime(float dt) {
         timeCount += dt;
         if (timeCount >= 1) {
-            worldTimer--;
-            countdownLabel.setText(String.valueOf(worldTimer));
+            game.worldTimer--;
+            countdownLabel.setText(String.valueOf(game.worldTimer));
             timeCount = 0;
         }
-        if (worldTimer<=0){
+        if (game.worldTimer<=0){
             System.out.println("GAME OVER");
             System.out.println("FINAL SCORE: "+ game.score);
             stage.dispose();
@@ -124,7 +123,7 @@ public class Hud {
     }
 
     public int getTime(){
-        return this.worldTimer;
+        return this.game.worldTimer;
     }
 
     public void updateMessage(String msg){

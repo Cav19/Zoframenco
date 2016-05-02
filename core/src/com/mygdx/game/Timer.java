@@ -33,16 +33,15 @@ public class Timer {
 
     public void checkPosition(float X_pos, float Y_pos){
         Random generator = new Random();
-        if (!PlayScreen.blocked(X_pos,Y_pos,tiledMap)){
+        if (!PlayScreen.blocked(X_pos,Y_pos)){
             this.X_pos = X_pos;
             this.Y_pos = Y_pos;
         }
-        while(PlayScreen.blocked(X_pos,Y_pos,tiledMap)) {
+        while(PlayScreen.blocked(X_pos,Y_pos)) {
             this.X_pos =  generator.nextInt(PlayScreen.V_WIDTH) + 1;
             this.Y_pos =  generator.nextInt(PlayScreen.V_HEIGHT) + 1;
         }
     }
-
 
     public Sprite getSprite(){
         return sprite;
@@ -56,6 +55,4 @@ public class Timer {
     public void updateTimer(){
 
     }
-
-
 }
