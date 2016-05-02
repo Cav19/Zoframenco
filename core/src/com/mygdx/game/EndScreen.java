@@ -5,10 +5,12 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 /**
  * Created by zoray on 4/25/16.
@@ -58,13 +60,14 @@ public class EndScreen implements Screen{
         stage.act();
         stage.draw();
 
-//        restartButton.addListener(new ClickListener() {
-//            public void clicked(InputEvent event, float x, float y) {
-//                MyGdxGame g = new MyGdxGame();
-//                g.setScreen(new com.mygdx.game.PlayScreen(game));
-//                dispose();
-//            }
-//        });
+        restartButton.addListener(new ClickListener() {
+            public void clicked(InputEvent event, float x, float y) {
+                MyGdxGame g = new MyGdxGame();
+                g.setScreen(new com.mygdx.game.PlayScreen(game));
+                dispose();
+            }
+         });
+
 
         if (Gdx.input.isTouched()) {
             game.setScreen(new com.mygdx.game.HomeScreen(game));

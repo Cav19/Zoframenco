@@ -84,7 +84,16 @@ public class PlayScreen implements Screen {
         drawMap();
         drawCar(taxi);
         drawHud();
-        drawTaxiDebugRect();
+       /*
+        drawDebugRect(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY() + taxi.getSprite().getHeight());
+        drawDebugRect(taxi.getX() + taxi.getSprite().getWidth(), taxi.getY() + taxi.getSprite().getHeight() / 2);
+        drawDebugRect(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY());
+        drawDebugRect(taxi.getX(), taxi.getY() + taxi.getSprite().getHeight() / 2);
+
+        */
+
+
+
         if (taxi.isFull()){
             drawTimer(timer);
         }
@@ -98,7 +107,9 @@ public class PlayScreen implements Screen {
         }
     }
 
-    public void drawTaxiDebugRect(){
+
+
+    public void drawDebugRect(float  x, float y){
         //Rectangle rect = taxi.getSprite().getBoundingRectangle();
         ShapeRenderer renderer = new ShapeRenderer();
         renderer.setProjectionMatrix(camera.combined);
@@ -108,8 +119,9 @@ public class PlayScreen implements Screen {
         //renderer.rect(taxi.getSprite().getX() + taxi.getSprite().getWidth() / 2, taxi.getSprite().getY() + taxi.getSprite().getHeight(), 3, 3);
         //renderer.rect(taxi.getSprite().getX() + taxi.getSprite().getWidth() / 2, taxi.getSprite().getY(), 3, 3);
         //renderer.rect(taxi.getSprite().getX() + taxi.getSprite().getWidth(), taxi.getSprite().getY() + taxi.getSprite().getHeight() / 2, 3, 3);
-        renderer.rect(taxi.getX(), taxi.getY(), 3, 3);
-        renderer.rect(taxi.getSprite().getX(), taxi.getSprite().getY(), 3, 3);
+        //renderer.rect(taxi.getX(), taxi.getY(), 3, 3);
+        //renderer.rect(taxi.getSprite().getX(), taxi.getSprite().getY(), 3, 3);
+        renderer.rect(x,y,10,10);
         renderer.end();
     }
 
@@ -347,10 +359,15 @@ public class PlayScreen implements Screen {
             return true;
         }
 
-        if (!(isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY() + taxi.getSprite().getHeight(), "road")
-         || isTileType(taxi.getX() + taxi.getSprite().getWidth(), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-         || isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY(), "road")
-         || isTileType(taxi.getX(), taxi.getY() + taxi.getSprite().getHeight() / 2, "road"))) {
+
+        if (
+
+                (!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY() + taxi.getSprite().getHeight(), "road")
+         || !isTileType(taxi.getX() + taxi.getSprite().getWidth(), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+         || !isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY(), "road")
+         || !isTileType(taxi.getX(), taxi.getY() + taxi.getSprite().getHeight() / 2, "road"))
+
+                ) {
             return true;
         }
 
