@@ -84,15 +84,6 @@ public class PlayScreen implements Screen {
         drawMap();
         drawCar(taxi);
         drawHud();
-       /*
-        drawDebugRect(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY() + taxi.getSprite().getHeight());
-        drawDebugRect(taxi.getX() + taxi.getSprite().getWidth(), taxi.getY() + taxi.getSprite().getHeight() / 2);
-        drawDebugRect(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY());
-        drawDebugRect(taxi.getX(), taxi.getY() + taxi.getSprite().getHeight() / 2);
-
-        */
-
-
 
         if (taxi.isFull()){
             drawTimer(timer);
@@ -110,18 +101,11 @@ public class PlayScreen implements Screen {
 
 
     public void drawDebugRect(float  x, float y){
-        //Rectangle rect = taxi.getSprite().getBoundingRectangle();
         ShapeRenderer renderer = new ShapeRenderer();
         renderer.setProjectionMatrix(camera.combined);
         renderer.begin(ShapeRenderer.ShapeType.Line);
         renderer.setColor(Color.RED);
-        //renderer.rect(taxi.getSprite().getX(), taxi.getSprite().getY() + taxi.getSprite().getHeight() / 2, 3, 3);
-        //renderer.rect(taxi.getSprite().getX() + taxi.getSprite().getWidth() / 2, taxi.getSprite().getY() + taxi.getSprite().getHeight(), 3, 3);
-        //renderer.rect(taxi.getSprite().getX() + taxi.getSprite().getWidth() / 2, taxi.getSprite().getY(), 3, 3);
-        //renderer.rect(taxi.getSprite().getX() + taxi.getSprite().getWidth(), taxi.getSprite().getY() + taxi.getSprite().getHeight() / 2, 3, 3);
-        //renderer.rect(taxi.getX(), taxi.getY(), 3, 3);
-        //renderer.rect(taxi.getSprite().getX(), taxi.getSprite().getY(), 3, 3);
-        renderer.rect(x,y,10,10);
+        renderer.rect(x,y,3,3);
         renderer.end();
     }
 
@@ -314,9 +298,6 @@ public class PlayScreen implements Screen {
 
             }
 
-
-
-
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
                 gameSoundPlayer.playCarHorn();
             }
@@ -343,10 +324,8 @@ public class PlayScreen implements Screen {
      * @return True if a collision occurs, false if one does not.
      */
     public static boolean checkCarCollisions() {
-        //System.out.println(taxi.getX() + ", " + taxi.getY());
         taxi.setX(taxi.getX() + taxi.getVelocity()[0]);
         taxi.setY(taxi.getY() + taxi.getVelocity()[1]);
-        //System.out.println(taxi.getX() + ", " + taxi.getY());
 
         if (taxi.getX() + (int) taxi.getSprite().getWidth() >= PlayScreen.V_WIDTH) {
             return true;
@@ -361,15 +340,10 @@ public class PlayScreen implements Screen {
             return true;
         }
 
-        if ((!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY() + taxi.getSprite().getHeight(), "road")
-         || !isTileType(taxi.getX() + taxi.getSprite().getWidth(), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-         || !isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY(), "road")
-         || !isTileType(taxi.getX(), taxi.getY() + taxi.getSprite().getHeight() / 2, "road"))) {
-            return true;
-        }
-
-        return false;
-
+        return (!isTileType((float)(taxi.getX() + 0.75 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+                ||!isTileType((float)(taxi.getX() + 0.25 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+                ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.75 * taxi.getSprite().getHeight()), "road"))
+                ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.25 * taxi.getSprite().getHeight()), "road");
     }
 
     public static boolean isTileType(float x, float y, String type){
