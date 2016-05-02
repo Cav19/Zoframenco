@@ -10,15 +10,10 @@ import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 
-import java.util.HashMap;
-
 /**
  * Created by zoray on 4/26/16.
  */
 public class ScorePanel extends Actor {
-
-    //score tracking variables
-    private static HashMap<Integer, Integer> scores;
 
     //Scene2D widgets
     private Table table;
@@ -27,39 +22,39 @@ public class ScorePanel extends Actor {
     private Label firstSymbol;
     private Label secondSymbol;
     private Label thirdSymbol;
+    private Label currentSymbol;
 
     private Label scoreLabel;
     private Label firstLabel;
     private Label secondLabel;
     private Label thirdLabel;
+    private Label currentLabel;
 
-    public BitmapFont font;
+    private BitmapFont font;
+
+    private final MyGdxGame game;
 
     public ScorePanel (MyGdxGame game, SpriteBatch sb, Camera camera) {
-        scores = new HashMap<Integer, Integer>();
-        scores.put(1, 0);
-        scores.put(2, 0);
-        scores.put(3, 0);
-
+        this.game = game;
         setUpHudFont();
         setUpTable();
     }
 
     private void setUpTable() {
         table = new Table();
-        //table.top();
         table.setFillParent(true);
 
-
-        placeLabel = new Label("Rank", new Label.LabelStyle(font, Color.BLACK));
-        firstSymbol = new Label("#1", new Label.LabelStyle(font, Color.BLUE));
-        secondSymbol = new Label("#2", new Label.LabelStyle(font, Color.DARK_GRAY));
-        thirdSymbol = new Label("#3 ", new Label.LabelStyle(font, Color.DARK_GRAY));
+        placeLabel = new Label("Top 3", new Label.LabelStyle(font, Color.BLACK));
+        firstSymbol = new Label("Paul Cantrell", new Label.LabelStyle(font, Color.BLUE));
+        secondSymbol = new Label("Kofi Annan", new Label.LabelStyle(font, Color.DARK_GRAY));
+        thirdSymbol = new Label("Brian Rosenberg", new Label.LabelStyle(font, Color.DARK_GRAY));
+        currentSymbol = new Label("Player", new Label.LabelStyle(font, Color.DARK_GRAY));
 
         scoreLabel = new Label("$$$", new Label.LabelStyle(font, Color.BLACK));
-        firstLabel = new Label("$" + String.format("%02d", scores.get(1)), new Label.LabelStyle(font, Color.BLUE));
-        secondLabel = new Label("$" + String.format("%02d", scores.get(2)), new Label.LabelStyle(font, Color.DARK_GRAY));
-        thirdLabel = new Label("$" + String.format("%02d", scores.get(3)), new Label.LabelStyle(font, Color.DARK_GRAY));
+        firstLabel = new Label("$" + String.format("%02d", 2896), new Label.LabelStyle(font, Color.DARK_GRAY));
+        secondLabel = new Label("$" + String.format("%02d", 2541), new Label.LabelStyle(font, Color.DARK_GRAY));
+        thirdLabel = new Label("$" + String.format("%02d", 2175), new Label.LabelStyle(font, Color.DARK_GRAY));
+        currentLabel = new Label("$" + String.format("%02d", game.score), new Label.LabelStyle(font, Color.BLUE));
 
         table.add(placeLabel).padTop(10);
         table.add(scoreLabel).padTop(10);
@@ -75,6 +70,10 @@ public class ScorePanel extends Actor {
         table.row();
         table.add(thirdSymbol).padTop(10);
         table.add(thirdLabel).padTop(10);
+
+        table.row();
+        table.add(currentSymbol).padTop(10);
+        table.add(currentLabel).padTop(10);
     }
 
     private void setUpHudFont() {
@@ -88,13 +87,5 @@ public class ScorePanel extends Actor {
 
     public Table getTable() {
         return table;
-    }
-
-    public static HashMap<Integer, Integer> getScores() {
-        return scores;
-    }
-
-    public static void setScores(HashMap<Integer, Integer> scores) {
-        ScorePanel.scores = scores;
     }
 }
