@@ -129,6 +129,9 @@ public class PlayScreen implements Screen {
         if (taxi.isFull()) {
             hud.updateMessage("Drop me at " + taxi.getPassenger().getDestination().getName());
         }
+        else{
+            hud.updateMessage("Go pick up a passenger!");
+        }
         hud.updateTime(Gdx.graphics.getDeltaTime());
         hud.stage.draw();
     }
@@ -307,10 +310,7 @@ public class PlayScreen implements Screen {
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
                 gameSoundPlayer.playCarHorn();
             }
-
-            else if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
-                System.exit(-1);
-            }
+            
        else if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
             taxi.move(1);
             playTiresNoise();
