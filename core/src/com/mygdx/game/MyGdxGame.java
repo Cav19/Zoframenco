@@ -9,18 +9,15 @@ public class MyGdxGame extends Game {
     public static int score;
     public static Integer worldTimer;
 
-
     @Override
     public void create () {
         createLocations();
         setScreen(new HomeScreen(this));
-
     }
 
     @Override
     public void render () {
         super.render();
-
     }
 
     /**
@@ -50,8 +47,5 @@ public class MyGdxGame extends Game {
 
     public void addScore(int value){
         score += value;
-    }
-
-    public void updateScorePanel(){
     }
 }

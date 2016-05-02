@@ -47,8 +47,6 @@ public class Car {
         sprite.setOrigin(24, 24);
         setOrientation(0, 1);
         currentDirection=UP;
-        System.out.println(sprite.getX() + ", " + sprite.getY());
-        System.out.println(sprite.getOriginX() + ", " + sprite.getOriginY());
     }
 
 

@@ -99,12 +99,17 @@ public class PlayScreen implements Screen {
     }
 
     public void drawTaxiDebugRect(){
-        Rectangle bounds = taxi.getSprite().getBoundingRectangle();
+        //Rectangle rect = taxi.getSprite().getBoundingRectangle();
         ShapeRenderer renderer = new ShapeRenderer();
         renderer.setProjectionMatrix(camera.combined);
         renderer.begin(ShapeRenderer.ShapeType.Line);
         renderer.setColor(Color.RED);
-        renderer.rect(bounds.getX(), bounds.getY(), bounds.getWidth(), bounds.getHeight());
+        //renderer.rect(taxi.getSprite().getX(), taxi.getSprite().getY() + taxi.getSprite().getHeight() / 2, 3, 3);
+        //renderer.rect(taxi.getSprite().getX() + taxi.getSprite().getWidth() / 2, taxi.getSprite().getY() + taxi.getSprite().getHeight(), 3, 3);
+        //renderer.rect(taxi.getSprite().getX() + taxi.getSprite().getWidth() / 2, taxi.getSprite().getY(), 3, 3);
+        //renderer.rect(taxi.getSprite().getX() + taxi.getSprite().getWidth(), taxi.getSprite().getY() + taxi.getSprite().getHeight() / 2, 3, 3);
+        renderer.rect(taxi.getX(), taxi.getY(), 3, 3);
+        renderer.rect(taxi.getSprite().getX(), taxi.getSprite().getY(), 3, 3);
         renderer.end();
     }
 
@@ -342,10 +347,10 @@ public class PlayScreen implements Screen {
             return true;
         }
 
-        if (!(isTileType(taxi.getSprite().getX() + taxi.getSprite().getWidth() / 2, taxi.getSprite().getY() + taxi.getSprite().getHeight(), "road")
-         || isTileType(taxi.getSprite().getX() + taxi.getSprite().getWidth(), taxi.getSprite().getY() + taxi.getSprite().getHeight() / 2, "road")
-         || isTileType(taxi.getSprite().getX() + taxi.getSprite().getWidth() / 2, taxi.getSprite().getY(), "road")
-         || isTileType(taxi.getSprite().getX(), taxi.getSprite().getY() + taxi.getSprite().getHeight() / 2, "road"))) {
+        if (!(isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY() + taxi.getSprite().getHeight(), "road")
+         || isTileType(taxi.getX() + taxi.getSprite().getWidth(), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+         || isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY(), "road")
+         || isTileType(taxi.getX(), taxi.getY() + taxi.getSprite().getHeight() / 2, "road"))) {
             return true;
         }
 
@@ -355,17 +360,6 @@ public class PlayScreen implements Screen {
 
     public static boolean isTileType(float x, float y, String type){
         return isCellProperty(x, y, type);
-    }
-
-    /**
-     * Checks to see if a specific cell on the map is blocked meaning that the car should not be allowed to drive on it.
-     * @param x The x coordinate of the cell.
-     * @param y The y coordinate of the cell.
-     * @return True if the cell is blocked, false if not.
-     */
-    // change to public
-    public static boolean blocked(float x, float y) {
-        return !isCellProperty(x, y, "road");
     }
 
     /**
