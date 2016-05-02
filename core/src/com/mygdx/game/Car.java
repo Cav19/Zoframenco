@@ -53,7 +53,6 @@ public class Car {
 
     private void accelerate(float acceleration){
         //TO BE UNCOMMENTED AFTER FIXING COLLISION
-        //if (!PlayScreen.checkCarCollisions()) {
 
             if (this.velocity[0] == 0) {
                 this.velocity[0] = (float) (orientation[0] * 0.3);
@@ -69,7 +68,6 @@ public class Car {
             }
             driveForward();
         }
-    //}
 
     private void driveForward() {
         float oldX = X_pos;
