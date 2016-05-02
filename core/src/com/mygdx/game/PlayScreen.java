@@ -331,8 +331,10 @@ public class PlayScreen implements Screen {
      * @return True if a collision occurs, false if one does not.
      */
     public static boolean checkCarCollisions() {
+        //System.out.println(taxi.getX() + ", " + taxi.getY());
         taxi.setX(taxi.getX() + taxi.getVelocity()[0]);
         taxi.setY(taxi.getY() + taxi.getVelocity()[1]);
+        //System.out.println(taxi.getX() + ", " + taxi.getY());
 
         if (taxi.getX() + (int) taxi.getSprite().getWidth() >= PlayScreen.V_WIDTH) {
             return true;
@@ -346,14 +348,7 @@ public class PlayScreen implements Screen {
         if (taxi.getY() <= 0) {
             return true;
         }
-
-        if (!(isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY() + taxi.getSprite().getHeight(), "road")
-         || isTileType(taxi.getX() + taxi.getSprite().getWidth(), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-         || isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, taxi.getY(), "road")
-         || isTileType(taxi.getX(), taxi.getY() + taxi.getSprite().getHeight() / 2, "road"))) {
-            return true;
-        }
-
+        
         return false;
 
     }
