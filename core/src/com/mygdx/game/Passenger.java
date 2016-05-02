@@ -30,7 +30,7 @@ public class Passenger {
     }
 
     private void generateType(){
-        switch(MathUtils.random(1, 8)){
+        switch(MathUtils.random(1, 7)){
             case 1:
                 type = "Normal";
                 fare = setFare(12);
@@ -48,28 +48,23 @@ public class Passenger {
                 break;
             case 4:
                 type = "Poor";
-                fare = setFare(15);
+                fare = setFare(7);
                 sprite = new Sprite(new Texture("images/poor_person.png"));
                 break;
             case 5:
                 type = "Poor";
-                fare = setFare(15);
+                fare = setFare(7);
                 sprite = new Sprite(new Texture("images/poor_person2.png"));
                 break;
             case 6:
                 type = "Richie";
-                fare = setFare(7);
+                fare = setFare(15);
                 sprite = new Sprite(new Texture("images/richie.png"));
                 break;
             case 7:
                 type = "Richie";
-                fare = setFare(7);
+                fare = setFare(15);
                 sprite = new Sprite(new Texture("images/richie2.png"));
-                break;
-            case 8:
-                type = "Pirate";
-                fare = 0;
-                sprite = new Sprite(new Texture("images/pirate.png"));
                 break;
         }
     }
