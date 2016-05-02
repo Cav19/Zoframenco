@@ -45,10 +45,10 @@ public class ScorePanel extends Actor {
         table.setFillParent(true);
 
         placeLabel = new Label("Top 3", new Label.LabelStyle(font, Color.BLACK));
-        firstSymbol = new Label("Paul Cantrell", new Label.LabelStyle(font, Color.BLUE));
+        firstSymbol = new Label("Paul Cantrell", new Label.LabelStyle(font, Color.DARK_GRAY));
         secondSymbol = new Label("Kofi Annan", new Label.LabelStyle(font, Color.DARK_GRAY));
         thirdSymbol = new Label("Brian Rosenberg", new Label.LabelStyle(font, Color.DARK_GRAY));
-        currentSymbol = new Label("Player", new Label.LabelStyle(font, Color.DARK_GRAY));
+        currentSymbol = new Label("Player", new Label.LabelStyle(font, Color.BLUE));
 
         scoreLabel = new Label("$$$", new Label.LabelStyle(font, Color.BLACK));
         firstLabel = new Label("$" + String.format("%02d", 2896), new Label.LabelStyle(font, Color.DARK_GRAY));
