@@ -77,9 +77,30 @@ public class Car {
         if (!PlayScreen.checkCarCollisions()) {
             sprite.setPosition(X_pos, Y_pos);
         } else {
-            X_pos = oldX;
-            Y_pos = oldY;
-            collide();
+        /*
+
+            try {
+
+                collide();
+                velocity[0] = (float)0.1 * orientation[1];
+                velocity[1] = (float)0.1 * orientation[0];
+                driveForward();
+            } catch (java.lang.StackOverflowError e) {
+                X_pos=oldX;
+                Y_pos=oldY;
+                System.out.println(X_pos+ " "+ Y_pos);
+
+                velocity[0]=0;
+                velocity[1]=1;
+
+            }
+
+            */
+              collide();
+
+              X_pos = oldX;
+              Y_pos = oldY;
+
         }
     }
 
