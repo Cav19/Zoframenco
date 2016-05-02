@@ -56,7 +56,7 @@ public class HomeScreen implements Screen{
         batch.end();
 
         if (Gdx.input.isTouched()) {
-            game.setScreen(new com.mygdx.game.PlayScreen(game));
+            game.setScreen(new com.mygdx.game.InstructionScreen(game));
             dispose();
         }
     }

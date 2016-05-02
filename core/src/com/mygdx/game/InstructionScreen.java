@@ -5,11 +5,9 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
-import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
-import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 
 /**
  * Created by zoray on 4/30/16.
@@ -23,6 +21,8 @@ public class InstructionScreen implements Screen {
     private TextButton startButton;
     private TextButton backButton;
     private SpriteBatch batch;
+
+    private Texture instruction= new Texture(Gdx.files.internal("instruction_small.png"));
 
     public static final int V_WIDTH = 1000;
     public static final int V_HEIGHT = 1150;
@@ -40,8 +40,14 @@ public class InstructionScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(250/255f, 236/255f, 129/255f, 1);
+        Gdx.gl.glClearColor(255/255f, 255/255f, 255/255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        SpriteBatch batch = new SpriteBatch();
+
+        batch.begin();
+        batch.draw(instruction, 0, 0);
+        batch.end();
 
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
@@ -58,6 +64,7 @@ public class InstructionScreen implements Screen {
         stage.act();
         stage.draw();
 
+/*
         startButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
                 MyGdxGame g = new MyGdxGame();
@@ -73,6 +80,12 @@ public class InstructionScreen implements Screen {
                 dispose();
             }
         });
+*/
+
+        if (Gdx.input.isTouched()) {
+            game.setScreen(new com.mygdx.game.PlayScreen(game));
+            dispose();
+        }
     }
 
     @Override
