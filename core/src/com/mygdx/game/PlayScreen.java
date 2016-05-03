@@ -62,6 +62,13 @@ public class PlayScreen implements Screen {
         timeOfLastPassenger = TimeUtils.millis();
     }
 
+    // check if the car is at the same position as timer
+    public boolean taxiAtTimer(){
+        //System.out.println("Distance to timer:  " ) ;
+        return(Math.hypot(taxi.getX() - timer.X_pos, taxi.getY() - timer.Y_pos) < 40
+                && timer.getSprite().getColor().a != 0);
+    }
+
     @Override
     public void show() {
        playBackGroundMusic();
@@ -83,11 +90,9 @@ public class PlayScreen implements Screen {
         setUpScreen();
         drawMap();
         drawCar(taxi);
+        drawTimer(timer);
         drawHud();
-        play();
-        if (taxi.isFull()){
-            drawTimer(timer);
-        }
+        play();  // calls taxiAtTimer()
         for (Passenger pass : allPassengers) {
             drawPassenger(pass);
         }
@@ -99,8 +104,6 @@ public class PlayScreen implements Screen {
             endGame();
         }
     }
-
-
 
     public void drawDebugRect(float  x, float y){
         ShapeRenderer renderer = new ShapeRenderer();
@@ -212,6 +215,12 @@ public class PlayScreen implements Screen {
 
         listenToInput();
 
+        if (taxiAtTimer()) {
+            System.out.println("Hi I am at timer");
+            game.worldTimer += 10;
+            timer.removeTimer();
+        }
+
         /**
          * Spawns a new passenger if the time since the last passenger has exceeded the designated spawn timer.
          */
@@ -245,7 +254,9 @@ public class PlayScreen implements Screen {
                 hud.updateScore();
                 taxi.empty();
             }
+
         }
+
     }
 
     /**
@@ -310,7 +321,7 @@ public class PlayScreen implements Screen {
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
                 gameSoundPlayer.playCarHorn();
             }
-            
+
        else if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
             taxi.move(1);
             playTiresNoise();
@@ -330,7 +341,6 @@ public class PlayScreen implements Screen {
      * @return True if a collision occurs, false if one does not.
      */
     public static boolean checkCarCollisions() {
-
         taxi.setX(taxi.getX() + taxi.getVelocity()[0]);
         taxi.setY(taxi.getY() + taxi.getVelocity()[1]);
 
@@ -355,6 +365,7 @@ public class PlayScreen implements Screen {
             return true;
         }
 
+        //return false;
 
         }
 

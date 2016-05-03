@@ -39,8 +39,8 @@ public class Car {
     public Car(){
         sprite = new Sprite(new Texture("images/48car.png"));
         sprite.setSize(48, 48);
-        X_pos = PlayScreen.V_WIDTH / 2;
-        Y_pos = (float)(PlayScreen.V_HEIGHT / 2.3);
+        X_pos = PlayScreen.V_WIDTH / 6;
+        Y_pos = (float)(PlayScreen.V_HEIGHT / 5);
         sprite.setPosition(X_pos, Y_pos);
         sprite.setOrigin(24, 24);
         setOrientation(0, 1);
