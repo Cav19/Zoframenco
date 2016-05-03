@@ -66,7 +66,7 @@ public class PlayScreen implements Screen {
     public boolean taxiAtTimer(){
         //System.out.println("Distance to timer:  " ) ;
         return(Math.hypot(taxi.getX() - timer.X_pos, taxi.getY() - timer.Y_pos) < 40
-                && timer.getSprite().getColor().a != 0);
+                );
     }
 
     @Override
@@ -90,7 +90,10 @@ public class PlayScreen implements Screen {
         setUpScreen();
         drawMap();
         drawCar(taxi);
-        drawTimer(timer);
+        if (taxi.isFull()){
+            System.out.println("taxi is full");
+            drawTimer(timer);
+        }
         drawHud();
         play();  // calls taxiAtTimer()
         for (Passenger pass : allPassengers) {
@@ -216,7 +219,7 @@ public class PlayScreen implements Screen {
         listenToInput();
 
         if (taxiAtTimer()) {
-            System.out.println("Hi I am at timer");
+            //System.out.println("Hi I am at timer");
             game.worldTimer += 10;
             timer.removeTimer();
         }

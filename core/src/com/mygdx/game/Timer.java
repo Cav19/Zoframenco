@@ -43,7 +43,7 @@ public class Timer {
     }
 
     public void removeTimer(){
-        sprite.setAlpha(0);
+        sprite.setPosition(-100,-100);
     }
 
     /*
