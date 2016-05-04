@@ -45,6 +45,7 @@ public class PlayScreen implements Screen {
     private Timer timer = new Timer();
     public static boolean playingAGame;
     String inputKey="";
+    private float pulseTime = 0;
 
 
     public PlayScreen(MyGdxGame game){
@@ -80,6 +81,7 @@ public class PlayScreen implements Screen {
      */
     @Override
     public void render(float delta) {
+        Gdx.gl20.glLineWidth(2f);
         setUpScreen();
         drawMap();
         drawCar(taxi);
@@ -87,6 +89,7 @@ public class PlayScreen implements Screen {
         play();
         if (taxi.isFull()){
             //drawTimer(timer);
+            highlightDestination(taxi.getPassenger().getDestination(), delta);
         }
         for (Passenger pass : allPassengers) {
             drawPassenger(pass);
@@ -189,15 +192,17 @@ public class PlayScreen implements Screen {
      * Highlights the destination of the passenger currently in the user's car.
      * @param destination The destination on the map to be highlighted.
      */
-    private void highlightDestination(Location destination){
-        Gdx.gl20.glLineWidth(5f);
+    private void highlightDestination(Location destination, float delta){
+        pulseTime += delta * 60;
+        float pulse = (2.8f * MathUtils.cos(pulseTime / (2 * MathUtils.PI))) + 2;
+        Gdx.gl20.glLineWidth(5f + pulse / 2);
         Rectangle box = destination.getRectangle();
         ShapeRenderer renderer = new ShapeRenderer();
         renderer.setProjectionMatrix(camera.combined);
         renderer.updateMatrices();
         renderer.setColor(Color.MAGENTA);
         renderer.begin(ShapeRenderer.ShapeType.Line);
-        renderer.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
+        renderer.rect(box.getX() - pulse, box.getY() - pulse, box.getWidth() + 2 * pulse, box.getHeight() + 2 * pulse);
         renderer.end();
     }
 
@@ -236,7 +241,6 @@ public class PlayScreen implements Screen {
          * Highlights the target destination and unloads the passenger from the taxi upon arrival.
          */
         if (taxi.isFull()){
-            highlightDestination(taxi.getPassenger().getDestination());
             if (taxi.hasArrived(taxi.getPassenger().getDestination())) {
                 gameSoundPlayer.playMoneySound();
                 game.addScore(taxi.getPassenger().getFare());
