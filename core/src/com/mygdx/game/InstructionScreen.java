@@ -5,9 +5,13 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 /**
  * Created by zoray on 4/30/16.
@@ -15,14 +19,16 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 public class InstructionScreen implements Screen {
 
     private final MyGdxGame game;
-    private OrthographicCamera camera;
+    private static OrthographicCamera camera;
     private Skin skin;
     private Stage stage;
     private TextButton startButton;
     private TextButton backButton;
     private SpriteBatch batch;
+    private Viewport port;
 
-    private Texture instruction= new Texture(Gdx.files.internal("instruction_small.png"));
+
+    private Texture instruction= new Texture(Gdx.files.internal("instruction.png"));
 
     public static final int V_WIDTH = 1000;
     public static final int V_HEIGHT = 1150;
@@ -31,6 +37,16 @@ public class InstructionScreen implements Screen {
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
+        port = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+
+        stage = new Stage();
+        Gdx.input.setInputProcessor(stage);
+
+        createButtonSkin();
+        startButton = new TextButton("Start Game", skin);
+        stage.addActor(startButton);
+        backButton = new TextButton("Back to Home", skin);
+        stage.addActor(backButton);
     }
 
     @Override
@@ -46,25 +62,19 @@ public class InstructionScreen implements Screen {
         SpriteBatch batch = new SpriteBatch();
 
         batch.begin();
-        batch.draw(instruction, 0, 0);
+        batch.draw(instruction,
+                Gdx.graphics.getWidth()/10,
+                Gdx.graphics.getHeight()/5,
+                Gdx.graphics.getWidth() - Gdx.graphics.getWidth()/10,
+                Gdx.graphics.getHeight() - Gdx.graphics.getHeight()/10);
         batch.end();
 
-        stage = new Stage();
-        Gdx.input.setInputProcessor(stage);
-
-        createButtonSkin();
-        startButton = new TextButton("Start Game", skin);
         startButton.setPosition(Gdx.graphics.getWidth()/4 - Gdx.graphics.getWidth()/10 , Gdx.graphics.getHeight()/10);
-        stage.addActor(startButton);
-
-        backButton = new TextButton("Back to Home", skin);
         backButton.setPosition(Gdx.graphics.getWidth()*3/4 - Gdx.graphics.getWidth()/10 , Gdx.graphics.getHeight()/10);
-        stage.addActor(backButton);
 
         stage.act();
         stage.draw();
 
-/*
         startButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
                 MyGdxGame g = new MyGdxGame();
@@ -80,9 +90,8 @@ public class InstructionScreen implements Screen {
                 dispose();
             }
         });
-*/
 
-        if (Gdx.input.isTouched()) {
+       if (Gdx.input.isTouched()) {
             game.setScreen(new com.mygdx.game.PlayScreen(game));
             dispose();
         }

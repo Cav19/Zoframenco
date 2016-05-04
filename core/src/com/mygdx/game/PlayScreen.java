@@ -97,6 +97,9 @@ public class PlayScreen implements Screen {
         drawTimer(timer);
         drawHud();
         play();
+        if (taxi.isFull()){
+            drawTimer(timer);
+        }
         for (Passenger pass : allPassengers) {
             drawPassenger(pass);
         }
@@ -108,6 +111,8 @@ public class PlayScreen implements Screen {
             endGame();
         }
     }
+
+
 
     public void drawDebugRect(float  x, float y){
         ShapeRenderer renderer = new ShapeRenderer();
@@ -134,7 +139,7 @@ public class PlayScreen implements Screen {
      */
     private void drawHud() {
         if (taxi.isFull()) {
-            hud.updateMessage("Drop me at " + taxi.getPassenger().getDestination().getName());
+            hud.updateMessage("Drop me at " + taxi.getPassenger().getDestination().getName() + "!");
         }
         else{
             hud.updateMessage("Go pick up a passenger!");
@@ -224,10 +229,8 @@ public class PlayScreen implements Screen {
          */
         if(timeSinceLastPassenger >= spawnTime){
             spawnPassenger();
-            System.out.println("Timer" + isTileType(timer.getX(),timer.getY(),"road"));
             timeOfLastPassenger = TimeUtils.millis();
             spawnTime = setNextSpawnTime();
-
         }
 
         /**
@@ -253,24 +256,16 @@ public class PlayScreen implements Screen {
                 game.addScore(taxi.getPassenger().getFare());
                 hud.updateScore();
                 taxi.empty();
-                timer.randomlyPlaceTimer();
-                if (isTaxiAtTimer()) {
-                    System.out.println("Hi I am at timer");
-                    game.worldTimer += 10;
-                    timer.removeTimer();
-                }
             }
         }
-
     }
-
 
     /**
      * Sets the spawn time for the next passenger.
      * @return The spawn time of the next passenger in milliseconds.
      */
     private long setNextSpawnTime(){
-        return MathUtils.random(6000, 12000);
+        return MathUtils.random(4000, 10000);
     }
 
     /**
@@ -327,7 +322,7 @@ public class PlayScreen implements Screen {
             if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
                 gameSoundPlayer.playCarHorn();
             }
-
+            
        else if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
             taxi.move(1);
             playTiresNoise();
@@ -347,6 +342,7 @@ public class PlayScreen implements Screen {
      * @return True if a collision occurs, false if one does not.
      */
     public static boolean checkCarCollisions() {
+
         taxi.setX(taxi.getX() + taxi.getVelocity()[0]);
         taxi.setY(taxi.getY() + taxi.getVelocity()[1]);
 
@@ -371,7 +367,6 @@ public class PlayScreen implements Screen {
             return true;
         }
 
-        //return false;
 
         }
 
@@ -387,7 +382,7 @@ public class PlayScreen implements Screen {
      * @param property The property to check the cell for.
      * @return True if the cell in question matches the property provided, false if it does not match.
      */
-    private static boolean isCellProperty(float x, float y, String property) {
+    public static boolean isCellProperty(float x, float y, String property) {
         MapLayers allLayers = tiledMap.getLayers();
         TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));

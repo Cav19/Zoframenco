@@ -1,10 +1,8 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -34,9 +32,9 @@ public class ScorePanel extends Actor {
 
     private final MyGdxGame game;
 
-    public ScorePanel (MyGdxGame game, SpriteBatch sb, Camera camera) {
+    public ScorePanel (MyGdxGame game) {
         this.game = game;
-        setUpHudFont();
+        setUpScoreFont();
         setUpTable();
     }
 
@@ -76,7 +74,7 @@ public class ScorePanel extends Actor {
         table.add(currentLabel).padTop(30);
     }
 
-    private void setUpHudFont() {
+    private void setUpScoreFont() {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/LiberationMono-Regular.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 25;

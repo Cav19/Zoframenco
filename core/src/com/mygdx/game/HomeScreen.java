@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -11,6 +12,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 /**
  * Created by zoray on 3/23/16.
@@ -18,21 +21,40 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class HomeScreen implements Screen{
 
+    public static final int V_WIDTH = 1000;
+    public static final int V_HEIGHT = 1150;
+
     private final MyGdxGame game;
-    private Texture background= new Texture(Gdx.files.internal("images/main_menu_small.png"));
-    private FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/SIXTY.TTF"));
-    private FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-    private Skin skin;
-    private Stage stage = new Stage();
+    private Viewport homePort;
+    private static OrthographicCamera camera;
+    private Stage stage;
+
+    private Texture background;
+
     private Table buttonTable = new Table();
     private TextButton startGameButton;
     private TextButton instructionButton;
+
+    private FreeTypeFontGenerator generator;
+    private FreeTypeFontGenerator.FreeTypeFontParameter parameter;
     private BitmapFont font;
+    private Skin skin;
 
 
     public HomeScreen(final MyGdxGame game){
         this.game = game;
-        Gdx.graphics.setWindowedMode(PlayScreen.V_WIDTH, PlayScreen.V_HEIGHT);
+        Gdx.graphics.setWindowedMode(V_WIDTH, V_HEIGHT);
+        homePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+
+        background = new Texture(Gdx.files.internal("images/main_menu_small.png"));
+        generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/SIXTY.TTF"));
+        parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+
+        font = new BitmapFont();
+        setUpFont();
+
+        stage = new Stage();
+        //createButtonTable();
     }
 
     @Override
@@ -44,12 +66,10 @@ public class HomeScreen implements Screen{
     public void render(float delta) {
 
         SpriteBatch batch = new SpriteBatch();
-        font = new BitmapFont();
-        setUpFont();
 
         batch.begin();
 
-        batch.draw(background,0,0);
+        batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         font.draw(batch, "THE DAILY RIDER!", 20, 660);
         font.draw(batch, "Team Zoframenco", 20, 600);
 
@@ -76,10 +96,10 @@ public class HomeScreen implements Screen{
     private void setUpFont() {
         parameter.size = 44;
         parameter.color = Color.YELLOW;
-        font = generator.generateFont(parameter);
         parameter.borderWidth = 2;
+        parameter.borderColor = Color.BLACK;
+        font = generator.generateFont(parameter);
     }
-
 
     @Override
     public void resize(int width, int height) {
