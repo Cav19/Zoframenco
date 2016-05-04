@@ -28,7 +28,7 @@ public class InstructionScreen implements Screen {
     private Viewport port;
 
 
-    private Texture instruction= new Texture(Gdx.files.internal("instruction_small.png"));
+    private Texture instruction= new Texture(Gdx.files.internal("instruction.png"));
 
     public static final int V_WIDTH = 1000;
     public static final int V_HEIGHT = 1150;
@@ -62,7 +62,11 @@ public class InstructionScreen implements Screen {
         SpriteBatch batch = new SpriteBatch();
 
         batch.begin();
-        batch.draw(instruction, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.draw(instruction,
+                Gdx.graphics.getWidth()/10,
+                Gdx.graphics.getHeight()/5,
+                Gdx.graphics.getWidth() - Gdx.graphics.getWidth()/10,
+                Gdx.graphics.getHeight() - Gdx.graphics.getHeight()/10);
         batch.end();
 
         startButton.setPosition(Gdx.graphics.getWidth()/4 - Gdx.graphics.getWidth()/10 , Gdx.graphics.getHeight()/10);

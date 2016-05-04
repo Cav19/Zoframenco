@@ -66,7 +66,7 @@ public class HomeScreen implements Screen{
 
         batch.begin();
 
-        batch.draw(background,0,0);
+        batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         font.draw(batch, "THE DAILY RIDER!", 20, 660);
         font.draw(batch, "Team Zoframenco", 20, 600);
 
