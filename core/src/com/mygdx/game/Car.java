@@ -48,9 +48,6 @@ public class Car {
     }
 
 
-
-
-
     private void accelerate(float acceleration){
         //TO BE UNCOMMENTED AFTER FIXING COLLISION
 

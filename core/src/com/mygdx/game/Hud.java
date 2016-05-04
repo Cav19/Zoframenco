@@ -20,21 +20,15 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 public class Hud {
     //stage and viewport
     public Stage stage;
-    private Viewport viewport;
 
     //score/time tracking variables
     private float timeCount;
 
     //Scene2D widgets
     private static Label scoreLabel;
-    private Label timeLabel;
     private Label countdownLabel;
-    private Label gameNameLabel;
-    private Label groupNameLabel;
-    private Label scoreTextLabel;
 
     private Label messageLabel;
-    private Label messageTextLabel;
 
     private final MyGdxGame game;
 
@@ -43,11 +37,11 @@ public class Hud {
     public static Json Scores = new Json();
 
     public Hud(MyGdxGame game, SpriteBatch sb, Camera camera) {
-        game.worldTimer = 100;
+        MyGdxGame.worldTimer = 100;
         timeCount = 0;
-        game.score = 0;
+        MyGdxGame.score = 0;
 
-        viewport = new FitViewport(PlayScreen.V_WIDTH, PlayScreen.V_HEIGHT, camera);
+        Viewport viewport = new FitViewport(PlayScreen.V_WIDTH, PlayScreen.V_HEIGHT, camera);
         stage = new Stage(viewport, sb);
 
         this.game = game;
@@ -58,7 +52,6 @@ public class Hud {
     }
 
     private void setUpHudFont() {
-        //Setting up font size using FreeTypeFontGenerator
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/LiberationMono-Regular.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 25;
@@ -72,16 +65,15 @@ public class Hud {
         table.bottom();
         table.setFillParent(true);
 
-        countdownLabel = new Label(String.format("%03d", game.worldTimer), new Label.LabelStyle(font, Color.BLACK));  // Color.WHITE
-        timeLabel = new Label("TIME", new Label.LabelStyle(font, Color.BLACK));
+        countdownLabel = new Label(String.format("%03d", MyGdxGame.worldTimer), new Label.LabelStyle(font, Color.BLACK));  // Color.WHITE
+        Label timeLabel = new Label("TIME", new Label.LabelStyle(font, Color.BLACK));
 
-        gameNameLabel = new Label("The Daily Rider", new Label.LabelStyle(font, Color.BLACK));
-        groupNameLabel = new Label("Zoframenco", new Label.LabelStyle(font, Color.BLACK));
+        Label exitLabel = new Label("press ESC to exit", new Label.LabelStyle(font, Color.MAGENTA));
 
-        scoreTextLabel = new Label("Score", new Label.LabelStyle(font, Color.BLACK));
-        scoreLabel = new Label("$" + String.format("%02d", game.score), new Label.LabelStyle(font, Color.BLACK));
+        Label scoreTextLabel = new Label("Score", new Label.LabelStyle(font, Color.BLACK));
+        scoreLabel = new Label("$" + String.format("%02d", MyGdxGame.score), new Label.LabelStyle(font, Color.BLACK));
 
-        messageTextLabel = new Label("Message: ", new Label.LabelStyle(font, Color.BLACK));
+        Label messageTextLabel = new Label("Message: ", new Label.LabelStyle(font, Color.BLACK));
         messageLabel = new Label("Yo! Welcome to The Daily Rider!", new Label.LabelStyle(font, Color.BLUE));
 
         Label blankLabel = new Label("", new Label.LabelStyle(font, Color.BLACK));
@@ -94,7 +86,7 @@ public class Hud {
         table.row();
         table.add(countdownLabel).expandX().padTop(-50);
         table.add(blankLabel).expandX();
-        table.add(blankLabel).expandX();
+        table.add(exitLabel).expandX().padTop(-50);
         table.add(scoreLabel).expandX().padTop(-50);
 
         stage.addActor(table);
@@ -103,25 +95,25 @@ public class Hud {
     public void updateTime(float dt) {
         timeCount += dt;
         if (timeCount >= 1) {
-            game.worldTimer--;
-            countdownLabel.setText(String.valueOf(game.worldTimer));
+            MyGdxGame.worldTimer--;
+            countdownLabel.setText(String.valueOf(MyGdxGame.worldTimer));
             timeCount = 0;
         }
-        if (game.worldTimer<=0){
+        if (MyGdxGame.worldTimer <=0){
             System.out.println("GAME OVER");
-            System.out.println("FINAL SCORE: "+ game.score);
+            System.out.println("FINAL SCORE: "+ MyGdxGame.score);
             stage.dispose();
         }
     }
 
     public String getHighScores(){
-        Scores.prettyPrint(game.score);
-        String HighScores= Scores.prettyPrint(game.score);
+        Scores.prettyPrint(MyGdxGame.score);
+        String HighScores= Scores.prettyPrint(MyGdxGame.score);
         return HighScores;
     }
 
     public int getTime(){
-        return this.game.worldTimer;
+        return MyGdxGame.worldTimer;
     }
 
     public void updateMessage(String msg){
@@ -129,7 +121,7 @@ public class Hud {
     }
 
     public void updateScore (){
-        scoreLabel.setText("$" + String.format("%02d", game.score));
+        scoreLabel.setText("$" + String.format("%02d", MyGdxGame.score));
     }
 
 }

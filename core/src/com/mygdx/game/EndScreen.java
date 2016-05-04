@@ -72,13 +72,6 @@ public class EndScreen implements Screen{
 
         stage.act();
         stage.draw();
-
-        /*
-        if (Gdx.input.isTouched()) {
-            game.setScreen(new com.mygdx.game.HomeScreen(game));
-            dispose();
-        }
-        */
     }
 
     @Override
