@@ -27,8 +27,6 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class PlayScreen implements Screen {
 
-    public static final int V_WIDTH = 1000;
-    public static final int V_HEIGHT = 1150;
 
     private MyGdxGame game;
     private Viewport gamePort;
@@ -50,11 +48,11 @@ public class PlayScreen implements Screen {
     public PlayScreen(MyGdxGame game){
         this.game = game;
         batch = new SpriteBatch();
-        Gdx.graphics.setWindowedMode(V_WIDTH, V_HEIGHT);
+        Gdx.graphics.setWindowedMode(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         hud = new Hud(game, batch, camera);
-        gamePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+        camera.setToOrtho(false, HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
+        gamePort = new FitViewport(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT, camera);
         tiledMap = new TmxMapLoader().load("map_assets/map@17April.tmx");
         gameSoundPlayer = new soundPlayer();
         allPassengers.add(new Passenger("Normal"));
@@ -85,7 +83,7 @@ public class PlayScreen implements Screen {
         drawCar(taxi);
         drawHud();
         play();
-        if (taxi.isFull()){
+        if (taxi.isFull()) {
             //drawTimer(timer);
         }
         for (Passenger pass : allPassengers) {
@@ -95,9 +93,10 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             endGame();
         }
-        if(MyGdxGame.worldTimer <= 0){
+        if (MyGdxGame.worldTimer <= 0) {
             endGame();
         }
+
     }
 
     public void drawDebugRect(float  x, float y){
@@ -112,8 +111,8 @@ public class PlayScreen implements Screen {
     private void endGame(){
         allPassengers.clear();
         taxi.empty();
-        taxi.setX(V_WIDTH / 2);
-        taxi.setY((float)(PlayScreen.V_HEIGHT / 2.3));
+        taxi.setX(HomeScreen.V_WIDTH / 2);
+        taxi.setY((float)( HomeScreen.V_HEIGHT / 2.3));
         game.setScreen(new com.mygdx.game.EndScreen(game));
         gameSoundPlayer.playCarHorn();
         gameSoundPlayer.stop();
@@ -140,7 +139,7 @@ public class PlayScreen implements Screen {
     private void setUpScreen(){
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
+        camera.setToOrtho(false, HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
         camera.update();
         batch.setProjectionMatrix(hud.stage.getCamera().combined);
     }
@@ -332,13 +331,13 @@ public class PlayScreen implements Screen {
         taxi.setX(taxi.getX() + taxi.getVelocity()[0]);
         taxi.setY(taxi.getY() + taxi.getVelocity()[1]);
 
-        if (taxi.getX() + (int) taxi.getSprite().getWidth() >= PlayScreen.V_WIDTH) {
+        if (taxi.getX() + (int) taxi.getSprite().getWidth() >= HomeScreen.V_WIDTH) {
             return true;
         }
         if (taxi.getX() <= 0) {
             return true;
         }
-        if (taxi.getY()+ (int) taxi.getSprite().getWidth() >= PlayScreen.V_HEIGHT) {
+        if (taxi.getY()+ (int) taxi.getSprite().getWidth() >=  HomeScreen.V_HEIGHT) {
             return true;
         }
         if (taxi.getY() <= 0) {

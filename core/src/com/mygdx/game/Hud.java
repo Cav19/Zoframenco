@@ -38,10 +38,12 @@ public class Hud {
 
     public Hud(MyGdxGame game, SpriteBatch sb, Camera camera) {
         MyGdxGame.worldTimer = 100;
+
         timeCount = 0;
         MyGdxGame.score = 0;
 
-        Viewport viewport = new FitViewport(PlayScreen.V_WIDTH, PlayScreen.V_HEIGHT, camera);
+
+        Viewport viewport = new FitViewport(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT, camera);
         stage = new Stage(viewport, sb);
 
         this.game = game;
@@ -56,7 +58,6 @@ public class Hud {
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 25;
         font = generator.generateFont(parameter); // font size 12 pixels
-        parameter.borderWidth = 3;
         generator.dispose();
     }
 

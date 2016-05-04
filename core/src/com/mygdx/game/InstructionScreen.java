@@ -79,10 +79,10 @@ public class InstructionScreen implements Screen {
 
         batch.begin();
         batch.draw(instruction,
-                Gdx.graphics.getWidth()/10,
-                Gdx.graphics.getHeight()/5,
-                Gdx.graphics.getWidth() - Gdx.graphics.getWidth()/10,
-                Gdx.graphics.getHeight() - Gdx.graphics.getHeight()/10);
+                camera.viewportWidth/10,
+                camera.viewportHeight/5,
+                camera.viewportWidth -  camera.viewportWidth/10,
+                camera.viewportHeight -camera.viewportHeight/10);
         batch.end();
 
         startButton.setPosition(Gdx.graphics.getWidth()/4 - Gdx.graphics.getWidth()/10 , Gdx.graphics.getHeight()/10);
@@ -115,6 +115,7 @@ public class InstructionScreen implements Screen {
         textButtonStyle.over = skin.newDrawable("background", Color.LIGHT_GRAY);
         textButtonStyle.font = skin.getFont("default");
         skin.add("default", textButtonStyle);
+
     }
 
     @Override

@@ -23,8 +23,8 @@ public class Timer {
         Y_pos =  generator.nextInt(PlayScreen.V_HEIGHT) + 1;
         checkPosition(X_pos, Y_pos);
         */
-        X_pos = PlayScreen.V_WIDTH / 2;
-        Y_pos = (float)(PlayScreen.V_HEIGHT / 2.3);
+        X_pos = HomeScreen.V_WIDTH/ 2;
+        Y_pos = (float)( HomeScreen.V_HEIGHT / 2.3);
         sprite.setPosition(X_pos, Y_pos);
        }
 
@@ -35,8 +35,8 @@ public class Timer {
             this.Y_pos = Y_pos;
         }
         while(PlayScreen.isTileType(X_pos,Y_pos,"road")) {
-            this.X_pos =  generator.nextInt(PlayScreen.V_WIDTH) + 1;
-            this.Y_pos =  generator.nextInt(PlayScreen.V_HEIGHT) + 1;
+            this.X_pos =  generator.nextInt(HomeScreen.V_WIDTH) + 1;
+            this.Y_pos =  generator.nextInt( HomeScreen.V_HEIGHT) + 1;
         }
     }
 
