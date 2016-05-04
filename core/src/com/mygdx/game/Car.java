@@ -39,16 +39,13 @@ public class Car {
     public Car(){
         sprite = new Sprite(new Texture("images/48car.png"));
         sprite.setSize(48, 48);
-        X_pos = PlayScreen.V_WIDTH / 2;
-        Y_pos = (float)(PlayScreen.V_HEIGHT / 2.3);
+        X_pos = HomeScreen.V_WIDTH/ 2;
+        Y_pos = (float)( HomeScreen.V_HEIGHT / 2.2);
         sprite.setPosition(X_pos, Y_pos);
         sprite.setOrigin(24, 24);
         setOrientation(0, 1);
         currentDirection=UP;
     }
-
-
-
 
 
     private void accelerate(float acceleration){

@@ -43,6 +43,7 @@ public class PlayScreen implements Screen {
     private long timeOfLastPassenger;
     private long spawnTime;
     private Timer timer = new Timer();
+    //private Coin coin = new Coin();
     public static boolean playingAGame;
     String inputKey="";
     private float pulseTime = 0;
@@ -51,16 +52,22 @@ public class PlayScreen implements Screen {
     public PlayScreen(MyGdxGame game){
         this.game = game;
         batch = new SpriteBatch();
-        Gdx.graphics.setWindowedMode(V_WIDTH, V_HEIGHT);
+        Gdx.graphics.setWindowedMode(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         hud = new Hud(game, batch, camera);
-        gamePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+        camera.setToOrtho(false, HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
+        gamePort = new FitViewport(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT, camera);
         tiledMap = new TmxMapLoader().load("map_assets/map@17April.tmx");
         gameSoundPlayer = new soundPlayer();
         allPassengers.add(new Passenger("Normal"));
         spawnTime = setNextSpawnTime();
         timeOfLastPassenger = TimeUtils.millis();
+    }
+
+    // check if the car is at the same position as timer
+    public boolean isTaxiAtTimer(){
+        return timer.isVisible()
+            && Math.hypot(taxi.getX() - timer.getX(), taxi.getY() - timer.getY()) < 40;
     }
 
     @Override
@@ -85,12 +92,15 @@ public class PlayScreen implements Screen {
         setUpScreen();
         drawMap();
         drawCar(taxi);
+        if (taxi.isFull() && timer.isVisible()){
+            drawTimer(timer);
+        }
         drawHud();
         play();
         if (taxi.isFull()){
-            //drawTimer(timer);
             highlightDestination(taxi.getPassenger().getDestination(), delta);
         }
+
         for (Passenger pass : allPassengers) {
             drawPassenger(pass);
         }
@@ -98,9 +108,10 @@ public class PlayScreen implements Screen {
         if (Gdx.input.isKeyPressed(Input.Keys.ESCAPE)) {
             endGame();
         }
-        if(MyGdxGame.worldTimer <= 0){
+        if (MyGdxGame.worldTimer <= 0) {
             endGame();
         }
+
     }
 
     public void drawDebugRect(float  x, float y){
@@ -115,8 +126,8 @@ public class PlayScreen implements Screen {
     private void endGame(){
         allPassengers.clear();
         taxi.empty();
-        taxi.setX(V_WIDTH / 2);
-        taxi.setY((float)(PlayScreen.V_HEIGHT / 2.3));
+        taxi.setX(HomeScreen.V_WIDTH / 2);
+        taxi.setY((float)( HomeScreen.V_HEIGHT / 2.3));
         game.setScreen(new com.mygdx.game.EndScreen(game));
         gameSoundPlayer.playCarHorn();
         gameSoundPlayer.stop();
@@ -143,7 +154,7 @@ public class PlayScreen implements Screen {
     private void setUpScreen(){
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
+        camera.setToOrtho(false, HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
         camera.update();
         batch.setProjectionMatrix(hud.stage.getCamera().combined);
     }
@@ -212,7 +223,6 @@ public class PlayScreen implements Screen {
      */
     private void play() {
         long timeSinceLastPassenger = TimeUtils.timeSinceMillis(timeOfLastPassenger);
-
         listenToInput();
 
         /**
@@ -246,6 +256,13 @@ public class PlayScreen implements Screen {
                 game.addScore(taxi.getPassenger().getFare());
                 hud.updateScore();
                 taxi.empty();
+                timer.randomlyPlaceTimer();
+
+            }
+            if (isTaxiAtTimer()){
+                //System.out.println("I'm at timer!");
+                game.worldTimer += 5;
+                timer.removeTimer();
             }
         }
     }
@@ -336,13 +353,13 @@ public class PlayScreen implements Screen {
         taxi.setX(taxi.getX() + taxi.getVelocity()[0]);
         taxi.setY(taxi.getY() + taxi.getVelocity()[1]);
 
-        if (taxi.getX() + (int) taxi.getSprite().getWidth() >= PlayScreen.V_WIDTH) {
+        if (taxi.getX() + (int) taxi.getSprite().getWidth() >= HomeScreen.V_WIDTH) {
             return true;
         }
         if (taxi.getX() <= 0) {
             return true;
         }
-        if (taxi.getY()+ (int) taxi.getSprite().getWidth() >= PlayScreen.V_HEIGHT) {
+        if (taxi.getY()+ (int) taxi.getSprite().getWidth() >=  HomeScreen.V_HEIGHT) {
             return true;
         }
         if (taxi.getY() <= 0) {
