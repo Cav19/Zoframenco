@@ -1,10 +1,8 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
-import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
-import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.Actor;
 import com.badlogic.gdx.scenes.scene2d.ui.Label;
@@ -34,9 +32,9 @@ public class ScorePanel extends Actor {
 
     private final MyGdxGame game;
 
-    public ScorePanel (MyGdxGame game, SpriteBatch sb, Camera camera) {
+    public ScorePanel (MyGdxGame game) {
         this.game = game;
-        setUpHudFont();
+        setUpScoreFont();
         setUpTable();
     }
 
@@ -44,7 +42,7 @@ public class ScorePanel extends Actor {
         table = new Table();
         table.setFillParent(true);
 
-        placeLabel = new Label("Top 3", new Label.LabelStyle(font, Color.BLACK));
+        placeLabel = new Label("High Scores", new Label.LabelStyle(font, Color.BLACK));
         firstSymbol = new Label("Paul Cantrell", new Label.LabelStyle(font, Color.DARK_GRAY));
         secondSymbol = new Label("Kofi Annan", new Label.LabelStyle(font, Color.DARK_GRAY));
         thirdSymbol = new Label("Brian Rosenberg", new Label.LabelStyle(font, Color.DARK_GRAY));
@@ -60,8 +58,8 @@ public class ScorePanel extends Actor {
         table.add(scoreLabel).padTop(10);
 
         table.row();
-        table.add(firstSymbol).padTop(10);
-        table.add(firstLabel).padTop(10);
+        table.add(firstSymbol).padTop(30);
+        table.add(firstLabel).padTop(30);
 
         table.row();
         table.add(secondSymbol).padTop(10);
@@ -72,11 +70,11 @@ public class ScorePanel extends Actor {
         table.add(thirdLabel).padTop(10);
 
         table.row();
-        table.add(currentSymbol).padTop(10);
-        table.add(currentLabel).padTop(10);
+        table.add(currentSymbol).padTop(30);
+        table.add(currentLabel).padTop(30);
     }
 
-    private void setUpHudFont() {
+    private void setUpScoreFont() {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/LiberationMono-Regular.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 25;
