@@ -84,18 +84,18 @@ public class Hud {
         messageTextLabel = new Label("Message: ", new Label.LabelStyle(font, Color.BLACK));
         messageLabel = new Label("Yo! Welcome to The Daily Rider!", new Label.LabelStyle(font, Color.BLUE));
 
-        table.add(gameNameLabel).expandX().padTop(10);
-        table.add(scoreTextLabel).expandX().padTop(10);
-        table.add(timeLabel).expandX().padTop(10);
+        Label blankLabel = new Label("", new Label.LabelStyle(font, Color.BLACK));
+
+        table.add(timeLabel).expandX().padTop(-100);
+        table.add(messageTextLabel).expandX().right().padTop(-100);
+        table.add(messageLabel).expandX().left().padTop(-100);
+        table.add(scoreTextLabel).expandX().padTop(-100);
 
         table.row();
-        table.add(groupNameLabel).expandX();
-        table.add(scoreLabel).expandX();
-        table.add(countdownLabel).expandX();
-
-        table.row();
-        table.add(messageTextLabel).expandX();
-        table.add(messageLabel).expandX();
+        table.add(countdownLabel).expandX().padTop(-50);
+        table.add(blankLabel).expandX();
+        table.add(blankLabel).expandX();
+        table.add(scoreLabel).expandX().padTop(-50);
 
         stage.addActor(table);
     }
@@ -111,8 +111,6 @@ public class Hud {
             System.out.println("GAME OVER");
             System.out.println("FINAL SCORE: "+ game.score);
             stage.dispose();
-            //System.out.println(Scores.toJson(game.score));
-            //game.setScreen(new com.mygdx.game.EndScreen(game));
         }
     }
 
