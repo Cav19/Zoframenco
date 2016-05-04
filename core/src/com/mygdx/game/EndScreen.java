@@ -19,6 +19,9 @@ import com.badlogic.gdx.utils.viewport.Viewport;
  */
 public class EndScreen implements Screen{
 
+    public static final int V_WIDTH = 1000;
+    public static final int V_HEIGHT = 1150;
+
     private final MyGdxGame game;
     private OrthographicCamera camera;
     private Skin skin;
@@ -30,15 +33,23 @@ public class EndScreen implements Screen{
     private Viewport scorePort;
 
 
-    public static final int V_WIDTH = 1000;
-    public static final int V_HEIGHT = 1150;
-
     public EndScreen(MyGdxGame game) {
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         scorePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
         scores = new ScorePanel(game);
+
+        stage = new Stage();
+        Gdx.input.setInputProcessor(stage);
+
+        createButtonSkin();
+        restartButton = new TextButton("Restart", skin);
+        stage.addActor(restartButton);
+
+        scoreTable = scores.getTable();
+        stage.addActor(scores.getTable());
+
     }
 
     @Override
@@ -51,16 +62,7 @@ public class EndScreen implements Screen{
         Gdx.gl.glClearColor(250/255f, 236/255f, 129/255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        stage = new Stage();
-        Gdx.input.setInputProcessor(stage);
-
-        scoreTable = scores.getTable();
-        stage.addActor(scores.getTable());
-
-        createButtonSkin();
-        restartButton = new TextButton("Restart", skin);
         restartButton.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/10 , Gdx.graphics.getHeight()/10);
-        stage.addActor(restartButton);
 
         stage.act();
         stage.draw();
