@@ -27,6 +27,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class PlayScreen implements Screen {
 
+    public static final int V_WIDTH = 1000;
+    public static final int V_HEIGHT = 1150;
 
     private MyGdxGame game;
     private Viewport gamePort;
@@ -41,8 +43,10 @@ public class PlayScreen implements Screen {
     private long timeOfLastPassenger;
     private long spawnTime;
     private Timer timer = new Timer();
+    //private Coin coin = new Coin();
     public static boolean playingAGame;
     String inputKey="";
+    private float pulseTime = 0;
 
 
     public PlayScreen(MyGdxGame game){
@@ -58,6 +62,12 @@ public class PlayScreen implements Screen {
         allPassengers.add(new Passenger("Normal"));
         spawnTime = setNextSpawnTime();
         timeOfLastPassenger = TimeUtils.millis();
+    }
+
+    // check if the car is at the same position as timer
+    public boolean isTaxiAtTimer(){
+        return timer.isVisible()
+            && Math.hypot(taxi.getX() - timer.getX(), taxi.getY() - timer.getY()) < 40;
     }
 
     @Override
@@ -78,14 +88,19 @@ public class PlayScreen implements Screen {
      */
     @Override
     public void render(float delta) {
+        Gdx.gl20.glLineWidth(2f);
         setUpScreen();
         drawMap();
         drawCar(taxi);
+        if (taxi.isFull() && timer.isVisible()){
+            drawTimer(timer);
+        }
         drawHud();
         play();
-        if (taxi.isFull()) {
-            //drawTimer(timer);
+        if (taxi.isFull()){
+            highlightDestination(taxi.getPassenger().getDestination(), delta);
         }
+
         for (Passenger pass : allPassengers) {
             drawPassenger(pass);
         }
@@ -188,15 +203,17 @@ public class PlayScreen implements Screen {
      * Highlights the destination of the passenger currently in the user's car.
      * @param destination The destination on the map to be highlighted.
      */
-    private void highlightDestination(Location destination){
-        Gdx.gl20.glLineWidth(5f);
+    private void highlightDestination(Location destination, float delta){
+        pulseTime += delta * 60;
+        float pulse = (2.8f * MathUtils.cos(pulseTime / (2 * MathUtils.PI))) + 2;
+        Gdx.gl20.glLineWidth(5f + pulse / 2);
         Rectangle box = destination.getRectangle();
         ShapeRenderer renderer = new ShapeRenderer();
         renderer.setProjectionMatrix(camera.combined);
         renderer.updateMatrices();
         renderer.setColor(Color.MAGENTA);
         renderer.begin(ShapeRenderer.ShapeType.Line);
-        renderer.rect(box.getX(), box.getY(), box.getWidth(), box.getHeight());
+        renderer.rect(box.getX() - pulse, box.getY() - pulse, box.getWidth() + 2 * pulse, box.getHeight() + 2 * pulse);
         renderer.end();
     }
 
@@ -206,7 +223,6 @@ public class PlayScreen implements Screen {
      */
     private void play() {
         long timeSinceLastPassenger = TimeUtils.timeSinceMillis(timeOfLastPassenger);
-
         listenToInput();
 
         /**
@@ -235,12 +251,18 @@ public class PlayScreen implements Screen {
          * Highlights the target destination and unloads the passenger from the taxi upon arrival.
          */
         if (taxi.isFull()){
-            highlightDestination(taxi.getPassenger().getDestination());
             if (taxi.hasArrived(taxi.getPassenger().getDestination())) {
                 gameSoundPlayer.playMoneySound();
                 game.addScore(taxi.getPassenger().getFare());
                 hud.updateScore();
                 taxi.empty();
+                timer.randomlyPlaceTimer();
+
+            }
+            if (isTaxiAtTimer()){
+                //System.out.println("I'm at timer!");
+                game.worldTimer += 5;
+                timer.removeTimer();
             }
         }
     }
