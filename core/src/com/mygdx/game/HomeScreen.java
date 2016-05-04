@@ -18,6 +18,9 @@ import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 
 public class HomeScreen implements Screen{
 
+    public static final int V_WIDTH = 1000;
+    public static final int V_HEIGHT = 1150;
+
     private final MyGdxGame game;
     private Texture background= new Texture(Gdx.files.internal("images/main_menu_small.png"));
     private FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/SIXTY.TTF"));
@@ -32,7 +35,7 @@ public class HomeScreen implements Screen{
 
     public HomeScreen(final MyGdxGame game){
         this.game = game;
-        Gdx.graphics.setWindowedMode(PlayScreen.V_WIDTH, PlayScreen.V_HEIGHT);
+        Gdx.graphics.setWindowedMode(V_WIDTH, V_HEIGHT);
     }
 
     @Override

@@ -36,7 +36,7 @@ public class ScorePanel extends Actor {
 
     public ScorePanel (MyGdxGame game, SpriteBatch sb, Camera camera) {
         this.game = game;
-        setUpHudFont();
+        setUpScoreFont();
         setUpTable();
     }
 
@@ -76,7 +76,7 @@ public class ScorePanel extends Actor {
         table.add(currentLabel).padTop(30);
     }
 
-    private void setUpHudFont() {
+    private void setUpScoreFont() {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/LiberationMono-Regular.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 25;
