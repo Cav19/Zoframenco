@@ -16,18 +16,6 @@ public class ScorePanel extends Actor {
     //Scene2D widgets
     private Table table;
 
-    private Label placeLabel;
-    private Label firstSymbol;
-    private Label secondSymbol;
-    private Label thirdSymbol;
-    private Label currentSymbol;
-
-    private Label scoreLabel;
-    private Label firstLabel;
-    private Label secondLabel;
-    private Label thirdLabel;
-    private Label currentLabel;
-
     private BitmapFont font;
 
     private final MyGdxGame game;
@@ -42,17 +30,17 @@ public class ScorePanel extends Actor {
         table = new Table();
         table.setFillParent(true);
 
-        placeLabel = new Label("High Scores", new Label.LabelStyle(font, Color.BLACK));
-        firstSymbol = new Label("Paul Cantrell", new Label.LabelStyle(font, Color.DARK_GRAY));
-        secondSymbol = new Label("Kofi Annan", new Label.LabelStyle(font, Color.DARK_GRAY));
-        thirdSymbol = new Label("Brian Rosenberg", new Label.LabelStyle(font, Color.DARK_GRAY));
-        currentSymbol = new Label("Player", new Label.LabelStyle(font, Color.BLUE));
+        Label placeLabel = new Label("Highest Scores", new Label.LabelStyle(font, Color.BLACK));
+        Label firstSymbol = new Label("Paul Cantrell", new Label.LabelStyle(font, Color.DARK_GRAY));
+        Label secondSymbol = new Label("Kofi Annan", new Label.LabelStyle(font, Color.DARK_GRAY));
+        Label thirdSymbol = new Label("Brian Rosenberg", new Label.LabelStyle(font, Color.DARK_GRAY));
+        Label currentSymbol = new Label("Player", new Label.LabelStyle(font, Color.BLUE));
 
-        scoreLabel = new Label("$$$", new Label.LabelStyle(font, Color.BLACK));
-        firstLabel = new Label("$" + String.format("%02d", 2896), new Label.LabelStyle(font, Color.DARK_GRAY));
-        secondLabel = new Label("$" + String.format("%02d", 2541), new Label.LabelStyle(font, Color.DARK_GRAY));
-        thirdLabel = new Label("$" + String.format("%02d", 2175), new Label.LabelStyle(font, Color.DARK_GRAY));
-        currentLabel = new Label("$" + String.format("%02d", game.score), new Label.LabelStyle(font, Color.BLUE));
+        Label scoreLabel = new Label("  $", new Label.LabelStyle(font, Color.BLACK));
+        Label firstLabel = new Label("  " + String.format("%02d", 3296), new Label.LabelStyle(font, Color.DARK_GRAY));
+        Label secondLabel = new Label("  " + String.format("%02d", 2841), new Label.LabelStyle(font, Color.DARK_GRAY));
+        Label thirdLabel = new Label("  " + String.format("%02d", 2475), new Label.LabelStyle(font, Color.DARK_GRAY));
+        Label currentLabel = new Label("  " + String.format("%02d", MyGdxGame.score), new Label.LabelStyle(font, Color.BLUE));
 
         table.add(placeLabel).padTop(10);
         table.add(scoreLabel).padTop(10);
@@ -77,9 +65,11 @@ public class ScorePanel extends Actor {
     private void setUpScoreFont() {
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/LiberationMono-Regular.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-        parameter.size = 25;
+        parameter.size = 24;
+        parameter.color = Color.LIGHT_GRAY;
+        parameter.borderWidth = 0;
+        parameter.borderColor = Color.DARK_GRAY;
         font = generator.generateFont(parameter);
-        parameter.borderWidth = 3;
         generator.dispose();
     }
 
