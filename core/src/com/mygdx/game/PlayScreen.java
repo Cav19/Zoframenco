@@ -91,12 +91,12 @@ public class PlayScreen implements Screen {
         drawMap();
         drawCar(taxi);
         if (taxi.isFull() && timer.isVisible()){
-            //System.out.println( "Is timer visible? "+ timer.isVisible());
-            //System.out.println( "Is taxi full? "+ taxi.isFull());
-            drawTimer(timer);
+            //drawTimer(timer);
         }
+        timer.randomlyPlaceTimer();
+        drawTimer(timer);
         drawHud();
-        play();  // calls taxiAtTimer()
+        play();
         for (Passenger pass : allPassengers) {
             drawPassenger(pass);
         }
@@ -219,14 +219,11 @@ public class PlayScreen implements Screen {
 
         listenToInput();
 
-
-
         /**
          * Spawns a new passenger if the time since the last passenger has exceeded the designated spawn timer.
          */
         if(timeSinceLastPassenger >= spawnTime){
             spawnPassenger();
-            //timer.randomlyPlaceTimer();
             System.out.println("Timer" + isTileType(timer.getX(),timer.getY(),"road"));
             timeOfLastPassenger = TimeUtils.millis();
             spawnTime = setNextSpawnTime();
@@ -262,9 +259,7 @@ public class PlayScreen implements Screen {
                     game.worldTimer += 10;
                     timer.removeTimer();
                 }
-                //System.out.println(timer.isVisible());
             }
-
         }
 
     }

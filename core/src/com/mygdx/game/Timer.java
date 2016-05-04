@@ -12,6 +12,8 @@ public class Timer {
 
     private Sprite sprite;
     private Texture texture = new Texture("timer.png");
+    private float width ;
+    private float height;
     private float X_pos = PlayScreen.V_WIDTH / 2;
     private float Y_pos = PlayScreen.V_HEIGHT / 2;;
     private static Random generator = new Random();
@@ -20,8 +22,8 @@ public class Timer {
     public Timer(){
         sprite = new Sprite(texture);
         sprite.setSize(60,40);
-        //this.X_pos=x;
-        //this.Y_pos=y;
+        width = sprite.getWidth();
+        height = sprite.getHeight();
        }
 
     public float getX(){
@@ -31,12 +33,6 @@ public class Timer {
     public float getY(){
         return this.Y_pos;
     }
-
-    /*public void setX(float x_pos) {
-        X_pos = x_pos;
-    }
-
-    public void setY(float y_pos) { Y_pos = y_pos; } */
 
     public Sprite getSprite(){
         return sprite;
@@ -55,7 +51,10 @@ public class Timer {
         do {
             X_pos =  generator.nextInt(PlayScreen.V_WIDTH) + 1;
             Y_pos =  generator.nextInt(PlayScreen.V_HEIGHT) + 1;
-        } while(!PlayScreen.isTileType(X_pos,Y_pos,"road")
+        } while(!PlayScreen.isTileType(X_pos, Y_pos+ height/2,"timer")
+                ||!PlayScreen.isTileType(X_pos + width, Y_pos+ height/2,"timer")
+                ||!PlayScreen.isTileType(X_pos + width/2, Y_pos,"timer")
+                ||!PlayScreen.isTileType(X_pos + width/2,Y_pos+ height,"timer")
                 );
         sprite.setPosition(X_pos, Y_pos);
     }
