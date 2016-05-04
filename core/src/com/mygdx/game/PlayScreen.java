@@ -86,7 +86,7 @@ public class PlayScreen implements Screen {
         drawHud();
         play();
         if (taxi.isFull()){
-            drawTimer(timer);
+            //drawTimer(timer);
         }
         for (Passenger pass : allPassengers) {
             drawPassenger(pass);
@@ -253,7 +253,7 @@ public class PlayScreen implements Screen {
      * @return The spawn time of the next passenger in milliseconds.
      */
     private long setNextSpawnTime(){
-        return MathUtils.random(6000, 12000);
+        return MathUtils.random(4000, 10000);
     }
 
     /**
@@ -370,7 +370,7 @@ public class PlayScreen implements Screen {
      * @param property The property to check the cell for.
      * @return True if the cell in question matches the property provided, false if it does not match.
      */
-    private static boolean isCellProperty(float x, float y, String property) {
+    public static boolean isCellProperty(float x, float y, String property) {
         MapLayers allLayers = tiledMap.getLayers();
         TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
