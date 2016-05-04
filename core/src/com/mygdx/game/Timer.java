@@ -2,11 +2,6 @@ package com.mygdx.game;
 
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
-import com.badlogic.gdx.maps.tiled.TiledMap;
-import com.badlogic.gdx.maps.tiled.TiledMapRenderer;
-import com.badlogic.gdx.maps.tiled.TiledMapTileLayer;
-import com.badlogic.gdx.maps.tiled.TmxMapLoader;
-import com.badlogic.gdx.maps.tiled.renderers.OrthogonalTiledMapRenderer;
 
 import java.util.Random;
 
@@ -17,52 +12,52 @@ public class Timer {
 
     private Sprite sprite;
     private Texture texture = new Texture("timer.png");
-    public float X_pos;
-    public float Y_pos;
-    //private static TiledMap tiledMap = new TmxMapLoader().load("map_assets/map@17April.tmx");
-    public boolean poweredUp;
-
+    private float X_pos = PlayScreen.V_WIDTH / 2;
+    private float Y_pos = PlayScreen.V_HEIGHT / 2;;
+    private static Random generator = new Random();
+    private boolean visible = true;
 
     public Timer(){
         sprite = new Sprite(texture);
         sprite.setSize(60,40);
-        //Random generator = new Random();
-        /*X_pos =  generator.nextInt(PlayScreen.V_WIDTH) + 1;
-        Y_pos =  generator.nextInt(PlayScreen.V_HEIGHT) + 1;
-        checkPosition(X_pos, Y_pos);
-        */
-        X_pos = PlayScreen.V_WIDTH / 2 + 5;
-        Y_pos = (float)(PlayScreen.V_HEIGHT / 2.3);
-        sprite.setPosition(X_pos, Y_pos);
-        this.poweredUp = true;
-
+        //this.X_pos=x;
+        //this.Y_pos=y;
        }
+
+    public float getX(){
+        return this.X_pos;
+    }
+
+    public float getY(){
+        return this.Y_pos;
+    }
+
+    /*public void setX(float x_pos) {
+        X_pos = x_pos;
+    }
+
+    public void setY(float y_pos) { Y_pos = y_pos; } */
 
     public Sprite getSprite(){
         return sprite;
     }
 
     public void removeTimer(){
-        sprite.setPosition(-100,-100);
+        visible = false;
     }
 
-    /*
-    public void checkPosition(float X_pos, float Y_pos){
-        Random generator = new Random();
-        if (!PlayScreen.isTileType(X_pos,Y_pos,"road")){
-            this.X_pos = X_pos;
-            this.Y_pos = Y_pos;
-        }
-        while(PlayScreen.isTileType(X_pos,Y_pos,"road")) {
-            this.X_pos =  generator.nextInt(PlayScreen.V_WIDTH) + 1;
-            this.Y_pos =  generator.nextInt(PlayScreen.V_HEIGHT) + 1;
-        }
-    } */
+    public boolean isVisible() {
+        return visible;
+    }
 
-
-
-
-
-
+    public void randomlyPlaceTimer() {
+        visible = true;
+        do {
+            X_pos =  generator.nextInt(PlayScreen.V_WIDTH) + 1;
+            Y_pos =  generator.nextInt(PlayScreen.V_HEIGHT) + 1;
+        } while(!PlayScreen.isTileType(X_pos,Y_pos,"road")
+                );
+        sprite.setPosition(X_pos, Y_pos);
+    }
 
 }

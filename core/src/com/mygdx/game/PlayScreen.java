@@ -63,10 +63,10 @@ public class PlayScreen implements Screen {
     }
 
     // check if the car is at the same position as timer
-    public boolean taxiAtTimer(){
+    public boolean isTaxiAtTimer(){
         //System.out.println("Distance to timer:  " ) ;
-        return(Math.hypot(taxi.getX() - timer.X_pos, taxi.getY() - timer.Y_pos) < 40
-                );
+        return timer.isVisible()
+            && Math.hypot(taxi.getX() - timer.getX(), taxi.getY() - timer.getY()) < 40;
     }
 
     @Override
@@ -90,8 +90,9 @@ public class PlayScreen implements Screen {
         setUpScreen();
         drawMap();
         drawCar(taxi);
-        if (taxi.isFull()){
-            System.out.println("taxi is full");
+        if (taxi.isFull() && timer.isVisible()){
+            //System.out.println( "Is timer visible? "+ timer.isVisible());
+            //System.out.println( "Is taxi full? "+ taxi.isFull());
             drawTimer(timer);
         }
         drawHud();
@@ -218,19 +219,18 @@ public class PlayScreen implements Screen {
 
         listenToInput();
 
-        if (taxiAtTimer()) {
-            //System.out.println("Hi I am at timer");
-            game.worldTimer += 10;
-            timer.removeTimer();
-        }
+
 
         /**
          * Spawns a new passenger if the time since the last passenger has exceeded the designated spawn timer.
          */
         if(timeSinceLastPassenger >= spawnTime){
             spawnPassenger();
+            //timer.randomlyPlaceTimer();
+            System.out.println("Timer" + isTileType(timer.getX(),timer.getY(),"road"));
             timeOfLastPassenger = TimeUtils.millis();
             spawnTime = setNextSpawnTime();
+
         }
 
         /**
@@ -256,11 +256,19 @@ public class PlayScreen implements Screen {
                 game.addScore(taxi.getPassenger().getFare());
                 hud.updateScore();
                 taxi.empty();
+                timer.randomlyPlaceTimer();
+                if (isTaxiAtTimer()) {
+                    System.out.println("Hi I am at timer");
+                    game.worldTimer += 10;
+                    timer.removeTimer();
+                }
+                //System.out.println(timer.isVisible());
             }
 
         }
 
     }
+
 
     /**
      * Sets the spawn time for the next passenger.
