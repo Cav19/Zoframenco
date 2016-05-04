@@ -9,7 +9,6 @@ import java.util.Random;
  * Created by Mengdie on 2016/4/26.
  */
 public class Timer {
-
     private Sprite sprite;
     private Texture texture = new Texture("timer.png");
     private float width ;

@@ -215,9 +215,7 @@ public class PlayScreen implements Screen {
      */
     private void play() {
         long timeSinceLastPassenger = TimeUtils.timeSinceMillis(timeOfLastPassenger);
-
         listenToInput();
-
 
         /**
          * Spawns a new passenger if the time since the last passenger has exceeded the designated spawn timer.
