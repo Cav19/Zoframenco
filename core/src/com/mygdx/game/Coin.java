@@ -6,24 +6,24 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 import java.util.Random;
 
 /**
- * Created by Mengdie on 2016/4/26.
+ * Created by Mengdie on 2016/5/4.
  */
-public class Timer {
+public class Coin {
     private Sprite sprite;
-    private Texture texture = new Texture("timer.png");
+    private Texture texture = new Texture("coin.png");
     private float width ;
     private float height;
-    private float X_pos = PlayScreen.V_WIDTH / 2;
-    private float Y_pos = PlayScreen.V_HEIGHT / 2;
+    private float X_pos = PlayScreen.V_WIDTH / 4;
+    private float Y_pos = PlayScreen.V_HEIGHT / 4;;
     private static Random generator = new Random();
     private boolean visible = true;
 
-    public Timer(){
+    public Coin(){
         sprite = new Sprite(texture);
-        sprite.setSize(60,40);
+        sprite.setSize(50,50);
         width = sprite.getWidth();
         height = sprite.getHeight();
-       }
+    }
 
     public float getX(){
         return this.X_pos;
@@ -37,7 +37,7 @@ public class Timer {
         return sprite;
     }
 
-    public void removeTimer(){
+    public void removeCoin(){
         visible = false;
     }
 
@@ -45,11 +45,7 @@ public class Timer {
         return visible;
     }
 
-    public void setVisible(boolean T){
-        visible = T;
-    }
-
-    public void randomlyPlaceTimer() {
+    public void randomlyPlaceCoin() {
         visible = true;
         do {
             X_pos =  generator.nextInt(PlayScreen.V_WIDTH) + 1;

@@ -43,7 +43,7 @@ public class PlayScreen implements Screen {
     private long timeOfLastPassenger;
     private long spawnTime;
     private Timer timer = new Timer();
-    //private Coin coin = new Coin();
+    private Coin coin = new Coin();
     public static boolean playingAGame;
     String inputKey="";
 
@@ -69,6 +69,13 @@ public class PlayScreen implements Screen {
             && Math.hypot(taxi.getX() - timer.getX(), taxi.getY() - timer.getY()) < 40;
     }
 
+    // check if the car is at the same position as timer
+    public boolean isTaxiAtCoin(){
+        return coin.isVisible()
+                && Math.hypot(taxi.getX() - coin.getX(), taxi.getY() - coin.getY()) < 40;
+    }
+
+
     @Override
     public void show() {
        playBackGroundMusic();
@@ -92,6 +99,9 @@ public class PlayScreen implements Screen {
         drawCar(taxi);
         if (taxi.isFull() && timer.isVisible()){
             drawTimer(timer);
+        }
+        if (coin.isVisible()){
+            drawCoin(coin);
         }
         drawHud();
         play();
@@ -139,6 +149,7 @@ public class PlayScreen implements Screen {
             hud.updateMessage("Go pick up a passenger!");
         }
         hud.updateTime(Gdx.graphics.getDeltaTime());
+        hud.updateScore();
         hud.stage.draw();
     }
 
@@ -192,6 +203,15 @@ public class PlayScreen implements Screen {
         batch.end();
     }
 
+    /**
+     * Draws a coin onto the screen at their designated location.
+     * @param coin The instance of timer to be drawn.
+     */
+    private void drawCoin(Coin coin){
+        batch.begin();
+        coin.getSprite().draw(batch);
+        batch.end();
+    }
 
     /**
      * Highlights the destination of the passenger currently in the user's car.
@@ -222,6 +242,7 @@ public class PlayScreen implements Screen {
          */
         if(timeSinceLastPassenger >= spawnTime){
             spawnPassenger();
+            coin.randomlyPlaceCoin();
             timeOfLastPassenger = TimeUtils.millis();
             spawnTime = setNextSpawnTime();
         }
@@ -250,14 +271,19 @@ public class PlayScreen implements Screen {
                 hud.updateScore();
                 taxi.empty();
                 timer.randomlyPlaceTimer();
-
             }
             if (isTaxiAtTimer()){
-                //System.out.println("I'm at timer!");
                 game.worldTimer += 5;
                 timer.removeTimer();
             }
         }
+
+        if (isTaxiAtCoin()){
+            //System.out.println("I'm at timer!");
+            game.score += 10;
+            coin.removeCoin();
+        }
+
     }
 
     /**
