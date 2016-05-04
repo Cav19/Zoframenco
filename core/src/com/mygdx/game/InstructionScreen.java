@@ -16,7 +16,11 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 /**
  * Created by zoray on 4/30/16.
  */
+
 public class InstructionScreen implements Screen {
+
+    public static final int V_WIDTH = 1000;
+    public static final int V_HEIGHT = 1150;
 
     private final MyGdxGame game;
     private static OrthographicCamera camera;
@@ -24,16 +28,12 @@ public class InstructionScreen implements Screen {
     private Stage stage;
     private TextButton startButton;
     private TextButton backButton;
-    private SpriteBatch batch;
     private Viewport port;
 
+    private Texture instruction;
 
-    private Texture instruction= new Texture(Gdx.files.internal("instruction.png"));
 
-    public static final int V_WIDTH = 1000;
-    public static final int V_HEIGHT = 1150;
-
-    public InstructionScreen(MyGdxGame game) {
+    public InstructionScreen(final MyGdxGame game) {
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
@@ -42,11 +42,27 @@ public class InstructionScreen implements Screen {
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
 
+        instruction = new Texture(Gdx.files.internal("instruction.png"));
+
         createButtonSkin();
         startButton = new TextButton("Start Game", skin);
         stage.addActor(startButton);
         backButton = new TextButton("Back to Home", skin);
         stage.addActor(backButton);
+
+        startButton.addListener(new ClickListener() {
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new com.mygdx.game.PlayScreen(game));
+                dispose();
+            }
+        });
+
+        backButton.addListener(new ClickListener() {
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new com.mygdx.game.HomeScreen(game));
+                dispose();
+            }
+        });
     }
 
     @Override
@@ -75,26 +91,30 @@ public class InstructionScreen implements Screen {
         stage.act();
         stage.draw();
 
-        startButton.addListener(new ClickListener() {
-            public void clicked(InputEvent event, float x, float y) {
-                MyGdxGame g = new MyGdxGame();
-                g.setScreen(new com.mygdx.game.PlayScreen(game));
-                dispose();
-            }
-        });
+        if (Gdx.input.isTouched()) {
+            //game.setScreen(new com.mygdx.game.PlayScreen(game));
+            dispose();
+        }
+    }
 
-        backButton.addListener(new ClickListener() {
-            public void clicked(InputEvent event, float x, float y) {
-                MyGdxGame g = new MyGdxGame();
-                g.setScreen(new com.mygdx.game.HomeScreen(game));
-                dispose();
-            }
-        });
 
-//        if (Gdx.input.isTouched()) {
-//            game.setScreen(new com.mygdx.game.PlayScreen(game));
-//            dispose();
-//        }
+    private void createButtonSkin(){
+        BitmapFont font = new BitmapFont();
+        skin = new Skin();
+        skin.add("default", font);
+
+        Pixmap pixmap = new Pixmap((int)Gdx.graphics.getWidth()/4,(int)Gdx.graphics.getHeight()/10, Pixmap.Format.RGB888);
+        pixmap.setColor(Color.WHITE);
+        pixmap.fill();
+        skin.add("background",new Texture(pixmap));
+
+        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
+        textButtonStyle.up = skin.newDrawable("background", Color.GRAY);
+        textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);
+        textButtonStyle.checked = skin.newDrawable("background", Color.DARK_GRAY);
+        textButtonStyle.over = skin.newDrawable("background", Color.LIGHT_GRAY);
+        textButtonStyle.font = skin.getFont("default");
+        skin.add("default", textButtonStyle);
     }
 
     @Override
@@ -120,27 +140,5 @@ public class InstructionScreen implements Screen {
     @Override
     public void dispose() {
 
-    }
-
-    private void createButtonSkin(){
-        //Create a font
-        BitmapFont font = new BitmapFont();
-        skin = new Skin();
-        skin.add("default", font);
-
-        //Create a texture
-        Pixmap pixmap = new Pixmap((int)Gdx.graphics.getWidth()/4,(int)Gdx.graphics.getHeight()/10, Pixmap.Format.RGB888);
-        pixmap.setColor(Color.WHITE);
-        pixmap.fill();
-        skin.add("background",new Texture(pixmap));
-
-        //Create a button style
-        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
-        textButtonStyle.up = skin.newDrawable("background", Color.GRAY);
-        textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);
-        textButtonStyle.checked = skin.newDrawable("background", Color.DARK_GRAY);
-        textButtonStyle.over = skin.newDrawable("background", Color.LIGHT_GRAY);
-        textButtonStyle.font = skin.getFont("default");
-        skin.add("default", textButtonStyle);
     }
 }

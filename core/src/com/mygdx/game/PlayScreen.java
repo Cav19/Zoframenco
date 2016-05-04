@@ -52,8 +52,8 @@ public class PlayScreen implements Screen {
         batch = new SpriteBatch();
         Gdx.graphics.setWindowedMode(V_WIDTH, V_HEIGHT);
         camera = new OrthographicCamera();
-        hud = new Hud(game, batch, camera);
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
+        hud = new Hud(game, batch, camera);
         gamePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
         tiledMap = new TmxMapLoader().load("map_assets/map@17April.tmx");
         gameSoundPlayer = new soundPlayer();
@@ -99,8 +99,6 @@ public class PlayScreen implements Screen {
             endGame();
         }
     }
-
-
 
     public void drawDebugRect(float  x, float y){
         ShapeRenderer renderer = new ShapeRenderer();

@@ -33,7 +33,7 @@ public class EndScreen implements Screen{
     private Viewport scorePort;
 
 
-    public EndScreen(MyGdxGame game) {
+    public EndScreen(final MyGdxGame game) {
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
@@ -47,9 +47,15 @@ public class EndScreen implements Screen{
         restartButton = new TextButton("Restart", skin);
         stage.addActor(restartButton);
 
+        restartButton.addListener(new ClickListener() {
+            public void clicked(InputEvent event, float x, float y) {
+                game.setScreen(new com.mygdx.game.PlayScreen(game));
+                dispose();
+            }
+        });
+
         scoreTable = scores.getTable();
         stage.addActor(scores.getTable());
-
     }
 
     @Override
@@ -67,19 +73,12 @@ public class EndScreen implements Screen{
         stage.act();
         stage.draw();
 
-        restartButton.addListener(new ClickListener() {
-            public void clicked(InputEvent event, float x, float y) {
-                MyGdxGame g = new MyGdxGame();
-                g.setScreen(new com.mygdx.game.PlayScreen(game));
-                dispose();
-            }
-         });
-
-
+        /*
         if (Gdx.input.isTouched()) {
             game.setScreen(new com.mygdx.game.HomeScreen(game));
             dispose();
         }
+        */
     }
 
     @Override
