@@ -27,7 +27,7 @@ public class HomeScreen implements Screen{
     private final MyGdxGame game;
     private Viewport homePort;
     private static OrthographicCamera camera;
-    private Stage stage = new Stage();
+    private Stage stage;
 
     private Texture background;
 
@@ -50,6 +50,11 @@ public class HomeScreen implements Screen{
         generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/SIXTY.TTF"));
         parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
 
+        font = new BitmapFont();
+        setUpFont();
+
+        stage = new Stage();
+        //createButtonTable();
     }
 
     @Override
@@ -61,8 +66,6 @@ public class HomeScreen implements Screen{
     public void render(float delta) {
 
         SpriteBatch batch = new SpriteBatch();
-        font = new BitmapFont();
-        setUpFont();
 
         batch.begin();
 
@@ -93,8 +96,9 @@ public class HomeScreen implements Screen{
     private void setUpFont() {
         parameter.size = 44;
         parameter.color = Color.YELLOW;
-        font = generator.generateFont(parameter);
         parameter.borderWidth = 2;
+        parameter.borderColor = Color.BLACK;
+        font = generator.generateFont(parameter);
     }
 
     @Override
