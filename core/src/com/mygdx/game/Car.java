@@ -39,16 +39,13 @@ public class Car {
     public Car(){
         sprite = new Sprite(new Texture("images/48car.png"));
         sprite.setSize(48, 48);
-        X_pos = PlayScreen.V_WIDTH / 6;
-        Y_pos = (float)(PlayScreen.V_HEIGHT / 5);
+        X_pos = HomeScreen.V_WIDTH/ 2;
+        Y_pos = (float)( HomeScreen.V_HEIGHT / 2.2);
         sprite.setPosition(X_pos, Y_pos);
         sprite.setOrigin(24, 24);
         setOrientation(0, 1);
         currentDirection=UP;
     }
-
-
-
 
 
     private void accelerate(float acceleration){
@@ -172,8 +169,8 @@ public class Car {
     }
 
     public boolean hasArrived(Location location){
-        if((this.getSprite().getX() + this.getSprite().getWidth() / 2 >= location.getX() - 15
-                && this.getSprite().getX() + this.getSprite().getWidth() / 2 <= location.getX() + 15)
+        if((this.getSprite().getX() + this.getSprite().getWidth() / 2 >= location.getX() - 30
+                && this.getSprite().getX() + this.getSprite().getWidth() / 2 <= location.getX() + 30)
                 && (this.getSprite().getY() + this.getSprite().getHeight() / 2 >= location.getY() - 15)
                 && this.getSprite().getY() + this.getSprite().getHeight() / 2 <= location.getY() + 15){
             return true;
