@@ -14,8 +14,8 @@ public class Timer {
     private Texture texture = new Texture("timer.png");
     private float width ;
     private float height;
-    private float X_pos = PlayScreen.V_WIDTH / 2;
-    private float Y_pos = PlayScreen.V_HEIGHT / 2;;
+    private float X_pos = PlayScreen.V_WIDTH / 5;
+    private float Y_pos = PlayScreen.V_HEIGHT / 5;;
     private static Random generator = new Random();
     private boolean visible = true;
 

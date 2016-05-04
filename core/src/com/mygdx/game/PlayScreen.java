@@ -43,6 +43,7 @@ public class PlayScreen implements Screen {
     private long timeOfLastPassenger;
     private long spawnTime;
     private Timer timer = new Timer();
+    //private Coin coin = new Coin();
     public static boolean playingAGame;
     String inputKey="";
 
@@ -64,7 +65,6 @@ public class PlayScreen implements Screen {
 
     // check if the car is at the same position as timer
     public boolean isTaxiAtTimer(){
-        //System.out.println("Distance to timer:  " ) ;
         return timer.isVisible()
             && Math.hypot(taxi.getX() - timer.getX(), taxi.getY() - timer.getY()) < 40;
     }
@@ -91,15 +91,10 @@ public class PlayScreen implements Screen {
         drawMap();
         drawCar(taxi);
         if (taxi.isFull() && timer.isVisible()){
-            //drawTimer(timer);
-        }
-        timer.randomlyPlaceTimer();
-        drawTimer(timer);
-        drawHud();
-        play();
-        if (taxi.isFull()){
             drawTimer(timer);
         }
+        drawHud();
+        play();
         for (Passenger pass : allPassengers) {
             drawPassenger(pass);
         }
@@ -224,6 +219,7 @@ public class PlayScreen implements Screen {
 
         listenToInput();
 
+
         /**
          * Spawns a new passenger if the time since the last passenger has exceeded the designated spawn timer.
          */
@@ -256,8 +252,19 @@ public class PlayScreen implements Screen {
                 game.addScore(taxi.getPassenger().getFare());
                 hud.updateScore();
                 taxi.empty();
+                timer.randomlyPlaceTimer();
+
+            }
+            if (isTaxiAtTimer()){
+                //System.out.println("I'm at timer!");
+                game.worldTimer += 5;
+                timer.removeTimer();
             }
         }
+
+
+
+
     }
 
     /**
