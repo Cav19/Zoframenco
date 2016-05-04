@@ -15,7 +15,6 @@ public class Passenger {
     private int fare;
     private Location origin;
     private Location destination;
-    private String type;
 
 
     public Passenger(){
@@ -32,7 +31,6 @@ public class Passenger {
     public Passenger(String type){
         this.origin = setOrigin(MyGdxGame.locations);
         this.destination = setDestination(MyGdxGame.locations);
-        this.type = type;
         if(type.equals("Normal")){
             fare = setFare(12);
             sprite = new Sprite(new Texture("images/stick_figure.png"));
@@ -55,37 +53,30 @@ public class Passenger {
     private void generateType(){
         switch(MathUtils.random(1, 7)){
             case 1:
-                type = "Normal";
                 fare = setFare(12);
                 sprite = new Sprite(new Texture("images/stick_figure.png"));
                 break;
             case 2:
-                type = "Normal";
                 fare = setFare(12);
                 sprite = new Sprite(new Texture("images/stick_figure2.png"));
                 break;
             case 3:
-                type = "Normal";
                 fare = setFare(12);
                 sprite = new Sprite(new Texture("images/stick_figure3.png"));
                 break;
             case 4:
-                type = "Poor";
                 fare = setFare(15);
                 sprite = new Sprite(new Texture("images/poor_person.png"));
                 break;
             case 5:
-                type = "Poor";
                 fare = setFare(15);
                 sprite = new Sprite(new Texture("images/poor_person2.png"));
                 break;
             case 6:
-                type = "Richie";
                 fare = setFare(7);
                 sprite = new Sprite(new Texture("images/richie.png"));
                 break;
             case 7:
-                type = "Richie";
                 fare = setFare(7);
                 sprite = new Sprite(new Texture("images/richie2.png"));
                 break;
