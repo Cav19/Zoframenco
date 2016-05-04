@@ -172,8 +172,8 @@ public class Car {
     }
 
     public boolean hasArrived(Location location){
-        if((this.getSprite().getX() + this.getSprite().getWidth() / 2 >= location.getX() - 15
-                && this.getSprite().getX() + this.getSprite().getWidth() / 2 <= location.getX() + 15)
+        if((this.getSprite().getX() + this.getSprite().getWidth() / 2 >= location.getX() - 30
+                && this.getSprite().getX() + this.getSprite().getWidth() / 2 <= location.getX() + 30)
                 && (this.getSprite().getY() + this.getSprite().getHeight() / 2 >= location.getY() - 15)
                 && this.getSprite().getY() + this.getSprite().getHeight() / 2 <= location.getY() + 15){
             return true;
