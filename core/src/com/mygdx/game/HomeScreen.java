@@ -3,6 +3,7 @@ package com.mygdx.game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.Color;
+import com.badlogic.gdx.graphics.OrthographicCamera;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
@@ -11,6 +12,8 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 /**
  * Created by zoray on 3/23/16.
@@ -22,20 +25,31 @@ public class HomeScreen implements Screen{
     public static final int V_HEIGHT = 1150;
 
     private final MyGdxGame game;
-    private Texture background= new Texture(Gdx.files.internal("images/main_menu_small.png"));
-    private FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/SIXTY.TTF"));
-    private FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
-    private Skin skin;
+    private Viewport homePort;
+    private static OrthographicCamera camera;
     private Stage stage = new Stage();
+
+    private Texture background;
+
     private Table buttonTable = new Table();
     private TextButton startGameButton;
     private TextButton instructionButton;
+
+    private FreeTypeFontGenerator generator;
+    private FreeTypeFontGenerator.FreeTypeFontParameter parameter;
     private BitmapFont font;
+    private Skin skin;
 
 
     public HomeScreen(final MyGdxGame game){
         this.game = game;
         Gdx.graphics.setWindowedMode(V_WIDTH, V_HEIGHT);
+        homePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+
+        background = new Texture(Gdx.files.internal("images/main_menu_small.png"));
+        generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/SIXTY.TTF"));
+        parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+
     }
 
     @Override
@@ -82,7 +96,6 @@ public class HomeScreen implements Screen{
         font = generator.generateFont(parameter);
         parameter.borderWidth = 2;
     }
-
 
     @Override
     public void resize(int width, int height) {

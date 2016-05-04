@@ -11,6 +11,8 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
+import com.badlogic.gdx.utils.viewport.FitViewport;
+import com.badlogic.gdx.utils.viewport.Viewport;
 
 /**
  * Created by zoray on 4/25/16.
@@ -25,6 +27,8 @@ public class EndScreen implements Screen{
     private SpriteBatch batch;
     private ScorePanel scores;
     private Table scoreTable;
+    private Viewport scorePort;
+
 
     public static final int V_WIDTH = 1000;
     public static final int V_HEIGHT = 1150;
@@ -33,7 +37,8 @@ public class EndScreen implements Screen{
         this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
-        scores = new ScorePanel(game, batch, camera);
+        scorePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+        scores = new ScorePanel(game);
     }
 
     @Override
