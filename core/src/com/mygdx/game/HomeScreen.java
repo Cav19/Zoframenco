@@ -26,7 +26,7 @@ public class HomeScreen implements Screen{
 
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
     public static final int V_WIDTH =1000; //(screenSize.width -1000)/3 + 1000;
-    public static final int V_HEIGHT = 1100; //(screenSize.height -1150)/3 +1150;
+    public static final int V_HEIGHT = 1150; //(screenSize.height -1150)/3 +1150;
 
 
 
