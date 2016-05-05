@@ -20,7 +20,7 @@ public class Timer {
 
     public Timer(){
         sprite = new Sprite(texture);
-        sprite.setSize(60,40);
+        sprite.setSize(50,50);
         width = sprite.getWidth();
         height = sprite.getHeight();
        }

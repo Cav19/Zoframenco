@@ -246,7 +246,7 @@ public class PlayScreen implements Screen {
         listenToInput();
 
         /**
-         * Spawns a new passenger if the time since the last passenger has exceeded the designated spawn timer.
+         * Spawns a new passenger and a coin if the time since the last passenger has exceeded the designated spawn timer.
          */
         if(timeSinceLastPassenger >= spawnTime){
             spawnPassenger();
@@ -286,7 +286,6 @@ public class PlayScreen implements Screen {
         }
 
         if (isTaxiAtCoin()){
-            //System.out.println("I'm at timer!");
             game.score += 10;
             coin.removeCoin();
         }
