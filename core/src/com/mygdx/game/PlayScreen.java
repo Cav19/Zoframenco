@@ -27,8 +27,8 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class PlayScreen implements Screen {
 
-    public static final int V_WIDTH = 1000;
-    public static final int V_HEIGHT = 1150;
+    private final int V_WIDTH = HomeScreen.V_WIDTH;
+    private final int V_HEIGHT = HomeScreen.V_HEIGHT;
 
     private MyGdxGame game;
     private Viewport gamePort;
