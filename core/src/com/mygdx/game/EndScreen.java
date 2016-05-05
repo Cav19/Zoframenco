@@ -76,22 +76,28 @@ public class EndScreen implements Screen{
 
         stage.act();
         stage.draw();
+    }
 
-        restartButton.addListener(new ClickListener() {
-            public void clicked(InputEvent event, float x, float y) {
-                MyGdxGame g = new MyGdxGame();
-                g.setScreen(new com.mygdx.game.PlayScreen(game));
-                dispose();
-            }
-         });
+    private void createButtonSkin(){
+        //Create a font
+        BitmapFont font = new BitmapFont();
+        skin = new Skin();
+        skin.add("default", font);
 
+        //Create a texture
+        Pixmap pixmap = new Pixmap((int)Gdx.graphics.getWidth()/4,(int)Gdx.graphics.getHeight()/10, Pixmap.Format.RGB888);
+        pixmap.setColor(Color.WHITE);
+        pixmap.fill();
+        skin.add("background",new Texture(pixmap));
 
-        if (Gdx.input.isTouched()) {
-            game.setScreen(new com.mygdx.game.HomeScreen(game));
-            dispose();
-        }
-
-
+        //Create a button style
+        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
+        textButtonStyle.up = skin.newDrawable("background", Color.GRAY);
+        textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);
+        textButtonStyle.checked = skin.newDrawable("background", Color.DARK_GRAY);
+        textButtonStyle.over = skin.newDrawable("background", Color.LIGHT_GRAY);
+        textButtonStyle.font = skin.getFont("default");
+        skin.add("default", textButtonStyle);
     }
 
 
@@ -118,27 +124,5 @@ public class EndScreen implements Screen{
     @Override
     public void dispose() {
 
-    }
-
-    private void createButtonSkin(){
-        //Create a font
-        BitmapFont font = new BitmapFont();
-        skin = new Skin();
-        skin.add("default", font);
-
-        //Create a texture
-        Pixmap pixmap = new Pixmap((int)Gdx.graphics.getWidth()/4,(int)Gdx.graphics.getHeight()/10, Pixmap.Format.RGB888);
-        pixmap.setColor(Color.WHITE);
-        pixmap.fill();
-        skin.add("background",new Texture(pixmap));
-
-        //Create a button style
-        TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
-        textButtonStyle.up = skin.newDrawable("background", Color.GRAY);
-        textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);
-        textButtonStyle.checked = skin.newDrawable("background", Color.DARK_GRAY);
-        textButtonStyle.over = skin.newDrawable("background", Color.LIGHT_GRAY);
-        textButtonStyle.font = skin.getFont("default");
-        skin.add("default", textButtonStyle);
     }
 }
