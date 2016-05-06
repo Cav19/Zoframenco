@@ -133,7 +133,8 @@ public class Passenger {
     }
 
     private int setFare(int modifier){
-        return (int)(getTravelDistance(origin, destination) / modifier);
+        int tip = MathUtils.random(-20, 30);
+        return (int)(getTravelDistance(origin, destination) / modifier) + tip;
     }
 
     public int getFare(){

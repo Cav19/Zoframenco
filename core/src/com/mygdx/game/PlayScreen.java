@@ -48,7 +48,6 @@ public class PlayScreen implements Screen {
     String inputKey="";
     private float pulseTime = 0;
 
-
     public PlayScreen(MyGdxGame game){
         this.game = game;
         batch = new SpriteBatch();
@@ -64,18 +63,30 @@ public class PlayScreen implements Screen {
         timeOfLastPassenger = TimeUtils.millis();
     }
 
-    // check if the car is at the same position as timer
+    /**
+     * Check if the taxi is at the same position as timer
+     */
     public boolean isTaxiAtTimer(){
         return timer.isVisible()
             && Math.hypot(taxi.getX() - timer.getX(), taxi.getY() - timer.getY()) < 40;
     }
 
-    // check if the car is at the same position as timer
+    /**
+     * Check if the taxi is at the same position as coin
+     */
     public boolean isTaxiAtCoin(){
         return coin.isVisible()
                 && Math.hypot(taxi.getX() - coin.getX(), taxi.getY() - coin.getY()) < 40;
     }
 
+    /**
+     * Check if coin is overlapping with timer
+     */
+    public boolean isCoinTimerOverlapping(){
+        return coin.isVisible()
+                && timer.isVisible()
+                && Math.hypot(timer.getX() - coin.getX(), timer.getY() - coin.getY()) < 40;
+    }
 
     @Override
     public void show() {
@@ -101,7 +112,7 @@ public class PlayScreen implements Screen {
         drawCar(taxi);
         drawHud();
         play();
-        if (taxi.isFull() && timer.isVisible() && coin.isVisible()){
+        if (taxi.isFull() && timer.isVisible() && coin.isVisible() && !isCoinTimerOverlapping()){
             drawTimer(timer);
             drawCoin(coin);
         }
@@ -278,11 +289,12 @@ public class PlayScreen implements Screen {
                 coin.randomlyPlaceCoin();
             }
             if (isTaxiAtTimer()){
-                game.worldTimer += 5;
+                MyGdxGame.worldTimer += 6;
+                Hud.updateTime(6);
                 timer.removeTimer();
             }
             if (isTaxiAtCoin()) {
-                game.score += 20;
+                MyGdxGame.score += 20;
                 coin.removeCoin();
             }
         }

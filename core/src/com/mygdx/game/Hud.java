@@ -19,14 +19,14 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class Hud {
     //stage and viewport
-    public Stage stage;
+    public static Stage stage;
 
     //score/time tracking variables
-    private float timeCount;
+    private static float timeCount;
 
     //Scene2D widgets
     private static Label scoreLabel;
-    private Label countdownLabel;
+    private static Label countdownLabel;
 
     private Label messageLabel;
 
@@ -39,8 +39,6 @@ public class Hud {
     public Hud(MyGdxGame game, SpriteBatch sb, Camera camera) {
 
         timeCount = 0;
-        MyGdxGame.score = 0;
-
 
         Viewport viewport = new FitViewport(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT, camera);
         stage = new Stage(viewport, sb);
@@ -92,7 +90,7 @@ public class Hud {
         stage.addActor(table);
     }
 
-    public void updateTime(float dt) {
+    public static void updateTime(float dt) {
         timeCount += dt;
         if (timeCount >= 1) {
             MyGdxGame.worldTimer--;
