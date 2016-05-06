@@ -51,7 +51,6 @@ public class Car {
 
 
     private void accelerate(float acceleration){
-        //TO BE UNCOMMENTED AFTER FIXING COLLISION
 
             if (this.velocity[0] == 0) {
                 this.velocity[0] = (float) (orientation[0] * 0.3);
@@ -62,8 +61,8 @@ public class Car {
 
 
             if ((velocity[0] > -3) && ((velocity[0] < 3) && (velocity[1] < 3) && (velocity[1] > -3))) {
-                this.velocity[0] += (float) (Gdx.graphics.getDeltaTime() * acceleration) * orientation[0] * 3;
-                this.velocity[1] += (float) (Gdx.graphics.getDeltaTime() * acceleration) * orientation[1] * 3;
+                this.velocity[0] += (Gdx.graphics.getDeltaTime() * acceleration) * orientation[0] * 3;
+                this.velocity[1] += (Gdx.graphics.getDeltaTime() * acceleration) * orientation[1] * 3;
             }
             driveForward();
         }
@@ -167,22 +166,17 @@ public class Car {
     }
 
     public boolean hasArrived(Location location){
-        if((this.getSprite().getX() + this.getSprite().getWidth() / 2 >= location.getX() - 30
+        return (this.getSprite().getX() + this.getSprite().getWidth() / 2 >= location.getX() - 30
                 && this.getSprite().getX() + this.getSprite().getWidth() / 2 <= location.getX() + 30)
                 && (this.getSprite().getY() + this.getSprite().getHeight() / 2 >= location.getY() - 15)
-                && this.getSprite().getY() + this.getSprite().getHeight() / 2 <= location.getY() + 15){
-            return true;
-        }
-        else{
-            return false;
-        }
+                && this.getSprite().getY() + this.getSprite().getHeight() / 2 <= location.getY() + 15;
     }
 
 
     public void setVelocity(float x, float y){
         this.velocity[0]=x;
         this.velocity[1]=y;
-    };
+    }
 
     public boolean isFull(){
         return full;
