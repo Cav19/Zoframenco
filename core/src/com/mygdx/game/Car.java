@@ -81,8 +81,8 @@ public class Car {
 
             try {
                 collide(oldX, oldY);
-                velocity[0] = (float) 0.1 * oldDirection.x;
-                velocity[1] = (float) 0.1 * oldDirection.y;
+                velocity[0] = (float) 0.3 * oldDirection.x;
+                velocity[1] = (float) 0.3 * oldDirection.y;
                 driveForward();
             } catch (java.lang.StackOverflowError e) {
                 collide(oldX, oldY);
@@ -96,8 +96,8 @@ public class Car {
 
     public void collide(float  oldX, float oldY){
         PlayScreen.playCollisionNoise();
-        velocity[0] = - velocity[0]*1.5f;
-        velocity[1] = - velocity[1]*1.5f;
+        velocity[0] = - velocity[0];
+        velocity[1] = - velocity[1];
         X_pos = oldX;
         Y_pos = oldY;
     }
