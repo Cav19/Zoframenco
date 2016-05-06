@@ -289,11 +289,12 @@ public class PlayScreen implements Screen {
                 coin.randomlyPlaceCoin();
             }
             if (isTaxiAtTimer()){
-                game.worldTimer += 5;
+                MyGdxGame.worldTimer += 6;
+                Hud.updateTime(6);
                 timer.removeTimer();
             }
             if (isTaxiAtCoin()) {
-                game.score += 20;
+                MyGdxGame.score += 20;
                 coin.removeCoin();
             }
         }
