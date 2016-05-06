@@ -10,7 +10,6 @@ import java.util.Random;
  */
 public class Timer {
     private Sprite sprite;
-    private Texture texture = new Texture("timer.png");
     private float width ;
     private float height;
     private float X_pos = HomeScreen.V_WIDTH / 4.5f;
@@ -19,7 +18,7 @@ public class Timer {
     private boolean visible = true;
 
     public Timer(){
-        sprite = new Sprite(texture);
+        sprite = new Sprite(new Texture("timer.png"));
         sprite.setSize(50,50);
         width = sprite.getWidth();
         height = sprite.getHeight();
