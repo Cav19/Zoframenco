@@ -43,7 +43,7 @@ public class EndScreen implements Screen{
         camera = new OrthographicCamera(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
         camera.setToOrtho(false,HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
         scorePort = new FitViewport(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT, camera);
-        scores = new ScorePanel(game);
+        scores = new ScorePanel();
 
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);

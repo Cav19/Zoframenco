@@ -18,10 +18,7 @@ public class ScorePanel extends Actor {
 
     private BitmapFont font;
 
-    private final MyGdxGame game;
-
-    public ScorePanel (MyGdxGame game) {
-        this.game = game;
+    public ScorePanel () {
         setUpScoreFont();
         setUpTable();
     }
