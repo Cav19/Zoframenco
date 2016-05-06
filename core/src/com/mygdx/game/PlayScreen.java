@@ -248,7 +248,7 @@ public class PlayScreen implements Screen {
         /**
          * Spawns a new passenger and a coin if the time since the last passenger has exceeded the designated spawn timer.
          */
-        if(timeSinceLastPassenger >= spawnTime){
+        if(timeSinceLastPassenger >= spawnTime && allPassengers.size < 18){
             spawnPassenger();
             coin.randomlyPlaceCoin();
             timeOfLastPassenger = TimeUtils.millis();
