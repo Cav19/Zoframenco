@@ -381,25 +381,21 @@ public class PlayScreen implements Screen {
         taxi.setX(taxi.getX() + taxi.getVelocity()[0]);
         taxi.setY(taxi.getY() + taxi.getVelocity()[1]);
 
-        return checkMapBounderies() || checkCollisionPoints();
+        return checkMapBoundaries() || checkCollisionPoints();
 
         }
 
 
-    private static boolean checkMapBounderies(){
-        if (taxi.getX() + (int) taxi.getSprite().getWidth() >= game.V_WIDTH) {
-            return true;
-        }
-        if (taxi.getX() <= 0) {
-            return true;
-        }
-        if (taxi.getY()+ (int) taxi.getSprite().getWidth() >=  game.V_HEIGHT) {
-            return true;
-        }
-        if (taxi.getY() <= 0) {
-            return true;
-        }
+    private static boolean checkMapBoundaries(){
 
+        if (    (taxi.getX() + (int) taxi.getSprite().getWidth() >= game.V_WIDTH) ||      //right edge
+                (taxi.getX() <= 0) ||                                                    //left edge
+                (taxi.getY()+ (int) taxi.getSprite().getWidth() >=  game.V_HEIGHT) ||    //top edge
+                (taxi.getY() <= 0)                                                       //bottom edge
+                )
+        {
+            return true;
+        }
         else return false;
     }
 
