@@ -16,6 +16,7 @@ Uploaded: 03.04.11 | License: Attribution 3.0 | Recorded by Mike Koenig | File S
 package com.mygdx.game;
 
 import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Input;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 
@@ -35,6 +36,7 @@ public class Car {
     public static Direction LEFT=  new Direction(4, "LEFT",-1,0, -90);
     public float currentAngle= 0;
     private int collidedXtimes=0;
+    private Direction oldDirection = currentDirection;
 
 
     public Car(){
@@ -73,38 +75,33 @@ public class Car {
         if (!PlayScreen.checkCarCollisions()) {
             sprite.setPosition(X_pos, Y_pos);
             collidedXtimes=0;
-        } else if(collidedXtimes<=2) {
+        } else if(collidedXtimes<=2&&Gdx.input.isKeyPressed(Input.Keys.ANY_KEY) && !(PlayScreen.isCellProperty(X_pos,Y_pos,"parking"))&& (PlayScreen.isCellProperty(X_pos,Y_pos,"road"))) {
+            System.out.println("not here?");
+
             collidedXtimes++;
 
-      //      try {
-
-               // collide();
-                velocity[0] = (float)  - orientation[1];
-                velocity[1] = (float) -  orientation[0];
+            try {
+                collide(oldX, oldY);
+                velocity[0] = (float) 0.1 * oldDirection.x;
+                velocity[1] = (float) 0.1 * oldDirection.y;
                 driveForward();
-     /*       } catch (java.lang.StackOverflowError e) {
-                X_pos = oldX;
-                Y_pos = oldY;
-                System.out.println(X_pos + " " + Y_pos);
-                velocity[0] = 0;
-                velocity[1] = 1;
-
+            } catch (java.lang.StackOverflowError e) {
+                collide(oldX, oldY);
             }
-            */
-        } else{
 
-
-            collide();
-            X_pos = oldX;
-            Y_pos = oldY;
-
+        }
+        else {
+            System.out.println("error is here?");
+            collide(oldX, oldY);
         }
     }
 
-    public void collide(){
+    public void collide(float  oldX, float oldY){
         PlayScreen.playCollisionNoise();
         velocity[0] = - velocity[0]*1.5f;
         velocity[1] = - velocity[1]*1.5f;
+        X_pos = oldX;
+        Y_pos = oldY;
     }
 
     public void turn(String direction) {  //change to enumerator
@@ -123,6 +120,7 @@ public class Car {
                 currentAngle=Math.abs(currentAngle)-360;
             }
             if (currentAngle == newDirection.angle) {
+                oldDirection =currentDirection;
                 currentDirection = newDirection;
             }
             sprite.setPosition(X_pos, Y_pos);
