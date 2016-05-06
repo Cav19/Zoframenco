@@ -68,7 +68,7 @@ public class Hud {
         scoreLabel = new Label("$" + String.format("%02d", MyGdxGame.score), new Label.LabelStyle(font, Color.BLACK));
 
         Label messageTextLabel = new Label("Message: ", new Label.LabelStyle(font, Color.BLACK));
-        messageLabel = new Label("Yo! Welcome to The Daily Rider!", new Label.LabelStyle(font, Color.BLUE));
+        messageLabel = new Label("Yo! Welcome to The Daily Driver!", new Label.LabelStyle(font, Color.BLUE));
 
         Label blankLabel = new Label("", new Label.LabelStyle(font, Color.BLACK));
 
