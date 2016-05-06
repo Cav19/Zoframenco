@@ -34,6 +34,7 @@ public class Car {
     public static Direction DOWN=  new Direction(3, "DOWN",0,-1, -180);
     public static Direction LEFT=  new Direction(4, "LEFT",-1,0, -90);
     public float currentAngle= 0;
+    private int collidedXtimes=0;
 
 
     public Car(){
@@ -68,40 +69,42 @@ public class Car {
     private void driveForward() {
         float oldX = X_pos;
         float oldY = Y_pos;
+
         if (!PlayScreen.checkCarCollisions()) {
             sprite.setPosition(X_pos, Y_pos);
-        } else {
-        /*
+            collidedXtimes=0;
+        } else if(collidedXtimes<=2) {
+            collidedXtimes++;
 
-            try {
+      //      try {
 
-                collide();
-                velocity[0] = (float)0.1 * orientation[1];
-                velocity[1] = (float)0.1 * orientation[0];
+               // collide();
+                velocity[0] = (float)  - orientation[1];
+                velocity[1] = (float) -  orientation[0];
                 driveForward();
-            } catch (java.lang.StackOverflowError e) {
-                X_pos=oldX;
-                Y_pos=oldY;
-                System.out.println(X_pos+ " "+ Y_pos);
-
-                velocity[0]=0;
-                velocity[1]=1;
+     /*       } catch (java.lang.StackOverflowError e) {
+                X_pos = oldX;
+                Y_pos = oldY;
+                System.out.println(X_pos + " " + Y_pos);
+                velocity[0] = 0;
+                velocity[1] = 1;
 
             }
-
             */
-              collide();
+        } else{
 
-              X_pos = oldX;
-              Y_pos = oldY;
+
+            collide();
+            X_pos = oldX;
+            Y_pos = oldY;
 
         }
     }
 
     public void collide(){
         PlayScreen.playCollisionNoise();
-        velocity[0] = 0;
-        velocity[1] = 0;
+        velocity[0] = - velocity[0]*1.5f;
+        velocity[1] = - velocity[1]*1.5f;
     }
 
     public void turn(String direction) {  //change to enumerator
