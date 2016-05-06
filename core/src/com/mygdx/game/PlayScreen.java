@@ -27,10 +27,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class PlayScreen implements Screen {
 
-    private final int V_WIDTH = HomeScreen.V_WIDTH;
-    private final int V_HEIGHT = HomeScreen.V_HEIGHT;
-
-    private MyGdxGame game;
+    private static MyGdxGame game;
     private Viewport gamePort;
     private Hud hud;
     private static TiledMap tiledMap;
@@ -50,11 +47,11 @@ public class PlayScreen implements Screen {
     public PlayScreen(MyGdxGame game){
         this.game = game;
         batch = new SpriteBatch();
-        Gdx.graphics.setWindowedMode(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
+        Gdx.graphics.setWindowedMode(game.V_WIDTH, game.V_HEIGHT);
         camera = new OrthographicCamera();
         hud = new Hud(batch, camera);
-        camera.setToOrtho(false, HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
-        gamePort = new FitViewport(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT, camera);
+        camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
+        gamePort = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
         tiledMap = new TmxMapLoader().load("map_assets/map@17April.tmx");
         gameSoundPlayer = new soundPlayer();
         allPassengers.add(new Passenger("Normal"));
@@ -144,8 +141,8 @@ public class PlayScreen implements Screen {
     private void endGame(){
         allPassengers.clear();
         taxi.empty();
-        taxi.setX(HomeScreen.V_WIDTH / 2);
-        taxi.setY((float)( HomeScreen.V_HEIGHT / 2.3));
+        taxi.setX(game.V_WIDTH / 2);
+        taxi.setY((float)( game.V_HEIGHT / 2.3));
         game.setScreen(new com.mygdx.game.EndScreen(game));
         gameSoundPlayer.playCarHorn();
         gameSoundPlayer.stop();
@@ -173,7 +170,7 @@ public class PlayScreen implements Screen {
     private void setUpScreen(){
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        camera.setToOrtho(false, HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
+        camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
         camera.update();
         batch.setProjectionMatrix(Hud.stage.getCamera().combined);
     }
@@ -385,13 +382,13 @@ public class PlayScreen implements Screen {
         taxi.setX(taxi.getX() + taxi.getVelocity()[0]);
         taxi.setY(taxi.getY() + taxi.getVelocity()[1]);
 
-        if (taxi.getX() + (int) taxi.getSprite().getWidth() >= HomeScreen.V_WIDTH) {
+        if (taxi.getX() + (int) taxi.getSprite().getWidth() >= game.V_WIDTH) {
             return true;
         }
         if (taxi.getX() <= 0) {
             return true;
         }
-        if (taxi.getY()+ (int) taxi.getSprite().getWidth() >=  HomeScreen.V_HEIGHT) {
+        if (taxi.getY()+ (int) taxi.getSprite().getWidth() >=  game.V_HEIGHT) {
             return true;
         }
         if (taxi.getY() <= 0) {

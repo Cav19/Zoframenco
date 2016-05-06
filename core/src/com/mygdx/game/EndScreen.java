@@ -20,9 +20,6 @@ import com.badlogic.gdx.utils.viewport.Viewport;
  */
 public class EndScreen implements Screen{
 
-    private final int V_WIDTH = HomeScreen.V_WIDTH;
-    private final int V_HEIGHT = HomeScreen.V_HEIGHT;
-
     private OrthographicCamera camera;
 
     private FreeTypeFontGenerator generator;
@@ -35,12 +32,11 @@ public class EndScreen implements Screen{
 
     private Texture background;
 
-
     public EndScreen(final MyGdxGame game) {
 
-        camera = new OrthographicCamera(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
-        camera.setToOrtho(false,HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
-        Viewport scorePort = new FitViewport(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT, camera);
+        camera = new OrthographicCamera(game.V_WIDTH, game.V_HEIGHT);
+        camera.setToOrtho(false,game.V_WIDTH, game.V_HEIGHT);
+        Viewport scorePort = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
         ScorePanel scores = new ScorePanel();
 
         stage = new Stage();

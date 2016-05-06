@@ -20,9 +20,6 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 
 public class InstructionScreen implements Screen {
 
-    private final int V_WIDTH = HomeScreen.V_WIDTH;
-    private final int V_HEIGHT = HomeScreen.V_HEIGHT;
-
     private static OrthographicCamera camera;
 
     private Stage stage;
@@ -39,8 +36,8 @@ public class InstructionScreen implements Screen {
 
     public InstructionScreen(final MyGdxGame game) {
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
-        port = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+        camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
+        port = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
 
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);

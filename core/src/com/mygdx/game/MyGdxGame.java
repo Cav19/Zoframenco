@@ -7,6 +7,9 @@ import java.util.HashMap;
 public class MyGdxGame extends Game {
     public static HashMap<Integer, Location> locations;
 
+    public static final int V_WIDTH =1000;
+    public static final int V_HEIGHT = 1150;
+
     public static int score = 0;
     public static int worldTimer = 90;
 

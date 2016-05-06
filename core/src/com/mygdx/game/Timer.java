@@ -12,12 +12,16 @@ public class Timer {
     private Sprite sprite;
     private float width ;
     private float height;
-    private float X_pos = HomeScreen.V_WIDTH / 4.5f;
-    private float Y_pos = HomeScreen.V_HEIGHT / 3.8f;
+    private float X_pos;
+    private float Y_pos;
     private static Random generator = new Random();
     private boolean visible = true;
 
     public Timer(){
+
+        X_pos = MyGdxGame.V_WIDTH / 4.5f;
+        Y_pos = MyGdxGame.V_HEIGHT / 3.8f;
+
         sprite = new Sprite(new Texture("timer.png"));
         sprite.setSize(50,50);
         width = sprite.getWidth();
@@ -48,8 +52,8 @@ public class Timer {
     public void randomlyPlaceTimer() {
         visible = true;
         do {
-            X_pos =  generator.nextInt(HomeScreen.V_WIDTH) + 1;
-            Y_pos =  generator.nextInt(HomeScreen.V_HEIGHT) + 1;
+            X_pos =  generator.nextInt(MyGdxGame.V_WIDTH) + 1;
+            Y_pos =  generator.nextInt(MyGdxGame.V_HEIGHT) + 1;
         } while(!PlayScreen.isTileType(X_pos, Y_pos+ height/2,"timer")
                 ||!PlayScreen.isTileType(X_pos + width, Y_pos+ height/2,"timer")
                 ||!PlayScreen.isTileType(X_pos + width/2, Y_pos,"timer")
