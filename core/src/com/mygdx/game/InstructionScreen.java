@@ -22,7 +22,6 @@ public class InstructionScreen implements Screen {
     private final int V_WIDTH = HomeScreen.V_WIDTH;
     private final int V_HEIGHT = HomeScreen.V_HEIGHT;
 
-    private final MyGdxGame game;
     private static OrthographicCamera camera;
     private Skin skin;
     private Stage stage;
@@ -34,7 +33,6 @@ public class InstructionScreen implements Screen {
 
 
     public InstructionScreen(final MyGdxGame game) {
-        this.game = game;
         camera = new OrthographicCamera();
         camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
         port = new FitViewport(V_WIDTH, V_HEIGHT, camera);
