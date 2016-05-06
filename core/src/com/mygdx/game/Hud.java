@@ -37,7 +37,6 @@ public class Hud {
     public static Json Scores = new Json();
 
     public Hud(MyGdxGame game, SpriteBatch sb, Camera camera) {
-        MyGdxGame.worldTimer = 100;
 
         timeCount = 0;
         MyGdxGame.score = 0;

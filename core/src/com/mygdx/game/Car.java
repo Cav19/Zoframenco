@@ -76,7 +76,6 @@ public class Car {
             sprite.setPosition(X_pos, Y_pos);
             collidedXtimes=0;
         } else if(collidedXtimes<=2&&Gdx.input.isKeyPressed(Input.Keys.ANY_KEY) && !(PlayScreen.isCellProperty(X_pos,Y_pos,"parking"))&& (PlayScreen.isCellProperty(X_pos,Y_pos,"road"))) {
-            System.out.println("not here?");
 
             collidedXtimes++;
 
@@ -91,7 +90,6 @@ public class Car {
 
         }
         else {
-            System.out.println("error is here?");
             collide(oldX, oldY);
         }
     }
