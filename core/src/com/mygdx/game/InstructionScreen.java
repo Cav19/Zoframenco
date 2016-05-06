@@ -79,14 +79,14 @@ public class InstructionScreen implements Screen {
 
         batch.begin();
         batch.draw(instruction,
-                camera.viewportWidth/10,
-                camera.viewportHeight/5,
-                camera.viewportWidth -  camera.viewportWidth/10,
-                camera.viewportHeight -camera.viewportHeight/10);
+                camera.viewportWidth/5,
+                camera.viewportHeight/8,
+                camera.viewportWidth * 3/5,
+                camera.viewportHeight* 4/9);
         batch.end();
 
-        startButton.setPosition(camera.viewportWidth/4 - camera.viewportWidth/10 , camera.viewportHeight/10);
-        backButton.setPosition(camera.viewportWidth*3/4 - camera.viewportWidth/10 , camera.viewportHeight/10);
+        startButton.setPosition(camera.viewportWidth/4 - camera.viewportWidth/10 , camera.viewportHeight/20);
+        backButton.setPosition(camera.viewportWidth*3/4 - camera.viewportWidth/10 , camera.viewportHeight/20);
 
         stage.act();
         stage.draw();
