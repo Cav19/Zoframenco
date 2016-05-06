@@ -32,18 +32,16 @@ public class EndScreen implements Screen{
 
     private Stage stage;
     private TextButton restartButton;
-    private SpriteBatch batch;
-    private ScorePanel scores;
-    private Table scoreTable;
-    private Viewport scorePort;
+
+    private Texture background;
 
 
     public EndScreen(final MyGdxGame game) {
 
         camera = new OrthographicCamera(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
         camera.setToOrtho(false,HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
-        scorePort = new FitViewport(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT, camera);
-        scores = new ScorePanel();
+        Viewport scorePort = new FitViewport(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT, camera);
+        ScorePanel scores = new ScorePanel();
 
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
@@ -55,6 +53,8 @@ public class EndScreen implements Screen{
         restartButton = new TextButton("Restart", skin);
         stage.addActor(restartButton);
 
+        background = new Texture(Gdx.files.internal("images/endScreen.png"));
+
         restartButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
                 MyGdxGame.worldTimer = 90;
@@ -64,7 +64,7 @@ public class EndScreen implements Screen{
             }
         });
 
-        scoreTable = scores.getTable();
+        Table scoreTable = scores.getTable();
         stage.addActor(scores.getTable());
     }
 
@@ -77,6 +77,11 @@ public class EndScreen implements Screen{
     public void render(float delta) {
         Gdx.gl.glClearColor(250/255f, 236/255f, 129/255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
+        SpriteBatch batch = new SpriteBatch();
+        batch.begin();
+        batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.end();
 
         restartButton.setPosition(camera.viewportWidth/2 - camera.viewportWidth/10, camera.viewportHeight/16);
 
