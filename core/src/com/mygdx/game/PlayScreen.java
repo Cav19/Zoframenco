@@ -395,10 +395,10 @@ public class PlayScreen implements Screen {
             return true;
         }
         try {
-            return (!isTileType((float)(taxi.getX() + 0.65 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-                    ||!isTileType((float)(taxi.getX() + 0.35 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-                    ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.65 * taxi.getSprite().getHeight()), "road"))
-                    ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.35 * taxi.getSprite().getHeight()), "road");
+            return (!isCellProperty((float)(taxi.getX() + 0.65 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+                    ||!isCellProperty((float)(taxi.getX() + 0.35 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+                    ||!isCellProperty(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.65 * taxi.getSprite().getHeight()), "road"))
+                    ||!isCellProperty(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.35 * taxi.getSprite().getHeight()), "road");
         } catch (NullPointerException e){
             return true;
         }
@@ -407,8 +407,16 @@ public class PlayScreen implements Screen {
         }
 
 
-    public static boolean isTileType(float x, float y, String type){
-        return isCellProperty(x, y, type);
+    public static boolean isCellProperty(float x, float y, String property){
+
+        MapLayers allLayers = tiledMap.getLayers();
+        TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
+        TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
+
+        if ((cell != null) &&  (cell.getTile() != null)) {
+            return ((cell.getTile().getProperties().containsKey(property)));
+        }
+        else return false;
     }
 
     /**
@@ -418,12 +426,8 @@ public class PlayScreen implements Screen {
      * @param property The property to check the cell for.
      * @return True if the cell in question matches the property provided, false if it does not match.
      */
-    public static boolean isCellProperty(float x, float y, String property) {
-        MapLayers allLayers = tiledMap.getLayers();
-        TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
-        TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
-        return (cell != null) &&  (cell.getTile() != null)  &&  ((cell.getTile().getProperties().containsKey(property)));
-    }
+
+
 
     /**
      * Plays tire sound effect.

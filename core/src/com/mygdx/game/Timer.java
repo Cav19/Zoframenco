@@ -54,10 +54,10 @@ public class Timer {
         do {
             X_pos =  generator.nextInt(MyGdxGame.V_WIDTH) + 1;
             Y_pos =  generator.nextInt(MyGdxGame.V_HEIGHT) + 1;
-        } while(!PlayScreen.isTileType(X_pos, Y_pos+ height/2,"timer")
-                ||!PlayScreen.isTileType(X_pos + width, Y_pos+ height/2,"timer")
-                ||!PlayScreen.isTileType(X_pos + width/2, Y_pos,"timer")
-                ||!PlayScreen.isTileType(X_pos + width/2,Y_pos+ height,"timer")
+        } while(!PlayScreen.isCellProperty(X_pos, Y_pos+ height/2,"timer")
+                ||!PlayScreen.isCellProperty(X_pos + width, Y_pos+ height/2,"timer")
+                ||!PlayScreen.isCellProperty(X_pos + width/2, Y_pos,"timer")
+                ||!PlayScreen.isCellProperty(X_pos + width/2,Y_pos+ height,"timer")
                 );
         sprite.setPosition(X_pos, Y_pos);
     }
