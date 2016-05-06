@@ -5,6 +5,7 @@ import com.badlogic.gdx.Screen;
 import com.badlogic.gdx.graphics.*;
 import com.badlogic.gdx.graphics.g2d.BitmapFont;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.graphics.g2d.freetype.FreeTypeFontGenerator;
 import com.badlogic.gdx.scenes.scene2d.InputEvent;
 import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
@@ -23,7 +24,7 @@ public class InstructionScreen implements Screen {
     private final int V_HEIGHT = HomeScreen.V_HEIGHT;
 
     private static OrthographicCamera camera;
-    private Skin skin;
+
     private Stage stage;
     private TextButton startButton;
     private TextButton backButton;
@@ -31,6 +32,10 @@ public class InstructionScreen implements Screen {
 
     private Texture instruction;
 
+    private FreeTypeFontGenerator generator;
+    private FreeTypeFontGenerator.FreeTypeFontParameter parameter;
+    private BitmapFont font;
+    private Skin skin;
 
     public InstructionScreen(final MyGdxGame game) {
         camera = new OrthographicCamera();
@@ -41,6 +46,11 @@ public class InstructionScreen implements Screen {
         Gdx.input.setInputProcessor(stage);
 
         instruction = new Texture(Gdx.files.internal("instruction.png"));
+
+        font = new BitmapFont();
+        generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/SIXTY.TTF"));
+        parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
+        setUpFont();
 
         createButtonSkin();
         startButton = new TextButton("Start Game", skin);
@@ -92,7 +102,6 @@ public class InstructionScreen implements Screen {
 
 
     private void createButtonSkin(){
-        BitmapFont font = new BitmapFont();
         skin = new Skin();
 
         Pixmap pixmap = new Pixmap((int)Gdx.graphics.getWidth()/4,(int)Gdx.graphics.getHeight()/10, Pixmap.Format.RGB888);
@@ -107,6 +116,14 @@ public class InstructionScreen implements Screen {
         textButtonStyle.over = skin.newDrawable("background", Color.LIGHT_GRAY);
         textButtonStyle.font = font;
         skin.add("default", textButtonStyle);
+    }
+
+    private void setUpFont() {
+        parameter.size = 32;
+        parameter.color = Color.YELLOW;
+        parameter.borderWidth = 2;
+        parameter.borderColor = Color.BLACK;
+        font = generator.generateFont(parameter);
     }
 
     @Override
