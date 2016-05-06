@@ -22,10 +22,10 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 
 public class Car {
-    private Sprite sprite;
+    private Sprite sprite= new Sprite(new Texture("images/48car.png"));;
     private boolean full;
-    private float X_pos;
-    private float Y_pos;
+    private float X_pos = InitialPosition[0];;
+    private float Y_pos = InitialPosition[1];
     private float[] velocity = new float[2];
     private Direction currentDirection;
     private int[] orientation = new int[2];
@@ -42,16 +42,12 @@ public class Car {
 
     public Car(){
 
-        X_pos = InitialPosition[0];
-        Y_pos = InitialPosition[1];
-
-        sprite = new Sprite(new Texture("images/48car.png"));
         sprite.setSize(48, 48);
-
         sprite.setPosition(X_pos, Y_pos);
         sprite.setOrigin(24, 24);
         setOrientation(0, 1);
         currentDirection=UP;
+
     }
 
 

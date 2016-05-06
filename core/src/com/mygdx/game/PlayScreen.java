@@ -411,14 +411,18 @@ public class PlayScreen implements Screen {
      * @return True if the cell in question matches the property provided, false if it does not match.
      */
 
-    public static boolean isCellProperty(float x, float y, String property){
+    public static boolean isCellProperty(float x, float y, String property) {
 
         MapLayers allLayers = tiledMap.getLayers();
         TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
-
-        return ((cell.getTile().getProperties().containsKey(property)));
+        try {
+            return ((cell.getTile().getProperties().containsKey(property)));
+        } catch (NullPointerException e) {
+            return false;
+        }
     }
+
 
 
 
