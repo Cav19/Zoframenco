@@ -52,7 +52,7 @@ public class PlayScreen implements Screen {
         batch = new SpriteBatch();
         Gdx.graphics.setWindowedMode(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
         camera = new OrthographicCamera();
-        hud = new Hud(game, batch, camera);
+        hud = new Hud(batch, camera);
         camera.setToOrtho(false, HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
         gamePort = new FitViewport(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT, camera);
         tiledMap = new TmxMapLoader().load("map_assets/map@17April.tmx");
@@ -239,7 +239,7 @@ public class PlayScreen implements Screen {
         ShapeRenderer renderer = new ShapeRenderer();
         renderer.setProjectionMatrix(camera.combined);
         renderer.updateMatrices();
-        renderer.setColor(Color.GREEN);
+        renderer.setColor(Color.RED);
         renderer.begin(ShapeRenderer.ShapeType.Line);
         renderer.rect(box.getX() - pulse, box.getY() - pulse, box.getWidth() + 2 * pulse, box.getHeight() + 2 * pulse);
         renderer.end();
