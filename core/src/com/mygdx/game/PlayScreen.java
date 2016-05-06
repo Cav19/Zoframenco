@@ -312,24 +312,19 @@ public class PlayScreen implements Screen {
     private void updateInputKey() {
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             inputKey = "LEFT";
-            if (taxi.getVelocity()[0] != 0 && taxi.getVelocity()[1] != 0) {
-                taxi.setVelocity(taxi.getVelocity()[0], taxi.getVelocity()[1] /(float)1.2);
-            }
-        } else if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
+
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
             inputKey = "RIGHT";
-            if (taxi.getVelocity()[0] != 0 && taxi.getVelocity()[1] != 0) {
-                taxi.setVelocity(taxi.getVelocity()[0], taxi.getVelocity()[1] /(float)1.2);
-            }
-        } else if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
+
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.UP)) {
             inputKey = "UP";
-            if (taxi.getVelocity()[0] != 0 && taxi.getVelocity()[1] != 0) {
-                taxi.setVelocity(taxi.getVelocity()[0] /(float)1.2, taxi.getVelocity()[1]);
-            }
-        } else if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
+
+        }
+        if (Gdx.input.isKeyPressed(Input.Keys.DOWN)) {
             inputKey = "DOWN";
-            if (taxi.getVelocity()[0] != 0 && taxi.getVelocity()[1] != 0) {
-                taxi.setVelocity(taxi.getVelocity()[0] /(float)1.2, taxi.getVelocity()[1]);
-            }
+
         }
     }
 
@@ -422,8 +417,6 @@ public class PlayScreen implements Screen {
             return false;
         }
     }
-
-
 
 
     /**
