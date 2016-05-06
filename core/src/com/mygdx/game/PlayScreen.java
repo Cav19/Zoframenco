@@ -231,7 +231,7 @@ public class PlayScreen implements Screen {
         ShapeRenderer renderer = new ShapeRenderer();
         renderer.setProjectionMatrix(camera.combined);
         renderer.updateMatrices();
-        renderer.setColor(Color.MAGENTA);
+        renderer.setColor(Color.GREEN);
         renderer.begin(ShapeRenderer.ShapeType.Line);
         renderer.rect(box.getX() - pulse, box.getY() - pulse, box.getWidth() + 2 * pulse, box.getHeight() + 2 * pulse);
         renderer.end();
@@ -391,10 +391,10 @@ public class PlayScreen implements Screen {
             return true;
         }
         try {
-            return (!isTileType((float)(taxi.getX() + 0.68 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-                    ||!isTileType((float)(taxi.getX() + 0.32 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-                    ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.68 * taxi.getSprite().getHeight()), "road"))
-                    ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.32 * taxi.getSprite().getHeight()), "road");
+            return (!isTileType((float)(taxi.getX() + 0.65 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+                    ||!isTileType((float)(taxi.getX() + 0.35 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+                    ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.65 * taxi.getSprite().getHeight()), "road"))
+                    ||!isTileType(taxi.getX() + taxi.getSprite().getWidth() / 2, (float)(taxi.getY() + 0.35 * taxi.getSprite().getHeight()), "road");
         } catch (NullPointerException e){
             return true;
         }
