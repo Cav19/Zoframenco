@@ -239,7 +239,7 @@ public class PlayScreen implements Screen {
         ShapeRenderer renderer = new ShapeRenderer();
         renderer.setProjectionMatrix(camera.combined);
         renderer.updateMatrices();
-        renderer.setColor(Color.GREEN);
+        renderer.setColor(Color.RED);
         renderer.begin(ShapeRenderer.ShapeType.Line);
         renderer.rect(box.getX() - pulse, box.getY() - pulse, box.getWidth() + 2 * pulse, box.getHeight() + 2 * pulse);
         renderer.end();
