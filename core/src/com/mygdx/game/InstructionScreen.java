@@ -77,34 +77,34 @@ public class InstructionScreen implements Screen {
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(255/255f, 255/255f, 255/255f, 1);
+        Gdx.gl.glClearColor(255 / 255f, 255 / 255f, 255 / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         SpriteBatch batch = new SpriteBatch();
 
         batch.begin();
         batch.draw(instruction,
-                camera.viewportWidth/5,
-                camera.viewportHeight/8,
-                camera.viewportWidth * 3/5,
-                camera.viewportHeight* 4/9);
+                camera.viewportWidth / 5,
+                camera.viewportHeight / 8,
+                camera.viewportWidth * 3 / 5,
+                camera.viewportHeight * 4 / 9);
         batch.end();
 
-        startButton.setPosition(camera.viewportWidth/4 - camera.viewportWidth/10 , camera.viewportHeight/20);
-        backButton.setPosition(camera.viewportWidth*3/4 - camera.viewportWidth/10 , camera.viewportHeight/20);
+        startButton.setPosition(camera.viewportWidth / 4 - camera.viewportWidth / 10, camera.viewportHeight / 20);
+        backButton.setPosition(camera.viewportWidth * 3 / 4 - camera.viewportWidth / 10, camera.viewportHeight / 20);
 
         stage.act();
         stage.draw();
     }
 
 
-    private void createButtonSkin(){
+    private void createButtonSkin() {
         skin = new Skin();
 
-        Pixmap pixmap = new Pixmap((int)Gdx.graphics.getWidth()/4,(int)Gdx.graphics.getHeight()/10, Pixmap.Format.RGB888);
+        Pixmap pixmap = new Pixmap((int) Gdx.graphics.getWidth() / 4, (int) Gdx.graphics.getHeight() / 10, Pixmap.Format.RGB888);
         pixmap.setColor(Color.WHITE);
         pixmap.fill();
-        skin.add("background",new Texture(pixmap));
+        skin.add("background", new Texture(pixmap));
 
         TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
         textButtonStyle.up = skin.newDrawable("background", Color.GRAY);

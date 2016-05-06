@@ -22,51 +22,51 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 
 public class Car {
-    private Sprite sprite= new Sprite(new Texture("images/48car.png"));;
+    private Sprite sprite = new Sprite(new Texture("images/48car.png"));
     private boolean full;
-    private float X_pos = InitialPosition[0];;
+    private float X_pos = InitialPosition[0];
     private float Y_pos = InitialPosition[1];
     private float[] velocity = new float[2];
     private Direction currentDirection;
     private int[] orientation = new int[2];
     private Passenger passenger;
-    public static Direction UP= new Direction(1, "UP",0,1,360);
-    public static Direction RIGHT=  new Direction(2, "RIGHT",1,0,-270);
-    public static Direction DOWN=  new Direction(3, "DOWN",0,-1, -180);
-    public static Direction LEFT=  new Direction(4, "LEFT",-1,0, -90);
-    public static final float[] InitialPosition= {MyGdxGame.V_WIDTH / 2, MyGdxGame.V_HEIGHT / 2.3f};
-    public float currentAngle= 0;
-    private int collidedXtimes=0;
+    public static Direction UP = new Direction(1, "UP", 0, 1, 360);
+    public static Direction RIGHT = new Direction(2, "RIGHT", 1, 0, -270);
+    public static Direction DOWN = new Direction(3, "DOWN", 0, -1, -180);
+    public static Direction LEFT = new Direction(4, "LEFT", -1, 0, -90);
+    public static final float[] InitialPosition = {MyGdxGame.V_WIDTH / 2, MyGdxGame.V_HEIGHT / 2.3f};
+    public float currentAngle = 0;
+    private int collidedXtimes = 0;
     private Direction oldDirection = currentDirection;
 
 
-    public Car(){
+    public Car() {
 
         sprite.setSize(48, 48);
         sprite.setPosition(X_pos, Y_pos);
         sprite.setOrigin(24, 24);
         setOrientation(0, 1);
-        currentDirection=UP;
+        currentDirection = UP;
 
     }
 
 
-    private void accelerate(float acceleration){
+    private void accelerate(float acceleration) {
 
-            if (this.velocity[0] == 0) {
-                this.velocity[0] = (float) (orientation[0] * 0.3);
-            }
-            if (this.velocity[1] == 0) {
-                this.velocity[1] = (float) (orientation[1] * 0.3);
-            }
-
-
-            if ((velocity[0] > -3) && ((velocity[0] < 3) && (velocity[1] < 3) && (velocity[1] > -3))) {
-                this.velocity[0] += (Gdx.graphics.getDeltaTime() * acceleration) * orientation[0] * 3;
-                this.velocity[1] += (Gdx.graphics.getDeltaTime() * acceleration) * orientation[1] * 3;
-            }
-            driveForward();
+        if (this.velocity[0] == 0) {
+            this.velocity[0] = (float) (orientation[0] * 0.3);
         }
+        if (this.velocity[1] == 0) {
+            this.velocity[1] = (float) (orientation[1] * 0.3);
+        }
+
+
+        if ((velocity[0] > -3) && ((velocity[0] < 3) && (velocity[1] < 3) && (velocity[1] > -3))) {
+            this.velocity[0] += (Gdx.graphics.getDeltaTime() * acceleration) * orientation[0] * 3;
+            this.velocity[1] += (Gdx.graphics.getDeltaTime() * acceleration) * orientation[1] * 3;
+        }
+        driveForward();
+    }
 
     private void driveForward() {
         float oldX = X_pos;
@@ -74,8 +74,8 @@ public class Car {
 
         if (!PlayScreen.checkCarCollisions()) {
             sprite.setPosition(X_pos, Y_pos);
-            collidedXtimes=0;
-        } else if(collidedXtimes<=2&&Gdx.input.isKeyPressed(Input.Keys.ANY_KEY) && !(PlayScreen.isCellProperty(X_pos,Y_pos,"parking"))&& (PlayScreen.isCellProperty(X_pos,Y_pos,"road"))) {
+            collidedXtimes = 0;
+        } else if (collidedXtimes <= 2 && Gdx.input.isKeyPressed(Input.Keys.ANY_KEY) && !(PlayScreen.isCellProperty(X_pos, Y_pos, "parking")) && (PlayScreen.isCellProperty(X_pos, Y_pos, "road"))) {
 
             collidedXtimes++;
 
@@ -88,37 +88,36 @@ public class Car {
                 collide(oldX, oldY);
             }
 
-        }
-        else {
+        } else {
             collide(oldX, oldY);
         }
     }
 
-    public void collide(float  oldX, float oldY){
+    public void collide(float oldX, float oldY) {
         PlayScreen.playCollisionNoise();
-        velocity[0] = - velocity[0];
-        velocity[1] = - velocity[1];
+        velocity[0] = -velocity[0];
+        velocity[1] = -velocity[1];
         X_pos = oldX;
         Y_pos = oldY;
     }
 
     public void turn(String direction) {  //change to enumerator
-        move(sprite.getHeight()/4);
-        Direction newDirection= getDirection(direction);
+        move(sprite.getHeight() / 4);
+        Direction newDirection = getDirection(direction);
         if (currentAngle != newDirection.angle) {
-              //velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
-             // velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+            //velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
+            // velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
 
 
-            int roationAngle=  (int) (newDirection.angle-currentAngle);
+            int roationAngle = (int) (newDirection.angle - currentAngle);
             sprite.rotate(-roationAngle);
-            currentAngle= currentAngle+ roationAngle;
+            currentAngle = currentAngle + roationAngle;
 
-            if (Math.abs(currentAngle)>360){
-                currentAngle=Math.abs(currentAngle)-360;
+            if (Math.abs(currentAngle) > 360) {
+                currentAngle = Math.abs(currentAngle) - 360;
             }
             if (currentAngle == newDirection.angle) {
-                oldDirection =currentDirection;
+                oldDirection = currentDirection;
                 currentDirection = newDirection;
             }
             sprite.setPosition(X_pos, Y_pos);
@@ -127,29 +126,26 @@ public class Car {
     }
 
     public Direction getDirection(String direction) {
-        if (direction.equals("UP")){
+        if (direction.equals("UP")) {
             return UP;
-        }
-        else if (direction.equals("DOWN")){
-            return  DOWN;
-        }
-        else if (direction.equals("LEFT")){
+        } else if (direction.equals("DOWN")) {
+            return DOWN;
+        } else if (direction.equals("LEFT")) {
             return LEFT;
-        }
-        else return  RIGHT;
+        } else return RIGHT;
     }
 
     public Sprite getSprite() {
         return sprite;
     }
 
-    public int [] getOrientation() {
+    public int[] getOrientation() {
         return orientation;
     }
 
     public void setOrientation(int x, int y) {
-        this.orientation[0]=x;
-        this.orientation[1]=y;
+        this.orientation[0] = x;
+        this.orientation[1] = y;
     }
 
     public void move(float acceleration) {
@@ -166,7 +162,7 @@ public class Car {
         }
     }
 
-    public boolean hasArrived(Location location){
+    public boolean hasArrived(Location location) {
         return (this.getSprite().getX() + this.getSprite().getWidth() / 2 >= location.getX() - 30
                 && this.getSprite().getX() + this.getSprite().getWidth() / 2 <= location.getX() + 30)
                 && (this.getSprite().getY() + this.getSprite().getHeight() / 2 >= location.getY() - 15)
@@ -174,54 +170,53 @@ public class Car {
     }
 
 
-    public void setVelocity(float x, float y){
-        this.velocity[0]=x;
-        this.velocity[1]=y;
+    public void setVelocity(float x, float y) {
+        this.velocity[0] = x;
+        this.velocity[1] = y;
     }
 
-    public boolean isFull(){
+    public boolean isFull() {
         return full;
     }
 
-    public void addPassenger(Passenger passenger){
+    public void addPassenger(Passenger passenger) {
         this.passenger = passenger;
         passenger.getOrigin().removePassenger();
         full = true;
     }
 
-    public void empty(){
+    public void empty() {
         passenger = null;
         full = false;
     }
 
-    public float[] getVelocity(){
+    public float[] getVelocity() {
         return velocity;
     }
 
-    public float getX(){
+    public float getX() {
         return X_pos;
     }
 
-    public float getY(){
+    public float getY() {
         return Y_pos;
     }
 
-    public void setPosition( float x, float y){
+    public void setPosition(float x, float y) {
         setX(x);
         setY(y);
     }
 
 
-
-    public void setX(float pos){
+    public void setX(float pos) {
         X_pos = pos;
     }
 
-    public void setY(float pos){
+    public void setY(float pos) {
         Y_pos = pos;
     }
 
-    public Passenger getPassenger(){
+    public Passenger getPassenger() {
         return passenger;
     }
 }

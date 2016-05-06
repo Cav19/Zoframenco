@@ -18,7 +18,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 /**
  * Created by zoray on 4/25/16.
  */
-public class EndScreen implements Screen{
+public class EndScreen implements Screen {
 
     private OrthographicCamera camera;
 
@@ -35,7 +35,7 @@ public class EndScreen implements Screen{
     public EndScreen(final MyGdxGame game) {
 
         camera = new OrthographicCamera(game.V_WIDTH, game.V_HEIGHT);
-        camera.setToOrtho(false,game.V_WIDTH, game.V_HEIGHT);
+        camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
         Viewport scorePort = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
         ScorePanel scores = new ScorePanel();
 
@@ -71,7 +71,7 @@ public class EndScreen implements Screen{
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(250/255f, 236/255f, 129/255f, 1);
+        Gdx.gl.glClearColor(250 / 255f, 236 / 255f, 129 / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         SpriteBatch batch = new SpriteBatch();
@@ -79,7 +79,7 @@ public class EndScreen implements Screen{
         batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.end();
 
-        restartButton.setPosition(camera.viewportWidth/2 - camera.viewportWidth/10, camera.viewportHeight/16);
+        restartButton.setPosition(camera.viewportWidth / 2 - camera.viewportWidth / 10, camera.viewportHeight / 16);
 
         stage.act();
         stage.draw();
@@ -93,10 +93,10 @@ public class EndScreen implements Screen{
         font = generator.generateFont(parameter);
     }
 
-    private void createButtonSkin(){
+    private void createButtonSkin() {
         skin = new Skin();
 
-        Pixmap pixmap = new Pixmap((int)camera.viewportWidth/4, (int)camera.viewportHeight/16, Pixmap.Format.RGB888);
+        Pixmap pixmap = new Pixmap((int) camera.viewportWidth / 4, (int) camera.viewportHeight / 16, Pixmap.Format.RGB888);
         pixmap.setColor(Color.WHITE);
         pixmap.fill();
         skin.add("background", new Texture(pixmap));

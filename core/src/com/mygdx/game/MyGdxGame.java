@@ -7,27 +7,27 @@ import java.util.HashMap;
 public class MyGdxGame extends Game {
     public static HashMap<Integer, Location> locations;
 
-    public static final int V_WIDTH =1000;
+    public static final int V_WIDTH = 1000;
     public static final int V_HEIGHT = 1150;
 
     public static int score = 0;
     public static int worldTimer = 90;
 
     @Override
-    public void create () {
+    public void create() {
         createLocations();
         setScreen(new HomeScreen(this));
     }
 
     @Override
-    public void render () {
+    public void render() {
         super.render();
     }
 
     /**
      * Creates each of the 18 parking lot locations and places them inside a HashMap for quick access.
      */
-    private void createLocations(){
+    private void createLocations() {
         locations = new HashMap<Integer, Location>();
         locations.put(0, new Location(75, 965, 0, "the park"));
         locations.put(1, new Location(235, 1085, 1, "Connor's house"));
@@ -49,7 +49,7 @@ public class MyGdxGame extends Game {
         locations.put(17, new Location(635, 165, 17, "the gas station"));
     }
 
-    public void addScore(int value){
+    public void addScore(int value) {
         score += value;
     }
 }

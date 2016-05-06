@@ -1,4 +1,5 @@
 package com.mygdx.game;
+
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.Camera;
 import com.badlogic.gdx.graphics.Color;
@@ -93,27 +94,27 @@ public class Hud {
             countdownLabel.setText(String.valueOf(MyGdxGame.worldTimer));
             timeCount = 0;
         }
-        if (MyGdxGame.worldTimer <=0){
+        if (MyGdxGame.worldTimer <= 0) {
             System.out.println("GAME OVER");
-            System.out.println("FINAL SCORE: "+ MyGdxGame.score);
+            System.out.println("FINAL SCORE: " + MyGdxGame.score);
             stage.dispose();
         }
     }
 
-    public String getHighScores(){
+    public String getHighScores() {
         Scores.prettyPrint(MyGdxGame.score);
         return Scores.prettyPrint(MyGdxGame.score);
     }
 
-    public int getTime(){
+    public int getTime() {
         return MyGdxGame.worldTimer;
     }
 
-    public void updateMessage(String msg){
+    public void updateMessage(String msg) {
         messageLabel.setText(msg);
     }
 
-    public void updateScore (){
+    public void updateScore() {
         scoreLabel.setText("$" + String.format("%02d", MyGdxGame.score));
     }
 
