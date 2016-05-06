@@ -13,7 +13,7 @@ public class Coin {
     private Texture texture = new Texture("coin.png");
     private float width ;
     private float height;
-    private float X_pos = HomeScreen.V_WIDTH / 6;
+    private float X_pos = HomeScreen.V_WIDTH / 6.6f;
     private float Y_pos = HomeScreen.V_HEIGHT / 2;
     private static Random generator = new Random();
     private boolean visible = true;

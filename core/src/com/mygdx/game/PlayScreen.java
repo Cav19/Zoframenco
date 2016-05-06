@@ -282,17 +282,10 @@ public class PlayScreen implements Screen {
                 timer.removeTimer();
             }
             if (isTaxiAtCoin()) {
-                game.score += 10;
+                game.score += 20;
                 coin.removeCoin();
             }
         }
-
-        /*
-        if (isTaxiAtCoin()){
-            game.score += 10;
-            coin.removeCoin();
-        }*/
-
     }
 
     /**
