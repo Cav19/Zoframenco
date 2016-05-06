@@ -13,8 +13,8 @@ public class Timer {
     private Texture texture = new Texture("timer.png");
     private float width ;
     private float height;
-    private float X_pos = HomeScreen.V_WIDTH / 4;
-    private float Y_pos = HomeScreen.V_HEIGHT / 4;
+    private float X_pos = HomeScreen.V_WIDTH / 4.5f;
+    private float Y_pos = HomeScreen.V_HEIGHT / 3.8f;
     private static Random generator = new Random();
     private boolean visible = true;
 
