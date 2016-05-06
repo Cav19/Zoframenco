@@ -30,20 +30,16 @@ public class Hud {
 
     private Label messageLabel;
 
-    private final MyGdxGame game;
-
     public BitmapFont font;
 
     public static Json Scores = new Json();
 
-    public Hud(MyGdxGame game, SpriteBatch sb, Camera camera) {
+    public Hud(SpriteBatch sb, Camera camera) {
 
         timeCount = 0;
 
         Viewport viewport = new FitViewport(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT, camera);
         stage = new Stage(viewport, sb);
-
-        this.game = game;
 
         setUpHudFont();
 
@@ -106,8 +102,7 @@ public class Hud {
 
     public String getHighScores(){
         Scores.prettyPrint(MyGdxGame.score);
-        String HighScores= Scores.prettyPrint(MyGdxGame.score);
-        return HighScores;
+        return Scores.prettyPrint(MyGdxGame.score);
     }
 
     public int getTime(){

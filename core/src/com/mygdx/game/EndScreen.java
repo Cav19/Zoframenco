@@ -23,7 +23,6 @@ public class EndScreen implements Screen{
     private final int V_WIDTH = HomeScreen.V_WIDTH;
     private final int V_HEIGHT = HomeScreen.V_HEIGHT;
 
-    private final MyGdxGame game;
     private OrthographicCamera camera;
 
     private FreeTypeFontGenerator generator;
@@ -40,7 +39,6 @@ public class EndScreen implements Screen{
 
 
     public EndScreen(final MyGdxGame game) {
-        this.game = game;
 
         camera = new OrthographicCamera(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
         camera.setToOrtho(false,HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
