@@ -44,7 +44,6 @@ public class PlayScreen implements Screen {
     private long spawnTime;
     private Timer timer = new Timer();
     private Coin coin = new Coin();
-    public static boolean playingAGame;
     String inputKey="";
     private float pulseTime = 0;
 
@@ -163,9 +162,9 @@ public class PlayScreen implements Screen {
         else{
             hud.updateMessage("Go pick up a passenger!");
         }
-        hud.updateTime(Gdx.graphics.getDeltaTime());
+        Hud.updateTime(Gdx.graphics.getDeltaTime());
         hud.updateScore();
-        hud.stage.draw();
+        Hud.stage.draw();
     }
 
     /**
@@ -176,7 +175,7 @@ public class PlayScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
         camera.setToOrtho(false, HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
         camera.update();
-        batch.setProjectionMatrix(hud.stage.getCamera().combined);
+        batch.setProjectionMatrix(Hud.stage.getCamera().combined);
     }
 
     /**
