@@ -10,7 +10,6 @@ import java.util.Random;
  */
 public class Coin {
     private Sprite sprite;
-    private Texture texture = new Texture("coin.png");
     private float width ;
     private float height;
     private float X_pos = HomeScreen.V_WIDTH / 6.6f;
@@ -19,7 +18,7 @@ public class Coin {
     private boolean visible = true;
 
     public Coin(){
-        sprite = new Sprite(texture);
+        sprite = new Sprite(new Texture("coin.png"));
         sprite.setSize(50,50);
         width = sprite.getWidth();
         height = sprite.getHeight();
