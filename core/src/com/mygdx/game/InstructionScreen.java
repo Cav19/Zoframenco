@@ -79,29 +79,23 @@ public class InstructionScreen implements Screen {
 
         batch.begin();
         batch.draw(instruction,
-                camera.viewportWidth/10,
-                camera.viewportHeight/5,
-                camera.viewportWidth -  camera.viewportWidth/10,
-                camera.viewportHeight -camera.viewportHeight/10);
+                camera.viewportWidth/5,
+                camera.viewportHeight/8,
+                camera.viewportWidth * 3/5,
+                camera.viewportHeight* 4/9);
         batch.end();
 
-        startButton.setPosition(Gdx.graphics.getWidth()/4 - Gdx.graphics.getWidth()/10 , Gdx.graphics.getHeight()/10);
-        backButton.setPosition(Gdx.graphics.getWidth()*3/4 - Gdx.graphics.getWidth()/10 , Gdx.graphics.getHeight()/10);
+        startButton.setPosition(camera.viewportWidth/4 - camera.viewportWidth/10 , camera.viewportHeight/20);
+        backButton.setPosition(camera.viewportWidth*3/4 - camera.viewportWidth/10 , camera.viewportHeight/20);
 
         stage.act();
         stage.draw();
-
-        if (Gdx.input.isTouched()) {
-            //game.setScreen(new com.mygdx.game.PlayScreen(game));
-            dispose();
-        }
     }
 
 
     private void createButtonSkin(){
         BitmapFont font = new BitmapFont();
         skin = new Skin();
-        skin.add("default", font);
 
         Pixmap pixmap = new Pixmap((int)Gdx.graphics.getWidth()/4,(int)Gdx.graphics.getHeight()/10, Pixmap.Format.RGB888);
         pixmap.setColor(Color.WHITE);
@@ -113,9 +107,8 @@ public class InstructionScreen implements Screen {
         textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);
         textButtonStyle.checked = skin.newDrawable("background", Color.DARK_GRAY);
         textButtonStyle.over = skin.newDrawable("background", Color.LIGHT_GRAY);
-        textButtonStyle.font = skin.getFont("default");
+        textButtonStyle.font = font;
         skin.add("default", textButtonStyle);
-
     }
 
     @Override

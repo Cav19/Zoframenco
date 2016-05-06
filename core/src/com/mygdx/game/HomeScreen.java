@@ -50,6 +50,8 @@ public class HomeScreen implements Screen{
 
     public HomeScreen(final MyGdxGame game){
         this.game = game;
+        camera = new OrthographicCamera();
+        camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
 
         Gdx.graphics.setWindowedMode(V_WIDTH, V_HEIGHT);
         homePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
@@ -98,8 +100,8 @@ public class HomeScreen implements Screen{
         font.draw(batch, "Team Zoframenco", Gdx.graphics.getWidth()/50, Gdx.graphics.getHeight()*6/8);
         batch.end();
 
-        startGameButton.setPosition(Gdx.graphics.getWidth()/2 - Gdx.graphics.getWidth()/10 , Gdx.graphics.getHeight()/12);
-        instructionButton.setPosition(Gdx.graphics.getWidth()/2 + Gdx.graphics.getWidth()*2/10 , Gdx.graphics.getHeight()/12);
+        startGameButton.setPosition(camera.viewportWidth/2 - camera.viewportWidth/10 , camera.viewportHeight/12);
+        instructionButton.setPosition(camera.viewportWidth/2 + camera.viewportWidth*2/10 , camera.viewportHeight/12);
 
         stage.act();
         stage.draw();
@@ -116,8 +118,6 @@ public class HomeScreen implements Screen{
 
     private void createButtonSkin(){
         skin = new Skin();
-        skin.add("default", font);
-
         Pixmap pixmap = new Pixmap((int)Gdx.graphics.getWidth()/4,(int)Gdx.graphics.getHeight()/10, Pixmap.Format.RGB888);
         pixmap.setColor(Color.WHITE);
         pixmap.fill();
@@ -128,7 +128,7 @@ public class HomeScreen implements Screen{
         textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);
         textButtonStyle.checked = skin.newDrawable("background", Color.DARK_GRAY);
         textButtonStyle.over = skin.newDrawable("background", Color.LIGHT_GRAY);
-        textButtonStyle.font = skin.getFont("default");
+        textButtonStyle.font = font;
         skin.add("default", textButtonStyle);
     }
 

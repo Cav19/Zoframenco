@@ -13,8 +13,8 @@ public class Timer {
     private Texture texture = new Texture("timer.png");
     private float width ;
     private float height;
-    private float X_pos = HomeScreen.V_WIDTH / 2;
-    private float Y_pos = HomeScreen.V_HEIGHT / 2;
+    private float X_pos = HomeScreen.V_WIDTH / 4.5f;
+    private float Y_pos = HomeScreen.V_HEIGHT / 3.8f;
     private static Random generator = new Random();
     private boolean visible = true;
 
@@ -23,6 +23,7 @@ public class Timer {
         sprite.setSize(50,50);
         width = sprite.getWidth();
         height = sprite.getHeight();
+        sprite.setPosition(X_pos, Y_pos);
        }
 
     public float getX(){
@@ -43,10 +44,6 @@ public class Timer {
 
     public boolean isVisible() {
         return visible;
-    }
-
-    public void setVisible(boolean T){
-        visible = T;
     }
 
     public void randomlyPlaceTimer() {
