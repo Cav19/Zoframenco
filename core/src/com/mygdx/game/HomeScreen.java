@@ -64,7 +64,7 @@ public class HomeScreen implements Screen{
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
 
-        startGameButton = new TextButton("Started game", skin);
+        startGameButton = new TextButton("Start a game", skin);
         stage.addActor(startGameButton);
         startGameButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
@@ -103,7 +103,7 @@ public class HomeScreen implements Screen{
 
         stage.act();
         stage.draw();
-        
+
     }
 
     private void setUpFont() {
