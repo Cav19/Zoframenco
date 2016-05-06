@@ -366,7 +366,6 @@ public class PlayScreen implements Screen {
         else  if ((taxi.currentAngle == taxi.getDirection(inputKey).angle)&&(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))) {
                 taxi.setOrientation(taxi.getDirection(inputKey).x,taxi.getDirection(inputKey).y);
                 taxi.move(15);
-                //taxi.setVelocity(taxi.getVelocity()[0] * Math.abs(taxi.getOrientation()[0]), taxi.getVelocity()[1] * Math.abs(taxi.getOrientation()[1]));
                 }
 
         }
@@ -382,6 +381,12 @@ public class PlayScreen implements Screen {
         taxi.setX(taxi.getX() + taxi.getVelocity()[0]);
         taxi.setY(taxi.getY() + taxi.getVelocity()[1]);
 
+        return checkMapBounderies() || checkCollisionPoints();
+
+        }
+
+
+    private static boolean checkMapBounderies(){
         if (taxi.getX() + (int) taxi.getSprite().getWidth() >= game.V_WIDTH) {
             return true;
         }
@@ -394,6 +399,11 @@ public class PlayScreen implements Screen {
         if (taxi.getY() <= 0) {
             return true;
         }
+
+        else return false;
+    }
+
+    private static boolean checkCollisionPoints(){
         try {
             return (!isCellProperty((float)(taxi.getX() + 0.65 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
                     ||!isCellProperty((float)(taxi.getX() + 0.35 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
@@ -402,9 +412,8 @@ public class PlayScreen implements Screen {
         } catch (NullPointerException e){
             return true;
         }
+    }
 
-
-        }
 
 
     public static boolean isCellProperty(float x, float y, String property){
@@ -413,10 +422,7 @@ public class PlayScreen implements Screen {
         TiledMapTileLayer collisionLayer = (TiledMapTileLayer) allLayers.get(0);
         TiledMapTileLayer.Cell cell = collisionLayer.getCell((int) (x / collisionLayer.getTileWidth()), (int) (y / collisionLayer.getTileHeight()));
 
-        if ((cell != null) &&  (cell.getTile() != null)) {
-            return ((cell.getTile().getProperties().containsKey(property)));
-        }
-        else return false;
+        return ((cell.getTile().getProperties().containsKey(property)));
     }
 
     /**
