@@ -13,7 +13,7 @@ public class Coin {
     private Texture texture = new Texture("coin.png");
     private float width ;
     private float height;
-    private float X_pos = HomeScreen.V_WIDTH / 2;
+    private float X_pos = HomeScreen.V_WIDTH / 6;
     private float Y_pos = HomeScreen.V_HEIGHT / 2;
     private static Random generator = new Random();
     private boolean visible = true;
@@ -23,6 +23,7 @@ public class Coin {
         sprite.setSize(50,50);
         width = sprite.getWidth();
         height = sprite.getHeight();
+        sprite.setPosition(X_pos,Y_pos);
     }
 
     public float getX(){
@@ -57,5 +58,4 @@ public class Coin {
                 );
         sprite.setPosition(X_pos, Y_pos);
     }
-
 }
