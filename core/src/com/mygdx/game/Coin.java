@@ -13,8 +13,8 @@ public class Coin {
     private Texture texture = new Texture("coin.png");
     private float width ;
     private float height;
-    private float X_pos = PlayScreen.V_WIDTH / 2;
-    private float Y_pos = PlayScreen.V_HEIGHT / 2;;
+    private float X_pos = HomeScreen.V_WIDTH / 2;
+    private float Y_pos = HomeScreen.V_HEIGHT / 2;
     private static Random generator = new Random();
     private boolean visible = true;
 
@@ -48,8 +48,8 @@ public class Coin {
     public void randomlyPlaceCoin() {
         visible = true;
         do {
-            X_pos =  generator.nextInt(PlayScreen.V_WIDTH) + 1;
-            Y_pos =  generator.nextInt(PlayScreen.V_HEIGHT) + 1;
+            X_pos =  generator.nextInt(HomeScreen.V_WIDTH) + 1;
+            Y_pos =  generator.nextInt(HomeScreen.V_HEIGHT) + 1;
         } while(!PlayScreen.isTileType(X_pos, Y_pos+ height/2,"timer")
                 ||!PlayScreen.isTileType(X_pos + width, Y_pos+ height/2,"timer")
                 ||!PlayScreen.isTileType(X_pos + width/2, Y_pos,"timer")
