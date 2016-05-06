@@ -129,20 +129,11 @@ public class PlayScreen implements Screen {
 
     }
 
-    public void drawDebugRect(float  x, float y){
-        ShapeRenderer renderer = new ShapeRenderer();
-        renderer.setProjectionMatrix(camera.combined);
-        renderer.begin(ShapeRenderer.ShapeType.Line);
-        renderer.setColor(Color.RED);
-        renderer.rect(x,y,3,3);
-        renderer.end();
-    }
 
     private void endGame(){
         allPassengers.clear();
         taxi.empty();
-        taxi.setX(game.V_WIDTH / 2);
-        taxi.setY((float)( game.V_HEIGHT / 2.3));
+        taxi.setPosition(taxi.InitialPosition[0], taxi.InitialPosition[1]);
         game.setScreen(new com.mygdx.game.EndScreen(game));
         gameSoundPlayer.playCarHorn();
         gameSoundPlayer.stop();
@@ -412,6 +403,14 @@ public class PlayScreen implements Screen {
 
 
 
+    /**
+     * Checks the property of a specific cell on the map.
+     * @param x The x coordinate of the cell.
+     * @param y The y coordinate of the cell.
+     * @param property The property to check the cell for.
+     * @return True if the cell in question matches the property provided, false if it does not match.
+     */
+
     public static boolean isCellProperty(float x, float y, String property){
 
         MapLayers allLayers = tiledMap.getLayers();
@@ -420,14 +419,6 @@ public class PlayScreen implements Screen {
 
         return ((cell.getTile().getProperties().containsKey(property)));
     }
-
-    /**
-     * Checks the property of a specific cell on the map.
-     * @param x The x coordinate of the cell.
-     * @param y The y coordinate of the cell.
-     * @param property The property to check the cell for.
-     * @return True if the cell in question matches the property provided, false if it does not match.
-     */
 
 
 

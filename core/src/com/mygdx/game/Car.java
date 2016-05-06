@@ -34,6 +34,7 @@ public class Car {
     public static Direction RIGHT=  new Direction(2, "RIGHT",1,0,-270);
     public static Direction DOWN=  new Direction(3, "DOWN",0,-1, -180);
     public static Direction LEFT=  new Direction(4, "LEFT",-1,0, -90);
+    public static final float[] InitialPosition= {MyGdxGame.V_WIDTH / 2, MyGdxGame.V_HEIGHT / 2.3f};
     public float currentAngle= 0;
     private int collidedXtimes=0;
     private Direction oldDirection = currentDirection;
@@ -41,8 +42,8 @@ public class Car {
 
     public Car(){
 
-        X_pos = (float) (MyGdxGame.V_WIDTH / 2);
-        Y_pos = (float)( MyGdxGame.V_HEIGHT / 2.3);
+        X_pos = InitialPosition[0];
+        Y_pos = InitialPosition[1];
 
         sprite = new Sprite(new Texture("images/48car.png"));
         sprite.setSize(48, 48);
@@ -208,6 +209,13 @@ public class Car {
     public float getY(){
         return Y_pos;
     }
+
+    public void setPosition( float x, float y){
+        setX(x);
+        setY(y);
+    }
+
+
 
     public void setX(float pos){
         X_pos = pos;
