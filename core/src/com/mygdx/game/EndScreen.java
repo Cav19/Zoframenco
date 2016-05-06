@@ -59,6 +59,8 @@ public class EndScreen implements Screen{
 
         restartButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
+                MyGdxGame.worldTimer = 90;
+                MyGdxGame.score = 0;
                 game.setScreen(new com.mygdx.game.HomeScreen(game));
                 dispose();
             }
