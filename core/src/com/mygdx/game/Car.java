@@ -24,6 +24,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 public class Car {
     private Sprite sprite = new Sprite(new Texture("images/48car.png"));
     private boolean full;
+    public static final float[] InitialPosition = {MyGdxGame.V_WIDTH / 2, MyGdxGame.V_HEIGHT / 2.3f};
     private float X_pos = InitialPosition[0];
     private float Y_pos = InitialPosition[1];
     private float[] velocity = new float[2];
@@ -34,7 +35,6 @@ public class Car {
     public static Direction RIGHT = new Direction(2, "RIGHT", 1, 0, -270);
     public static Direction DOWN = new Direction(3, "DOWN", 0, -1, -180);
     public static Direction LEFT = new Direction(4, "LEFT", -1, 0, -90);
-    public static final float[] InitialPosition = {MyGdxGame.V_WIDTH / 2, MyGdxGame.V_HEIGHT / 2.3f};
     public float currentAngle = 0;
     private int collidedXtimes = 0;
     private Direction oldDirection = currentDirection;
@@ -101,26 +101,25 @@ public class Car {
         Y_pos = oldY;
     }
 
-    public void turn(String direction) {  //change to enumerator
-        move(sprite.getHeight() / 4);
+    public void turn(String direction) {
+        applyFriction(0.6);
+
+        move(10);
         Direction newDirection = getDirection(direction);
         if (currentAngle != newDirection.angle) {
-            //velocity[0]= (float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
-            // velocity[1]=(float)0.01*(velocity[0]*orientation[0]+ velocity[1]*orientation[1]);
 
-
-            int roationAngle = (int) (newDirection.angle - currentAngle);
-            sprite.rotate(-roationAngle);
-            currentAngle = currentAngle + roationAngle;
+            int rotationAngle = (int) (newDirection.angle - currentAngle);
+            sprite.rotate(-rotationAngle);
+            currentAngle = currentAngle + rotationAngle;
 
             if (Math.abs(currentAngle) > 360) {
                 currentAngle = Math.abs(currentAngle) - 360;
             }
+
             if (currentAngle == newDirection.angle) {
                 oldDirection = currentDirection;
                 currentDirection = newDirection;
             }
-            sprite.setPosition(X_pos, Y_pos);
 
         }
     }
@@ -150,15 +149,15 @@ public class Car {
 
     public void move(float acceleration) {
         accelerate(acceleration);
-        applyFriction();
+        applyFriction(0.1);
     }
 
-    private void applyFriction() {
+    private void applyFriction(double friction) {
         if (velocity[0] > -10) {
-            velocity[0] -= velocity[0] * 0.2;
+            velocity[0] -= velocity[0] * friction;
         }
         if (velocity[1] > -10) {
-            velocity[1] -= velocity[1] * 0.2;
+            velocity[1] -= velocity[1] * friction;
         }
     }
 
