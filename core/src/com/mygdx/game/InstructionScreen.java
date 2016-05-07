@@ -84,10 +84,10 @@ public class InstructionScreen implements Screen {
 
         batch.begin();
         batch.draw(instruction,
-                camera.viewportWidth / 5,
-                camera.viewportHeight / 8,
-                camera.viewportWidth * 3 / 5,
-                camera.viewportHeight * 4 / 9);
+                Gdx.graphics.getWidth()/5,
+                Gdx.graphics.getHeight()/5,
+                Gdx.graphics.getWidth()*3/5,
+                Gdx.graphics.getHeight()*3/4);
         batch.end();
 
         startButton.setPosition(camera.viewportWidth / 4 - camera.viewportWidth / 10, camera.viewportHeight / 20);
