@@ -253,6 +253,10 @@ public class PlayScreen implements Screen {
         long timeSinceLastPassenger = TimeUtils.timeSinceMillis(timeOfLastPassenger);
         listenToInput();
 
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+            gameSoundPlayer.playCarHorn();
+        }
+
         /**
          * Spawns a new passenger and a coin if the time since the last passenger has exceeded the designated spawn timer.
          */
@@ -358,9 +362,7 @@ public class PlayScreen implements Screen {
 
             }
 
-            if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
-                gameSoundPlayer.playCarHorn();
-            }
+
 
        else if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
             taxi.move(1);
