@@ -49,9 +49,9 @@ public class InstructionScreen implements Screen {
         setUpFont();
 
         createButtonSkin();
-        startButton = new TextButton("Start Game", skin);
+        startButton = new TextButton("Back to Home", skin);
         stage.addActor(startButton);
-        backButton = new TextButton("Back to Home", skin);
+        backButton = new TextButton("Start a game", skin);
         stage.addActor(backButton);
 
         startButton.addListener(new ClickListener() {
