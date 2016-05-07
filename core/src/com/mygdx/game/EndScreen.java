@@ -18,10 +18,7 @@ import com.badlogic.gdx.utils.viewport.Viewport;
 /**
  * Created by zoray on 4/25/16.
  */
-public class EndScreen implements Screen{
-
-    private final int V_WIDTH = HomeScreen.V_WIDTH;
-    private final int V_HEIGHT = HomeScreen.V_HEIGHT;
+public class EndScreen implements Screen {
 
     private OrthographicCamera camera;
 
@@ -32,18 +29,15 @@ public class EndScreen implements Screen{
 
     private Stage stage;
     private TextButton restartButton;
-    private SpriteBatch batch;
-    private ScorePanel scores;
-    private Table scoreTable;
-    private Viewport scorePort;
 
+    private Texture background;
 
     public EndScreen(final MyGdxGame game) {
 
-        camera = new OrthographicCamera(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
-        camera.setToOrtho(false,HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT);
-        scorePort = new FitViewport(HomeScreen.V_WIDTH, HomeScreen.V_HEIGHT, camera);
-        scores = new ScorePanel();
+        camera = new OrthographicCamera(game.V_WIDTH, game.V_HEIGHT);
+        camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
+        Viewport scorePort = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
+        ScorePanel scores = new ScorePanel();
 
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
@@ -55,6 +49,8 @@ public class EndScreen implements Screen{
         restartButton = new TextButton("Restart", skin);
         stage.addActor(restartButton);
 
+        background = new Texture(Gdx.files.internal("images/endScreen.png"));
+
         restartButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
                 MyGdxGame.worldTimer = 90;
@@ -64,7 +60,7 @@ public class EndScreen implements Screen{
             }
         });
 
-        scoreTable = scores.getTable();
+        Table scoreTable = scores.getTable();
         stage.addActor(scores.getTable());
     }
 
@@ -75,10 +71,15 @@ public class EndScreen implements Screen{
 
     @Override
     public void render(float delta) {
-        Gdx.gl.glClearColor(250/255f, 236/255f, 129/255f, 1);
+        Gdx.gl.glClearColor(250 / 255f, 236 / 255f, 129 / 255f, 1);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
-        restartButton.setPosition(camera.viewportWidth/2 - camera.viewportWidth/10, camera.viewportHeight/16);
+        SpriteBatch batch = new SpriteBatch();
+        batch.begin();
+        batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
+        batch.end();
+
+        restartButton.setPosition(camera.viewportWidth / 2 - camera.viewportWidth / 10, camera.viewportHeight / 16);
 
         stage.act();
         stage.draw();
@@ -92,10 +93,10 @@ public class EndScreen implements Screen{
         font = generator.generateFont(parameter);
     }
 
-    private void createButtonSkin(){
+    private void createButtonSkin() {
         skin = new Skin();
 
-        Pixmap pixmap = new Pixmap((int)camera.viewportWidth/4, (int)camera.viewportHeight/16, Pixmap.Format.RGB888);
+        Pixmap pixmap = new Pixmap((int) camera.viewportWidth / 4, (int) camera.viewportHeight / 16, Pixmap.Format.RGB888);
         pixmap.setColor(Color.WHITE);
         pixmap.fill();
         skin.add("background", new Texture(pixmap));

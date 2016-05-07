@@ -24,12 +24,9 @@ import java.awt.*;
  * Created by zoray on 3/23/16.
  */
 
-public class HomeScreen implements Screen{
-
+public class HomeScreen implements Screen {
 
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-    public static final int V_WIDTH =1000; //(screenSize.width -1000)/3 + 1000;
-    public static final int V_HEIGHT = 1150; //(screenSize.height -1150)/3 +1150;
 
     private final MyGdxGame game;
     private Viewport homePort;
@@ -48,13 +45,13 @@ public class HomeScreen implements Screen{
     private Skin skin;
 
 
-    public HomeScreen(final MyGdxGame game){
+    public HomeScreen(final MyGdxGame game) {
         this.game = game;
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, V_WIDTH, V_HEIGHT);
+        camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
 
-        Gdx.graphics.setWindowedMode(V_WIDTH, V_HEIGHT);
-        homePort = new FitViewport(V_WIDTH, V_HEIGHT, camera);
+        Gdx.graphics.setWindowedMode(game.V_WIDTH, game.V_HEIGHT);
+        homePort = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
 
         font = new BitmapFont();
         background = new Texture(Gdx.files.internal("images/main_menu_small.png"));
@@ -86,7 +83,7 @@ public class HomeScreen implements Screen{
     }
 
     @Override
-    public void show(){
+    public void show() {
 
     }
 
@@ -96,12 +93,12 @@ public class HomeScreen implements Screen{
         SpriteBatch batch = new SpriteBatch();
         batch.begin();
         batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
-        font.draw(batch, "THE DAILY DRIVER!", Gdx.graphics.getWidth()/50, Gdx.graphics.getHeight()*7/8);
-        font.draw(batch, "Team Zoframenco", Gdx.graphics.getWidth()/50, Gdx.graphics.getHeight()*6/8);
+        font.draw(batch, "THE DAILY DRIVER!", Gdx.graphics.getWidth() / 50, Gdx.graphics.getHeight() * 7 / 8);
+        font.draw(batch, "Team Zoframenco", Gdx.graphics.getWidth() / 50, Gdx.graphics.getHeight() * 6 / 8);
         batch.end();
 
-        startGameButton.setPosition(camera.viewportWidth/2 - camera.viewportWidth/10 , camera.viewportHeight/12);
-        instructionButton.setPosition(camera.viewportWidth/2 + camera.viewportWidth*2/10 , camera.viewportHeight/12);
+        startGameButton.setPosition(camera.viewportWidth / 2 - camera.viewportWidth / 10, camera.viewportHeight / 12);
+        instructionButton.setPosition(camera.viewportWidth / 2 + camera.viewportWidth * 2 / 10, camera.viewportHeight / 12);
 
         stage.act();
         stage.draw();
@@ -116,9 +113,9 @@ public class HomeScreen implements Screen{
         font = generator.generateFont(parameter);
     }
 
-    private void createButtonSkin(){
+    private void createButtonSkin() {
         skin = new Skin();
-        Pixmap pixmap = new Pixmap((int)Gdx.graphics.getWidth()/4,(int)Gdx.graphics.getHeight()/10, Pixmap.Format.RGB888);
+        Pixmap pixmap = new Pixmap((int) Gdx.graphics.getWidth() / 4, (int) Gdx.graphics.getHeight() / 10, Pixmap.Format.RGB888);
         pixmap.setColor(Color.WHITE);
         pixmap.fill();
         skin.add("background", new Texture(pixmap));

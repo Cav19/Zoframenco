@@ -17,41 +17,39 @@ public class Passenger {
     private Location destination;
 
 
-    public Passenger(){
+    public Passenger() {
         this.origin = setOrigin(MyGdxGame.locations);
         this.destination = setDestination(MyGdxGame.locations);
         generateType();
-        sprite.setSize(75,100);
+        sprite.setSize(75, 100);
         sprite.setRegionWidth(75);
         sprite.setRegionHeight(100);
         sprite.setX(origin.getX() - 30);
         sprite.setY(origin.getY() - 33);
     }
 
-    public Passenger(String type){
+    public Passenger(String type) {
         this.origin = setOrigin(MyGdxGame.locations);
         this.destination = setDestination(MyGdxGame.locations);
-        if(type.equals("Normal")){
+        if (type.equals("Normal")) {
             fare = setFare(12);
             sprite = new Sprite(new Texture("images/stick_figure.png"));
-        }
-        else if(type.equals("Poor")){
+        } else if (type.equals("Poor")) {
             fare = setFare(15);
             sprite = new Sprite(new Texture("images/poor_person.png"));
-        }
-        else{
+        } else {
             fare = setFare(7);
             sprite = new Sprite(new Texture("images/richie.png"));
         }
-        sprite.setSize(75,100);
+        sprite.setSize(75, 100);
         sprite.setRegionWidth(75);
         sprite.setRegionHeight(100);
         sprite.setX(origin.getX() - 30);
         sprite.setY(origin.getY() - 33);
     }
 
-    private void generateType(){
-        switch(MathUtils.random(1, 7)){
+    private void generateType() {
+        switch (MathUtils.random(1, 7)) {
             case 1:
                 fare = setFare(12);
                 sprite = new Sprite(new Texture("images/stick_figure.png"));
@@ -83,12 +81,13 @@ public class Passenger {
         }
     }
 
-    public Sprite getSprite(){
+    public Sprite getSprite() {
         return sprite;
     }
 
     /**
      * Randomly sets the origin for the passenger.
+     *
      * @param locations A HashMap of all possible locations for the origin to be.
      * @return The location of the passenger's origin.
      */
@@ -97,36 +96,40 @@ public class Passenger {
         do {
             int num = (int) (Math.random() * 18);
             origin = locations.get(num);
-        } while (origin.isFull()); // Ensures that the passenger won't be placed at a location that already has a passenger.
+        }
+        while (origin.isFull()); // Ensures that the passenger won't be placed at a location that already has a passenger.
         origin.addPassenger();
         return origin;
     }
 
-    public Location getDestination(){
+    public Location getDestination() {
         return this.destination;
     }
 
     /**
      * Randomly sets the destination for the passenger.
+     *
      * @param locations A HashMap of all possible locations for the destination to be.
      * @return The location of the passenger's destination.
      */
-    private Location setDestination(HashMap<Integer, Location> locations){
+    private Location setDestination(HashMap<Integer, Location> locations) {
         Location destination;
-        do{
-            int num = (int)(Math.random() * 18);
+        do {
+            int num = (int) (Math.random() * 18);
             destination = locations.get(num);
-        } while(destination.isFull() && destination.equals(origin)); // Ensures that the destination does not already have a passenger at it. Also ensures the destination is not the same as the origin.
+        }
+        while (destination.isFull() && destination.equals(origin)); // Ensures that the destination does not already have a passenger at it. Also ensures the destination is not the same as the origin.
         return destination;
     }
 
     /**
      * Calculates the distance between the passenger's location and their destination. This is also used to calculate the passenger's fare.
-     * @param origin The passenger's origin.
+     *
+     * @param origin      The passenger's origin.
      * @param destination The passenger's destination.
      * @return The distance between the passenger's origin and destination.
      */
-    private double getTravelDistance(Location origin, Location destination){
+    private double getTravelDistance(Location origin, Location destination) {
         float xDist = Math.abs(origin.getX() - destination.getX());
         float yDist = Math.abs(origin.getY() - destination.getY());
         return Math.sqrt(xDist * xDist + yDist * yDist);
@@ -134,15 +137,14 @@ public class Passenger {
 
     private int setFare(int modifier){
         int tip = MathUtils.random(0, 30);
-        System.out.println();
         return (int)(getTravelDistance(origin, destination) / modifier) + tip;
     }
 
-    public int getFare(){
+    public int getFare() {
         return fare;
     }
 
-    public Location getOrigin(){
+    public Location getOrigin() {
         return origin;
     }
 
