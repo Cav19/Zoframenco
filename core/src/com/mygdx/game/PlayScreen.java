@@ -109,7 +109,7 @@ public class PlayScreen implements Screen {
         drawCar(taxi);
         drawHud();
         play();
-        if (taxi.isFull() && timer.isVisible() && coin.isVisible() && !isCoinTimerOverlapping()) {
+        if (taxi.isFull() && timer.isVisible() && coin.isVisible()) {
             drawTimer(timer);
             drawCoin(coin);
         }
@@ -277,12 +277,14 @@ public class PlayScreen implements Screen {
          */
         if (taxi.isFull()) {
             if (taxi.hasArrived(taxi.getPassenger().getDestination())) {
+                do{
+                    timer.randomlyPlaceTimer();
+                    coin.randomlyPlaceCoin();
+                } while(isCoinTimerOverlapping());
                 gameSoundPlayer.playMoneySound();
                 game.addScore(taxi.getPassenger().getFare());
                 hud.updateScore();
                 taxi.empty();
-                timer.randomlyPlaceTimer();
-                coin.randomlyPlaceCoin();
             }
             if (isTaxiAtTimer()) {
                 MyGdxGame.worldTimer += 6;
@@ -344,7 +346,7 @@ public class PlayScreen implements Screen {
 
         if ((taxi.currentAngle != taxi.getDirection(inputKey).angle) && !inputKey.isEmpty()) {
             taxi.turn(inputKey);
-            
+
 
         } else if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
             taxi.move(1);
