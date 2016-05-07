@@ -45,13 +45,13 @@ public class PlayScreen implements Screen {
     private float pulseTime = 0;
 
     public PlayScreen(MyGdxGame game) {
-        this.game = game;
+        PlayScreen.game = game;
         batch = new SpriteBatch();
-        Gdx.graphics.setWindowedMode(game.V_WIDTH, game.V_HEIGHT);
+        Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         camera = new OrthographicCamera();
         hud = new Hud(batch, camera);
-        camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
-        gamePort = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
+        camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
+        gamePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, camera);
         tiledMap = new TmxMapLoader().load("map_assets/map@17April.tmx");
         gameSoundPlayer = new soundPlayer();
         allPassengers.add(new Passenger("Normal"));
@@ -134,7 +134,7 @@ public class PlayScreen implements Screen {
     private void endGame() {
         allPassengers.clear();
         taxi.empty();
-        taxi.setPosition(taxi.InitialPosition[0], taxi.InitialPosition[1]);
+        taxi.setPosition(Car.InitialPosition[0], Car.InitialPosition[1]);
         game.setScreen(new com.mygdx.game.EndScreen(game));
         gameSoundPlayer.playCarHorn();
         gameSoundPlayer.stop();
@@ -161,7 +161,7 @@ public class PlayScreen implements Screen {
     private void setUpScreen() {
         Gdx.gl.glClearColor(0, 0, 0, 0);
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
-        camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
+        camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         camera.update();
         batch.setProjectionMatrix(Hud.stage.getCamera().combined);
     }
@@ -374,9 +374,9 @@ public class PlayScreen implements Screen {
 
     private static boolean checkMapBoundaries() {
 
-        if ((taxi.getX() + (int) taxi.getSprite().getWidth() >= game.V_WIDTH) ||      //right edge
+        if ((taxi.getX() + (int) taxi.getSprite().getWidth() >= MyGdxGame.V_WIDTH) ||      //right edge
                 (taxi.getX() <= 0) ||                                                    //left edge
-                (taxi.getY() + (int) taxi.getSprite().getWidth() >= game.V_HEIGHT) ||    //top edge
+                (taxi.getY() + (int) taxi.getSprite().getWidth() >= MyGdxGame.V_HEIGHT) ||    //top edge
                 (taxi.getY() <= 0)                                                       //bottom edge
                 ) {
             return true;

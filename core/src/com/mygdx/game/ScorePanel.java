@@ -13,7 +13,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Table;
  */
 public class ScorePanel extends Actor {
 
-    //Scene2D widgets
     private Table table;
 
     private BitmapFont font;

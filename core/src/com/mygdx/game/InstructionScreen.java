@@ -25,7 +25,6 @@ public class InstructionScreen implements Screen {
     private Stage stage;
     private TextButton startButton;
     private TextButton backButton;
-    private Viewport port;
 
     private Texture instruction;
 
@@ -36,8 +35,8 @@ public class InstructionScreen implements Screen {
 
     public InstructionScreen(final MyGdxGame game) {
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
-        port = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
+        camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
+        Viewport port = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, camera);
 
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
@@ -85,9 +84,9 @@ public class InstructionScreen implements Screen {
         batch.begin();
         batch.draw(instruction,
                 Gdx.graphics.getWidth()/5,
-                Gdx.graphics.getHeight()/5,
+                Gdx.graphics.getHeight()/6,
                 Gdx.graphics.getWidth()*3/5,
-                Gdx.graphics.getHeight()*3/4);
+                Gdx.graphics.getHeight()*4/5);
         batch.end();
 
         startButton.setPosition(camera.viewportWidth / 4 - camera.viewportWidth / 10, camera.viewportHeight / 20);
@@ -101,7 +100,7 @@ public class InstructionScreen implements Screen {
     private void createButtonSkin() {
         skin = new Skin();
 
-        Pixmap pixmap = new Pixmap((int) Gdx.graphics.getWidth() / 4, (int) Gdx.graphics.getHeight() / 10, Pixmap.Format.RGB888);
+        Pixmap pixmap = new Pixmap((int) Gdx.graphics.getWidth() / 4, (int) Gdx.graphics.getHeight() / 16, Pixmap.Format.RGB888);
         pixmap.setColor(Color.WHITE);
         pixmap.fill();
         skin.add("background", new Texture(pixmap));

@@ -34,9 +34,9 @@ public class EndScreen implements Screen {
 
     public EndScreen(final MyGdxGame game) {
 
-        camera = new OrthographicCamera(game.V_WIDTH, game.V_HEIGHT);
-        camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
-        Viewport scorePort = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
+        camera = new OrthographicCamera(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
+        camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
+        Viewport scorePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, camera);
         ScorePanel scores = new ScorePanel();
 
         stage = new Stage();

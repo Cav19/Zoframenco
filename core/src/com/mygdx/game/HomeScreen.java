@@ -28,8 +28,6 @@ public class HomeScreen implements Screen {
 
     public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
-    private final MyGdxGame game;
-    private Viewport homePort;
     private static OrthographicCamera camera;
     private Stage stage;
 
@@ -46,12 +44,11 @@ public class HomeScreen implements Screen {
 
 
     public HomeScreen(final MyGdxGame game) {
-        this.game = game;
         camera = new OrthographicCamera();
-        camera.setToOrtho(false, game.V_WIDTH, game.V_HEIGHT);
+        camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
 
-        Gdx.graphics.setWindowedMode(game.V_WIDTH, game.V_HEIGHT);
-        homePort = new FitViewport(game.V_WIDTH, game.V_HEIGHT, camera);
+        Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
+        Viewport homePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, camera);
 
         font = new BitmapFont();
         background = new Texture(Gdx.files.internal("images/main_menu_small.png"));
