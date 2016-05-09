@@ -55,8 +55,12 @@ public class EndScreen implements Screen {
             public void clicked(InputEvent event, float x, float y) {
                 MyGdxGame.worldTimer = 90;
                 MyGdxGame.score = 0;
+                System.gc();
                 game.setScreen(new com.mygdx.game.HomeScreen(game));
+                game.EndScreen.dispose();
                 dispose();
+                System.gc();
+
             }
         });
 

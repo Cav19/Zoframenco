@@ -22,7 +22,7 @@ import com.badlogic.gdx.graphics.g2d.Sprite;
 
 
 public class Car {
-    private Sprite sprite = new Sprite(new Texture("images/48car.png"));
+    private Sprite sprite = new Sprite(new Texture("images/Car.png"));
     private boolean full;
     public static final float[] InitialPosition = {MyGdxGame.V_WIDTH / 2, MyGdxGame.V_HEIGHT / 2.3f};
     private float X_pos = InitialPosition[0];

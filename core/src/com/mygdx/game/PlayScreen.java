@@ -87,6 +87,8 @@ public class PlayScreen implements Screen {
     @Override
     public void show() {
         playBackGroundMusic();
+        setUpScreen();
+
     }
 
     /**
@@ -104,11 +106,14 @@ public class PlayScreen implements Screen {
     @Override
     public void render(float delta) {
         Gdx.gl20.glLineWidth(2f);
-        setUpScreen();
+        Gdx.gl.glClearColor(0, 0, 0, 0);
+        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         drawMap();
         drawCar(taxi);
         drawHud();
         play();
+
         if (taxi.isFull() && timer.isVisible() && coin.isVisible()) {
             drawTimer(timer);
             drawCoin(coin);
@@ -135,10 +140,13 @@ public class PlayScreen implements Screen {
         allPassengers.clear();
         taxi.empty();
         taxi.setPosition(Car.InitialPosition[0], Car.InitialPosition[1]);
-        game.setScreen(new com.mygdx.game.EndScreen(game));
+        game.EndScreen= new com.mygdx.game.EndScreen(game);
+        game.setScreen(game.EndScreen);
+        game.PlayScreen.dispose();
         gameSoundPlayer.playCarHorn();
         gameSoundPlayer.stop();
         dispose();
+        System.gc();
     }
 
     /**
@@ -159,8 +167,7 @@ public class PlayScreen implements Screen {
      * Sets up the main game screen and initiates the camera's view.
      */
     private void setUpScreen() {
-        Gdx.gl.glClearColor(0, 0, 0, 0);
-        Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
+
         camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         camera.update();
         batch.setProjectionMatrix(Hud.stage.getCamera().combined);
@@ -246,9 +253,7 @@ public class PlayScreen implements Screen {
         long timeSinceLastPassenger = TimeUtils.timeSinceMillis(timeOfLastPassenger);
         listenToInput();
 
-        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
-            gameSoundPlayer.playCarHorn();
-        }
+
 
         /**
          * Spawns a new passenger and a coin if the time since the last passenger has exceeded the designated spawn timer.
@@ -321,8 +326,12 @@ public class PlayScreen implements Screen {
      */
 
 
+
+
     private void updateInputKey() {
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
+        System.out.println(Gdx.input.getGyroscopeX());
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)
+        ) {
             inputKey = "LEFT";
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
@@ -338,6 +347,13 @@ public class PlayScreen implements Screen {
 
 
     private void listenToInput() {
+
+
+        if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
+            gameSoundPlayer.playCarHorn();
+        }
+
+
         if (!(Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))) {
             taxi.move(0);
         }
@@ -347,8 +363,7 @@ public class PlayScreen implements Screen {
         if ((taxi.currentAngle != taxi.getDirection(inputKey).angle) && !inputKey.isEmpty()) {
             taxi.turn(inputKey);
 
-
-        } else if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
+       } else if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
             taxi.move(1);
             playTiresNoise();
         } else if ((taxi.currentAngle == taxi.getDirection(inputKey).angle) && (Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))) {
@@ -365,12 +380,13 @@ public class PlayScreen implements Screen {
      * @return True if a collision occurs, false if one does not.
      */
     public static boolean checkCarCollisions() {
+        updatePosition();
+        return checkMapBoundaries() || checkCollisionPoints();
+    }
 
+    private static void updatePosition(){
         taxi.setX(taxi.getX() + taxi.getVelocity()[0]);
         taxi.setY(taxi.getY() + taxi.getVelocity()[1]);
-
-        return checkMapBoundaries() || checkCollisionPoints();
-
     }
 
 
@@ -457,7 +473,7 @@ public class PlayScreen implements Screen {
 
     @Override
     public void dispose() {
-        batch.dispose();
+        //batch.dispose();
     }
 
 }

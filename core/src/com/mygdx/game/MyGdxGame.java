@@ -1,10 +1,11 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Screen;
 
 import java.util.HashMap;
 
-public class MyGdxGame extends Game {
+public  class MyGdxGame extends Game {
     public static HashMap<Integer, Location> locations;
 
     public static final int V_WIDTH = 1000;
@@ -13,10 +14,17 @@ public class MyGdxGame extends Game {
     public static int score = 0;
     public static int worldTimer = 90;
 
+    public static Screen HomeScreen;
+    public static Screen PlayScreen ;
+    public static Screen EndScreen ;
+    public static Screen InstructionScreen;
+
     @Override
     public void create() {
         createLocations();
-        setScreen(new HomeScreen(this));
+          HomeScreen = new HomeScreen(this);
+
+         setScreen(HomeScreen);
     }
 
     @Override

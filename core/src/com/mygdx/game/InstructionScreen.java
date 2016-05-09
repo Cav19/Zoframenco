@@ -56,14 +56,19 @@ public class InstructionScreen implements Screen {
 
         startButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                game.setScreen(new com.mygdx.game.PlayScreen(game));
+                game.HomeScreen.dispose();
+                game.HomeScreen= new com.mygdx.game.HomeScreen(game);
+                game.setScreen(game.HomeScreen);
                 dispose();
+                System.gc();
+
             }
         });
 
         backButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                game.setScreen(new com.mygdx.game.HomeScreen(game));
+                game.PlayScreen= new com.mygdx.game.PlayScreen(game);
+                game.setScreen(game.PlayScreen);
                 dispose();
             }
         });

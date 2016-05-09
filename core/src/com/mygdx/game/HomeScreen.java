@@ -18,40 +18,31 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 import com.badlogic.gdx.utils.viewport.FitViewport;
 import com.badlogic.gdx.utils.viewport.Viewport;
 
-import java.awt.*;
-
 /**
  * Created by zoray on 3/23/16.
  */
 
 public class HomeScreen implements Screen{
 
-    public static Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
-    private static OrthographicCamera camera;
+    private static OrthographicCamera camera= new OrthographicCamera();;
     private Stage stage;
-    private Texture background;
+    private Texture background = new Texture(Gdx.files.internal("images/main_menu_small.png"));;
     private Table buttonTable = new Table();
     private TextButton startGameButton;
     private TextButton instructionButton;
-    private FreeTypeFontGenerator generator;
-    private FreeTypeFontGenerator.FreeTypeFontParameter parameter;
-    private BitmapFont font;
+    private FreeTypeFontGenerator generator= new FreeTypeFontGenerator(Gdx.files.internal("fonts/SIXTY.TTF"));;
+    private FreeTypeFontGenerator.FreeTypeFontParameter parameter= new FreeTypeFontGenerator.FreeTypeFontParameter();;
+    private BitmapFont font= new BitmapFont();;
     private Skin skin;
 
 
 
     public HomeScreen(final MyGdxGame game){
-        camera = new OrthographicCamera();
-        camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
 
+        camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         Viewport homePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, camera);
 
-        font = new BitmapFont();
-        background = new Texture(Gdx.files.internal("images/main_menu_small.png"));
-        generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/SIXTY.TTF"));
-        parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         setUpFont();
         createButtonSkin();
 
@@ -62,7 +53,8 @@ public class HomeScreen implements Screen{
         stage.addActor(startGameButton);
         startGameButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                game.setScreen(new com.mygdx.game.PlayScreen(game));
+                game.PlayScreen = new  com.mygdx.game.PlayScreen(game);
+                game.setScreen(game.PlayScreen);
                 dispose();
             }
         });
@@ -71,8 +63,10 @@ public class HomeScreen implements Screen{
         stage.addActor(instructionButton);
         instructionButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                game.setScreen(new com.mygdx.game.InstructionScreen(game));
+                game.InstructionScreen= new com.mygdx.game.InstructionScreen(game);
+                game.setScreen(game.InstructionScreen);
                 dispose();
+                System.gc();
             }
         });
     }
