@@ -329,7 +329,6 @@ public class PlayScreen implements Screen {
 
 
     private void updateInputKey() {
-        System.out.println(Gdx.input.getGyroscopeX());
         if (Gdx.input.isKeyPressed(Input.Keys.LEFT)
         ) {
             inputKey = "LEFT";
@@ -347,6 +346,7 @@ public class PlayScreen implements Screen {
 
 
     private void listenToInput() {
+        Gdx.input.setOnscreenKeyboardVisible(true);
 
 
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
