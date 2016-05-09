@@ -54,7 +54,7 @@ public class PlayScreen implements Screen {
         gamePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, camera);
         tiledMap = new TmxMapLoader().load("map_assets/map@17April.tmx");
         gameSoundPlayer = new soundPlayer();
-        allPassengers.add(new Passenger("Normal"));
+        allPassengers.add(new Passenger());
         spawnTime = setNextSpawnTime();
         timeOfLastPassenger = TimeUtils.millis();
     }

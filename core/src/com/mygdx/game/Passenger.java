@@ -15,6 +15,14 @@ public class Passenger {
     private int fare;
     private Location origin;
     private Location destination;
+    private Sprite averagePerson= new Sprite(new Texture("images/stick_figure.png"));
+    private Sprite averagePerson2= new Sprite(new Texture("images/stick_figure2.png"));
+    private Sprite averagePerson3= new Sprite(new Texture("images/stick_figure3.png"));
+    private Sprite poorPerson= new Sprite(new Texture("images/poor_person.png"));
+    private Sprite poorPerson2= new Sprite(new Texture("images/poor_person2.png"));
+    private Sprite richPerson= new Sprite(new Texture("images/richie.png"));
+    private Sprite richPerson2= new Sprite(new Texture("images/richie2.png"));
+
 
 
     public Passenger() {
@@ -26,57 +34,40 @@ public class Passenger {
         sprite.setRegionHeight(100);
         sprite.setX(origin.getX() - 30);
         sprite.setY(origin.getY() - 33);
+
+
     }
 
-    public Passenger(String type) {
-        this.origin = setOrigin(MyGdxGame.locations);
-        this.destination = setDestination(MyGdxGame.locations);
-        if (type.equals("Normal")) {
-            fare = setFare(12);
-            sprite = new Sprite(new Texture("images/stick_figure.png"));
-        } else if (type.equals("Poor")) {
-            fare = setFare(15);
-            sprite = new Sprite(new Texture("images/poor_person.png"));
-        } else {
-            fare = setFare(7);
-            sprite = new Sprite(new Texture("images/richie.png"));
-        }
-        sprite.setSize(75, 100);
-        sprite.setRegionWidth(75);
-        sprite.setRegionHeight(100);
-        sprite.setX(origin.getX() - 30);
-        sprite.setY(origin.getY() - 33);
-    }
 
     private void generateType() {
         switch (MathUtils.random(1, 7)) {
             case 1:
                 fare = setFare(12);
-                sprite = new Sprite(new Texture("images/stick_figure.png"));
+                sprite = averagePerson;
                 break;
             case 2:
                 fare = setFare(12);
-                sprite = new Sprite(new Texture("images/stick_figure2.png"));
+                sprite = averagePerson2;
                 break;
             case 3:
                 fare = setFare(12);
-                sprite = new Sprite(new Texture("images/stick_figure3.png"));
+                sprite = averagePerson3;
                 break;
             case 4:
                 fare = setFare(15);
-                sprite = new Sprite(new Texture("images/poor_person.png"));
+                sprite = poorPerson;
                 break;
             case 5:
                 fare = setFare(15);
-                sprite = new Sprite(new Texture("images/poor_person2.png"));
+                sprite = poorPerson2;
                 break;
             case 6:
                 fare = setFare(7);
-                sprite = new Sprite(new Texture("images/richie.png"));
+                sprite = richPerson;
                 break;
             case 7:
                 fare = setFare(7);
-                sprite = new Sprite(new Texture("images/richie2.png"));
+                sprite = richPerson2;
                 break;
         }
     }
