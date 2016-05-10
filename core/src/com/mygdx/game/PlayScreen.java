@@ -137,6 +137,7 @@ public class PlayScreen implements Screen {
 
 
     private void endGame() {
+        updateHighScores();
         allPassengers.clear();
         taxi.empty();
         taxi.setPosition(Car.InitialPosition[0], Car.InitialPosition[1]);
@@ -147,6 +148,23 @@ public class PlayScreen implements Screen {
         gameSoundPlayer.stop();
         dispose();
         System.gc();
+    }
+
+    private void updateHighScores() {
+        try{
+        if(MyGdxGame.score > MyGdxGame.prefs.getInteger("highScore")){
+        game.prefs.putInteger("highScore", game.score);
+        game.prefs.flush();
+    }
+        }
+    catch (NullPointerException e){game.prefs.putInteger("highScore", game.score);
+        game.prefs.flush();}
+    }
+
+    private void updateScoresJson(){
+        game.scoresString = new String[game.scoresString.length+1];
+        game.scoresString[ game.scoresString.length-1]=(String.valueOf(game.score));
+        game.Scores.toJson(game.scoresString);
     }
 
     /**
@@ -287,7 +305,7 @@ public class PlayScreen implements Screen {
                     coin.randomlyPlaceCoin();
                 } while(isCoinTimerOverlapping());
                 gameSoundPlayer.playMoneySound();
-                game.addScore(taxi.getPassenger().getFare());
+                game.incrementScore(taxi.getPassenger().getFare());
                 hud.updateScore();
                 taxi.empty();
             }
@@ -325,12 +343,8 @@ public class PlayScreen implements Screen {
      * The method that listens to all of the input from the user.
      */
 
-
-
-
     private void updateInputKey() {
-        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)
-        ) {
+        if (Gdx.input.isKeyPressed(Input.Keys.LEFT)) {
             inputKey = "LEFT";
         }
         if (Gdx.input.isKeyPressed(Input.Keys.RIGHT)) {
@@ -346,7 +360,7 @@ public class PlayScreen implements Screen {
 
 
     private void listenToInput() {
-        Gdx.input.setOnscreenKeyboardVisible(true);
+
 
 
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
