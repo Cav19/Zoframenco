@@ -15,8 +15,6 @@ import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.Table;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
 
 /**
  * Created by zoray on 3/23/16.
@@ -41,7 +39,6 @@ public class HomeScreen implements Screen{
 
         camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         Gdx.graphics.setWindowedMode(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
-        Viewport homePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, camera);
 
         setUpFont();
         createButtonSkin();
@@ -53,8 +50,8 @@ public class HomeScreen implements Screen{
         stage.addActor(startGameButton);
         startGameButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                game.PlayScreen = new  com.mygdx.game.PlayScreen(game);
-                game.setScreen(game.PlayScreen);
+                MyGdxGame.PlayScreen = new  com.mygdx.game.PlayScreen(game);
+                game.setScreen(MyGdxGame.PlayScreen);
                 dispose();
             }
         });
@@ -63,8 +60,8 @@ public class HomeScreen implements Screen{
         stage.addActor(instructionButton);
         instructionButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                game.InstructionScreen= new com.mygdx.game.InstructionScreen(game);
-                game.setScreen(game.InstructionScreen);
+                MyGdxGame.InstructionScreen = new com.mygdx.game.InstructionScreen(game);
+                game.setScreen(MyGdxGame.InstructionScreen);
                 dispose();
                 System.gc();
             }
@@ -121,7 +118,6 @@ public class HomeScreen implements Screen{
 
     @Override
     public void resize(int width, int height) {
-
         stage.getViewport().update(width, height, true);
     }
 

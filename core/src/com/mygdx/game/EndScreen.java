@@ -11,8 +11,6 @@ import com.badlogic.gdx.scenes.scene2d.Stage;
 import com.badlogic.gdx.scenes.scene2d.ui.Skin;
 import com.badlogic.gdx.scenes.scene2d.ui.TextButton;
 import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
-import com.badlogic.gdx.utils.viewport.FitViewport;
-import com.badlogic.gdx.utils.viewport.Viewport;
 
 /**
  * Created by zoray on 4/25/16.
@@ -35,7 +33,6 @@ public class EndScreen implements Screen {
 
         camera = new OrthographicCamera(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
-        Viewport scorePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, camera);
         ScorePanel scores = new ScorePanel();
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
@@ -54,7 +51,7 @@ public class EndScreen implements Screen {
                 MyGdxGame.score = 0;
                 System.gc();
                 game.setScreen(new com.mygdx.game.HomeScreen(game));
-                game.EndScreen.dispose();
+                MyGdxGame.EndScreen.dispose();
                 dispose();
                 System.gc();
 
@@ -115,8 +112,6 @@ public class EndScreen implements Screen {
     @Override
     public void resize(int width, int height) {
         stage.getViewport().update(width, height, true);
-
-
     }
 
     @Override

@@ -55,19 +55,18 @@ public class InstructionScreen implements Screen {
 
         startButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                game.HomeScreen.dispose();
-                game.HomeScreen= new com.mygdx.game.HomeScreen(game);
-                game.setScreen(game.HomeScreen);
+                MyGdxGame.HomeScreen.dispose();
+                MyGdxGame.HomeScreen = new com.mygdx.game.HomeScreen(game);
+                game.setScreen(MyGdxGame.HomeScreen);
                 dispose();
                 System.gc();
-
             }
         });
 
         backButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                game.PlayScreen= new com.mygdx.game.PlayScreen(game);
-                game.setScreen(game.PlayScreen);
+                MyGdxGame.PlayScreen = new com.mygdx.game.PlayScreen(game);
+                game.setScreen(MyGdxGame.PlayScreen);
                 dispose();
             }
         });
@@ -104,7 +103,7 @@ public class InstructionScreen implements Screen {
     private void createButtonSkin() {
         skin = new Skin();
 
-        Pixmap pixmap = new Pixmap((int) Gdx.graphics.getWidth() / 4, (int) Gdx.graphics.getHeight() / 16, Pixmap.Format.RGB888);
+        Pixmap pixmap = new Pixmap(Gdx.graphics.getWidth() / 4, Gdx.graphics.getHeight() / 16, Pixmap.Format.RGB888);
         pixmap.setColor(Color.WHITE);
         pixmap.fill();
         skin.add("background", new Texture(pixmap));
