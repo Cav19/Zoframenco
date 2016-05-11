@@ -37,7 +37,6 @@ public class InstructionScreen implements Screen {
         camera = new OrthographicCamera();
         camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         Viewport port = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, camera);
-
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
 
@@ -129,6 +128,7 @@ public class InstructionScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        stage.getViewport().update(width, height, true);
 
     }
 

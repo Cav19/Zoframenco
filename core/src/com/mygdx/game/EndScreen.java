@@ -37,10 +37,8 @@ public class EndScreen implements Screen {
         camera.setToOrtho(false, MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT);
         Viewport scorePort = new FitViewport(MyGdxGame.V_WIDTH, MyGdxGame.V_HEIGHT, camera);
         ScorePanel scores = new ScorePanel();
-
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
-
         generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/SIXTY.TTF"));
         parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         setUpFont();
@@ -77,6 +75,7 @@ public class EndScreen implements Screen {
         Gdx.gl.glClear(GL20.GL_COLOR_BUFFER_BIT);
 
         SpriteBatch batch = new SpriteBatch();
+
         batch.begin();
         batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         batch.end();
@@ -115,6 +114,8 @@ public class EndScreen implements Screen {
 
     @Override
     public void resize(int width, int height) {
+        stage.getViewport().update(width, height, true);
+
 
     }
 

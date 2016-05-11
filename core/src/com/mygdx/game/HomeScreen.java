@@ -80,6 +80,7 @@ public class HomeScreen implements Screen{
     public void render(float delta) {
 
         SpriteBatch batch = new SpriteBatch();
+
         batch.begin();
         batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         font.draw(batch, "THE DAILY DRIVER!", Gdx.graphics.getWidth()/50, Gdx.graphics.getHeight()*7/8);
@@ -121,6 +122,7 @@ public class HomeScreen implements Screen{
     @Override
     public void resize(int width, int height) {
 
+        stage.getViewport().update(width, height, true);
     }
 
     @Override

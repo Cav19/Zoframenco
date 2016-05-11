@@ -138,6 +138,7 @@ public class PlayScreen implements Screen {
 
     private void endGame() {
         updateHighScores();
+        game.timesPlayed=game.timesPlayed.putInteger("timesPlayed", game.timesPlayed.getInteger("timesPlayed") +1);
         allPassengers.clear();
         taxi.empty();
         taxi.setPosition(Car.InitialPosition[0], Car.InitialPosition[1]);
@@ -406,20 +407,21 @@ public class PlayScreen implements Screen {
 
     private static boolean checkMapBoundaries() {
 
-        if ((taxi.getX() + (int) taxi.getSprite().getWidth() >= MyGdxGame.V_WIDTH) ||      //right edge
-                (taxi.getX() <= 0) ||                                                    //left edge
-                (taxi.getY() + (int) taxi.getSprite().getWidth() >= MyGdxGame.V_HEIGHT) ||    //top edge
-                (taxi.getY() <= 0)                                                       //bottom edge
-                ) {
-            return true;
-        } else return false;
+        if      ((taxi.getX() + (int) taxi.getSprite().getWidth() >= MyGdxGame.V_WIDTH) ||     //right edge
+                (taxi.getX() <= 0) ||                                                         //left edge
+                (taxi.getY() + (int) taxi.getSprite().getWidth() >= MyGdxGame.V_HEIGHT) ||   //top edge
+                (taxi.getY() <= 0)                                                          //bottom edge
+                )
+        return true;
+        else return false;
     }
 
     private static boolean checkCollisionPoints() {
         try {
-            return (!isCellProperty((float) (taxi.getX() + 0.65 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-                    || !isCellProperty((float) (taxi.getX() + 0.35 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-                    || !isCellProperty(taxi.getX() + taxi.getSprite().getWidth() / 2, (float) (taxi.getY() + 0.65 * taxi.getSprite().getHeight()), "road"))
+            return (
+        //            !isCellProperty((float) (taxi.getX() + 0.65 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+        //            || !isCellProperty((float) (taxi.getX() + 0.35 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+                     !isCellProperty(taxi.getX() + taxi.getSprite().getWidth() / 2, (float) (taxi.getY() + 0.65 * taxi.getSprite().getHeight()), "road"))
                     || !isCellProperty(taxi.getX() + taxi.getSprite().getWidth() / 2, (float) (taxi.getY() + 0.35 * taxi.getSprite().getHeight()), "road");
         } catch (NullPointerException e) {
             return true;

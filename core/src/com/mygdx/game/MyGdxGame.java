@@ -16,7 +16,6 @@ public  class MyGdxGame extends Game {
 
     public static int score = 0;
     public static int worldTimer = 90;
-
     public static Screen HomeScreen;
     public static Screen PlayScreen ;
     public static Screen EndScreen ;
@@ -25,6 +24,8 @@ public  class MyGdxGame extends Game {
     public static Json Scores= new Json();
     public static String[] scoresString= new String[0];
     public static Preferences prefs;
+    public static Preferences timesPlayed;
+
 
 
 
@@ -33,6 +34,7 @@ public  class MyGdxGame extends Game {
     @Override
     public void create() {
         prefs= Gdx.app.getPreferences("Scores");
+        timesPlayed= Gdx.app.getPreferences("timesPlayed");;
         createLocations();
         setUpScoresJson();
         HomeScreen = new HomeScreen(this);
