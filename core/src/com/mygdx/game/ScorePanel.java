@@ -17,45 +17,33 @@ public class ScorePanel extends Actor {
 
     private BitmapFont font;
 
-    public ScorePanel () {
+    public ScorePanel() {
         setUpScoreFont();
         setUpTable();
     }
 
     private void setUpTable() {
+
         table = new Table();
         table.setFillParent(true);
-
         Label placeLabel = new Label("Highest Scores", new Label.LabelStyle(font, Color.BLACK));
-        Label firstSymbol = new Label("Paul Cantrell", new Label.LabelStyle(font, Color.DARK_GRAY));
-        Label secondSymbol = new Label("Kofi Annan", new Label.LabelStyle(font, Color.DARK_GRAY));
-        Label thirdSymbol = new Label("Brian Rosenberg", new Label.LabelStyle(font, Color.DARK_GRAY));
-        Label currentSymbol = new Label("Player", new Label.LabelStyle(font, Color.BLUE));
-
         Label scoreLabel = new Label("  $", new Label.LabelStyle(font, Color.BLACK));
-        Label firstLabel = new Label("  " + String.format("%02d", 3296), new Label.LabelStyle(font, Color.DARK_GRAY));
-        Label secondLabel = new Label("  " + String.format("%02d", 2841), new Label.LabelStyle(font, Color.DARK_GRAY));
-        Label thirdLabel = new Label("  " + String.format("%02d", 2475), new Label.LabelStyle(font, Color.DARK_GRAY));
-        Label currentLabel = new Label("  " + String.format("%02d", MyGdxGame.score), new Label.LabelStyle(font, Color.BLUE));
-
         table.add(placeLabel).padTop(10);
         table.add(scoreLabel).padTop(10);
-
         table.row();
-        table.add(firstSymbol).padTop(30);
-        table.add(firstLabel).padTop(30);
 
+        Label highSymbol = new Label("High score",new Label.LabelStyle(font, Color.DARK_GRAY) );
+        Label highLabel =  new Label("  " + String.format("%02d", MyGdxGame.prefs.getInteger("highScore")), new Label.LabelStyle(font, Color.DARK_GRAY));
+        table.add(highSymbol).padTop(10);
+        table.add(highLabel).padTop(10);
         table.row();
-        table.add(secondSymbol).padTop(10);
-        table.add(secondLabel).padTop(10);
 
+        Label newSymbol = new Label("Your score",new Label.LabelStyle(font, Color.DARK_GRAY) );
+        Label newLabel =  new Label("  " + String.format("%02d", MyGdxGame.score), new Label.LabelStyle(font, Color.DARK_GRAY));
+        table.add(newSymbol).padTop(10);
+        table.add(newLabel).padTop(10);
         table.row();
-        table.add(thirdSymbol).padTop(10);
-        table.add(thirdLabel).padTop(10);
 
-        table.row();
-        table.add(currentSymbol).padTop(30);
-        table.add(currentLabel).padTop(30);
     }
 
     private void setUpScoreFont() {

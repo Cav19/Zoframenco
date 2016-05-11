@@ -83,11 +83,12 @@ public class HomeScreen implements Screen{
         batch.begin();
         batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         font.draw(batch, "THE DAILY DRIVER!", Gdx.graphics.getWidth()/50, Gdx.graphics.getHeight()*7/8);
+
         font.draw(batch, "Team Zoframenco", Gdx.graphics.getWidth()/50, Gdx.graphics.getHeight()*6/8);
         batch.end();
 
         startGameButton.setPosition(camera.viewportWidth/2 - camera.viewportWidth/10 , camera.viewportHeight/12);
-        instructionButton.setPosition(camera.viewportWidth/2 + camera.viewportWidth*2/10 , camera.viewportHeight/12);
+        instructionButton.setPosition(camera.viewportWidth/2 + camera.viewportWidth/5 , camera.viewportHeight/12);
 
         stage.act();
         stage.draw();
@@ -108,7 +109,6 @@ public class HomeScreen implements Screen{
         pixmap.setColor(Color.WHITE);
         pixmap.fill();
         skin.add("background", new Texture(pixmap));
-
         TextButton.TextButtonStyle textButtonStyle = new TextButton.TextButtonStyle();
         textButtonStyle.up = skin.newDrawable("background", Color.GRAY);
         textButtonStyle.down = skin.newDrawable("background", Color.DARK_GRAY);

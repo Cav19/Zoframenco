@@ -1,7 +1,10 @@
 package com.mygdx.game;
 
 import com.badlogic.gdx.Game;
+import com.badlogic.gdx.Gdx;
+import com.badlogic.gdx.Preferences;
 import com.badlogic.gdx.Screen;
+import com.badlogic.gdx.utils.Json;
 
 import java.util.HashMap;
 
@@ -19,12 +22,26 @@ public  class MyGdxGame extends Game {
     public static Screen EndScreen ;
     public static Screen InstructionScreen;
 
+    public static Json Scores= new Json();
+    public static String[] scoresString= new String[0];
+    public static Preferences prefs;
+
+
+
+
+
     @Override
     public void create() {
+        prefs= Gdx.app.getPreferences("Scores");
         createLocations();
-          HomeScreen = new HomeScreen(this);
+        setUpScoresJson();
+        HomeScreen = new HomeScreen(this);
+        setScreen(HomeScreen);
+    }
 
-         setScreen(HomeScreen);
+    private void setUpScoresJson() {
+
+
     }
 
     @Override
@@ -57,7 +74,7 @@ public  class MyGdxGame extends Game {
         locations.put(17, new Location(635, 165, 17, "the gas station"));
     }
 
-    public void addScore(int value) {
+    public void incrementScore(int value) {
         score += value;
     }
 }
