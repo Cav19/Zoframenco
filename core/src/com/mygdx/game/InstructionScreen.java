@@ -40,7 +40,7 @@ public class InstructionScreen implements Screen {
         stage = new Stage();
         Gdx.input.setInputProcessor(stage);
 
-        instruction = new Texture(Gdx.files.internal("instruction.png"));
+        instruction = new Texture(Gdx.files.internal("images/instruction.png"));
 
         font = new BitmapFont();
         generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/SIXTY.TTF"));

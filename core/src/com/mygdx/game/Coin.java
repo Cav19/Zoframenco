@@ -22,7 +22,7 @@ public class Coin {
         X_pos = MyGdxGame.V_WIDTH / 6.6f;
         Y_pos = MyGdxGame.V_HEIGHT / 2;
 
-        sprite = new Sprite(new Texture("coin.png"));
+        sprite = new Sprite(new Texture("images/coin.png"));
         sprite.setSize(50, 50);
         width = sprite.getWidth();
         height = sprite.getHeight();

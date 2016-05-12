@@ -22,7 +22,7 @@ public class Timer {
         X_pos = MyGdxGame.V_WIDTH / 4.5f;
         Y_pos = MyGdxGame.V_HEIGHT / 3.8f;
 
-        sprite = new Sprite(new Texture("timer.png"));
+        sprite = new Sprite(new Texture("images/timer.png"));
         sprite.setSize(50, 50);
         width = sprite.getWidth();
         height = sprite.getHeight();
