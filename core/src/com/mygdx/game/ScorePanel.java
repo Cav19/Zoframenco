@@ -26,20 +26,20 @@ public class ScorePanel extends Actor {
 
         table = new Table();
         table.setFillParent(true);
-        Label placeLabel = new Label("Highest Scores", new Label.LabelStyle(font, Color.BLACK));
+        Label placeLabel = new Label("Scores", new Label.LabelStyle(font, Color.BLACK));
         Label scoreLabel = new Label("  $", new Label.LabelStyle(font, Color.BLACK));
         table.add(placeLabel).padTop(10);
         table.add(scoreLabel).padTop(10);
         table.row();
 
-        Label highSymbol = new Label("High score",new Label.LabelStyle(font, Color.DARK_GRAY) );
-        Label highLabel =  new Label("  " + String.format("%02d", MyGdxGame.prefs.getInteger("highScore")), new Label.LabelStyle(font, Color.DARK_GRAY));
+        Label highSymbol = new Label("High score", new Label.LabelStyle(font, Color.DARK_GRAY));
+        Label highLabel = new Label("  " + String.format("%02d", MyGdxGame.prefs.getInteger("highScore")), new Label.LabelStyle(font, Color.DARK_GRAY));
         table.add(highSymbol).padTop(10);
         table.add(highLabel).padTop(10);
         table.row();
 
-        Label newSymbol = new Label("Your score",new Label.LabelStyle(font, Color.DARK_GRAY) );
-        Label newLabel =  new Label("  " + String.format("%02d", MyGdxGame.score), new Label.LabelStyle(font, Color.DARK_GRAY));
+        Label newSymbol = new Label("Your score", new Label.LabelStyle(font, Color.DARK_GRAY));
+        Label newLabel = new Label("  " + String.format("%02d", MyGdxGame.score), new Label.LabelStyle(font, Color.DARK_GRAY));
         table.add(newSymbol).padTop(10);
         table.add(newLabel).padTop(10);
         table.row();

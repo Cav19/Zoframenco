@@ -50,8 +50,7 @@ public class HomeScreen implements Screen{
         stage.addActor(startGameButton);
         startGameButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                MyGdxGame.PlayScreen = new  com.mygdx.game.PlayScreen(game);
-                game.setScreen(MyGdxGame.PlayScreen);
+                game.setScreen(new  com.mygdx.game.PlayScreen(game));
                 dispose();
             }
         });
@@ -60,8 +59,7 @@ public class HomeScreen implements Screen{
         stage.addActor(instructionButton);
         instructionButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                MyGdxGame.InstructionScreen = new com.mygdx.game.InstructionScreen(game);
-                game.setScreen(MyGdxGame.InstructionScreen);
+                game.setScreen(new com.mygdx.game.InstructionScreen(game));
                 dispose();
                 System.gc();
             }
@@ -77,11 +75,9 @@ public class HomeScreen implements Screen{
     public void render(float delta) {
 
         SpriteBatch batch = new SpriteBatch();
-
         batch.begin();
         batch.draw(background, 0, 0, Gdx.graphics.getWidth(), Gdx.graphics.getHeight());
         font.draw(batch, "THE DAILY DRIVER!", Gdx.graphics.getWidth()/50, Gdx.graphics.getHeight()*7/8);
-
         font.draw(batch, "Team Zoframenco", Gdx.graphics.getWidth()/50, Gdx.graphics.getHeight()*6/8);
         batch.end();
 

@@ -138,13 +138,11 @@ public class PlayScreen implements Screen {
 
     private void endGame() {
         updateHighScores();
-        game.timesPlayed=game.timesPlayed.putInteger("timesPlayed", game.timesPlayed.getInteger("timesPlayed") +1);
+        game.timesPlayed = game.timesPlayed.putInteger("timesPlayed", game.timesPlayed.getInteger("timesPlayed") + 1);
         allPassengers.clear();
         taxi.empty();
         taxi.setPosition(Car.InitialPosition[0], Car.InitialPosition[1]);
-        game.EndScreen= new com.mygdx.game.EndScreen(game);
-        game.setScreen(game.EndScreen);
-        game.PlayScreen.dispose();
+        game.setScreen(new com.mygdx.game.EndScreen(game));
         gameSoundPlayer.playCarHorn();
         gameSoundPlayer.stop();
         dispose();
@@ -152,21 +150,17 @@ public class PlayScreen implements Screen {
     }
 
     private void updateHighScores() {
-        try{
-        if(MyGdxGame.score > MyGdxGame.prefs.getInteger("highScore")){
-        game.prefs.putInteger("highScore", game.score);
-        game.prefs.flush();
-    }
+        try {
+            if (MyGdxGame.score > MyGdxGame.prefs.getInteger("highScore")) {
+                game.prefs.putInteger("highScore", game.score);
+                game.prefs.flush();
+            }
+        } catch (NullPointerException e) {
+            game.prefs.putInteger("highScore", game.score);
+            game.prefs.flush();
         }
-    catch (NullPointerException e){game.prefs.putInteger("highScore", game.score);
-        game.prefs.flush();}
     }
 
-    private void updateScoresJson(){
-        game.scoresString = new String[game.scoresString.length+1];
-        game.scoresString[ game.scoresString.length-1]=(String.valueOf(game.score));
-        game.Scores.toJson(game.scoresString);
-    }
 
     /**
      * Draws the hud at the bottom of the screen.
@@ -273,11 +267,10 @@ public class PlayScreen implements Screen {
         listenToInput();
 
 
-
         /**
          * Spawns a new passenger and a coin if the time since the last passenger has exceeded the designated spawn timer.
          */
-        if((timeSinceLastPassenger >= spawnTime && allPassengers.size < 18)||(allPassengers.size==0 && !taxi.isFull())) {
+        if ((timeSinceLastPassenger >= spawnTime && allPassengers.size < 18) || (allPassengers.size == 0 && !taxi.isFull())) {
             spawnPassenger();
             timeOfLastPassenger = TimeUtils.millis();
             spawnTime = setNextSpawnTime();
@@ -301,10 +294,10 @@ public class PlayScreen implements Screen {
          */
         if (taxi.isFull()) {
             if (taxi.hasArrived(taxi.getPassenger().getDestination())) {
-                do{
+                do {
                     timer.randomlyPlaceTimer();
                     coin.randomlyPlaceCoin();
-                } while(isCoinTimerOverlapping());
+                } while (isCoinTimerOverlapping());
                 gameSoundPlayer.playMoneySound();
                 game.incrementScore(taxi.getPassenger().getFare());
                 hud.updateScore();
@@ -363,7 +356,6 @@ public class PlayScreen implements Screen {
     private void listenToInput() {
 
 
-
         if (Gdx.input.isKeyPressed(Input.Keys.SPACE)) {
             gameSoundPlayer.playCarHorn();
         }
@@ -378,11 +370,10 @@ public class PlayScreen implements Screen {
         if ((taxi.currentAngle != taxi.getDirection(inputKey).angle) && !inputKey.isEmpty()) {
             taxi.turn(inputKey);
 
-       } else if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
+        } else if ((Gdx.input.isKeyPressed(Input.Keys.DOWN) || Gdx.input.isKeyPressed(Input.Keys.UP)) && ((Gdx.input.isKeyPressed(Input.Keys.LEFT)) || Gdx.input.isKeyPressed(Input.Keys.RIGHT))) {
             taxi.move(1);
             playTiresNoise();
         } else if ((taxi.currentAngle == taxi.getDirection(inputKey).angle) && (Gdx.input.isKeyPressed(Input.Keys.ANY_KEY))) {
-            taxi.setOrientation(taxi.getDirection(inputKey).x, taxi.getDirection(inputKey).y);
             taxi.move(15);
         }
 
@@ -399,7 +390,7 @@ public class PlayScreen implements Screen {
         return checkMapBoundaries() || checkCollisionPoints();
     }
 
-    private static void updatePosition(){
+    private static void updatePosition() {
         taxi.setX(taxi.getX() + taxi.getVelocity()[0]);
         taxi.setY(taxi.getY() + taxi.getVelocity()[1]);
     }
@@ -407,21 +398,21 @@ public class PlayScreen implements Screen {
 
     private static boolean checkMapBoundaries() {
 
-        if      ((taxi.getX() + (int) taxi.getSprite().getWidth() >= MyGdxGame.V_WIDTH) ||     //right edge
+        if ((taxi.getX() + (int) taxi.getSprite().getWidth() >= MyGdxGame.V_WIDTH) ||     //right edge
                 (taxi.getX() <= 0) ||                                                         //left edge
                 (taxi.getY() + (int) taxi.getSprite().getWidth() >= MyGdxGame.V_HEIGHT) ||   //top edge
                 (taxi.getY() <= 0)                                                          //bottom edge
                 )
-        return true;
+            return true;
         else return false;
     }
 
     private static boolean checkCollisionPoints() {
         try {
             return (
-        //            !isCellProperty((float) (taxi.getX() + 0.65 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-        //            || !isCellProperty((float) (taxi.getX() + 0.35 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-                     !isCellProperty(taxi.getX() + taxi.getSprite().getWidth() / 2, (float) (taxi.getY() + 0.65 * taxi.getSprite().getHeight()), "road"))
+                    //            !isCellProperty((float) (taxi.getX() + 0.65 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+                    //            || !isCellProperty((float) (taxi.getX() + 0.35 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
+                    !isCellProperty(taxi.getX() + taxi.getSprite().getWidth() / 2, (float) (taxi.getY() + 0.65 * taxi.getSprite().getHeight()), "road"))
                     || !isCellProperty(taxi.getX() + taxi.getSprite().getWidth() / 2, (float) (taxi.getY() + 0.35 * taxi.getSprite().getHeight()), "road");
         } catch (NullPointerException e) {
             return true;
@@ -462,7 +453,7 @@ public class PlayScreen implements Screen {
      * Plays sound effect of car colliding with a solid object.
      */
     public static void playCollisionNoise() {
-        if (Math.abs(taxi.getVelocity()[0] * taxi.getOrientation()[0] + taxi.getVelocity()[1] * taxi.getOrientation()[1]) > 0.7) {
+        if (Math.abs(taxi.getVelocity()[0] * taxi.getCurrentDirection().x + taxi.getVelocity()[1] * taxi.getCurrentDirection().y) > 0.7) {
             gameSoundPlayer.playCollisionNoise();
         }
     }
@@ -489,7 +480,6 @@ public class PlayScreen implements Screen {
 
     @Override
     public void dispose() {
-        //batch.dispose();
     }
 
 }

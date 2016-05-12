@@ -29,7 +29,6 @@ public class Car {
     private float Y_pos = InitialPosition[1];
     private float[] velocity = new float[2];
     private Direction currentDirection;
-    private int[] orientation = new int[2];
     private Passenger passenger;
     public static Direction UP = new Direction(1, "UP", 0, 1, 360);
     public static Direction RIGHT = new Direction(2, "RIGHT", 1, 0, -270);
@@ -45,25 +44,28 @@ public class Car {
         sprite.setSize(48, 48);
         sprite.setPosition(X_pos, Y_pos);
         sprite.setOrigin(24, 24);
-        setOrientation(0, 1);
         currentDirection = UP;
 
+    }
+
+    public Direction getCurrentDirection(){
+        return currentDirection;
     }
 
 
     private void accelerate(float acceleration) {
 
         if (this.velocity[0] == 0) {
-            this.velocity[0] = (float) (orientation[0] * 0.3);
+            this.velocity[0] = (float) (currentDirection.x * 0.3);
         }
         if (this.velocity[1] == 0) {
-            this.velocity[1] = (float) (orientation[1] * 0.3);
+            this.velocity[1] = (float) (currentDirection.y * 0.3);
         }
 
 
         if ((velocity[0] > -3) && ((velocity[0] < 3) && (velocity[1] < 3) && (velocity[1] > -3))) {
-            this.velocity[0] += (Gdx.graphics.getDeltaTime() * acceleration) * orientation[0] * 3;
-            this.velocity[1] += (Gdx.graphics.getDeltaTime() * acceleration) * orientation[1] * 3;
+            this.velocity[0] += (Gdx.graphics.getDeltaTime() * acceleration) * currentDirection.x * 3;
+            this.velocity[1] += (Gdx.graphics.getDeltaTime() * acceleration) * currentDirection.y * 3;
         }
         driveForward();
     }
@@ -138,14 +140,6 @@ public class Car {
         return sprite;
     }
 
-    public int[] getOrientation() {
-        return orientation;
-    }
-
-    public void setOrientation(int x, int y) {
-        this.orientation[0] = x;
-        this.orientation[1] = y;
-    }
 
     public void move(float acceleration) {
         accelerate(acceleration);

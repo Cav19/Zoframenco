@@ -15,14 +15,13 @@ public class Passenger {
     private int fare;
     private Location origin;
     private Location destination;
-    private Sprite averagePerson= new Sprite(new Texture("images/stick_figure.png"));
-    private Sprite averagePerson2= new Sprite(new Texture("images/stick_figure2.png"));
-    private Sprite averagePerson3= new Sprite(new Texture("images/stick_figure3.png"));
-    private Sprite poorPerson= new Sprite(new Texture("images/poor_person.png"));
-    private Sprite poorPerson2= new Sprite(new Texture("images/poor_person2.png"));
-    private Sprite richPerson= new Sprite(new Texture("images/richie.png"));
-    private Sprite richPerson2= new Sprite(new Texture("images/richie2.png"));
-
+    private Sprite averagePerson = new Sprite(new Texture("images/stick_figure.png"));
+    private Sprite averagePerson2 = new Sprite(new Texture("images/stick_figure2.png"));
+    private Sprite averagePerson3 = new Sprite(new Texture("images/stick_figure3.png"));
+    private Sprite poorPerson = new Sprite(new Texture("images/poor_person.png"));
+    private Sprite poorPerson2 = new Sprite(new Texture("images/poor_person2.png"));
+    private Sprite richPerson = new Sprite(new Texture("images/richie.png"));
+    private Sprite richPerson2 = new Sprite(new Texture("images/richie2.png"));
 
 
     public Passenger() {
@@ -126,9 +125,9 @@ public class Passenger {
         return Math.sqrt(xDist * xDist + yDist * yDist);
     }
 
-    private int setFare(int modifier){
+    private int setFare(int modifier) {
         int tip = MathUtils.random(0, 30);
-        return (int)(getTravelDistance(origin, destination) / modifier) + tip;
+        return (int) (getTravelDistance(origin, destination) / modifier) + tip;
     }
 
     public int getFare() {

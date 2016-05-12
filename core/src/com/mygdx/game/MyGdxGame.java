@@ -3,12 +3,10 @@ package com.mygdx.game;
 import com.badlogic.gdx.Game;
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Preferences;
-import com.badlogic.gdx.Screen;
-import com.badlogic.gdx.utils.Json;
 
 import java.util.HashMap;
 
-public  class MyGdxGame extends Game {
+public class MyGdxGame extends Game {
     public static HashMap<Integer, Location> locations;
 
     public static final int V_WIDTH = 1000;
@@ -16,34 +14,19 @@ public  class MyGdxGame extends Game {
 
     public static int score = 0;
     public static int worldTimer = 90;
-    public static Screen HomeScreen;
-    public static Screen PlayScreen ;
-    public static Screen EndScreen ;
-    public static Screen InstructionScreen;
 
-    public static Json Scores= new Json();
-    public static String[] scoresString= new String[0];
+    public static String[] scoresString = new String[0];
     public static Preferences prefs;
     public static Preferences timesPlayed;
 
 
-
-
-
-
     @Override
     public void create() {
-        prefs= Gdx.app.getPreferences("Scores");
-        timesPlayed= Gdx.app.getPreferences("timesPlayed");;
+        prefs = Gdx.app.getPreferences("Scores");
+        timesPlayed = Gdx.app.getPreferences("timesPlayed");
+        ;
         createLocations();
-        setUpScoresJson();
-        HomeScreen = new HomeScreen(this);
-        setScreen(HomeScreen);
-    }
-
-    private void setUpScoresJson() {
-
-
+        setScreen(new HomeScreen(this));
     }
 
     @Override

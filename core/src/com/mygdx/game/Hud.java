@@ -43,15 +43,15 @@ public class Hud {
         stage = new Stage(viewport, sb);
 
         setUpHudFont();
-
         setUpLabels();
     }
 
     private void setUpHudFont() {
+
         FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/LiberationMono-Regular.ttf"));
         FreeTypeFontGenerator.FreeTypeFontParameter parameter = new FreeTypeFontGenerator.FreeTypeFontParameter();
         parameter.size = 25;
-        font = generator.generateFont(parameter); // font size 12 pixels
+        font = generator.generateFont(parameter);
         generator.dispose();
     }
 
@@ -95,15 +95,8 @@ public class Hud {
             timeCount = 0;
         }
         if (MyGdxGame.worldTimer <= 0) {
-            System.out.println("GAME OVER");
-            System.out.println("FINAL SCORE: " + MyGdxGame.score);
             stage.dispose();
         }
-    }
-
-    public String getHighScores() {
-        Scores.prettyPrint(MyGdxGame.score);
-        return Scores.prettyPrint(MyGdxGame.score);
     }
 
     public int getTime() {

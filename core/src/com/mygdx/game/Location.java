@@ -15,7 +15,7 @@ public class Location {
     private Rectangle rectangle;
     private int id;
 
-    public Location(int x, int y, int id, String name){
+    public Location(int x, int y, int id, String name) {
         this.isFull = false;
         this.x = x;
         this.y = y;
@@ -24,35 +24,35 @@ public class Location {
         this.name = name;
     }
 
-    public void addPassenger(){
+    public void addPassenger() {
         isFull = true;
     }
 
-    public void removePassenger(){
+    public void removePassenger() {
         isFull = false;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
-    public boolean isFull(){
+    public boolean isFull() {
         return isFull;
     }
 
-    public float getX(){
+    public float getX() {
         return x;
     }
 
-    public float getY(){
+    public float getY() {
         return y;
     }
 
-    public Rectangle getRectangle(){
+    public Rectangle getRectangle() {
         return rectangle;
     }
 
-    public int getId(){
+    public int getId() {
         return id;
     }
 

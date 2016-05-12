@@ -18,15 +18,12 @@ import com.badlogic.gdx.scenes.scene2d.utils.ClickListener;
 public class EndScreen implements Screen {
 
     private OrthographicCamera camera;
-
     private FreeTypeFontGenerator generator;
     private FreeTypeFontGenerator.FreeTypeFontParameter parameter;
     private BitmapFont font;
     private Skin skin;
-
     private Stage stage;
     private TextButton restartButton;
-
     private Texture background;
 
     public EndScreen(final MyGdxGame game) {
@@ -51,7 +48,6 @@ public class EndScreen implements Screen {
                 MyGdxGame.score = 0;
                 System.gc();
                 game.setScreen(new com.mygdx.game.HomeScreen(game));
-                MyGdxGame.EndScreen.dispose();
                 dispose();
                 System.gc();
 

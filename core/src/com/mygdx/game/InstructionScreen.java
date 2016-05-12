@@ -55,9 +55,7 @@ public class InstructionScreen implements Screen {
 
         startButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                MyGdxGame.HomeScreen.dispose();
-                MyGdxGame.HomeScreen = new com.mygdx.game.HomeScreen(game);
-                game.setScreen(MyGdxGame.HomeScreen);
+                game.setScreen(new com.mygdx.game.HomeScreen(game));
                 dispose();
                 System.gc();
             }
@@ -65,8 +63,7 @@ public class InstructionScreen implements Screen {
 
         backButton.addListener(new ClickListener() {
             public void clicked(InputEvent event, float x, float y) {
-                MyGdxGame.PlayScreen = new com.mygdx.game.PlayScreen(game);
-                game.setScreen(MyGdxGame.PlayScreen);
+                game.setScreen(new com.mygdx.game.PlayScreen(game));
                 dispose();
             }
         });
@@ -86,10 +83,10 @@ public class InstructionScreen implements Screen {
 
         batch.begin();
         batch.draw(instruction,
-                Gdx.graphics.getWidth()/5,
-                Gdx.graphics.getHeight()/6,
-                Gdx.graphics.getWidth()*3/5,
-                Gdx.graphics.getHeight()*4/5);
+                Gdx.graphics.getWidth() / 5,
+                Gdx.graphics.getHeight() / 6,
+                Gdx.graphics.getWidth() * 3 / 5,
+                Gdx.graphics.getHeight() * 4 / 5);
         batch.end();
 
         startButton.setPosition(camera.viewportWidth / 4 - camera.viewportWidth / 10, camera.viewportHeight / 20);
