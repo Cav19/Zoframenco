@@ -11,11 +11,8 @@ public class MyGdxGame extends Game {
 
     public static final int V_WIDTH = 1000;
     public static final int V_HEIGHT = 1150;
-
     public static int score = 0;
     public static int worldTimer = 90;
-
-    public static String[] scoresString = new String[0];
     public static Preferences prefs;
     public static Preferences timesPlayed;
 
