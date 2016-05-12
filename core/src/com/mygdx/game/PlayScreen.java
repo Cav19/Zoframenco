@@ -410,8 +410,6 @@ public class PlayScreen implements Screen {
     private static boolean checkCollisionPoints() {
         try {
             return (
-                    //            !isCellProperty((float) (taxi.getX() + 0.65 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
-                    //            || !isCellProperty((float) (taxi.getX() + 0.35 * taxi.getSprite().getWidth()), taxi.getY() + taxi.getSprite().getHeight() / 2, "road")
                     !isCellProperty(taxi.getX() + taxi.getSprite().getWidth() / 2, (float) (taxi.getY() + 0.65 * taxi.getSprite().getHeight()), "road"))
                     || !isCellProperty(taxi.getX() + taxi.getSprite().getWidth() / 2, (float) (taxi.getY() + 0.35 * taxi.getSprite().getHeight()), "road");
         } catch (NullPointerException e) {
