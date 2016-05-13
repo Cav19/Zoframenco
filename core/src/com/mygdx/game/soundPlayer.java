@@ -8,7 +8,7 @@ import com.badlogic.gdx.audio.Music;
  */
 public class soundPlayer {
 
-    private Music moneySound = Gdx.audio.newMusic(Gdx.files.absolute("sounds/cash_register.mp3"));
+    private Music moneySound = Gdx.audio.newMusic(Gdx.files.internal("sounds/cash_register.mp3"));
     private Music tiresNoise = Gdx.audio.newMusic(Gdx.files.internal("sounds/tiresNoise.mp3"));
     private Music collisionNoise = Gdx.audio.newMusic(Gdx.files.internal("sounds/crash.mp3"));
     private Music backgroundMusic = Gdx.audio.newMusic(Gdx.files.internal("sounds/City_Traffic.mp3"));
